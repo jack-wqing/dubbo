@@ -38,6 +38,7 @@ import static org.apache.dubbo.common.constants.RegistryConstants.PROVIDER_PORT;
  * @export
  * @see ReferenceConfigBase
  */
+// AbstractConsumer: config
 public abstract class AbstractReferenceConfig extends AbstractInterfaceConfig {
 
     private static final long serialVersionUID = -2786526984373031126L;

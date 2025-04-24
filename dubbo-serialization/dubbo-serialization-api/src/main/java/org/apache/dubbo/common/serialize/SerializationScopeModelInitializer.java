@@ -20,6 +20,7 @@ import org.apache.dubbo.common.serialize.support.PreferSerializationProviderImpl
 import org.apache.dubbo.rpc.model.FrameworkModel;
 import org.apache.dubbo.rpc.model.ScopeModelInitializer;
 
+// ScopeModelInitializer: PreferSerializationProviderImpl
 public class SerializationScopeModelInitializer implements ScopeModelInitializer {
     @Override
     public void initializeFrameworkModel(FrameworkModel frameworkModel) {

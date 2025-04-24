@@ -23,6 +23,7 @@ import org.apache.dubbo.remoting.Dispatcher;
 /**
  * Direct dispatcher
  */
+// direct handler
 public class DirectDispatcher implements Dispatcher {
 
     public static final String NAME = "direct";

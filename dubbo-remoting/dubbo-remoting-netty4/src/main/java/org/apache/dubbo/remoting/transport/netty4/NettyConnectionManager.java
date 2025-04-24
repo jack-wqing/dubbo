@@ -24,6 +24,7 @@ import org.apache.dubbo.remoting.api.connection.ConnectionManager;
 
 import java.util.function.Consumer;
 
+// ConnectionManager: Netty PU
 public class NettyConnectionManager implements ConnectionManager {
     public static final String NAME = "netty4";
 

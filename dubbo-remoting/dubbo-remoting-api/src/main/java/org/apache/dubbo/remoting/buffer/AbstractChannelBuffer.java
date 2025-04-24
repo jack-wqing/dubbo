@@ -21,6 +21,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.ByteBuffer;
 
+// ChannelBuffer: Abstract
 public abstract class AbstractChannelBuffer implements ChannelBuffer {
 
     private int readerIndex;

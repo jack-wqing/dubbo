@@ -21,6 +21,7 @@ import org.apache.dubbo.remoting.api.ProtocolDetector;
 
 import java.util.List;
 
+// ChannelOperator
 public interface ChannelOperator {
     void configChannelHandler(List<ChannelHandler> handlerList);
 

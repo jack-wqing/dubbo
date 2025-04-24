@@ -19,6 +19,7 @@ package org.apache.dubbo.common.resource;
 /**
  * An interface for destroying resources
  */
+// Disposable
 public interface Disposable {
 
     void destroy();

@@ -16,6 +16,7 @@
  */
 package org.apache.dubbo.common.store;
 
+// DataStore: UpdateListener
 public interface DataStoreUpdateListener {
     void onUpdate(String componentName, String key, Object value);
 }

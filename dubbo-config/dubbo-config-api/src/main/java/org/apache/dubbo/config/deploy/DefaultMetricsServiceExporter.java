@@ -38,6 +38,7 @@ import static org.apache.dubbo.common.constants.MetricsConstants.PROTOCOL_PROMET
 /**
  * Export metrics service
  */
+// MetricsService
 public class DefaultMetricsServiceExporter implements MetricsServiceExporter, ScopeModelAware {
 
     private final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(getClass());

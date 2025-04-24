@@ -29,6 +29,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.HEARTBEAT_EVENT;
 /**
  * Request.
  */
+// request data
 public class Request {
 
     private static final AtomicLong INVOKE_ID;
@@ -40,7 +41,7 @@ public class Request {
     private boolean mTwoWay = true;
 
     private boolean mEvent = false;
-
+    // 服务端解码是否有问题
     private boolean mBroken = false;
 
     private int mPayload;

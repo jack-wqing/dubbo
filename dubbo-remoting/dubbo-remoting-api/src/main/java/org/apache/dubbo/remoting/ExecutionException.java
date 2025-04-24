@@ -23,6 +23,7 @@ import java.net.InetSocketAddress;
  *
  * @export
  */
+// Execution error
 public class ExecutionException extends RemotingException {
 
     private static final long serialVersionUID = -2531085236111056860L;

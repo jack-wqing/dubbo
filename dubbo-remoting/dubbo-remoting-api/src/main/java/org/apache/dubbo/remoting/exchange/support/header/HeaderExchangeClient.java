@@ -46,6 +46,7 @@ import static org.apache.dubbo.remoting.utils.UrlUtils.getIdleTimeout;
 /**
  * DefaultMessageClient
  */
+// default client
 public class HeaderExchangeClient implements ExchangeClient {
 
     private final Client client;

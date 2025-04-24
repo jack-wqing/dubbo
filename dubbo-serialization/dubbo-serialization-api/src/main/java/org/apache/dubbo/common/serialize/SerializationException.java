@@ -20,6 +20,7 @@ package org.apache.dubbo.common.serialize;
  * Serialized runtime exceptions, internal flow,
  * will be converted into general exceptions and added to serialization tags when returning to rpc
  */
+// serialization exception
 public class SerializationException extends Exception {
 
     private static final long serialVersionUID = -3160452149606778709L;

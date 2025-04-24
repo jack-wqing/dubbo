@@ -20,6 +20,7 @@ import org.apache.dubbo.remoting.Channel;
 import org.apache.dubbo.remoting.ChannelHandler;
 import org.apache.dubbo.remoting.RemotingException;
 
+// DefaultPuHandler
 public class DefaultPuHandler implements ChannelHandler {
     @Override
     public void connected(Channel channel) throws RemotingException {}

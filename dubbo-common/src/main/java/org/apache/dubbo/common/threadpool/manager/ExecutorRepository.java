@@ -35,6 +35,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.EXECUTOR_MANAGEM
 /**
  *
  */
+// ExecutorRepository
 @SPI(value = "isolation", scope = ExtensionScope.APPLICATION)
 public interface ExecutorRepository {
 

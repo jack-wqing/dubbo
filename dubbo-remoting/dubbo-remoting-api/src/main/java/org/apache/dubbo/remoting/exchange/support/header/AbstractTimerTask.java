@@ -27,6 +27,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * AbstractTimerTask
  */
+// 超时检查连接
 public abstract class AbstractTimerTask implements TimerTask {
 
     private final ChannelProvider channelProvider;

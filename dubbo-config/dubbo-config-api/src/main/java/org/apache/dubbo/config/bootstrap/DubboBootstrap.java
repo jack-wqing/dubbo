@@ -76,6 +76,7 @@ import static java.util.Collections.singletonList;
  *
  * @since 2.7.5
  */
+// DubboBootstrap
 public final class DubboBootstrap {
 
     private static final String NAME = DubboBootstrap.class.getSimpleName();

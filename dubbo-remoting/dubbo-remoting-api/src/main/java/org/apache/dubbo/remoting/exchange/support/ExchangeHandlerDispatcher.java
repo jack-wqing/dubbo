@@ -31,6 +31,7 @@ import java.util.concurrent.CompletableFuture;
 /**
  * ExchangeHandlerDispatcher
  */
+// Dispatcher: ExchangeHandler
 public class ExchangeHandlerDispatcher implements ExchangeHandler {
 
     private final ReplierDispatcher replierDispatcher;

@@ -27,6 +27,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * data related to service level such as name, version, classloader of business service,
  * security info, etc. Also, with a AttributeMap for extension.
  */
+// ServiceMetadata
 public class ServiceMetadata extends BaseServiceMetadata {
 
     private String defaultGroup;

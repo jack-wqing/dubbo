@@ -21,6 +21,7 @@ import java.io.Serializable;
 /**
  * Configuration for the sampling.
  */
+// Tracing Sampling
 public class SamplingConfig implements Serializable {
 
     private static final long serialVersionUID = -7456034528275916549L;

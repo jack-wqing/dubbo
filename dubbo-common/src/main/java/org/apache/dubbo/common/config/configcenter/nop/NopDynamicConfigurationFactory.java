@@ -23,6 +23,7 @@ import org.apache.dubbo.common.config.configcenter.DynamicConfiguration;
 /**
  *
  */
+// NOP
 @Deprecated
 public class NopDynamicConfigurationFactory extends AbstractDynamicConfigurationFactory {
 

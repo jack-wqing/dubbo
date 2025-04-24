@@ -40,7 +40,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.TRANSPORT_CO
 import static org.apache.dubbo.remoting.Constants.CONNECT_QUEUE_CAPACITY;
 import static org.apache.dubbo.remoting.Constants.CONNECT_QUEUE_WARNING_SIZE;
 import static org.apache.dubbo.remoting.Constants.DEFAULT_CONNECT_QUEUE_WARNING_SIZE;
-
+// ConnectionOrdered: ChannelHandler, queueWarningLimit
 public class ConnectionOrderedChannelHandler extends WrappedChannelHandler {
 
     protected final ThreadPoolExecutor connectionExecutor;

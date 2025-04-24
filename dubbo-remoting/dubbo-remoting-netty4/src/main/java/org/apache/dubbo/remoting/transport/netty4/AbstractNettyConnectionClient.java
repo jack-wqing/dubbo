@@ -41,6 +41,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.TRANSPORT_CL
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.TRANSPORT_FAILED_CONNECT_PROVIDER;
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.TRANSPORT_FAILED_RECONNECT;
 
+// NettyConnection Netty
 public abstract class AbstractNettyConnectionClient extends AbstractConnectionClient {
 
     private AtomicReference<Promise<Object>> connectingPromiseRef;

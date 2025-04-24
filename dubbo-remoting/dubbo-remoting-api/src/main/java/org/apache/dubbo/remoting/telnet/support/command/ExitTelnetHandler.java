@@ -24,6 +24,7 @@ import org.apache.dubbo.remoting.telnet.support.Help;
 /**
  * ExitTelnetHandler
  */
+// exit
 @Activate
 @Help(summary = "Exit the telnet.", detail = "Exit the telnet.")
 public class ExitTelnetHandler implements TelnetHandler {

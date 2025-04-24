@@ -23,6 +23,7 @@ import java.io.Serializable;
 /**
  * Configuration for the prometheus.
  */
+// Prometheus
 public class PrometheusConfig implements Serializable {
 
     private static final long serialVersionUID = 2238807632335823129L;

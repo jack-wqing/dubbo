@@ -34,6 +34,8 @@ import org.apache.dubbo.rpc.model.ApplicationModel;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 
+// ChannelHandler: Wrapped
+// default shareExecutor
 public class WrappedChannelHandler implements ChannelHandlerDelegate {
 
     protected static final ErrorTypeAwareLogger logger =

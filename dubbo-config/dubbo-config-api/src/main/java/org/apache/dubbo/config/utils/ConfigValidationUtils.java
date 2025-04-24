@@ -149,7 +149,7 @@ import static org.apache.dubbo.rpc.Constants.RETURN_PREFIX;
 import static org.apache.dubbo.rpc.Constants.THROW_PREFIX;
 import static org.apache.dubbo.rpc.Constants.TOKEN_KEY;
 import static org.apache.dubbo.rpc.cluster.Constants.REFER_KEY;
-
+// config: Validate Utils
 public class ConfigValidationUtils {
     private static ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(ConfigValidationUtils.class);
     /**

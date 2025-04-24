@@ -26,6 +26,7 @@ import java.net.InetSocketAddress;
 /**
  * ClientDelegate
  */
+// Delegate
 public class ClientDelegate implements Client {
 
     private transient Client client;

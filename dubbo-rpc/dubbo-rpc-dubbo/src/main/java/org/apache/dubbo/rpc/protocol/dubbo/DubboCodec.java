@@ -58,6 +58,7 @@ import static org.apache.dubbo.rpc.protocol.dubbo.Constants.DEFAULT_DECODE_IN_IO
 /**
  * Dubbo codec.
  */
+// Codec: Dubbo
 public class DubboCodec extends ExchangeCodec {
 
     public static final String NAME = "dubbo";

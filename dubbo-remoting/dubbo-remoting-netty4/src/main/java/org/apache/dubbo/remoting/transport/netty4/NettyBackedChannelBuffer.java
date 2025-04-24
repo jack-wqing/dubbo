@@ -28,7 +28,7 @@ import java.nio.ByteBuffer;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.util.ReferenceCountUtil;
-
+// ChannelBuffer: ByteBuf
 public class NettyBackedChannelBuffer implements ChannelBuffer {
 
     private final ByteBuf buffer;

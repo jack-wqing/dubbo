@@ -19,6 +19,7 @@ package org.apache.dubbo.common.config.configcenter;
 /**
  * Hold content and version information
  */
+// config item
 public class ConfigItem {
 
     /**

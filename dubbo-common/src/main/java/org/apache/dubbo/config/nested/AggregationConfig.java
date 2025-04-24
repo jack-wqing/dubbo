@@ -21,6 +21,7 @@ import java.io.Serializable;
 /**
  * Configuration for the metric aggregation.
  */
+// Aggregation
 public class AggregationConfig implements Serializable {
 
     private static final long serialVersionUID = 4878693820314125085L;

@@ -16,6 +16,7 @@
  */
 package com.alibaba.dubbo.config;
 
+// 旧版本
 @Deprecated
 public class ApplicationConfig extends org.apache.dubbo.config.ApplicationConfig {
 

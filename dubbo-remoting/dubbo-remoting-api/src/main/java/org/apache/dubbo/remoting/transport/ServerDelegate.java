@@ -27,9 +27,8 @@ import java.util.Collection;
 
 /**
  * ServerDelegate
- *
- *
  */
+// Delegate
 public class ServerDelegate implements RemotingServer {
 
     private transient RemotingServer server;

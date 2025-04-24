@@ -31,7 +31,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.DUBBO_ENV_KEYS;
 import static org.apache.dubbo.common.constants.CommonConstants.DUBBO_LABELS;
 import static org.apache.dubbo.common.constants.CommonConstants.EQUAL_SPLIT_PATTERN;
 import static org.apache.dubbo.common.constants.CommonConstants.SEMICOLON_SPLIT_PATTERN;
-
+// Environment: InfraAdapter
 @Activate
 public class EnvironmentAdapter implements InfraAdapter, ScopeModelAware {
 

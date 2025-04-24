@@ -45,6 +45,7 @@ import static org.apache.dubbo.metadata.util.MetadataServiceVersionUtils.V2;
 /**
  * Export metadata service
  */
+// Metadata Service
 public class ConfigurableMetadataServiceExporter {
 
     private final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(getClass());

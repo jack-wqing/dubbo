@@ -28,6 +28,7 @@ import java.net.InetSocketAddress;
  * @see org.apache.dubbo.remoting.Client
  * @see RemotingServer
  */
+// endpoint
 public interface Endpoint {
 
     /**

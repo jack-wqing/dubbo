@@ -20,6 +20,7 @@ import org.apache.dubbo.common.utils.SystemPropertyConfigUtils;
 
 import static org.apache.dubbo.common.constants.CommonConstants.DubboProperty.DUBBO_DEFAULT_REMOTING_SERIALIZATION_PROPERTY;
 
+// default hessian2
 public class DefaultSerializationSelector {
 
     private static final String DEFAULT_REMOTING_SERIALIZATION_PROPERTY = "hessian2";

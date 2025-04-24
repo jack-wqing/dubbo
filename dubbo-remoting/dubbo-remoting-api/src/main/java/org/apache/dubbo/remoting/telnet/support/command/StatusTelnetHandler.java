@@ -41,6 +41,7 @@ import static org.apache.dubbo.config.Constants.STATUS_KEY;
 /**
  * StatusTelnetHandler
  */
+// telnet
 @Activate
 @Help(parameter = "[-l]", summary = "Show status.", detail = "Show status.")
 public class StatusTelnetHandler implements TelnetHandler {

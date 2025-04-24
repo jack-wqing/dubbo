@@ -24,6 +24,7 @@ import org.apache.dubbo.remoting.RemotingException;
 /**
  * TelnetHandler
  */
+// Dubbo 对telnet命令进行处理
 @SPI(scope = ExtensionScope.FRAMEWORK)
 public interface TelnetHandler {
 

@@ -25,6 +25,7 @@ import org.apache.dubbo.remoting.api.connection.MultiplexProtocolConnectionManag
 import org.apache.dubbo.remoting.api.pu.AbstractPortUnificationServer;
 import org.apache.dubbo.remoting.api.pu.PortUnificationTransporter;
 
+// Netty4 PU
 public class NettyPortUnificationTransporter implements PortUnificationTransporter {
 
     public static final String NAME = "netty4";

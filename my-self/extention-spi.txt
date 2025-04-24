@@ -1,0 +1,54 @@
+beans: 自己定义的简单的BeanFactory
+
+
+
+spi:
+   activate: 自动激活扩展的类
+   Adaptive: 自适应注入，依赖参数；如果没有默认扩展注入
+   Wrapper: 包装类
+   LoadingStrategy: DubboInternalLoadingStrategy:Max
+                    DubboLoadingStrategy: Normal
+                    ServicesLoadingStrategy: Min
+
+   ScopeModelAccessor: ScopeModel访问器
+
+
+config: 配置模块
+    common:config
+    dubbo-config:
+
+
+model:
+    ConfigScopedModelInitializer: 初始化配置FrameworkModel, ApplicationModel, ModuleModel
+
+
+
+
+
+
+Registry:
+
+ConfigCenter:
+
+MetadataCenter:
+
+
+
+
+
+
+
+
+Exchange:
+
+
+Transport:
+
+
+serialization:
+
+
+
+
+
+

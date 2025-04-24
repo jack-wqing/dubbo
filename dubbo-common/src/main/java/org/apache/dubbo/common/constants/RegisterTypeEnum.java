@@ -19,6 +19,7 @@ package org.apache.dubbo.common.constants;
 /**
  * Indicate that a service need to be registered to registry or not
  */
+// RegisterType Enum
 public enum RegisterTypeEnum {
 
     /**

@@ -24,6 +24,7 @@ import java.util.Map;
 /**
  * Determine incoming bytes belong to the specific protocol.
  */
+// Protocol Detector: Dubbo Http2 Triple
 public interface ProtocolDetector {
 
     Result detect(ChannelBuffer in);

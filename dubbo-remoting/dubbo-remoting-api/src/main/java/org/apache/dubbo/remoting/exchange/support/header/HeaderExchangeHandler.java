@@ -46,6 +46,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.TRANSPORT_UN
 /**
  * ExchangeReceiver
  */
+// ExchangeHandler: Header
 public class HeaderExchangeHandler implements ChannelHandlerDelegate {
 
     protected static final ErrorTypeAwareLogger logger =

@@ -23,6 +23,7 @@ import org.apache.dubbo.rpc.model.ApplicationModel;
 /**
  * Listen for Dubbo application deployment events
  */
+// Application Listener
 @SPI(scope = ExtensionScope.APPLICATION)
 public interface ApplicationDeployListener extends DeployListener<ApplicationModel> {
 

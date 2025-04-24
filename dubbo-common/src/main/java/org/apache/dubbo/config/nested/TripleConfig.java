@@ -24,6 +24,7 @@ import java.io.Serializable;
 /**
  * Configuration for triple protocol.
  */
+// Triple
 public class TripleConfig implements Serializable {
 
     private static final long serialVersionUID = -3682252713701362155L;

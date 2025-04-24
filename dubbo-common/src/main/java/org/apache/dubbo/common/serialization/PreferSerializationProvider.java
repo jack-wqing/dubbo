@@ -16,6 +16,7 @@
  */
 package org.apache.dubbo.common.serialization;
 
+// Prefer Serialization Provider
 public interface PreferSerializationProvider {
     String getPreferSerialization();
 }

@@ -33,6 +33,7 @@ import java.io.OutputStream;
  *     e.g. &lt;dubbo:protocol serialization="xxx" /&gt;
  * </pre>
  */
+// Serialization
 @SPI(scope = ExtensionScope.FRAMEWORK)
 public interface Serialization {
 

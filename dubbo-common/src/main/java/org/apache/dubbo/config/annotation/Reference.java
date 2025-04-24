@@ -32,6 +32,7 @@ import java.lang.annotation.Target;
  * @since 2.7.0
  * @deprecated Recommend {@link DubboReference} as the substitute
  */
+// DubboReference
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD, ElementType.METHOD, ElementType.ANNOTATION_TYPE})

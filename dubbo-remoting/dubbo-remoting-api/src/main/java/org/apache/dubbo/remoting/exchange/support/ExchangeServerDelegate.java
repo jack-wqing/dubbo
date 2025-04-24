@@ -29,6 +29,7 @@ import java.util.Collection;
 /**
  * ExchangeServerDelegate
  */
+// ExchangeServer: Delegate
 public class ExchangeServerDelegate implements ExchangeServer {
 
     private transient ExchangeServer server;

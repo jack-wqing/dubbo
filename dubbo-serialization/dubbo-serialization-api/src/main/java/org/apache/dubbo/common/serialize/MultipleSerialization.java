@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+// MultipleSerialization
 @SPI(scope = ExtensionScope.FRAMEWORK)
 public interface MultipleSerialization {
 

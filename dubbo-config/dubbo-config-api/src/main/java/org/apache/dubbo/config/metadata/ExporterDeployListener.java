@@ -28,6 +28,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.DEFAULT_REGISTER
 import static org.apache.dubbo.common.constants.CommonConstants.INTERFACE_REGISTER_MODE;
 import static org.apache.dubbo.common.constants.CommonConstants.REMOTE_METADATA_STORAGE_TYPE;
 
+// ExportListener
 public class ExporterDeployListener implements ApplicationDeployListener, Prioritized {
     protected volatile ConfigurableMetadataServiceExporter metadataServiceExporter;
 

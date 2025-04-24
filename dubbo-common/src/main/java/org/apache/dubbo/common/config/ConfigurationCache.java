@@ -25,6 +25,7 @@ import java.util.function.Function;
 /**
  * Properties Cache of Configuration {@link ConfigurationUtils#getCachedDynamicProperty(ScopeModel, String, String)}
  */
+// ConfigurationCache
 public class ConfigurationCache {
     private final Map<String, String> cache = new ConcurrentHashMap<>();
 

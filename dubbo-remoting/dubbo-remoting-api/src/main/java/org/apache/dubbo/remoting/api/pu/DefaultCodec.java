@@ -22,6 +22,7 @@ import org.apache.dubbo.remoting.buffer.ChannelBuffer;
 
 import java.io.IOException;
 
+// DefaultCodec
 public class DefaultCodec implements Codec2 {
     @Override
     public void encode(Channel channel, ChannelBuffer buffer, Object message) throws IOException {}

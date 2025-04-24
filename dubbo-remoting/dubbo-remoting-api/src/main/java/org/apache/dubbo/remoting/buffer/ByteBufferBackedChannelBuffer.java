@@ -21,6 +21,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.ByteBuffer;
 
+// IO ByteBuffer ChannelBuffer
 public class ByteBufferBackedChannelBuffer extends AbstractChannelBuffer {
 
     private final ByteBuffer buffer;

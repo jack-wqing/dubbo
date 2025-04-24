@@ -122,6 +122,7 @@ import static org.apache.dubbo.rpc.Constants.TOKEN_KEY;
 import static org.apache.dubbo.rpc.cluster.Constants.EXPORT_KEY;
 import static org.apache.dubbo.rpc.support.ProtocolUtils.isGeneric;
 
+// ServiceConfig: protocol, proxyFactory, ProviderModel
 public class ServiceConfig<T> extends ServiceConfigBase<T> {
 
     private static final long serialVersionUID = 7868244018230856253L;

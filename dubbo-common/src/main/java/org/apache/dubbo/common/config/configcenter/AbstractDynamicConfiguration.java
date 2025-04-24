@@ -37,6 +37,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_UNEXP
  *
  * @since 2.7.5
  */
+// abstract Dynamic
 public abstract class AbstractDynamicConfiguration implements DynamicConfiguration {
 
     public static final String PARAM_NAME_PREFIX = "dubbo.config-center.";

@@ -53,6 +53,7 @@ import static org.apache.dubbo.config.AbstractConfig.getTagName;
 /**
  * Manage configs of module
  */
+// ConfigManager: Module
 public class ModuleConfigManager extends AbstractConfigManager implements ModuleExt {
 
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(ModuleConfigManager.class);

@@ -24,6 +24,7 @@ import java.net.InetSocketAddress;
  * @export
  * @see org.apache.dubbo.remoting.exchange.support.DefaultFuture#get()
  */
+// timeout
 public class TimeoutException extends RemotingException {
 
     public static final int CLIENT_SIDE = 0;

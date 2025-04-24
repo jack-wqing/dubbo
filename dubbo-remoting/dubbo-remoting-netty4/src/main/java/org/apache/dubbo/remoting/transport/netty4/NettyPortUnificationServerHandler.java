@@ -48,7 +48,7 @@ import io.netty.handler.ssl.SslHandshakeCompletionEvent;
 import io.netty.util.AttributeKey;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.INTERNAL_ERROR;
-
+// PU ServerHandler
 public class NettyPortUnificationServerHandler extends ByteToMessageDecoder {
 
     private static final ErrorTypeAwareLogger LOGGER =

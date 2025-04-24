@@ -23,6 +23,7 @@ import org.apache.dubbo.remoting.transport.ChannelHandlerDispatcher;
 /**
  * Transporter facade. (API, Static, ThreadSafe)
  */
+// Transporter: facade
 public class Transporters {
 
     private Transporters() {}

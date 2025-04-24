@@ -16,6 +16,7 @@
  */
 package org.apache.dubbo.remoting.exchange;
 
+// heartbeat
 public class HeartBeatRequest extends Request {
     private byte proto;
 

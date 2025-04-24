@@ -29,6 +29,7 @@ import org.apache.dubbo.remoting.transport.dispatcher.WrappedChannelHandler;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.RejectedExecutionException;
 
+//received channel handler
 public class MessageOnlyChannelHandler extends WrappedChannelHandler {
 
     public MessageOnlyChannelHandler(ChannelHandler handler, URL url) {

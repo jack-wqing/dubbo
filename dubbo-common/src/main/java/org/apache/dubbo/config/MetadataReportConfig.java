@@ -43,6 +43,7 @@ import static org.apache.dubbo.common.utils.StringUtils.isEmpty;
  *
  * @export
  */
+// MetadataReport: config
 public class MetadataReportConfig extends AbstractConfig {
 
     private static final long serialVersionUID = 55233L;

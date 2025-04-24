@@ -26,6 +26,7 @@ import java.net.InetSocketAddress;
 /**
  * ChannelDelegate
  */
+// Channel: Delegate
 public class ChannelDelegate implements Channel {
 
     private transient Channel channel;

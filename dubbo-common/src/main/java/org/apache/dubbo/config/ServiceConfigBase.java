@@ -48,6 +48,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.DUBBO;
  *
  * @export
  */
+// service Config
 @SuppressWarnings({"rawtypes", "deprecation"})
 public abstract class ServiceConfigBase<T> extends AbstractServiceConfig {
 

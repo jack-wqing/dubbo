@@ -24,6 +24,7 @@ import java.util.Collection;
 /**
  * ExchangeServer. (API/SPI, Prototype, ThreadSafe)
  */
+// ExchangeServer: ExchangeChannel
 public interface ExchangeServer extends RemotingServer {
 
     /**

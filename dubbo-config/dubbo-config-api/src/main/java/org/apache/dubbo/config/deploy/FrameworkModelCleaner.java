@@ -30,6 +30,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.CONFIG_UNDEF
 /**
  * A cleaner to release resources of framework model
  */
+// Framework: Cleaner
 public class FrameworkModelCleaner implements ScopeModelDestroyListener<FrameworkModel> {
 
     private static final ErrorTypeAwareLogger logger =
@@ -58,6 +59,7 @@ public class FrameworkModelCleaner implements ScopeModelDestroyListener<Framewor
     /**
      * Destroy all the protocols.
      */
+    // Destroy: protocols
     private void destroyProtocols(FrameworkModel frameworkModel) {
         if (protocolDestroyed.compareAndSet(false, true)) {
             ExtensionLoader<Protocol> loader = frameworkModel.getExtensionLoader(Protocol.class);

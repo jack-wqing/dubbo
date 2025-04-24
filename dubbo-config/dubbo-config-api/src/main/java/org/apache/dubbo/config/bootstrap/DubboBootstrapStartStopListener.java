@@ -24,6 +24,7 @@ import org.apache.dubbo.common.extension.SPI;
  * @scene 2.7.9
  * @see DubboBootstrap
  */
+// DubboBootstrap Stop Listener
 @SPI
 @Deprecated
 public interface DubboBootstrapStartStopListener {

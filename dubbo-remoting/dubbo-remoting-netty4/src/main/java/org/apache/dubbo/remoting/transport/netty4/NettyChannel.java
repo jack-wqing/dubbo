@@ -57,6 +57,7 @@ import static org.apache.dubbo.rpc.model.ScopeModelUtil.getFrameworkModel;
 /**
  * NettyChannel maintains the cache of channel.
  */
+// netty Channel
 final class NettyChannel extends AbstractChannel {
 
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(NettyChannel.class);

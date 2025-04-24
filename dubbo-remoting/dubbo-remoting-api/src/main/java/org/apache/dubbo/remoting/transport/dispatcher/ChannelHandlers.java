@@ -22,6 +22,7 @@ import org.apache.dubbo.remoting.Dispatcher;
 import org.apache.dubbo.remoting.exchange.support.header.HeartbeatHandler;
 import org.apache.dubbo.remoting.transport.MultiMessageHandler;
 
+// ChannelHandlers: 动态获取
 public class ChannelHandlers {
 
     private static ChannelHandlers INSTANCE = new ChannelHandlers();

@@ -31,6 +31,7 @@ import java.util.List;
  *
  * @export
  */
+// Module Config
 public class ModuleConfig extends AbstractConfig {
 
     private static final long serialVersionUID = 5508512956753757169L;

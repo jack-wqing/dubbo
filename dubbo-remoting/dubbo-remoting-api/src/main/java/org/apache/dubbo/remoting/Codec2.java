@@ -23,6 +23,7 @@ import org.apache.dubbo.remoting.buffer.ChannelBuffer;
 
 import java.io.IOException;
 
+// Codec2: encode decode
 @SPI(scope = ExtensionScope.FRAMEWORK)
 public interface Codec2 {
 

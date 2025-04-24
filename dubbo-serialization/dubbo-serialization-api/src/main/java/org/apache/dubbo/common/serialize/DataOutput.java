@@ -21,6 +21,7 @@ import java.io.IOException;
 /**
  * Basic data type output interface.
  */
+// basic Output
 public interface DataOutput {
 
     /**

@@ -200,6 +200,7 @@ import java.nio.ByteBuffer;
  *
  *
  */
+// ChannelBuffer
 public interface ChannelBuffer extends Comparable<ChannelBuffer> {
 
     /**

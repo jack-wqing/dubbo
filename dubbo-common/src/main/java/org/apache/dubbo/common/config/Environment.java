@@ -37,7 +37,7 @@ import java.util.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_UNEXPECTED_EXCEPTION;
-
+// dynamic system env app ext extapp dubbo
 public class Environment extends LifecycleAdapter implements ApplicationExt {
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(Environment.class);
 

@@ -29,6 +29,7 @@ import java.util.Map;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
+// netty pu ChannelHandler
 public class NettyChannelHandler extends ChannelInboundHandlerAdapter {
     private static final Logger logger = LoggerFactory.getLogger(NettyChannelHandler.class);
 

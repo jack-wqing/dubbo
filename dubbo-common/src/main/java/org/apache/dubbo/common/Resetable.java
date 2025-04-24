@@ -19,6 +19,7 @@ package org.apache.dubbo.common;
 /**
  * Resetable.
  */
+// reset
 public interface Resetable {
 
     /**

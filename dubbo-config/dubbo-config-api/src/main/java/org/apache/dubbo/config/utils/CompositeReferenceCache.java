@@ -32,6 +32,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.CONFIG_API_W
 /**
  * A impl of ReferenceCache for Application
  */
+// ModuleDeployer: ReferenceCache 缓存集合
 public class CompositeReferenceCache implements ReferenceCache {
 
     private static final ErrorTypeAwareLogger logger =

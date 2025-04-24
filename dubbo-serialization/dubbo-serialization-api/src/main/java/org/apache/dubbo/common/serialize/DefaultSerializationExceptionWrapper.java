@@ -24,6 +24,7 @@ import java.io.OutputStream;
 import java.lang.reflect.Type;
 import java.util.Map;
 
+// wrapper exception
 public class DefaultSerializationExceptionWrapper implements Serialization {
 
     private final Serialization serialization;

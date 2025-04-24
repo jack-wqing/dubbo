@@ -22,6 +22,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+// Batch Chunk
 public class BatchExecutorQueue<T> {
 
     static final int DEFAULT_QUEUE_SIZE = 128;

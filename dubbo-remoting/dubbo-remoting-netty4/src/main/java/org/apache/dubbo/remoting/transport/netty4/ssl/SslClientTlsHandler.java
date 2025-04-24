@@ -33,6 +33,7 @@ import io.netty.util.AttributeKey;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.INTERNAL_ERROR;
 
+// SSlHandler
 public class SslClientTlsHandler extends ChannelInboundHandlerAdapter {
 
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(SslClientTlsHandler.class);

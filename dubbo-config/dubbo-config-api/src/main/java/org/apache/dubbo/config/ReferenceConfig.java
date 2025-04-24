@@ -108,6 +108,7 @@ import static org.apache.dubbo.rpc.cluster.Constants.REFER_KEY;
  * Please avoid using this class for any new application,
  * use {@link ReferenceConfigBase} instead.
  */
+// ReferenceConfig: ProtocolSPI  ProxyFactory
 public class ReferenceConfig<T> extends ReferenceConfigBase<T> {
 
     public static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(ReferenceConfig.class);

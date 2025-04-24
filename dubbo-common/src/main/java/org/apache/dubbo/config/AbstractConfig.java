@@ -78,6 +78,7 @@ import static org.apache.dubbo.config.Constants.PARAMETERS;
  * @export
  */
 @SuppressWarnings({"unchecked", "rawtypes"})
+// AbstractConfig
 public abstract class AbstractConfig implements Serializable {
 
     private static final long serialVersionUID = 4267533505537413570L;

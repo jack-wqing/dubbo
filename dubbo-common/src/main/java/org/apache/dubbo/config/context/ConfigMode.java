@@ -20,6 +20,7 @@ package org.apache.dubbo.config.context;
  * Config processing mode for unique config type, e.g. ApplicationConfig, ModuleConfig, MonitorConfig, SslConfig, MetricsConfig
  * @see ConfigManager#uniqueConfigTypes
  */
+// Config: Mode
 public enum ConfigMode {
     /**
      * Strict mode: accept only one config for unique config type, throw exceptions if found more than one config for a unique config type.

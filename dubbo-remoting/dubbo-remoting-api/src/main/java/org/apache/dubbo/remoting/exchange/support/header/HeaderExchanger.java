@@ -33,6 +33,7 @@ import static org.apache.dubbo.remoting.Constants.IS_PU_SERVER_KEY;
  *
  *
  */
+// HeaderExchanger
 public class HeaderExchanger implements Exchanger {
 
     public static final String NAME = "header";
@@ -42,7 +43,7 @@ public class HeaderExchanger implements Exchanger {
         return new HeaderExchangeClient(
                 Transporters.connect(url, new DecodeHandler(new HeaderExchangeHandler(handler))), true);
     }
-
+    // Header Exchange 封装
     @Override
     public ExchangeServer bind(URL url, ExchangeHandler handler) throws RemotingException {
         ExchangeServer server;

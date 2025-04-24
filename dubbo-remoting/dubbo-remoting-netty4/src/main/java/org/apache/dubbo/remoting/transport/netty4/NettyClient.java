@@ -57,6 +57,7 @@ import static org.apache.dubbo.remoting.transport.netty4.NettyEventLoopFactory.s
 /**
  * NettyClient.
  */
+// Client: channel
 public class NettyClient extends AbstractClient {
 
     private static final String SOCKS_PROXY_HOST = "socksProxyHost";

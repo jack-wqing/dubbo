@@ -82,7 +82,7 @@ public class DubboShutdownHook extends Thread {
             doDestroy();
         }
     }
-
+    // shutdown  application与Module的交互
     private void doDestroy() {
         int timeout = ConfigurationUtils.getServerShutdownTimeout(applicationModel);
         ConfigurationUtils.setExpectedShutdownTime(System.currentTimeMillis() + timeout);

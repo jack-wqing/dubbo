@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
+// Ring items
 public class Ring<T> {
 
     AtomicInteger count = new AtomicInteger();

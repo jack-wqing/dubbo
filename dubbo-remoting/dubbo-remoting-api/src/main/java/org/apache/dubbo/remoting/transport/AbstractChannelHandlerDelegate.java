@@ -21,6 +21,7 @@ import org.apache.dubbo.remoting.Channel;
 import org.apache.dubbo.remoting.ChannelHandler;
 import org.apache.dubbo.remoting.RemotingException;
 
+// AbstractChannelHandlerDelegate
 public abstract class AbstractChannelHandlerDelegate implements ChannelHandlerDelegate {
 
     protected ChannelHandler handler;

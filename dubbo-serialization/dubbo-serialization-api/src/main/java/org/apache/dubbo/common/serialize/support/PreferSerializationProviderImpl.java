@@ -24,6 +24,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+// Hessian2, fastjson2
 public class PreferSerializationProviderImpl implements PreferSerializationProvider {
     private final String preferSerialization;
 

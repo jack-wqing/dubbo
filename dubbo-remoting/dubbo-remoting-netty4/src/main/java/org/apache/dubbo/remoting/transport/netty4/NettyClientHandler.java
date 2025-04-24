@@ -35,6 +35,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.TRANSPORT_UN
 /**
  * NettyClientHandler
  */
+// netty client ChannelHandler
 @io.netty.channel.ChannelHandler.Sharable
 public class NettyClientHandler extends ChannelDuplexHandler {
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(NettyClientHandler.class);

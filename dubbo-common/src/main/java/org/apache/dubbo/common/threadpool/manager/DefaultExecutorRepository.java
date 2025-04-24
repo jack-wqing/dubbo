@@ -63,8 +63,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_UNEXP
  * Consider implementing {@code Lifecycle} to enable executors shutdown when the process stops.
  */
 public class DefaultExecutorRepository implements ExecutorRepository, ExtensionAccessorAware {
-    private static final ErrorTypeAwareLogger logger =
-            LoggerFactory.getErrorTypeAwareLogger(DefaultExecutorRepository.class);
+    private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(DefaultExecutorRepository.class);
 
     private static final String MAX_KEY = String.valueOf(Integer.MAX_VALUE);
 

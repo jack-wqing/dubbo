@@ -18,6 +18,7 @@ package org.apache.dubbo.rpc.executor;
 
 import java.util.concurrent.Executor;
 
+// Executor
 public interface ExecutorSupport {
     Executor getExecutor(Object data);
 }

@@ -65,6 +65,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_PROPE
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_UNEXPECTED_EXCEPTION;
 import static org.apache.dubbo.config.AbstractConfig.getTagName;
 
+// AbstractConfigManager
 public abstract class AbstractConfigManager extends LifecycleAdapter {
 
     private static final String CONFIG_NAME_READ_METHOD = "getName";
@@ -72,7 +73,7 @@ public abstract class AbstractConfigManager extends LifecycleAdapter {
     private static final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(AbstractConfigManager.class);
     private static final Set<Class<? extends AbstractConfig>> uniqueConfigTypes = new ConcurrentHashSet<>();
-
+    // tagName-type-config
     final Map<String, Map<String, AbstractConfig>> configsCache = new ConcurrentHashMap<>();
 
     private final Map<String, AtomicInteger> configIdIndexes = new ConcurrentHashMap<>();

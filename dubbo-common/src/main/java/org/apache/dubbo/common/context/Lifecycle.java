@@ -23,6 +23,7 @@ import org.apache.dubbo.common.resource.Disposable;
  *
  * @since 2.7.5
  */
+// Lifecycle
 public interface Lifecycle extends Disposable {
 
     /**

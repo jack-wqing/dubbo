@@ -22,6 +22,9 @@ import org.apache.dubbo.common.extension.SPI;
 /**
  * Dynamically add some parameters / check config
  */
+
+// ReferenceConfig ServiceConfig: Initializer
+
 @SPI(scope = ExtensionScope.MODULE)
 public interface ConfigInitializer {
 

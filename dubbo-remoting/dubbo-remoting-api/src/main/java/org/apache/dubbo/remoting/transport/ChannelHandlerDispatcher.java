@@ -33,6 +33,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.INTERNAL_ERR
 /**
  * ChannelListenerDispatcher
  */
+// ChannelHandler Dispatcher
 public class ChannelHandlerDispatcher implements ChannelHandler {
 
     private static final ErrorTypeAwareLogger logger =

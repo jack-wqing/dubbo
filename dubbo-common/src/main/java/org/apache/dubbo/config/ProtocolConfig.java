@@ -37,6 +37,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_UNEXP
 /**
  * Configuration for the protocol.
  */
+// ProtocolConfig
 public class ProtocolConfig extends AbstractConfig {
 
     private static final long serialVersionUID = 6913423882496634749L;

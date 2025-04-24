@@ -22,6 +22,7 @@ import org.apache.dubbo.remoting.exchange.ExchangeChannel;
 /**
  * Replier. (API, Prototype, ThreadSafe)
  */
+// replier
 public interface Replier<T> {
 
     /**

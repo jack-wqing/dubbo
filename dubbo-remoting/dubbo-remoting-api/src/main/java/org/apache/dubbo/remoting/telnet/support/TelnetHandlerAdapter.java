@@ -29,6 +29,7 @@ import org.apache.dubbo.rpc.model.FrameworkModel;
 import static org.apache.dubbo.common.constants.CommonConstants.COMMA_SPLIT_PATTERN;
 import static org.apache.dubbo.remoting.Constants.TELNET_KEY;
 
+// TelnetHandlerAdapter
 public class TelnetHandlerAdapter extends ChannelHandlerAdapter implements TelnetHandler {
 
     private final ExtensionLoader<TelnetHandler> extensionLoader;

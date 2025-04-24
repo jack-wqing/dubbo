@@ -23,6 +23,7 @@ import org.apache.dubbo.config.context.ConfigMode;
  * External config keys list
  * @see org.apache.dubbo.spring.boot.autoconfigure.DubboConfigurationProperties
  */
+// Dubbo ConfigKeys
 public interface ConfigKeys {
 
     /**

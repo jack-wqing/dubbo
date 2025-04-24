@@ -39,7 +39,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.TRANSPORT_FAILED_SERIALIZATION;
-
+// Serialization: CodecSupport
 public class CodecSupport {
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(CodecSupport.class);
     private static Map<Byte, Serialization> ID_SERIALIZATION_MAP = new HashMap<>();

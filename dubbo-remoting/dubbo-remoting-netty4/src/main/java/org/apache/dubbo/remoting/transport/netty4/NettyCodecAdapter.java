@@ -34,6 +34,7 @@ import io.netty.handler.codec.MessageToByteEncoder;
 /**
  * NettyCodecAdapter.
  */
+// NettyCodec: Adapter -> Codec
 public final class NettyCodecAdapter {
 
     private final ChannelHandler encoder = new InternalEncoder();

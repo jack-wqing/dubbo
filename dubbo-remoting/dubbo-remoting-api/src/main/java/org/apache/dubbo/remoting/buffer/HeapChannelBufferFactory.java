@@ -18,6 +18,7 @@ package org.apache.dubbo.remoting.buffer;
 
 import java.nio.ByteBuffer;
 
+// ChannelBufferFactory: Heap
 public class HeapChannelBufferFactory implements ChannelBufferFactory {
 
     private static final HeapChannelBufferFactory INSTANCE = new HeapChannelBufferFactory();

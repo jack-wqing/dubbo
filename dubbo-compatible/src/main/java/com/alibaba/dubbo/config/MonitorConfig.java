@@ -16,6 +16,7 @@
  */
 package com.alibaba.dubbo.config;
 
+// 旧 Monitor Config
 @Deprecated
 public class MonitorConfig extends org.apache.dubbo.config.MonitorConfig {
     public MonitorConfig() {}

@@ -33,6 +33,7 @@ import org.apache.dubbo.common.config.Configuration;
  *
  * @see AbstractDynamicConfiguration
  */
+// DynamicConfig
 public interface DynamicConfiguration extends Configuration, AutoCloseable {
 
     String DEFAULT_GROUP = "dubbo";

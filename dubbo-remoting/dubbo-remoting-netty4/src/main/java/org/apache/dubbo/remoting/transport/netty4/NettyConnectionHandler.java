@@ -32,6 +32,7 @@ import io.netty.util.AttributeKey;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.TRANSPORT_UNEXPECTED_EXCEPTION;
 
+// netty ConnectionHandler
 @Sharable
 public class NettyConnectionHandler extends ChannelInboundHandlerAdapter implements ConnectionHandler {
 

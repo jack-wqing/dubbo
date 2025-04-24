@@ -22,6 +22,7 @@ import org.apache.dubbo.common.extension.SPI;
 import org.apache.dubbo.remoting.api.pu.ChannelOperator;
 import org.apache.dubbo.remoting.api.ssl.ContextOperator;
 
+// Wire Protocol
 @SPI(scope = ExtensionScope.FRAMEWORK)
 public interface WireProtocol {
 

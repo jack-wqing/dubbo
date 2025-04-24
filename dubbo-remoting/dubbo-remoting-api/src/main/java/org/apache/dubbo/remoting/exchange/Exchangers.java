@@ -27,6 +27,7 @@ import org.apache.dubbo.remoting.transport.ChannelHandlerAdapter;
 /**
  * Exchanger facade. (API, Static, ThreadSafe)
  */
+// Exchangers: adaptive
 public class Exchangers {
     private Exchangers() {}
 

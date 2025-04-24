@@ -31,6 +31,7 @@ import io.netty.channel.EventLoop;
 /**
  * netty4 batch write queue
  */
+// Batch op
 public class Netty4BatchWriteQueue extends BatchExecutorQueue<Netty4BatchWriteQueue.MessageTuple> {
 
     private final Channel channel;

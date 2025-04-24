@@ -42,6 +42,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.TRANSPORT_FA
 /**
  * ExchangeReceiver
  */
+// Exchange Channel
 final class HeaderExchangeChannel implements ExchangeChannel {
 
     private static final ErrorTypeAwareLogger logger =

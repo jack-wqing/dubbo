@@ -24,6 +24,7 @@ import org.apache.dubbo.remoting.ChannelHandler;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.INTERNAL_ERROR;
 
+// ChannelEventRunnable
 public class ChannelEventRunnable implements Runnable {
     private static final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(ChannelEventRunnable.class);

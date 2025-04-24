@@ -34,6 +34,7 @@ import static org.apache.dubbo.rpc.model.ScopeModelUtil.getFrameworkModel;
 /**
  * AbstractEndpoint
  */
+// AbstractEndpoint
 public abstract class AbstractEndpoint extends AbstractPeer implements Resetable {
 
     protected final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(getClass());

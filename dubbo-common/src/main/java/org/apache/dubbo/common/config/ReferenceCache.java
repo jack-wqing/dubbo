@@ -20,6 +20,7 @@ import org.apache.dubbo.config.ReferenceConfigBase;
 
 import java.util.List;
 
+// Reference heavy operator
 public interface ReferenceCache {
     @SuppressWarnings("unchecked")
     default <T> T get(ReferenceConfigBase<T> referenceConfig) {

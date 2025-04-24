@@ -26,6 +26,7 @@ import java.util.List;
 /**
  * @see org.apache.dubbo.remoting.transport.MultiMessageHandler
  */
+// MultiMessage
 public final class MultiMessage implements Iterable {
 
     private final List messages = new ArrayList();

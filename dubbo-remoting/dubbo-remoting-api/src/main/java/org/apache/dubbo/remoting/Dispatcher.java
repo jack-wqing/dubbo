@@ -25,6 +25,7 @@ import org.apache.dubbo.remoting.transport.dispatcher.all.AllDispatcher;
 /**
  * ChannelHandlerWrapper (SPI, Singleton, ThreadSafe)
  */
+// 指定线程池模型的消息派发扩展，不同类型的事件 在那种类型的线程池执行
 @SPI(value = AllDispatcher.NAME, scope = ExtensionScope.FRAMEWORK)
 public interface Dispatcher {
 

@@ -21,6 +21,7 @@ import java.util.Collection;
 /**
  * Interface defining serialization optimizer, there are nothing implementations for now.
  */
+// Serialization Optimizer
 public interface SerializationOptimizer {
 
     /**

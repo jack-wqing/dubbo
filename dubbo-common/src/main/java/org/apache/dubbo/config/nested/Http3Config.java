@@ -20,6 +20,7 @@ import org.apache.dubbo.config.support.Parameter;
 
 import java.io.Serializable;
 
+// Http3
 public class Http3Config implements Serializable {
 
     private static final long serialVersionUID = -4443828713331129834L;

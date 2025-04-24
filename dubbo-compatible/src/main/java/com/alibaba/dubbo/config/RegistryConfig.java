@@ -16,6 +16,7 @@
  */
 package com.alibaba.dubbo.config;
 
+// 旧 RegistryConfig
 @Deprecated
 public class RegistryConfig extends org.apache.dubbo.config.RegistryConfig {
 

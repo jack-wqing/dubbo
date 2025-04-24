@@ -25,6 +25,7 @@ import java.util.concurrent.ExecutorService;
 /**
  * ExchangeChannel. (API/SPI, Prototype, ThreadSafe)
  */
+// request response语义转换
 public interface ExchangeChannel extends Channel {
 
     /**

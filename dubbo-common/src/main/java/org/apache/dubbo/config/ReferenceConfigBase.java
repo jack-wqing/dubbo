@@ -52,6 +52,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_UNEXP
  *
  * @export
  */
+// ReferenceConfig
 public abstract class ReferenceConfigBase<T> extends AbstractReferenceConfig {
 
     private static final long serialVersionUID = -5864351140409987595L;

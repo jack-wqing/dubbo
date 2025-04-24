@@ -18,6 +18,7 @@ package org.apache.dubbo.config.nested;
 
 import java.io.Serializable;
 
+// WebSocket
 public class WebSocketConfig implements Serializable {
 
     private static final long serialVersionUID = -2504271061733141988L;

@@ -38,6 +38,7 @@ import io.netty.handler.timeout.IdleStateHandler;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static org.apache.dubbo.remoting.transport.netty4.NettyEventLoopFactory.socketChannelClass;
 
+// NettyConnectionClient
 public final class NettyConnectionClient extends AbstractNettyConnectionClient {
 
     private Bootstrap bootstrap;

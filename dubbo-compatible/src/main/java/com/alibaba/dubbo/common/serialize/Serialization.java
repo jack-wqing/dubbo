@@ -23,6 +23,7 @@ import java.io.OutputStream;
 import com.alibaba.dubbo.common.DelegateURL;
 import com.alibaba.dubbo.common.URL;
 
+// deprecated serialization
 @Deprecated
 public interface Serialization extends org.apache.dubbo.common.serialize.Serialization {
 

@@ -38,6 +38,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.TRANSPORT_EX
 /**
  * AbstractCodec
  */
+// Abstract Codec2
 public abstract class AbstractCodec implements Codec2, ScopeModelAware {
 
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(AbstractCodec.class);

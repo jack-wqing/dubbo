@@ -42,6 +42,7 @@ import static org.apache.dubbo.remoting.Constants.DEFAULT_ACCEPTS;
 /**
  * AbstractServer
  */
+// RemoteServer: AbstractServer
 public abstract class AbstractServer extends AbstractEndpoint implements RemotingServer {
 
     private Set<ExecutorService> executors = new ConcurrentHashSet<>();

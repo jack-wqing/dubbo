@@ -43,6 +43,7 @@ import io.netty.handler.ssl.SupportedCipherSuiteFilter;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.TRANSPORT_FAILED_CLOSE_STREAM;
 
+// 构建 Ssl Context
 public class SslContexts {
 
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(SslContexts.class);

@@ -23,6 +23,7 @@ import org.apache.dubbo.common.extension.SPI;
 /**
  * The factory interface to create the instance of {@link DynamicConfiguration}
  */
+// dynamic Factory
 @SPI(value = "nop", scope = ExtensionScope.APPLICATION) // 2.7.5 change the default SPI implementation
 public interface DynamicConfigurationFactory {
 

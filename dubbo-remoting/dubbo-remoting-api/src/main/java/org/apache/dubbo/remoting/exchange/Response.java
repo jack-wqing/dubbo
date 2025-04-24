@@ -21,6 +21,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.HEARTBEAT_EVENT;
 /**
  * Response
  */
+// Response: req / res
 public class Response {
 
     /**

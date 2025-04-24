@@ -113,6 +113,7 @@ import static org.apache.dubbo.remoting.Constants.CLIENT_KEY;
 /**
  * initialize and start application instance
  */
+// initialize, start: application instance
 public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationModel> implements ApplicationDeployer {
 
     private static final ErrorTypeAwareLogger logger =
@@ -150,8 +151,7 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
         environment = applicationModel.modelEnvironment();
 
         referenceCache = new CompositeReferenceCache(applicationModel);
-        frameworkExecutorRepository =
-                applicationModel.getFrameworkModel().getBeanFactory().getBean(FrameworkExecutorRepository.class);
+        frameworkExecutorRepository = applicationModel.getFrameworkModel().getBeanFactory().getBean(FrameworkExecutorRepository.class);
         executorRepository = ExecutorRepository.getInstance(applicationModel);
         dubboShutdownHook = new DubboShutdownHook(applicationModel);
 
@@ -244,7 +244,7 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
             }
         }
     }
-
+    // dubboShutdownHook
     private void registerShutdownHook() {
         dubboShutdownHook.register();
     }
@@ -261,7 +261,7 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
     private void loadApplicationConfigs() {
         configManager.loadConfigs();
     }
-
+    // startConfig
     private void startConfigCenter() {
 
         // load application config
@@ -1279,7 +1279,7 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
         }
         return DeployState.UNKNOWN;
     }
-
+    // DeployListener
     private void onInitialize() {
         for (DeployListener<ApplicationModel> listener : listeners) {
             try {

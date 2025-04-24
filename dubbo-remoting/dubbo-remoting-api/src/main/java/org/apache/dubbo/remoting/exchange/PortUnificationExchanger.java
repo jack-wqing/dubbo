@@ -33,6 +33,7 @@ import java.util.concurrent.ConcurrentMap;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROTOCOL_ERROR_CLOSE_SERVER;
 
+// 单个端口，多个协议的支持: Port Unification
 public class PortUnificationExchanger {
 
     private static final ErrorTypeAwareLogger log =

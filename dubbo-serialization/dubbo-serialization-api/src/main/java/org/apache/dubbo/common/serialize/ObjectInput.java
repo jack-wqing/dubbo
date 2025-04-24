@@ -23,6 +23,7 @@ import java.util.Map;
 /**
  * Object input interface.
  */
+// Object Input
 public interface ObjectInput extends DataInput {
 
     /**

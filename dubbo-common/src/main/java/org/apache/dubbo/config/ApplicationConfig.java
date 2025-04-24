@@ -79,6 +79,7 @@ import static org.apache.dubbo.config.Constants.TEST_ENVIRONMENT;
  *
  * @export
  */
+// application
 public class ApplicationConfig extends AbstractConfig {
 
     private static final long serialVersionUID = 5508512956753757169L;

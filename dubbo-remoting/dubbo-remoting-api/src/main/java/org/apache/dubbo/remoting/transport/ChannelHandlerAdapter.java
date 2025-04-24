@@ -23,6 +23,7 @@ import org.apache.dubbo.remoting.RemotingException;
 /**
  * ChannelHandlerAdapter.
  */
+// Adapter
 public class ChannelHandlerAdapter implements ChannelHandler {
 
     @Override

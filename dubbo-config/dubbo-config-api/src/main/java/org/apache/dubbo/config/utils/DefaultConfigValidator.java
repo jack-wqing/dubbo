@@ -30,6 +30,7 @@ import org.apache.dubbo.config.SslConfig;
 import org.apache.dubbo.config.TracingConfig;
 import org.apache.dubbo.config.context.ConfigValidator;
 
+// ConfigValidate: Default
 public class DefaultConfigValidator implements ConfigValidator {
 
     @Override

@@ -18,6 +18,7 @@ package org.apache.dubbo.remoting.api.pu;
 
 import org.apache.dubbo.remoting.transport.ChannelHandlerAdapter;
 
+// RealHandler
 public class ChannelHandlerPretender extends ChannelHandlerAdapter {
     private final Object realHandler;
 

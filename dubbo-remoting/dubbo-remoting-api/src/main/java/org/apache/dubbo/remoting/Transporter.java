@@ -29,6 +29,7 @@ import org.apache.dubbo.common.extension.SPI;
  *
  * @see org.apache.dubbo.remoting.Transporters
  */
+// NettyTransport: Bind connect
 @SPI(value = "netty", scope = ExtensionScope.FRAMEWORK)
 public interface Transporter {
 

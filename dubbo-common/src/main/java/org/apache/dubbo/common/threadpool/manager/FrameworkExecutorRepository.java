@@ -35,9 +35,9 @@ import java.util.concurrent.TimeUnit;
 import static org.apache.dubbo.common.constants.CommonConstants.DEFAULT_SERVER_SHUTDOWN_TIMEOUT;
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_UNEXPECTED_EXECUTORS_SHUTDOWN;
 
+// ExecutorRepository: Framework
 public class FrameworkExecutorRepository implements Disposable {
-    private static final ErrorTypeAwareLogger logger =
-            LoggerFactory.getErrorTypeAwareLogger(FrameworkExecutorRepository.class);
+    private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(FrameworkExecutorRepository.class);
 
     private final ExecutorService sharedExecutor;
     private final ScheduledExecutorService sharedScheduledExecutor;

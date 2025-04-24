@@ -16,6 +16,7 @@
  */
 package org.apache.dubbo.remoting;
 
+// Decodeable
 public interface Decodeable {
 
     void decode() throws Exception;

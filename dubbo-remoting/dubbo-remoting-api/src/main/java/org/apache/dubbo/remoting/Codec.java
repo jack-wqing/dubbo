@@ -27,6 +27,7 @@ import java.io.OutputStream;
 /**
  * Codec. (SPI, Singleton, ThreadSafe)
  */
+// Codec
 @Deprecated
 @SPI(scope = ExtensionScope.FRAMEWORK)
 public interface Codec {

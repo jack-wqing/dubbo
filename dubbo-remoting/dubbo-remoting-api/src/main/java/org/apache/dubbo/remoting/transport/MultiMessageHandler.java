@@ -28,6 +28,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.INTERNAL_ERR
 /**
  * @see MultiMessage
  */
+// MultiMessage
 public class MultiMessageHandler extends AbstractChannelHandlerDelegate {
 
     protected static final ErrorTypeAwareLogger logger =

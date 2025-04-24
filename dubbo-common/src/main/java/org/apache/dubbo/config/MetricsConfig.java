@@ -30,6 +30,7 @@ import java.util.Map;
 /**
  * Configuration for the metrics.
  */
+//
 public class MetricsConfig extends AbstractConfig {
 
     private static final long serialVersionUID = -9089919311611546383L;

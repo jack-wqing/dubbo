@@ -60,6 +60,7 @@ import static org.apache.dubbo.remoting.Constants.EVENT_LOOP_WORKER_POOL_NAME;
 /**
  * NettyServer.
  */
+// Server: Netty4
 public class NettyServer extends AbstractServer {
 
     /**
@@ -162,7 +163,7 @@ public class NettyServer extends AbstractServer {
     protected NettyServerHandler createNettyServerHandler() {
         return new NettyServerHandler(getUrl(), this);
     }
-
+    // Idle Handler
     protected void initServerBootstrap(NettyServerHandler nettyServerHandler) {
         boolean keepalive = getUrl().getParameter(KEEP_ALIVE_KEY, Boolean.FALSE);
         bootstrap

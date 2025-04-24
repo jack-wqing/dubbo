@@ -47,6 +47,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROTOCOL_TIM
 /**
  * DefaultFuture.
  */
+// Future
 public class DefaultFuture extends CompletableFuture<Object> {
 
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(DefaultFuture.class);

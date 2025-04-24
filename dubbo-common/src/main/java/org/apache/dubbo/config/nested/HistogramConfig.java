@@ -21,6 +21,7 @@ import java.io.Serializable;
 /**
  * Configuration for the histogram.
  */
+// HistogramConfig
 public class HistogramConfig implements Serializable {
 
     private static final long serialVersionUID = 8152538916051803031L;

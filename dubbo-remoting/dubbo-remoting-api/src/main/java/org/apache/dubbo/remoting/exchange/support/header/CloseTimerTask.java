@@ -27,6 +27,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.TRANSPORT_FA
 /**
  * CloseTimerTask
  */
+// TimeTask Cloud
 public class CloseTimerTask extends AbstractTimerTask {
 
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(CloseTimerTask.class);

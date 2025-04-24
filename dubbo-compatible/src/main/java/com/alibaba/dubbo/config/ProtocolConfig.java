@@ -16,6 +16,7 @@
  */
 package com.alibaba.dubbo.config;
 
+// 旧ProtocolConfig
 @Deprecated
 public class ProtocolConfig extends org.apache.dubbo.config.ProtocolConfig {
 

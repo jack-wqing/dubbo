@@ -18,6 +18,7 @@ package org.apache.dubbo.config.context;
 
 import org.apache.dubbo.config.AbstractConfig;
 
+//ConfigValidator
 public interface ConfigValidator {
 
     void validate(AbstractConfig config);

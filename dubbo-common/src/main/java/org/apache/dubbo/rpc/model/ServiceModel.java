@@ -24,6 +24,7 @@ import org.apache.dubbo.config.ServiceConfigBase;
 import java.util.Objects;
 import java.util.Set;
 
+// ServiceModel
 public class ServiceModel {
     private String serviceKey;
     private Object proxyObject;

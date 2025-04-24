@@ -28,6 +28,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.TRANSPORT_FA
 /**
  * ReconnectTimerTask
  */
+// reconnect Task
 public class ReconnectTimerTask extends AbstractTimerTask {
 
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(ReconnectTimerTask.class);

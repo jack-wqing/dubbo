@@ -24,6 +24,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.DEFAULT_VERSION;
 /**
  * 2019-10-10
  */
+// BaseService Metadata
 public class BaseServiceMetadata {
     public static final char COLON_SEPARATOR = ':';
 

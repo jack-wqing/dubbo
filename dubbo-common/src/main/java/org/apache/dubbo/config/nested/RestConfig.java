@@ -25,6 +25,7 @@ import java.util.Map;
 /**
  * Configuration for triple rest protocol.
  */
+// Rest
 public class RestConfig implements Serializable {
 
     private static final long serialVersionUID = -8068568976367034755L;

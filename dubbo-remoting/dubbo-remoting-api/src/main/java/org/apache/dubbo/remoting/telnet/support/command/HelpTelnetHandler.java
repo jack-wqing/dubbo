@@ -33,6 +33,7 @@ import java.util.WeakHashMap;
 /**
  * HelpTelnetHandler
  */
+// help
 @Activate
 @Help(parameter = "[command]", summary = "Show help.", detail = "Show help.")
 public class HelpTelnetHandler implements TelnetHandler {

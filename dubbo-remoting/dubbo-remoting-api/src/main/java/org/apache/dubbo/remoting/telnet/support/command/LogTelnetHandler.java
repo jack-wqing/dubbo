@@ -34,6 +34,7 @@ import java.util.Date;
 /**
  * LogTelnetHandler
  */
+// log 记录
 @Activate
 @Help(parameter = "level", summary = "Change log level or show log ", detail = "Change log level or show log")
 public class LogTelnetHandler implements TelnetHandler {

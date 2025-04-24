@@ -24,6 +24,7 @@ import org.apache.dubbo.common.config.configcenter.DynamicConfiguration;
  * The default extension of {@link DynamicConfiguration}. If user does not specify a config center, or specifies one
  * that is not a valid extension, it will default to this one.
  */
+//NOP
 @Deprecated
 public class NopDynamicConfiguration implements DynamicConfiguration {
 
