@@ -65,5 +65,8 @@ import org.apache.dubbo.common.extension.SPI;
  * @see org.apache.dubbo.rpc.filter.TokenFilter
  * @see org.apache.dubbo.rpc.filter.TpsLimitFilter
  */
+// 3.0 对dubbo的客户端 Filter 进行了修改； 提供两种类型: Filter, ClusterFilter
+// 调用模型: 2.0:  Filter -> Invoker    Proxy -> ClusterInvoker -> Invoker                       Filter -> Invoker
+//          3.0:  Filter -> Invoker    Filter -> ClusterFilter -> ClusterInvoker -> Invoker     Filter -> Invoker
 @SPI(scope = ExtensionScope.MODULE)
 public interface Filter extends BaseFilter {}

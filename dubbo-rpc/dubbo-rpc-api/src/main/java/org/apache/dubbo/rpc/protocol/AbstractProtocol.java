@@ -53,6 +53,8 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROTOCOL_FAI
 /**
  * abstract ProtocolSupport.
  */
+// Protocol: 抽象统一接口
+// protocolBindingRefer: refer 方法
 public abstract class AbstractProtocol implements Protocol, ScopeModelAware {
 
     protected final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(getClass());

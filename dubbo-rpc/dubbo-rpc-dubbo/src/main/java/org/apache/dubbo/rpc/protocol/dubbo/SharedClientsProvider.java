@@ -26,6 +26,8 @@ import java.util.Objects;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROTOCOL_ERROR_CLOSE_CLIENT;
 
+// ShareClientsProvider:
+//
 public class SharedClientsProvider implements ClientsProvider {
     private static final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(SharedClientsProvider.class);

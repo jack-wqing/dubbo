@@ -16,6 +16,7 @@
  */
 package org.apache.dubbo.rpc;
 
+// BaseFilter: 过滤拦截器
 public interface BaseFilter {
     /**
      * Always call invoker.invoke() in the implementation to hand over the request to the next filter node.
@@ -29,6 +30,7 @@ public interface BaseFilter {
      * There's something that needs to pay attention on legacy synchronous style filer refactor, the thing is, try to move logics
      * previously defined in the 'finally block' to both onResponse and onError.
      */
+    // Listener: finally的逻辑 可以放在回调中
     interface Listener {
 
         /**

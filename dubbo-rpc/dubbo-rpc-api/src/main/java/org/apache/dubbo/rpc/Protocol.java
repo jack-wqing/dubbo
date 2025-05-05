@@ -55,6 +55,10 @@ import java.util.List;
  *
  * (API/SPI, Singleton, ThreadSafe)
  */
+// Refer 返回的 Invoker调用invoke 将执行 receive 接受的 Invoker
+// Refer Invoker 通过协议实现,  export方法接受Invoker通过Dubbo框架实现
+// Protocol 不需要关注透明代理，Invoker由其他layer实现
+// Protocol 不一定需要 TCP Connection
 @SPI(value = "dubbo", scope = ExtensionScope.FRAMEWORK)
 public interface Protocol {
 
@@ -78,6 +82,7 @@ public interface Protocol {
      * @return exporter reference for exported service, useful for unexport the service later
      * @throws RpcException thrown when error occurs during export the service, for example: port is occupied
      */
+    // 幂等接口 RPC Context, Invoker 框架生成 服务端支持远程调用
     @Adaptive
     <T> Exporter<T> export(Invoker<T> invoker) throws RpcException;
 
@@ -96,6 +101,8 @@ public interface Protocol {
      * @return invoker service's local proxy
      * @throws RpcException when there's any error while connecting to the service provider
      */
+    // 协议需要执行 Invoker的invoke方法
+    // 协议需要实现 Invoker invoke方法的调用，通常是一个rpc
     @Adaptive
     <T> Invoker<T> refer(Class<T> type, URL url) throws RpcException;
 
@@ -105,6 +112,9 @@ public interface Protocol {
      * 2. Release all occupied resources, for example: connection, port, etc. <br>
      * 3. Protocol can continue to export and refer new service even after it's destroyed.
      */
+    // 1. 取消协议的所有: export 和 Invoker的 服务
+    // 2. 释放所有占用的资源
+    // 3. destroy 之后能够继续export 和 refer服务
     void destroy();
 
     /**

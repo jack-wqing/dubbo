@@ -20,6 +20,7 @@ import org.apache.dubbo.remoting.exchange.ExchangeClient;
 
 import java.util.List;
 
+// ClientProvider: ExchangeClient
 public interface ClientsProvider {
     List<? extends ExchangeClient> getClients();
 

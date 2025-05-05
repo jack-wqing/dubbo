@@ -92,6 +92,7 @@ import static org.apache.dubbo.rpc.protocol.dubbo.Constants.SHARE_CONNECTIONS_KE
 /**
  * dubbo protocol support.
  */
+// Dubbo protocol, default 20880
 public class DubboProtocol extends AbstractProtocol {
 
     public static final String NAME = "dubbo";
