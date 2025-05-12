@@ -18,6 +18,7 @@ package org.apache.dubbo.metadata;
 
 import org.apache.dubbo.rpc.model.BuiltinServiceDetector;
 
+// Detector
 public class MetadataServiceDetector implements BuiltinServiceDetector {
 
     @Override

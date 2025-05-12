@@ -47,6 +47,7 @@ import static org.apache.dubbo.registry.Constants.REGISTRY_RETRY_PERIOD_KEY;
  * A template implementation of registry service that provides auto-retry ability.
  * (SPI, Prototype, ThreadSafe)
  */
+//提供自动重试的能力
 public abstract class FailbackRegistry extends AbstractRegistry {
 
     /*  retry task map */
@@ -495,7 +496,7 @@ public abstract class FailbackRegistry extends AbstractRegistry {
     public abstract void doSubscribe(URL url, NotifyListener listener);
 
     public abstract void doUnsubscribe(URL url, NotifyListener listener);
-
+    // Url + NotifyListener
     static class Holder {
 
         private final URL url;

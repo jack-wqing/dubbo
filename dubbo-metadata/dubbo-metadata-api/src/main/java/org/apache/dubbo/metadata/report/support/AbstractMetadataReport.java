@@ -81,6 +81,7 @@ import static org.apache.dubbo.metadata.report.support.Constants.DEFAULT_METADAT
 import static org.apache.dubbo.metadata.report.support.Constants.DEFAULT_METADATA_REPORT_RETRY_TIMES;
 import static org.apache.dubbo.metadata.report.support.Constants.DUBBO_METADATA;
 
+// AbstractMetadataReport
 public abstract class AbstractMetadataReport implements MetadataReport {
 
     protected static final String DEFAULT_ROOT = "dubbo";

@@ -20,6 +20,7 @@ import org.apache.dubbo.common.URL;
 
 import java.util.Collections;
 
+// RegistryListener
 public class RegistryFactoryWrapper implements RegistryFactory {
     private RegistryFactory registryFactory;
 

@@ -36,6 +36,7 @@ import static org.apache.dubbo.metadata.annotation.processing.util.MethodUtils.g
  * @see MethodDefinition
  * @since 2.7.6
  */
+// Method
 public interface MethodDefinitionBuilder {
 
     static MethodDefinition build(

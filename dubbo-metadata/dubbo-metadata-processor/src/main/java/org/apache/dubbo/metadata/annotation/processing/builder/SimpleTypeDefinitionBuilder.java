@@ -31,6 +31,7 @@ import static org.apache.dubbo.metadata.annotation.processing.util.TypeUtils.isS
  *
  * @since 2.7.6
  */
+// SimpleType
 public class SimpleTypeDefinitionBuilder implements DeclaredTypeDefinitionBuilder {
 
     @Override

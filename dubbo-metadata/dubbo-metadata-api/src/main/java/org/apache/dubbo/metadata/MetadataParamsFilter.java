@@ -29,6 +29,7 @@ import org.apache.dubbo.common.extension.SPI;
  * It is recommended for most users to use 'exclude' policy for service params and 'include' policy for instance params.
  * Please use 'params-filter=-default, -filterName1, filterName2' to activate or deactivate filter extensions.
  */
+// MetadataParamsFilter
 @SPI
 public interface MetadataParamsFilter {
 

@@ -16,6 +16,7 @@
  */
 package org.apache.dubbo.metadata.report.identifier;
 
+// BaseMetadataIdentifier
 public interface BaseMetadataIdentifier {
 
     String getUniqueKey(KeyTypeEnum keyType);

@@ -21,6 +21,7 @@ import java.util.Collections;
 /**
  * A retry task when is failed.
  */
+// ServiceInstanceChangedEvent: Retry
 public class RetryServiceInstancesChangedEvent extends ServiceInstancesChangedEvent {
 
     private volatile long failureRecordTime;

@@ -46,6 +46,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_CACHE
  * <p>
  * All items in local file are of human friendly format.
  */
+// CacheStore: File
 public class FileCacheStore {
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(FileCacheStore.class);
 

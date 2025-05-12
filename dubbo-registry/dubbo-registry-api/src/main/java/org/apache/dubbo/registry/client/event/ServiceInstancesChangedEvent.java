@@ -30,6 +30,7 @@ import static java.util.Collections.unmodifiableList;
  * @see ServiceInstancesChangedListener
  * @since 2.7.5
  */
+// 服务实例改变事件
 public class ServiceInstancesChangedEvent {
 
     private final String serviceName;

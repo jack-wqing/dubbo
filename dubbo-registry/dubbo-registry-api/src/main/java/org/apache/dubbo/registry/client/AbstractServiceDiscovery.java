@@ -62,6 +62,7 @@ import static org.apache.dubbo.registry.client.metadata.ServiceInstanceMetadataU
 /**
  * Each service discovery is bond to one application.
  */
+// 服务发现绑定到一个应用
 public abstract class AbstractServiceDiscovery implements ServiceDiscovery {
     private final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(AbstractServiceDiscovery.class);
     private volatile boolean isDestroy;

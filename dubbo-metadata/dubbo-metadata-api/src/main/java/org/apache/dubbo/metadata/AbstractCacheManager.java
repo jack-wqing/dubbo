@@ -37,6 +37,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.DEFAULT_SERVER_S
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_FAILED_LOAD_MAPPING_CACHE;
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_UNEXPECTED_EXCEPTION;
 
+// CacheManager: 定时刷新
 public abstract class AbstractCacheManager<V> implements Disposable {
     protected final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(getClass());
 

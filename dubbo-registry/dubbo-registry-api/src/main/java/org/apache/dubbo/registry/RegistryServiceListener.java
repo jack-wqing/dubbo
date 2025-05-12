@@ -19,6 +19,7 @@ package org.apache.dubbo.registry;
 import org.apache.dubbo.common.URL;
 import org.apache.dubbo.common.extension.SPI;
 
+// Listener: RegistryService
 @SPI
 public interface RegistryServiceListener {
     default void onRegister(URL url, Registry registry) {}

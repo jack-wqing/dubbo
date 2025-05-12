@@ -33,6 +33,7 @@ import static org.apache.dubbo.metadata.annotation.processing.util.TypeUtils.isC
  *
  * @since 2.7.6
  */
+// GeneralType
 public class GeneralTypeDefinitionBuilder implements DeclaredTypeDefinitionBuilder {
 
     @Override

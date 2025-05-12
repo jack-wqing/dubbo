@@ -24,6 +24,7 @@ import org.apache.dubbo.registry.support.AbstractRegistryFactory;
 import static org.apache.dubbo.common.constants.RegistryConstants.REGISTRY_KEY;
 import static org.apache.dubbo.registry.Constants.DEFAULT_REGISTRY;
 
+// ServiceDiscoveryRegistry: Factory
 public class ServiceDiscoveryRegistryFactory extends AbstractRegistryFactory {
 
     @Override

@@ -43,7 +43,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_ERROR
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_ERROR_TOO_MANY_INSTANCES;
 
 /**
- * A {@link Timer} optimized for approximated I/O timeout scheduling.
+ * A {@link Timer} optimized for approximated I/O timeout scheduling. // i/o 超时优化
  *
  * <h3>Tick Duration</h3>
  * <p>

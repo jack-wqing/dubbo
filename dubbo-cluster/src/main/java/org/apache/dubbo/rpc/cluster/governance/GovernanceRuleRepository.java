@@ -21,6 +21,7 @@ import org.apache.dubbo.common.extension.SPI;
 
 import static org.apache.dubbo.common.extension.ExtensionScope.MODULE;
 
+// GovernanceRole
 @SPI(value = "default", scope = MODULE)
 public interface GovernanceRuleRepository {
 

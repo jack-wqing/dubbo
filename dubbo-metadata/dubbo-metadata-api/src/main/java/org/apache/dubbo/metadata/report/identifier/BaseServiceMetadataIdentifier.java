@@ -26,6 +26,7 @@ import static org.apache.dubbo.metadata.MetadataConstants.DEFAULT_PATH_TAG;
  * <p>
  * 2019-08-09
  */
+// service scope
 public class BaseServiceMetadataIdentifier {
     protected String serviceInterface;
     protected String version;

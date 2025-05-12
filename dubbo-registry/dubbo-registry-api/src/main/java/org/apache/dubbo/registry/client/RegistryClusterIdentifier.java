@@ -23,6 +23,7 @@ import org.apache.dubbo.rpc.model.ScopeModelUtil;
 
 import static org.apache.dubbo.common.constants.RegistryConstants.REGISTRY_CLUSTER_TYPE_KEY;
 
+// RegistryCluster
 @SPI
 public interface RegistryClusterIdentifier {
     String providerKey(URL url);

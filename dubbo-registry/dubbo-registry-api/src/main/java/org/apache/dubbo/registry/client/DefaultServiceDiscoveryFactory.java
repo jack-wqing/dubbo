@@ -22,6 +22,7 @@ import org.apache.dubbo.common.URL;
  * This class is designed for compatibility purpose. When a specific registry type does not have counterpart service discovery provided,
  * the nop instance will be returned.
  */
+// Nop Factory
 public class DefaultServiceDiscoveryFactory extends AbstractServiceDiscoveryFactory {
     @Override
     protected ServiceDiscovery createDiscovery(URL registryURL) {

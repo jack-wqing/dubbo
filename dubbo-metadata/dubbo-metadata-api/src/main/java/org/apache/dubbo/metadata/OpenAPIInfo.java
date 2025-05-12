@@ -23,6 +23,7 @@ package org.apache.dubbo.metadata;
  *
  * Protobuf type {@code org.apache.dubbo.metadata.OpenAPIInfo}
  */
+// OpenAPI information message
 public final class OpenAPIInfo extends com.google.protobuf.GeneratedMessageV3
         implements
         // @@protoc_insertion_point(message_implements:org.apache.dubbo.metadata.OpenAPIInfo)

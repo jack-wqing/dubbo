@@ -55,6 +55,7 @@ import static org.apache.dubbo.remoting.Constants.BIND_IP_KEY;
 import static org.apache.dubbo.remoting.Constants.BIND_PORT_KEY;
 import static org.apache.dubbo.rpc.Constants.INTERFACES;
 
+// Default
 public class DefaultServiceURLCustomizer implements ServiceURLCustomizer {
 
     private static final String[] excludedParameters = new String[] {

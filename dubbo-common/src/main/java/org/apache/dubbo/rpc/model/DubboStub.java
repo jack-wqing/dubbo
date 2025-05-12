@@ -20,4 +20,5 @@ package org.apache.dubbo.rpc.model;
  * Marker interface implemented by all stub. Used to detect
  * whether objects are Dubbo-generated stub.
  */
+// DubboStub: Dubbo 生成的Stub
 public interface DubboStub {}

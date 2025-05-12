@@ -41,6 +41,7 @@ import static org.apache.dubbo.metadata.annotation.processing.util.ServiceAnnota
  *
  * @since 2.7.6
  */
+// APT AnnotationProcessor
 public abstract class AbstractServiceAnnotationProcessor extends AbstractProcessor {
 
     protected Elements elements;

@@ -16,6 +16,7 @@
  */
 package org.apache.dubbo.metadata;
 
+// OpenAPIRequest: Builder
 public interface OpenAPIRequestOrBuilder
         extends
         // @@protoc_insertion_point(interface_extends:org.apache.dubbo.metadata.OpenAPIRequest)

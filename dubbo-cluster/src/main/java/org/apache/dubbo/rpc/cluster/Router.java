@@ -32,6 +32,7 @@ import java.util.List;
  * @see org.apache.dubbo.rpc.cluster.Cluster#join(Directory, boolean)
  * @see org.apache.dubbo.rpc.cluster.Directory#list(Invocation)
  */
+// 定义路由规则的逻辑
 public interface Router extends Comparable<Router> {
 
     int DEFAULT_PRIORITY = Integer.MAX_VALUE;

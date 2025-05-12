@@ -32,6 +32,7 @@ import java.util.List;
  *
  * @see org.apache.dubbo.rpc.cluster.Cluster#join(Directory)
  */
+// 服务目录接口: 代表一组提供相同服务的服务者列表，主要为服务消费者提供对服务提供者列表的访问和管理
 public interface Directory<T> extends Node {
 
     /**

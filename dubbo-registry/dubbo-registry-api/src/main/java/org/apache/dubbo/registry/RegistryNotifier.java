@@ -30,6 +30,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.DEFAULT_DELAY_EX
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_FAILED_NOTIFY_EVENT;
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.REGISTRY_FAILED_NOTIFY_EVENT;
 
+// RegistryNotifier: 注册中心信息发生变化时，同志消费者
 public abstract class RegistryNotifier {
 
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(RegistryNotifier.class);

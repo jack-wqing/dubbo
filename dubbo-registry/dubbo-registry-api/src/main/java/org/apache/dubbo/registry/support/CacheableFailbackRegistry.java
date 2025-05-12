@@ -77,6 +77,7 @@ import static org.apache.dubbo.common.constants.RegistryConstants.PROVIDERS_CATE
  * @see org.apache.dubbo.registry.support.FailbackRegistry
  * @see org.apache.dubbo.registry.support.AbstractRegistry
  */
+// Cache URLAddress + URLParam
 public abstract class CacheableFailbackRegistry extends FailbackRegistry {
     private static final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(CacheableFailbackRegistry.class);

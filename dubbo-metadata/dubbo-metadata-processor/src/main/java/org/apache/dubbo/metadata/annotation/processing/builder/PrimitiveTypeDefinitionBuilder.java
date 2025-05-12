@@ -31,6 +31,7 @@ import static org.apache.dubbo.metadata.annotation.processing.util.TypeUtils.isP
  *
  * @since 2.7.6
  */
+// primitive
 public class PrimitiveTypeDefinitionBuilder implements TypeBuilder<PrimitiveType> {
 
     @Override

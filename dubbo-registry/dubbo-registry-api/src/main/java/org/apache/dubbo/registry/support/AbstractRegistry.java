@@ -83,6 +83,7 @@ import static org.apache.dubbo.registry.Constants.REGISTRY_FILESAVE_SYNC_KEY;
  * <p>
  * (SPI, Prototype, ThreadSafe)
  */
+// local cache file: 防止注册中心崩溃
 public abstract class AbstractRegistry implements Registry {
 
     // URL address separator, used in file cache, service provider URL separation
@@ -99,6 +100,7 @@ public abstract class AbstractRegistry implements Registry {
 
     // Local disk cache, where the special key value.registries records the list of registry centers, and the others are
     // the list of notified service providers
+    // special key registries
     private final Properties properties = new Properties();
     // File cache timing writing
     private final ScheduledExecutorService registryCacheExecutor;

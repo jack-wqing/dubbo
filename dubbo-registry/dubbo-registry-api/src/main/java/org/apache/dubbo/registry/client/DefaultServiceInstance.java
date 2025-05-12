@@ -40,6 +40,7 @@ import static org.apache.dubbo.registry.client.metadata.ServiceInstanceMetadataU
  *
  * @since 2.7.5
  */
+// DefaultServiceInstance
 public class DefaultServiceInstance implements ServiceInstance {
 
     private static final long serialVersionUID = 1149677083747278100L;

@@ -40,6 +40,8 @@ import static org.apache.dubbo.rpc.Constants.H2_SETTINGS_OPENAPI_PREFIX;
  * 1. The Consumer queries the metadata information of the Provider to list the interfaces and each interface's configuration
  * 2. The Console (dubbo-admin) queries for the metadata of a specific process, or aggregate data of all processes.
  */
+// Consumer 查询 provider提供的接口列表和配置信息
+// dubbo-admin: 查询特定进程，或者多有进程的数据
 @OpenAPI(hidden = "true")
 public interface MetadataService {
 

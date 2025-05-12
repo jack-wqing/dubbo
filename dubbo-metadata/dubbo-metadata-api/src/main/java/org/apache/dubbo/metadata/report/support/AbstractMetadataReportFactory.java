@@ -31,6 +31,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_UNEXP
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROXY_FAILED_EXPORT_SERVICE;
 import static org.apache.dubbo.metadata.MetadataConstants.NAMESPACE_KEY;
 
+// AbstractMetadataReport: Factory
 public abstract class AbstractMetadataReportFactory implements MetadataReportFactory {
 
     private static final ErrorTypeAwareLogger logger =

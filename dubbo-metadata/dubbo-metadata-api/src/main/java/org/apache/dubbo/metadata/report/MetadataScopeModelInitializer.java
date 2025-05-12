@@ -20,6 +20,7 @@ import org.apache.dubbo.common.beans.factory.ScopeBeanFactory;
 import org.apache.dubbo.rpc.model.ApplicationModel;
 import org.apache.dubbo.rpc.model.ScopeModelInitializer;
 
+// ScopeModelInitializer 炊事员注册组件
 public class MetadataScopeModelInitializer implements ScopeModelInitializer {
 
     @Override

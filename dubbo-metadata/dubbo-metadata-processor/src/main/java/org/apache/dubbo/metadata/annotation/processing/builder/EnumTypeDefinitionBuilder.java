@@ -34,6 +34,7 @@ import static org.apache.dubbo.metadata.annotation.processing.util.TypeUtils.isE
  *
  * @since 2.7.6
  */
+// EnumType
 public class EnumTypeDefinitionBuilder implements DeclaredTypeDefinitionBuilder {
 
     @Override

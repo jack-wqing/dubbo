@@ -21,7 +21,7 @@ import org.apache.dubbo.rpc.model.ApplicationModel;
 
 import java.util.List;
 import java.util.Set;
-
+// Nop
 public class NopServiceDiscovery extends AbstractServiceDiscovery {
     public NopServiceDiscovery(String serviceName, URL registryURL) {
         super(serviceName, registryURL);

@@ -16,6 +16,7 @@
  */
 package org.apache.dubbo.metadata;
 
+// MetadataRequestOrBuilder
 public interface MetadataRequestOrBuilder
         extends
         // @@protoc_insertion_point(interface_extends:org.apache.dubbo.metadata.MetadataRequest)

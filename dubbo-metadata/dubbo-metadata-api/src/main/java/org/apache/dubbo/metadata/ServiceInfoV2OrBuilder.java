@@ -16,6 +16,7 @@
  */
 package org.apache.dubbo.metadata;
 
+// Protobuf ServiceInfoV2OrBuilder
 public interface ServiceInfoV2OrBuilder
         extends
         // @@protoc_insertion_point(interface_extends:org.apache.dubbo.metadata.ServiceInfoV2)

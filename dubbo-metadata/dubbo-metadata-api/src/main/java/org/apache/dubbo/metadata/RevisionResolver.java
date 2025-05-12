@@ -18,6 +18,7 @@ package org.apache.dubbo.metadata;
 
 import org.apache.dubbo.common.utils.MD5Utils;
 
+// Revision: 元数据的版本记录
 public class RevisionResolver {
 
     public static final String EMPTY_REVISION = "0";

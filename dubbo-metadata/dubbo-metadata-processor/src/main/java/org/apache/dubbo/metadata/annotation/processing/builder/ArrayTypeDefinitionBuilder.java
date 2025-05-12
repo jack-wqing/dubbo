@@ -32,6 +32,7 @@ import static org.apache.dubbo.metadata.annotation.processing.util.TypeUtils.isA
  *
  * @since 2.7.6
  */
+// Array
 public class ArrayTypeDefinitionBuilder implements TypeBuilder<ArrayType> {
 
     @Override

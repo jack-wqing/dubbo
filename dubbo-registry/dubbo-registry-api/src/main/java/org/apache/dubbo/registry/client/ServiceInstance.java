@@ -31,6 +31,7 @@ import java.util.SortedMap;
  *
  * @since 2.7.5
  */
+// 服务实力
 public interface ServiceInstance extends Serializable {
 
     /**

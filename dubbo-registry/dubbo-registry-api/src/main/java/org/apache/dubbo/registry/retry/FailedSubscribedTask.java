@@ -24,6 +24,7 @@ import org.apache.dubbo.registry.support.FailbackRegistry;
 /**
  * FailedSubscribedTask
  */
+// RetryTask: Subscribed
 public final class FailedSubscribedTask extends AbstractRetryTask {
 
     private static final String NAME = "retry subscribe";

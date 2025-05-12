@@ -27,6 +27,7 @@ import static org.apache.dubbo.metadata.annotation.processing.util.TypeUtils.ofD
  *
  * @since 2.7.6
  */
+// DeclareType
 public interface DeclaredTypeDefinitionBuilder extends TypeBuilder<DeclaredType> {
 
     @Override

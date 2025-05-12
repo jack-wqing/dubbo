@@ -37,6 +37,7 @@ import static org.apache.dubbo.metadata.annotation.processing.util.LoggerUtils.w
 /**
  * A storage class for metadata under class path
  */
+// CLASS_OUTPUT
 public class ClassPathMetadataStorage {
 
     private final Filer filer;

@@ -26,6 +26,7 @@ import java.util.List;
  * @see org.apache.dubbo.registry.Registry
  * @see org.apache.dubbo.registry.RegistryFactory#getRegistry(URL)
  */
+// 向注册中心注册数据
 public interface RegistryService {
 
     /**
@@ -40,6 +41,11 @@ public interface RegistryService {
      *
      * @param url  Registration information , is not allowed to be empty, e.g: dubbo://10.20.153.10/org.apache.dubbo.foo.BarService?version=1.0.0&application=kylin
      */
+    // 需要支持的Contract: 1.check=false: 注册后台充实，负责抛出异常
+    //                   2.dynamic=false: 注册的数据是否应该是持久化的
+    //                   3.category=routers ，默认是providers, 当前的数据分类
+    //                   4.网络抖动不会丢失数据
+    //                   5.允许具有相同的URL但是不同参数存在，不相互覆盖
     void register(URL url);
 
     /**
@@ -51,6 +57,8 @@ public interface RegistryService {
      *
      * @param url Registration information , is not allowed to be empty, e.g: dubbo://10.20.153.10/org.apache.dubbo.foo.BarService?version=1.0.0&application=kylin
      */
+    // contract: 1.持久化的注册，如果不能发现则抛出非法状态异常，负责忽略
+    //           2.匹配规则是 full url的规则
     void unregister(URL url);
 
     /**
@@ -68,6 +76,8 @@ public interface RegistryService {
      * @param url      Subscription condition, not allowed to be empty, e.g. consumer://10.20.153.10/org.apache.dubbo.foo.BarService?version=1.0.0&application=kylin
      * @param listener A listener of the change event, not allowed to be empty
      */
+    // 订阅的contract：
+    //  check属性支持、分类通知支持、允许接口,分类,版本查询,查询条件允许通配符、网络jitter重新订阅、
     void subscribe(URL url, NotifyListener listener);
 
     /**
@@ -80,6 +90,7 @@ public interface RegistryService {
      * @param url      Subscription condition, not allowed to be empty, e.g. consumer://10.20.153.10/org.apache.dubbo.foo.BarService?version=1.0.0&application=kylin
      * @param listener A listener of the change event, not allowed to be empty
      */
+    // 取消订阅
     void unsubscribe(URL url, NotifyListener listener);
 
     /**
@@ -89,5 +100,6 @@ public interface RegistryService {
      * @return The registered information list, which may be empty, the meaning is the same as the parameters of {@link org.apache.dubbo.registry.NotifyListener#notify(List<URL>)}.
      * @see org.apache.dubbo.registry.NotifyListener#notify(List)
      */
+    // pull 模式查询
     List<URL> lookup(URL url);
 }

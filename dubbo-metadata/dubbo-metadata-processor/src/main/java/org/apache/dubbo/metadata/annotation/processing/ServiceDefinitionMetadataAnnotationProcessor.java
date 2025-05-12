@@ -37,6 +37,7 @@ import static org.apache.dubbo.metadata.annotation.processing.builder.ServiceDef
  * @see Processor
  * @since 2.7.6
  */
+// 最终生成的服务内容写入到了service-definitions.json 文件
 public class ServiceDefinitionMetadataAnnotationProcessor extends AbstractServiceAnnotationProcessor {
 
     private List<ServiceDefinition> serviceDefinitions = new LinkedList<>();

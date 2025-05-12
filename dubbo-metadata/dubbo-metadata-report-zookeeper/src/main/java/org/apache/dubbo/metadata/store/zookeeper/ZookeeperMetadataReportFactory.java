@@ -26,6 +26,7 @@ import org.apache.dubbo.rpc.model.ApplicationModel;
 /**
  * ZookeeperRegistryFactory.
  */
+// zookeeper MetadataReport
 public class ZookeeperMetadataReportFactory extends AbstractMetadataReportFactory {
 
     private ZookeeperClientManager zookeeperClientManager;

@@ -34,6 +34,7 @@ import java.util.Set;
 /**
  * 2015/1/27.
  */
+// TypeDefinitionBuidler
 public class TypeDefinitionBuilder {
     private static final Logger logger = LoggerFactory.getLogger(TypeDefinitionBuilder.class);
     public static List<TypeBuilder> BUILDERS;

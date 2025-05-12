@@ -27,6 +27,7 @@ import java.util.Map;
 /**
  * 2015/1/27.
  */
+// Type
 @SPI(scope = ExtensionScope.FRAMEWORK)
 public interface TypeBuilder extends Prioritized {
 

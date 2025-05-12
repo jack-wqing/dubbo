@@ -21,6 +21,8 @@ import org.apache.dubbo.common.utils.StringUtils;
 
 import java.util.Objects;
 
+// ServiceKey: InterfaceName Group Version
+
 public class ServiceKey {
     private final String interfaceName;
     private final String group;

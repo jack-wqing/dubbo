@@ -31,6 +31,7 @@ import java.util.Map;
  *
  * @since 2.7.6
  */
+// TypeDefinition
 public interface TypeDefinitionBuilder<T extends TypeMirror> extends Prioritized {
 
     /**

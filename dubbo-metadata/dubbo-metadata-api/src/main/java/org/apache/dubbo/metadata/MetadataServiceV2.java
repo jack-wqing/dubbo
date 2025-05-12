@@ -18,6 +18,7 @@ package org.apache.dubbo.metadata;
 
 import java.util.concurrent.CompletableFuture;
 
+// Protobuf MetadataServiceV2
 public interface MetadataServiceV2 extends org.apache.dubbo.rpc.model.DubboStub {
 
     String JAVA_SERVICE_NAME = "org.apache.dubbo.metadata.MetadataServiceV2";

@@ -19,7 +19,7 @@ package org.apache.dubbo.registry.client;
 import org.apache.dubbo.common.URL;
 
 import static org.apache.dubbo.common.constants.RegistryConstants.REGISTRY_CLUSTER_KEY;
-
+// Default
 public class DefaultRegistryClusterIdentifier implements RegistryClusterIdentifier {
     @Override
     public String providerKey(URL url) {

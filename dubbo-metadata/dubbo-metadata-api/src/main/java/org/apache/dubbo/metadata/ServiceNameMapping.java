@@ -39,6 +39,7 @@ import static org.apache.dubbo.common.extension.ExtensionScope.APPLICATION;
  *
  * Call variants of getCachedMapping() methods whenever need to use the mapping data.
  */
+// 本地缓存的interface-app mapping
 @SPI(value = "metadata", scope = APPLICATION)
 public interface ServiceNameMapping extends Destroyable {
 

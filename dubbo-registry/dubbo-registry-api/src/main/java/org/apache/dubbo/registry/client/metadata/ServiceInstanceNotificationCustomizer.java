@@ -21,6 +21,7 @@ import org.apache.dubbo.registry.client.ServiceInstance;
 
 import java.util.List;
 
+// Customer: ServerInstanceNotification
 @SPI
 public interface ServiceInstanceNotificationCustomizer {
 

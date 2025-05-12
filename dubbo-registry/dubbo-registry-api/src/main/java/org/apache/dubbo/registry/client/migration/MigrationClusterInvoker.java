@@ -26,6 +26,7 @@ import org.apache.dubbo.rpc.cluster.ClusterInvoker;
  *
  * @param <T>
  */
+// ClusterInvoker: Migration
 public interface MigrationClusterInvoker<T> extends ClusterInvoker<T> {
 
     @Override

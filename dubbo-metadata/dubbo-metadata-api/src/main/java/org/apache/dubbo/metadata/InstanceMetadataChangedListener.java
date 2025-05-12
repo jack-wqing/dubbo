@@ -16,6 +16,7 @@
  */
 package org.apache.dubbo.metadata;
 
+// 实例元数据改变监听器
 public interface InstanceMetadataChangedListener {
     /**
      * Call when metadata in provider side update <p/>

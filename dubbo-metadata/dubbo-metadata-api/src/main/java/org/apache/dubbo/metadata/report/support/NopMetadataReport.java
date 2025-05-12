@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+// NOP
 public class NopMetadataReport implements MetadataReport {
     public NopMetadataReport() {}
 

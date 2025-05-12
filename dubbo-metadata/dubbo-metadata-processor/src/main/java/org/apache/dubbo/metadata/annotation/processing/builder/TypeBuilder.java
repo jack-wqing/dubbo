@@ -25,6 +25,7 @@ import javax.lang.model.type.TypeMirror;
 
 import java.util.Map;
 
+// TypeBuilder
 @SPI
 public interface TypeBuilder<T extends TypeMirror> extends Prioritized {
 

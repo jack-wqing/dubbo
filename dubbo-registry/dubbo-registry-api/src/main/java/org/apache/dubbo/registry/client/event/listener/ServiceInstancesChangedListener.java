@@ -70,6 +70,7 @@ import static org.apache.dubbo.registry.client.metadata.ServiceInstanceMetadataU
  * <p>
  * The operations of ServiceInstancesChangedListener should be synchronized.
  */
+// 修正的元数据到 ServiceDiscovery: 最终到 notify(urls)
 public class ServiceInstancesChangedListener {
 
     private static final ErrorTypeAwareLogger logger =

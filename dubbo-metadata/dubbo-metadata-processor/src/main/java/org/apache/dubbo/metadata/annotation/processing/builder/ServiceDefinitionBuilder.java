@@ -36,6 +36,7 @@ import static org.apache.dubbo.metadata.annotation.processing.util.TypeUtils.get
  * @see ServiceDefinition
  * @since 2.7.6
  */
+// APT -> 使用 生成ServiceDefinition
 public interface ServiceDefinitionBuilder {
 
     static ServiceDefinition build(ProcessingEnvironment processingEnv, TypeElement type) {

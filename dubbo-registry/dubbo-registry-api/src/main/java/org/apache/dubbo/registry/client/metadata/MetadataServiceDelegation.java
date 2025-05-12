@@ -55,6 +55,7 @@ import static org.apache.dubbo.common.utils.CollectionUtils.isEmpty;
 /**
  * Implementation providing remote RPC service to facilitate the query of metadata information.
  */
+// MetadataService
 public class MetadataServiceDelegation implements MetadataService, Disposable {
     ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(getClass());
 

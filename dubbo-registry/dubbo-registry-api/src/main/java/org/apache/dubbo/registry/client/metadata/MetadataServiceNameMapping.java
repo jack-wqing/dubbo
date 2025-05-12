@@ -45,7 +45,7 @@ import static org.apache.dubbo.registry.Constants.CAS_RETRY_TIMES_KEY;
 import static org.apache.dubbo.registry.Constants.CAS_RETRY_WAIT_TIME_KEY;
 import static org.apache.dubbo.registry.Constants.DEFAULT_CAS_RETRY_TIMES;
 import static org.apache.dubbo.registry.Constants.DEFAULT_CAS_RETRY_WAIT_TIME;
-
+// MetadataServiceNameMapping
 public class MetadataServiceNameMapping extends AbstractServiceNameMapping {
 
     private final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(getClass());

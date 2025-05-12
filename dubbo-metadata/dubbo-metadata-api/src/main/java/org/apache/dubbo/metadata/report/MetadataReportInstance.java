@@ -52,6 +52,7 @@ import static org.apache.dubbo.metadata.report.support.Constants.METADATA_REPORT
  * <dubbo:registry id=demo2 address="registry://"/>
  * <dubbo:metadata id=demo2 address="metadata://"/>
  */
+// 元数据注册中心：支持多个， 注册中心和元数据相同的分组在一起
 public class MetadataReportInstance implements Disposable {
 
     private final AtomicBoolean initialized = new AtomicBoolean(false);

@@ -27,6 +27,7 @@ import java.util.Objects;
 /**
  * 2015/1/27.
  */
+// service
 public class ServiceDefinition implements Serializable {
 
     /**

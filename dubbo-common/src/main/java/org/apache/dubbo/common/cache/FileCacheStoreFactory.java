@@ -42,6 +42,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_CACHE
  * ClassLoader Level static share.
  * Prevent FileCacheStore being operated in multi-application
  */
+// 禁止多实例共享
 public final class FileCacheStoreFactory {
 
     /**

@@ -33,6 +33,7 @@ import java.util.Objects;
  *
  * @since 2.7.6
  */
+// MapType
 public class MapTypeDefinitionBuilder implements DeclaredTypeDefinitionBuilder {
 
     @Override

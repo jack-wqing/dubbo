@@ -92,7 +92,7 @@ public abstract class AbstractServiceNameMapping implements ServiceNameMapping {
     public abstract Set<String> getAndListen(URL url, MappingListener mappingListener);
 
     protected abstract void removeListener(URL url, MappingListener mappingListener);
-
+    // getListener
     @Override
     public Set<String> getAndListen(URL registryURL, URL subscribedURL, MappingListener listener) {
         String key = ServiceNameMapping.buildMappingKey(subscribedURL);

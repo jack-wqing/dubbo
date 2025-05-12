@@ -36,6 +36,7 @@ import static org.apache.dubbo.registry.Constants.REGISTRY_RETRY_TIMES_KEY;
 /**
  * AbstractRetryTask
  */
+// RetryTask
 public abstract class AbstractRetryTask implements TimerTask {
 
     protected final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(getClass());

@@ -1,0 +1,25 @@
+local file: 在注册中心崩溃的时候，可以正常使用
+
+1.服务端注册
+2.消费端服务发现，订阅
+
+主要的接口:
+    Registry:
+
+    RegistryService:
+
+    ServiceDiscovery:
+
+    ServiceDiscoveryRegistry:
+
+
+
+设计功能: provider:
+         consumer:
+         dictionary:
+
+         GovernanceRule:
+
+
+Migration:用于服务调用的迁移过程，在灰度发布或者服务升级的过程中，允许将请求从旧版本的服务提供者逐步迁移到新版本的提供者上面
+         使用场景: 灰度发布、A/B测试、服务迁移

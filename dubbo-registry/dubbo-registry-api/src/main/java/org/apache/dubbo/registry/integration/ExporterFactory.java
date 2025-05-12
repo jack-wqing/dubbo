@@ -22,6 +22,7 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ConcurrentHashMap;
 
+// ExporterFactory: ReferenceCountExporter
 public class ExporterFactory {
     private final Map<String, ReferenceCountExporter<?>> exporters = new ConcurrentHashMap<>();
 

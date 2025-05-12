@@ -16,6 +16,7 @@
  */
 package org.apache.dubbo.registry.client.migration;
 
+// InvokersChanged
 public interface InvokersChangedListener {
     void onChange();
 }

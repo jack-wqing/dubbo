@@ -24,6 +24,7 @@ import org.apache.dubbo.registry.support.FailbackRegistry;
 /**
  * FailedUnsubscribedTask
  */
+// RetryTask: Unsubscribed  取消订阅
 public final class FailedUnsubscribedTask extends AbstractRetryTask {
 
     private static final String NAME = "retry unsubscribe";

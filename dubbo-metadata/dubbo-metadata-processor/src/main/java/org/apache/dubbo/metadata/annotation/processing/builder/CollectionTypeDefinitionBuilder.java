@@ -34,6 +34,7 @@ import java.util.Objects;
  *
  * @since 2.7.6
  */
+// Collection
 public class CollectionTypeDefinitionBuilder implements DeclaredTypeDefinitionBuilder {
 
     @Override

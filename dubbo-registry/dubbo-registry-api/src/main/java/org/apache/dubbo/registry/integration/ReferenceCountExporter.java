@@ -20,7 +20,7 @@ import org.apache.dubbo.rpc.Exporter;
 import org.apache.dubbo.rpc.Invoker;
 
 import java.util.concurrent.atomic.AtomicInteger;
-
+// ReferenceCount: Exporter
 public class ReferenceCountExporter<T> implements Exporter<T> {
     private final Exporter<T> exporter;
     private final String providerKey;

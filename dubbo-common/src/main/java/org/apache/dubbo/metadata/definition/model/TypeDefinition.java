@@ -29,6 +29,7 @@ import static org.apache.dubbo.common.utils.StringUtils.replace;
 /**
  * 2015/1/27.
  */
+// Type
 public class TypeDefinition implements Serializable {
 
     /**

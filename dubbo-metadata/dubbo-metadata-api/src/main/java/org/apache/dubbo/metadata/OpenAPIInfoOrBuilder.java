@@ -16,6 +16,7 @@
  */
 package org.apache.dubbo.metadata;
 
+// OpenAPIInfo Builder
 public interface OpenAPIInfoOrBuilder
         extends
         // @@protoc_insertion_point(interface_extends:org.apache.dubbo.metadata.OpenAPIInfo)

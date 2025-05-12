@@ -32,6 +32,7 @@ import static org.apache.dubbo.remoting.Constants.BIND_PORT_KEY;
 import static org.apache.dubbo.remoting.Constants.HEARTBEAT_TIMEOUT_KEY;
 import static org.apache.dubbo.rpc.Constants.INTERFACES;
 
+// Default: MetadataParamsFilter
 @Activate
 public class DefaultMetadataParamsFilter implements MetadataParamsFilter {
     private final String[] excludedServiceParams;

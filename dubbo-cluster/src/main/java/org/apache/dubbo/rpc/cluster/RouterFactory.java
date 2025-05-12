@@ -33,6 +33,7 @@ import org.apache.dubbo.common.extension.SPI;
  * for each service. See {@link CacheableRouterFactory} and {@link RouterChain} for how to extend a new Router or how
  * the Router instances are loaded.
  */
+// RouterFactory
 @SPI
 public interface RouterFactory {
 

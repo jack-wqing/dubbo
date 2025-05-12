@@ -25,6 +25,7 @@ import org.apache.dubbo.rpc.model.ApplicationModel;
 import org.apache.dubbo.rpc.model.FrameworkModel;
 import org.apache.dubbo.rpc.model.ScopeModelInitializer;
 
+// ScopeModelInitializer
 public class RegistryScopeModelInitializer implements ScopeModelInitializer {
 
     @Override

@@ -38,6 +38,7 @@ import com.google.protobuf.GeneratedMessageV3;
 import com.google.protobuf.ProtocolStringList;
 import com.google.protobuf.UnknownFieldSet;
 
+// ProtobufType: Builder
 @Activate(onClass = "com.google.protobuf.GeneratedMessageV3")
 public class ProtobufTypeBuilder implements TypeBuilder, Prioritized {
     private final Logger logger = LoggerFactory.getLogger(getClass());

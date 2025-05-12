@@ -79,6 +79,7 @@ import static org.apache.dubbo.rpc.cluster.Constants.REFER_KEY;
 /**
  * Abstract implementation of Directory: Invoker list returned from this Directory's list method have been filtered by Routers
  */
+// 进行Routers过滤
 public abstract class AbstractDirectory<T> implements Directory<T> {
 
     // logger

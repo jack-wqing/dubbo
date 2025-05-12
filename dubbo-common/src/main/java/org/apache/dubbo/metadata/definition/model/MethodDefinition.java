@@ -29,6 +29,7 @@ import static org.apache.dubbo.metadata.definition.model.TypeDefinition.formatTy
 /**
  * 2015/1/27.
  */
+// method
 public class MethodDefinition implements Serializable {
 
     private String name;

@@ -24,6 +24,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.PROTOCOL_KEY;
 import static org.apache.dubbo.metadata.report.MetadataReportFactory.DEFAULT;
 
 /**
+ * Factory
  */
 @SPI(DEFAULT)
 public interface MetadataReportFactory {

@@ -86,7 +86,8 @@ import static org.apache.dubbo.common.constants.RegistryConstants.REGISTRY_TYPE_
 import static org.apache.dubbo.common.constants.RegistryConstants.SERVICE_REGISTRY_TYPE;
 import static org.apache.dubbo.registry.Constants.CONFIGURATORS_SUFFIX;
 import static org.apache.dubbo.rpc.model.ScopeModelUtil.getModuleModel;
-
+// DynamicDirectory: ServiceDiscoveryRegistry
+// NotifyListener
 public class ServiceDiscoveryRegistryDirectory<T> extends DynamicDirectory<T> {
     private static final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(ServiceDiscoveryRegistryDirectory.class);

@@ -21,6 +21,7 @@ import java.util.Map;
 /**
  * 2018/10/25
  */
+// FullService
 public class FullServiceDefinition extends ServiceDefinition {
 
     private Map<String, String> parameters;

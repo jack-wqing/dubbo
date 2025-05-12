@@ -23,6 +23,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.REVISION_KEY;
 /**
  * 2019-08-12
  */
+// SubscribeMetadata Identifier
 public class SubscriberMetadataIdentifier extends BaseApplicationMetadataIdentifier implements BaseMetadataIdentifier {
 
     private String revision;

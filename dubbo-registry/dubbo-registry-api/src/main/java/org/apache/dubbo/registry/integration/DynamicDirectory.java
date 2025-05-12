@@ -60,6 +60,7 @@ import static org.apache.dubbo.remoting.Constants.CHECK_KEY;
 /**
  * DynamicDirectory
  */
+// DynamicDirectory
 public abstract class DynamicDirectory<T> extends AbstractDirectory<T> implements NotifyListener {
 
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(DynamicDirectory.class);

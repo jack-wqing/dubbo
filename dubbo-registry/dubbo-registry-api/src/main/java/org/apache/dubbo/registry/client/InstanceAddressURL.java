@@ -45,6 +45,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.VERSION_KEY;
 import static org.apache.dubbo.common.utils.StringUtils.isEmpty;
 import static org.apache.dubbo.common.utils.StringUtils.isEquals;
 
+// URL: InstanceAddress
 public class InstanceAddressURL extends URL {
     private final ServiceInstance instance;
     private final MetadataInfo metadataInfo;

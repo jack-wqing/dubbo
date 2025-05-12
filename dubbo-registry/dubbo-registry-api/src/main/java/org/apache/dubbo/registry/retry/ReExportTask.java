@@ -23,6 +23,7 @@ import org.apache.dubbo.registry.support.FailbackRegistry;
 /**
  * ReExportTask
  */
+// Retry: ReExportTask
 public class ReExportTask extends AbstractRetryTask {
 
     private static final String NAME = "retry re-export";
