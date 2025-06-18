@@ -32,6 +32,7 @@ import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProce
  * @see org.springframework.context.support.PostProcessorRegistrationDelegate#invokeBeanFactoryPostProcessors(
  *org.springframework.beans.factory.config.ConfigurableListableBeanFactory, java.util.List)
  */
+// ReferenceAnnotationBeanPostProcessor
 public class DubboInfraBeanRegisterPostProcessor implements BeanDefinitionRegistryPostProcessor {
 
     /**

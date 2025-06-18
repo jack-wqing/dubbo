@@ -21,7 +21,9 @@ import org.apache.dubbo.remoting.exchange.ExchangeClient;
 import java.util.List;
 
 // ClientProvider: ExchangeClient
+// 共享 或 独占模式
 public interface ClientsProvider {
+
     List<? extends ExchangeClient> getClients();
 
     void close(int timeout);

@@ -48,7 +48,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.DUBBO;
  *
  * @export
  */
-// service Config
+// service Config: 具体的视线配置
 @SuppressWarnings({"rawtypes", "deprecation"})
 public abstract class ServiceConfigBase<T> extends AbstractServiceConfig {
 
@@ -124,7 +124,7 @@ public abstract class ServiceConfigBase<T> extends AbstractServiceConfig {
             this.provider.setScopeModel(getScopeModel());
         }
     }
-
+    // 服务的export控制
     public boolean shouldExport() {
         Boolean export = getExport();
         // default value is true
@@ -135,7 +135,7 @@ public abstract class ServiceConfigBase<T> extends AbstractServiceConfig {
     public Boolean getExport() {
         return (export == null && provider != null) ? provider.getExport() : export;
     }
-
+    // 导出 delay
     public boolean shouldDelay() {
         Integer delay = getDelay();
         return delay != null && delay > 0;
@@ -242,7 +242,7 @@ public abstract class ServiceConfigBase<T> extends AbstractServiceConfig {
                     .orElseThrow(() -> new IllegalStateException("Provider config not found: " + providerIds));
         }
     }
-
+    // 配置中心管理
     protected void convertProtocolIdsToProtocols() {
         if (StringUtils.isEmpty(protocolIds)) {
             if (CollectionUtils.isEmpty(protocols)) {

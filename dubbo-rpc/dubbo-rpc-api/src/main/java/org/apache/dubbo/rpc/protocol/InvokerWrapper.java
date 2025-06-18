@@ -25,6 +25,7 @@ import org.apache.dubbo.rpc.RpcException;
 /**
  * InvokerWrapper
  */
+// Invoker Url
 public class InvokerWrapper<T> implements Invoker<T> {
 
     protected final Invoker<T> invoker;

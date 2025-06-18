@@ -52,6 +52,14 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
  *
  * @since 2.7.6
  */
+// Dubbo Bean utilities Class
+// ServicePackagesHolder
+// DubboContextPostProcessor
+// ReferenceBeanManager
+// referenceAnnotationBeanPostProcessor
+// DubboConfigAliasPostProcessor
+// DubboDeployApplicationListener: Deploy.start
+// DubboConfigApplicationListener: Deploy.prepare
 public interface DubboBeanUtils {
 
     Log log = LogFactory.getLog(DubboBeanUtils.class);

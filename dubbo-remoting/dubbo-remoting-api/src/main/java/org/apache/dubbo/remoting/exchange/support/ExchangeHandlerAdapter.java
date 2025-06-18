@@ -27,7 +27,7 @@ import java.util.concurrent.CompletableFuture;
 /**
  * ExchangeHandlerAdapter
  */
-// Adapter: ExchangeHandler
+// Exchange 层 Handler
 public abstract class ExchangeHandlerAdapter extends TelnetHandlerAdapter implements ExchangeHandler {
     public ExchangeHandlerAdapter(FrameworkModel frameworkModel) {
         super(frameworkModel);

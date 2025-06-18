@@ -30,7 +30,7 @@ public interface BaseFilter {
      * There's something that needs to pay attention on legacy synchronous style filer refactor, the thing is, try to move logics
      * previously defined in the 'finally block' to both onResponse and onError.
      */
-    // Listener: finally的逻辑 可以放在回调中
+    // 过滤器链中的回调
     interface Listener {
 
         /**

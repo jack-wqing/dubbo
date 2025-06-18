@@ -78,7 +78,7 @@ import static org.apache.dubbo.config.Constants.PARAMETERS;
  * @export
  */
 @SuppressWarnings({"unchecked", "rawtypes"})
-// AbstractConfig
+// AbstractConfig: 主要是刷新方法
 public abstract class AbstractConfig implements Serializable {
 
     private static final long serialVersionUID = 4267533505537413570L;
@@ -716,6 +716,7 @@ public abstract class AbstractConfig implements Serializable {
     /**
      * Dubbo config property override
      */
+    // 从当前配置的环境变量 刷新dubbo属性
     public void refresh() {
         if (needRefresh) {
             try {

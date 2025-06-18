@@ -29,6 +29,7 @@ import org.springframework.util.Assert;
  * The {@link ImportBeanDefinitionRegistrar Registrar class} for {@link EnableConfigurationBeanBindings}
  *
  */
+// 注册 Config
 public class ConfigurationBeanBindingsRegister implements ImportBeanDefinitionRegistrar, EnvironmentAware {
 
     private ConfigurableEnvironment environment;

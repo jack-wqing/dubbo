@@ -21,6 +21,7 @@ import org.apache.dubbo.common.extension.SPI;
 /**
  * InvokerListener. (SPI, Singleton, ThreadSafe)
  */
+// InvokerListener: protocol refer Listener
 @SPI
 public interface InvokerListener {
 

@@ -122,7 +122,7 @@ import static org.apache.dubbo.rpc.Constants.TOKEN_KEY;
 import static org.apache.dubbo.rpc.cluster.Constants.EXPORT_KEY;
 import static org.apache.dubbo.rpc.support.ProtocolUtils.isGeneric;
 
-// ServiceConfig: protocol, proxyFactory, ProviderModel
+// ServiceConfig: RPC服务端
 public class ServiceConfig<T> extends ServiceConfigBase<T> {
 
     private static final long serialVersionUID = 7868244018230856253L;
@@ -132,6 +132,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
     /**
      * A random port cache, the different protocols who have no port specified have different random port
      */
+    // 如果一个协议没有指点端口，会生成随机端口
     private static final Map<String, Integer> RANDOM_PORT_MAP = new HashMap<>();
 
     private Protocol protocolSPI;
@@ -140,6 +141,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
      * A {@link ProxyFactory} implementation that will generate a exported service proxy,the JavassistProxyFactory is its
      * default implementation
      */
+    // 默认 javassist
     private ProxyFactory proxyFactory;
 
     private ProviderModel providerModel;
@@ -205,6 +207,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
             return;
         }
         if (!exporters.isEmpty()) {
+            // Exporter.unregister
             for (List<Exporter<?>> es : exporters.values()) {
                 for (Exporter<?> exporter : es) {
                     try {
@@ -241,7 +244,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
         ModuleServiceRepository repository = getScopeModel().getServiceRepository();
         repository.unregisterProvider(providerModel);
     }
-
+    // 等待时间设置
     private void waitForIdle() {
         int timeout = ConfigurationUtils.getServerShutdownTimeout(getScopeModel());
 
@@ -295,6 +298,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
     /**
      * for early init serviceMetadata
      */
+    // 初始化源信息
     public void init() {
         if (this.initialized.compareAndSet(false, true)) {
             // load ServiceListeners from extension
@@ -312,12 +316,13 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
         if (this.exported) {
             return;
         }
-
+        // service 的生命周期管理位置: Spring 环境未true
         if (getScopeModel().isLifeCycleManagedExternally()) {
             // prepare model for reference
             getScopeModel().getDeployer().prepare();
         } else {
             // ensure start module, compatible with old api usage
+            // Deploy 组件发布
             getScopeModel().getDeployer().start();
         }
 
@@ -373,7 +378,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
             }
         }
     }
-
+    // 延迟导出
     protected void doDelayExport() {
         ExecutorRepository.getInstance(getScopeModel().getApplicationModel())
                 .getServiceExportExecutor()
@@ -422,7 +427,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
                         .getApplicationConfigManager()
                         .getRegistries());
     }
-
+    // 接口实例映射
     protected void mapServiceName(
             URL url, ServiceNameMapping serviceNameMapping, ScheduledExecutorService scheduledExecutor) {
         if (!exported) {
@@ -587,7 +592,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
 
         providerModel.setDestroyRunner(getDestroyRunner());
         repository.registerProvider(providerModel);
-
+        // 加载service-discovery-registry 和 Registry URL
         List<URL> registryURLs = !Boolean.FALSE.equals(isRegister())
                 ? ConfigValidationUtils.loadRegistries(this, true)
                 : Collections.emptyList();
@@ -852,12 +857,12 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
         url = url.setServiceModel(providerModel);
         return url;
     }
-
+    // url:具体的服务url / registryURLs: 注册中心URLs
     private void exportUrl(URL url, List<URL> registryURLs, RegisterTypeEnum registerType) {
         String scope = url.getParameter(SCOPE_KEY);
         // don't export when none is configured
         if (!SCOPE_NONE.equalsIgnoreCase(scope)) {
-
+            // 先进行本地导出
             // export to local if the config is not remote (export to remote only when config is remote)
             if (!SCOPE_REMOTE.equalsIgnoreCase(scope)) {
                 exportLocal(url);
@@ -894,6 +899,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
                                 .removeParameter(EXT_PROTOCOL)
                                 .build();
                         localUrl = exportRemote(localUrl, registryURLs, registerType);
+                        // 发布服务定义
                         if (!isGeneric(generic) && !getScopeModel().isInternal()) {
                             MetadataUtils.publishServiceDefinition(
                                     localUrl, providerModel.getServiceModel(), getApplicationModel());

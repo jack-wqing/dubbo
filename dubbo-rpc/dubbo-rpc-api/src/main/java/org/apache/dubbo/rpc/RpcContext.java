@@ -48,6 +48,9 @@ import java.util.concurrent.Future;
  * @export
  * @see org.apache.dubbo.rpc.filter.ContextFilter
  */
+// ServiceContext 在整个调用中传递环境参数; 例如: RpcServiceContext
+// ClientAttachment, ServerAttachment and ServiceContext 传输附件
+//
 public class RpcContext {
 
     private static final RpcContext AGENT = new RpcContext();

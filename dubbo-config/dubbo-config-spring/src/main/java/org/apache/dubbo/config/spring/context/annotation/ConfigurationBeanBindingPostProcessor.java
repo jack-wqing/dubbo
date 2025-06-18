@@ -48,6 +48,7 @@ import static org.springframework.util.ObjectUtils.nullSafeEquals;
  * The {@link BeanPostProcessor} class to bind the configuration bean
  *
  */
+// 使用 configurationProperties 对 dubbo 配置类，进行注入缓存
 @SuppressWarnings("unchecked")
 public class ConfigurationBeanBindingPostProcessor implements BeanPostProcessor, BeanFactoryAware, PriorityOrdered {
 

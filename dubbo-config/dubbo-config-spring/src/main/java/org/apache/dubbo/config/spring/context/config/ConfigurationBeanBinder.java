@@ -26,6 +26,7 @@ import org.springframework.core.env.Environment;
  * The binder for the configuration bean
  *
  */
+// 配置Bean绑定属性
 public interface ConfigurationBeanBinder {
 
     /**

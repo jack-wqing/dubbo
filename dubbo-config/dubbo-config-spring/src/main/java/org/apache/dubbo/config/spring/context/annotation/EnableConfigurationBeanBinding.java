@@ -34,6 +34,7 @@ import org.springframework.core.env.PropertySources;
  * @see ConfigurationBeanBindingPostProcessor
  * @see ConfigurationBeanCustomizer
  */
+// BeanBinding
 @Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented

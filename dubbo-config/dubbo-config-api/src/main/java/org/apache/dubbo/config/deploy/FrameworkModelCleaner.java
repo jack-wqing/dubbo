@@ -59,7 +59,7 @@ public class FrameworkModelCleaner implements ScopeModelDestroyListener<Framewor
     /**
      * Destroy all the protocols.
      */
-    // Destroy: protocols
+    // Destroy: protocols destroy
     private void destroyProtocols(FrameworkModel frameworkModel) {
         if (protocolDestroyed.compareAndSet(false, true)) {
             ExtensionLoader<Protocol> loader = frameworkModel.getExtensionLoader(Protocol.class);

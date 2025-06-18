@@ -31,6 +31,7 @@ import org.apache.dubbo.rpc.Invoker;
  *
  * @param <T>
  */
+// 包含一组正常的Invoker
 public interface ClusterInvoker<T> extends Invoker<T> {
 
     URL getRegistryUrl();

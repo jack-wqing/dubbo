@@ -28,6 +28,7 @@ import java.util.List;
 
 import static org.apache.dubbo.rpc.model.ScopeModelUtil.getFrameworkModel;
 
+// Protocol Wrapper: 通过 PermittedSerializationKeeper 来记录全局及特定serviceKey的序列化类型
 @Activate
 public class ProtocolSerializationWrapper implements Protocol {
     private final Protocol protocol;

@@ -113,20 +113,20 @@ import static org.apache.dubbo.remoting.Constants.CLIENT_KEY;
 /**
  * initialize and start application instance
  */
-// initialize, start: application instance
+// ApplicationDeployer: Default 管理ApplicationModule
 public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationModel> implements ApplicationDeployer {
 
     private static final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(DefaultApplicationDeployer.class);
 
     private final ApplicationModel applicationModel;
-
+    // 各种组件配置: Registry, Metadata, Monitor
     private final ConfigManager configManager;
 
     private final Environment environment;
 
     private final ReferenceCache referenceCache;
-
+    // Dubbo 本身对任务 Executor 分类
     private final FrameworkExecutorRepository frameworkExecutorRepository;
     private final ExecutorRepository executorRepository;
 
@@ -190,6 +190,7 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
      * Enable registration of instance for pure Consumer process by setting registerConsumer to 'true'
      * by default is false.
      */
+    // pure ConsumerInstance register
     private boolean isRegisterConsumerInstance() {
         Boolean registerConsumer = getApplicationOrElseThrow().getRegisterConsumer();
         if (registerConsumer == null) {
@@ -244,11 +245,11 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
             }
         }
     }
-    // dubboShutdownHook
+    // DubboShutdownHook: Register
     private void registerShutdownHook() {
         dubboShutdownHook.register();
     }
-
+    // 初始化 Application 管理的 ModuleModel.initialize
     private void initModuleDeployers() {
         // make sure created default module
         applicationModel.getDefaultModule();
@@ -257,14 +258,16 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
             moduleModel.getDeployer().initialize();
         }
     }
-
+    // 加载Dubbo涉及组件的配置
     private void loadApplicationConfigs() {
         configManager.loadConfigs();
     }
+
     // startConfig
     private void startConfigCenter() {
 
         // load application config
+        // ApplicationConfig: 添加到ConfigManager
         configManager.loadConfigsOfTypeFromProps(ApplicationConfig.class);
 
         // try set model name
@@ -273,8 +276,9 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
         }
 
         // load config centers
+        // ConfigCenterConfig: 添加配置中心
         configManager.loadConfigsOfTypeFromProps(ConfigCenterConfig.class);
-
+        // 是否注册中心作为配置中心使用
         useRegistryAsConfigCenterIfNecessary();
 
         // check Config Center
@@ -294,7 +298,7 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
                 ConfigValidationUtils.validateConfigCenterConfig(configCenterConfig);
             }
         }
-
+        // 加载配置中心外部的配置
         if (CollectionUtils.isNotEmpty(configCenters)) {
             CompositeDynamicConfiguration compositeDynamicConfiguration = new CompositeDynamicConfiguration();
             for (ConfigCenterConfig configCenter : configCenters) {
@@ -303,12 +307,13 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
                 environment.updateAppExternalConfigMap(configCenter.getAppExternalConfiguration());
 
                 // Fetch config from remote config center
+                // 从远程拉取配置
                 compositeDynamicConfiguration.addConfiguration(prepareEnvironment(configCenter));
             }
             environment.setDynamicConfiguration(compositeDynamicConfiguration);
         }
     }
-
+    // 元数据中心
     private void startMetadataCenter() {
 
         useRegistryAsMetadataCenterIfNecessary();
@@ -347,6 +352,7 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
      * there's no config center specified explicitly and
      * useAsConfigCenter of registryConfig is null or true
      */
+    // UseAsConfigCenter 决定配置中心
     private void useRegistryAsConfigCenterIfNecessary() {
         // we use the loading status of DynamicConfiguration to decide whether ConfigCenter has been initiated.
         if (environment.getDynamicConfiguration().isPresent()) {
@@ -358,6 +364,7 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
         }
 
         // load registry
+        // 加载注册中心
         configManager.loadConfigsOfTypeFromProps(RegistryConfig.class);
 
         List<RegistryConfig> defaultRegistries = configManager.getDefaultRegistries();
@@ -380,7 +387,7 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
                 getExtensionLoader(MetricsServiceExporter.class).getDefaultExtension();
         metricsServiceExporter.init();
     }
-
+    // Init MetricsReporter
     private void initMetricsReporter() {
         if (!MetricsSupportUtil.isSupportMetrics()) {
             return;
@@ -454,12 +461,12 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
                 new DubboObservationRegistry(applicationModel, configOptional.get());
         dubboObservationRegistry.initObservationRegistry();
     }
-
+    // 本省没有明确指定是否支持，寻找指定协议的 是否具有DynamicConfigurationFactory
     private boolean isUsedRegistryAsConfigCenter(RegistryConfig registryConfig) {
         return isUsedRegistryAsCenter(
                 registryConfig, registryConfig::getUseAsConfigCenter, "config", DynamicConfigurationFactory.class);
     }
-
+    // 注册中心 -> ConfigCenterConfig 配置中心
     private ConfigCenterConfig registryAsConfigCenter(RegistryConfig registryConfig) {
         String protocol = registryConfig.getProtocol();
         Integer port = registryConfig.getPort();
@@ -490,7 +497,7 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
         cc.setHighestPriority(false);
         return cc;
     }
-
+    // UseRegistry 作为 MetadataCenter
     private void useRegistryAsMetadataCenterIfNecessary() {
 
         Collection<MetadataReportConfig> originMetadataConfigs = configManager.getMetadataConfigs();
@@ -544,7 +551,7 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
         }
         logger.info("use registry as metadata-center: " + metadataReportConfig);
     }
-
+    // 指定类型 metadata
     private boolean isUsedRegistryAsMetadataCenter(RegistryConfig registryConfig) {
         return isUsedRegistryAsCenter(
                 registryConfig, registryConfig::getUseAsMetadataCenter, "metadata", MetadataReportFactory.class);
@@ -606,7 +613,7 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
         }
         return false;
     }
-
+    // 注册作为元数据中心
     private MetadataReportConfig registryAsMetadataCenter(
             RegistryConfig registryConfig, MetadataReportConfig originMetadataReportConfig) {
         MetadataReportConfig metadataReportConfig = originMetadataReportConfig == null
@@ -773,6 +780,7 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
         }
     }
 
+    // 注册应用实例
     @Override
     public void prepareApplicationInstance(ModuleModel moduleModel) {
         if (hasPreparedApplicationInstance.get()) {
@@ -796,7 +804,7 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
             }
         }
     }
-
+    // 元数据导出
     @Override
     public synchronized void exportMetadataService() {
         doExportMetadataService();
@@ -880,7 +888,7 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
         }
         return false;
     }
-
+    // 通过配置中心，拉取外部的动态配置
     private DynamicConfiguration prepareEnvironment(ConfigCenterConfig configCenter) {
         if (configCenter.isValid()) {
             if (!configCenter.checkOrUpdateInitialized(true)) {
@@ -938,7 +946,7 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
 
                     environment.updateExternalConfigMap(configMap);
                     environment.updateAppExternalConfigMap(appConfigMap);
-
+                    // MetricsEventBus
                     // Add metrics
                     MetricsEventBus.publish(ConfigCenterEvent.toChangeEvent(
                             applicationModel,
@@ -972,6 +980,7 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
      * @return non-null
      * @since 2.7.5
      */
+    // 通过动态配置工程 获取配置
     private DynamicConfiguration getDynamicConfiguration(URL connectionURL) {
         String protocol = connectionURL.getProtocol();
 
@@ -988,7 +997,7 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
      * Indicate that how many threads are updating service
      */
     private final AtomicInteger serviceRefreshState = new AtomicInteger(0);
-
+    // 注册服务实例
     public synchronized void registerServiceInstance() {
         if (!registered) {
             try {
@@ -1005,6 +1014,9 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
                         e);
             }
             // scheduled task for updating Metadata and ServiceInstance
+
+            // ServiceInstanceMetadataUtils 服务元数据注册
+
             asyncMetadataFuture = frameworkExecutorRepository
                     .getSharedScheduledExecutor()
                     .scheduleWithFixedDelay(
@@ -1279,7 +1291,7 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
         }
         return DeployState.UNKNOWN;
     }
-    // DeployListener
+    // DeployerListener: Initialize
     private void onInitialize() {
         for (DeployListener<ApplicationModel> listener : listeners) {
             try {

@@ -63,7 +63,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.CONFIG_UNABL
 /**
  * Export/refer services of module
  */
-// 控制服务的暴露
+// ModuleModel Deployer: Export or refer service of module
 public class DefaultModuleDeployer extends AbstractDeployer<ModuleModel> implements ModuleDeployer {
 
     private static final ErrorTypeAwareLogger logger =
@@ -83,7 +83,7 @@ public class DefaultModuleDeployer extends AbstractDeployer<ModuleModel> impleme
     private final ModuleConfigManager configManager;
 
     private final SimpleReferenceCache referenceCache;
-
+    // 所关联的ApplicationDeployer
     private final ApplicationDeployer applicationDeployer;
     private CompletableFuture startFuture;
     private Boolean background;
@@ -129,7 +129,7 @@ public class DefaultModuleDeployer extends AbstractDeployer<ModuleModel> impleme
             onInitialize();
 
             loadConfigs();
-
+            // 默认的ModuleConfig
             // read ModuleConfig
             ModuleConfig moduleConfig = moduleModel
                     .getConfigManager()
@@ -169,12 +169,12 @@ public class DefaultModuleDeployer extends AbstractDeployer<ModuleModel> impleme
             if (isStarting() || isStarted() || isCompletion()) {
                 return startFuture;
             }
-
+            // 发布开启事件
             onModuleStarting();
 
             initialize();
 
-            // export services
+            // export services // 导出服务
             exportServices();
 
             // prepare application instance
@@ -191,7 +191,7 @@ public class DefaultModuleDeployer extends AbstractDeployer<ModuleModel> impleme
                 // publish module started event
                 onModuleStarted();
 
-                // register services to registry
+                // register services to registry  // 注册服务 到 Registry
                 registerServices();
 
                 // check reference config
@@ -344,7 +344,7 @@ public class DefaultModuleDeployer extends AbstractDeployer<ModuleModel> impleme
         }
         onModuleStopped();
     }
-
+    // 初始化事件
     private void onInitialize() {
         for (DeployListener<ModuleModel> listener : listeners) {
             try {
@@ -431,13 +431,13 @@ public class DefaultModuleDeployer extends AbstractDeployer<ModuleModel> impleme
             completeStartFuture(false);
         }
     }
-
+    // ModuleModel: loadConfigs
     private void loadConfigs() {
         // load module configs
         moduleModel.getConfigManager().loadConfigs();
         moduleModel.getConfigManager().refreshAll();
     }
-
+    // AbstractConfigManager: 缓存的服务
     private void exportServices() {
         for (ServiceConfigBase sc : configManager.getServices()) {
             exportServiceInternal(sc);
@@ -452,7 +452,7 @@ public class DefaultModuleDeployer extends AbstractDeployer<ModuleModel> impleme
         }
         applicationDeployer.refreshServiceInstance();
     }
-
+    // 引用检查
     private void checkReferences() {
         Optional<ModuleConfig> module = configManager.getModule();
         long timeout = module.map(ModuleConfig::getCheckReferenceTimeout).orElse(30000L);
@@ -460,7 +460,7 @@ public class DefaultModuleDeployer extends AbstractDeployer<ModuleModel> impleme
             referenceCache.check(rc, timeout);
         }
     }
-
+    // ServiceConfigBase: ServiceConfig
     private void exportServiceInternal(ServiceConfigBase sc) {
         ServiceConfig<?> serviceConfig = (ServiceConfig<?>) sc;
         if (!serviceConfig.isRefreshed()) {
@@ -502,7 +502,7 @@ public class DefaultModuleDeployer extends AbstractDeployer<ModuleModel> impleme
             registryInteracted = true;
         }
     }
-
+    // 注册服务
     private void registerServiceInternal(ServiceConfigBase sc) {
         ServiceConfig<?> serviceConfig = (ServiceConfig<?>) sc;
         if (!serviceConfig.isRefreshed()) {
@@ -535,7 +535,7 @@ public class DefaultModuleDeployer extends AbstractDeployer<ModuleModel> impleme
         });
         asyncExportingFutures.clear();
     }
-
+    // ReferService Init
     private void referServices() {
         configManager.getReferences().forEach(rc -> {
             try {

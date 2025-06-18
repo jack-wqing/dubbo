@@ -28,6 +28,7 @@ import org.springframework.context.ApplicationEvent;
  * @see org.apache.dubbo.config.bootstrap.DubboBootstrap
  * @since 2.7.9
  */
+// DubboBootstrap stop
 @Deprecated
 public class DubboBootstrapStopedEvent extends ApplicationEvent {
 

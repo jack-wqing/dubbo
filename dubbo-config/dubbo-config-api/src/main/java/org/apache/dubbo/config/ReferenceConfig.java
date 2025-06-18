@@ -127,6 +127,7 @@ public class ReferenceConfig<T> extends ReferenceConfigBase<T> {
      * Actually，when the {@link ExtensionLoader} init the {@link Protocol} instants,it will automatically wrap three
      * layers, and eventually will get a <b>ProtocolSerializationWrapper</b> or <b>ProtocolFilterWrapper</b> or <b>ProtocolListenerWrapper</b>
      */
+    // Protocol自动包装三层: ProtocolSerializationWrapper, ProtocolFilterWrapper, ProtocolListenerWrapper
     private Protocol protocolSPI;
 
     /**
@@ -182,6 +183,8 @@ public class ReferenceConfig<T> extends ReferenceConfigBase<T> {
         super(moduleModel, reference);
     }
 
+    // ScopeModelChange
+    // ScopeModelChange
     @Override
     protected void postProcessAfterScopeModelChanged(ScopeModel oldScopeModel, ScopeModel newScopeModel) {
         super.postProcessAfterScopeModelChanged(oldScopeModel, newScopeModel);

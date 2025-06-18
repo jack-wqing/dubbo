@@ -48,6 +48,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROTOCOL_UNS
 /**
  * AbstractProxyProtocol
  */
+// 可以通过ProxyFactory 对 Exporter Invoker 或者 Refer的 Invoker 进行再一次代理控制
 public abstract class AbstractProxyProtocol extends AbstractProtocol {
 
     private final List<Class<?>> rpcExceptions = new CopyOnWriteArrayList<>();
@@ -79,6 +80,7 @@ public abstract class AbstractProxyProtocol extends AbstractProtocol {
     public <T> Exporter<T> export(final Invoker<T> invoker) throws RpcException {
         final String uri = serviceKey(invoker.getUrl());
         Exporter<T> exporter = (Exporter<T>) exporterMap.get(uri);
+        // 如果已经导出直接返回
         if (exporter != null) {
             // When modifying the configuration through override, you need to re-expose the newly modified service.
             if (Objects.equals(exporter.getInvoker().getUrl(), invoker.getUrl())) {

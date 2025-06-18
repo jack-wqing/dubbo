@@ -37,6 +37,7 @@ import org.springframework.core.annotation.AliasFor;
  * @see EnableDubboConfig
  * @since 2.5.8
  */
+// Dubbo启动注解: Provider和Consumer统一使用一个
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited

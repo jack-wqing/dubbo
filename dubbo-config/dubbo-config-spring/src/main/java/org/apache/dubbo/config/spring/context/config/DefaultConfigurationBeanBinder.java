@@ -26,6 +26,7 @@ import org.springframework.validation.DataBinder;
  *
  * @see ConfigurationBeanBinder
  */
+// 基于Spring 的 DataBinder去绑定bean和bean的属性
 public class DefaultConfigurationBeanBinder implements ConfigurationBeanBinder {
 
     @Override

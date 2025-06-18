@@ -32,6 +32,7 @@ import org.springframework.core.type.AnnotationMetadata;
  * @see Ordered
  * @since 2.5.8
  */
+// DubboConfigConfigurationRegistrar:
 public class DubboConfigConfigurationRegistrar implements ImportBeanDefinitionRegistrar {
 
     @Override

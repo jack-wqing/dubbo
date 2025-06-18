@@ -32,6 +32,7 @@ import java.util.Set;
  * ClassPathXmlApplicationContext consumerContext = new ClassPathXmlApplicationContext(..);
  * </pre>
  */
+// CustomerHolder
 public class DubboSpringInitCustomizerHolder {
 
     private static final ThreadLocal<DubboSpringInitCustomizerHolder> holders =

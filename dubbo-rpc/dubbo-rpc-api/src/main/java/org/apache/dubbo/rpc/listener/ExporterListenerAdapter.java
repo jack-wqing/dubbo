@@ -23,6 +23,7 @@ import org.apache.dubbo.rpc.RpcException;
 /**
  * ExporterListenerAdapter
  */
+// Adapter
 public abstract class ExporterListenerAdapter implements ExporterListener {
 
     @Override

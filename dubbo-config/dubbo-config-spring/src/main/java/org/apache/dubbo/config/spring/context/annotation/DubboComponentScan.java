@@ -36,6 +36,7 @@ import org.springframework.context.annotation.Import;
  * @see Reference
  * @since 2.5.7
  */
+// dubboComponentScan: Service Reference
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented

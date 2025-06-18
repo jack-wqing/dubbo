@@ -30,6 +30,7 @@ import org.springframework.core.Ordered;
  * @see ConfigurationBeanBinder
  * @see ConfigurationBeanBindingPostProcessor
  */
+
 public interface ConfigurationBeanCustomizer extends Ordered {
 
     /**

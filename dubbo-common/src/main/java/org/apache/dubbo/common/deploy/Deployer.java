@@ -20,7 +20,7 @@ import org.apache.dubbo.rpc.model.ScopeModel;
 
 import java.util.concurrent.Future;
 
-// 部署统一接口
+// Deployer 协议
 public interface Deployer<E extends ScopeModel> {
 
     /**
@@ -32,6 +32,7 @@ public interface Deployer<E extends ScopeModel> {
      * Starts the component.
      * @return
      */
+    // Future 可以控制是不是同步发布
     Future start() throws IllegalStateException;
 
     /**

@@ -21,6 +21,7 @@ import org.apache.dubbo.common.threadpool.manager.ExecutorRepository;
 
 import java.util.concurrent.Executor;
 
+// 通过Isolation ExecutorRepository 创建的 Executor
 public class DefaultExecutorSupport implements ExecutorSupport {
     private final ExecutorRepository executorRepository;
     private final URL url;

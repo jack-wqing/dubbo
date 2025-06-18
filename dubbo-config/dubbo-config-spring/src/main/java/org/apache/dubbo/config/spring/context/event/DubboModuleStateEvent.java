@@ -24,6 +24,7 @@ import org.springframework.context.ApplicationEvent;
 /**
  * Dubbo's module state event on starting/started/stopping/stopped
  */
+// Dubbo ModuleState Event
 public class DubboModuleStateEvent extends ApplicationEvent {
 
     private final DeployState state;

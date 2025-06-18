@@ -52,7 +52,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_UNEXP
  *
  * @export
  */
-// ReferenceConfig
+// ReferenceConfigBase is base class for ReferenceConfig and ReferenceBean
 public abstract class ReferenceConfigBase<T> extends AbstractReferenceConfig {
 
     private static final long serialVersionUID = -5864351140409987595L;
@@ -78,6 +78,7 @@ public abstract class ReferenceConfigBase<T> extends AbstractReferenceConfig {
      * In mesh mode, this flag uninstalls the directory, router, and load balancing configurations related to the cluster in the currently invoked invoker.
      * It delegates retry, load balancing, timeout, and other traffic management capabilities to Sidecar.
      */
+    // mesh 管理
     protected Boolean unloadClusterRelated;
 
     public ReferenceConfigBase() {

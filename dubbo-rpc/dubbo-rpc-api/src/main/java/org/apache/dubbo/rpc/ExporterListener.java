@@ -22,6 +22,7 @@ import org.apache.dubbo.common.extension.SPI;
 /**
  * ExporterListener. (SPI, Singleton, ThreadSafe)
  */
+// Protocol: Exporter Listener
 @SPI(scope = ExtensionScope.FRAMEWORK)
 public interface ExporterListener {
 

@@ -20,6 +20,7 @@ import org.apache.dubbo.common.utils.ClassUtils;
 
 public class MetricsSupportUtil {
 
+    // io.micrometer: 是否支持导出
     public static boolean isSupportMetrics() {
         return isClassPresent("io.micrometer.core.instrument.MeterRegistry");
     }

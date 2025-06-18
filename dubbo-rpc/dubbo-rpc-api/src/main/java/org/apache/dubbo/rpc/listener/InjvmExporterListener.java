@@ -42,6 +42,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * <p>
  * currently exported Exporter instance for a given service.
  */
+// InjvmExporter
 public class InjvmExporterListener extends ExporterListenerAdapter {
     /*
      * A ConcurrentHashMap to keep track of the ExporterChangeListeners registered for each service.

@@ -24,6 +24,7 @@ import org.apache.dubbo.rpc.Invoker;
 import org.apache.dubbo.rpc.Protocol;
 import org.apache.dubbo.rpc.RpcException;
 
+// 通过 ReadWriterLock 控制 Invoker的调用
 @Activate(order = Integer.MIN_VALUE + 1000)
 public class InvokerCountWrapper implements Protocol {
     private final Protocol protocol;

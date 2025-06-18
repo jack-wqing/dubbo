@@ -25,6 +25,7 @@ import org.springframework.context.ApplicationEvent;
  * An {@link ApplicationEvent} to trigger init {@link DubboConfigBeanInitializer}.
  *
  */
+// DubboConfigInitEvent
 public class DubboConfigInitEvent extends ApplicationEvent {
     /**
      * Create a new {@code ApplicationEvent}.

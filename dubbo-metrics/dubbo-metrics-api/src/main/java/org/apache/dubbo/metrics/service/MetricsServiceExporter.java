@@ -22,6 +22,7 @@ import org.apache.dubbo.common.extension.SPI;
 /**
  * The exporter of {@link MetricsService}
  */
+// DefaultMetricService
 @SPI(value = "default", scope = ExtensionScope.APPLICATION)
 public interface MetricsServiceExporter {
 

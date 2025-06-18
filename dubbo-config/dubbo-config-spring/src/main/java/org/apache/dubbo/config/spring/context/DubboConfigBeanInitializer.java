@@ -54,6 +54,7 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
  * NOTE: Dubbo config beans MUST be initialized after registering all BeanPostProcessors,
  * that is after the AbstractApplicationContext#registerBeanPostProcessors() method.
  */
+// load DubboConfig -> configManager
 public class DubboConfigBeanInitializer implements BeanFactoryAware, InitializingBean {
 
     public static String BEAN_NAME = "dubboConfigBeanInitializer";
@@ -94,6 +95,7 @@ public class DubboConfigBeanInitializer implements BeanFactoryAware, Initializin
     /**
      * Initializes there Dubbo's Config Beans before @Reference bean autowiring
      */
+    // Reference之前
     private void prepareDubboConfigBeans() {
         logger.info("loading dubbo config beans ...");
 

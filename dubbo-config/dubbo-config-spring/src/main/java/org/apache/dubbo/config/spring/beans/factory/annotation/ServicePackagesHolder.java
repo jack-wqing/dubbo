@@ -22,6 +22,7 @@ import java.util.Set;
 /**
  * A temp holder for scanned packages of service.
  */
+// Service Package
 public class ServicePackagesHolder {
 
     public static final String BEAN_NAME = "dubboServicePackagesHolder";

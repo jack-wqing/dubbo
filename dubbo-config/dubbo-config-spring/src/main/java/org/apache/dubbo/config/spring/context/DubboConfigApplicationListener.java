@@ -35,6 +35,7 @@ import static org.springframework.util.ObjectUtils.nullSafeEquals;
 /**
  * An ApplicationListener to load config beans
  */
+// load config beans
 public class DubboConfigApplicationListener
         implements ApplicationListener<DubboConfigInitEvent>, ApplicationContextAware {
 
@@ -52,7 +53,7 @@ public class DubboConfigApplicationListener
         this.applicationContext = applicationContext;
         this.moduleModel = DubboBeanUtils.getModuleModel(applicationContext);
     }
-
+    // ReferenceAnnotationBeanPostProcessor publish DubboConfigInitEvent
     @Override
     public void onApplicationEvent(DubboConfigInitEvent event) {
         if (nullSafeEquals(applicationContext, event.getSource())) {

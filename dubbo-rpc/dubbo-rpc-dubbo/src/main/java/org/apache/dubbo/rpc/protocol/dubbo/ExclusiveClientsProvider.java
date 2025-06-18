@@ -24,7 +24,7 @@ import java.util.List;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROTOCOL_ERROR_CLOSE_CLIENT;
 
-// Exclusive: 独占的client
+// ExclusiveClientsProvider: 连接服务端时，采用独占连接
 public class ExclusiveClientsProvider implements ClientsProvider {
     private static final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(ExclusiveClientsProvider.class);

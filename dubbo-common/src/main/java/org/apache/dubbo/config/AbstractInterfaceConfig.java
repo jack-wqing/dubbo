@@ -62,7 +62,7 @@ import static org.apache.dubbo.config.Constants.DEFAULT_NATIVE_PROXY;
  *
  * @export
  */
-// AbstractInterface: Config
+// AbstractInterfaceConfig: 接口级别的配置
 public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
 
     private static final long serialVersionUID = -1559314110797223229L;
@@ -70,6 +70,7 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
     /**
      * Interface name of the exported service.
      */
+    // export
     protected String interfaceName;
 
     /**
@@ -110,6 +111,7 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
     /**
      * Strategy for generating dynamic agents (options: "jdk" or "javassist").
      */
+    // jdk / javassist
     protected String proxy;
 
     /**
@@ -120,6 +122,7 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
     /**
      * Filters for service exposure or reference (multiple filters can be separated by commas).
      */
+    // 服务暴露和引用的过滤器
     protected String filter;
 
     /**
@@ -135,6 +138,7 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
     /**
      * Connection limits: 0 for shared connection, otherwise specifying connections for the service.
      */
+    // 服务的链接数
     protected Integer connections;
 
     /**

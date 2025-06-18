@@ -38,6 +38,7 @@ import static org.springframework.context.annotation.AnnotationConfigUtils.regis
  * @see #registerDefaultFilters()
  * @since 2.5.7
  */
+// Dubbo ClassPathBeanDefinitionScanner
 public class DubboClassPathBeanDefinitionScanner extends ClassPathBeanDefinitionScanner {
 
     /**
@@ -56,7 +57,7 @@ public class DubboClassPathBeanDefinitionScanner extends ClassPathBeanDefinition
         setEnvironment(environment);
 
         setResourceLoader(resourceLoader);
-
+        // AOT启动，提升启动时间
         if (!AotWithSpringDetector.useGeneratedArtifacts()) {
             registerAnnotationConfigProcessors(registry);
         }

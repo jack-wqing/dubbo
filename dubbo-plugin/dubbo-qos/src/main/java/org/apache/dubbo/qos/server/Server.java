@@ -43,6 +43,7 @@ import io.netty.util.concurrent.DefaultThreadFactory;
  * <li>close server</li>
  * </ul>
  */
+// Netty 实现的Qos服务
 public class Server {
 
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(Server.class);

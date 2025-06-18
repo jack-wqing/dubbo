@@ -33,6 +33,7 @@ import org.springframework.core.Ordered;
  * @see DubboConfigBinder#bind(String, AbstractConfig)
  * @since 2.6.6
  */
+// AbstractConfig: Dubbo Customer
 public interface DubboConfigBeanCustomizer extends ConfigurationBeanCustomizer, Ordered {
 
     /**

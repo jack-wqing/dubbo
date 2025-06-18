@@ -42,6 +42,7 @@ import org.springframework.context.ApplicationContextAware;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.CONFIG_DUBBO_BEAN_INITIALIZER;
 
+// Dubbo: ReferenceBeanManager
 public class ReferenceBeanManager implements ApplicationContextAware {
     public static final String BEAN_NAME = "dubboReferenceBeanManager";
     private final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(getClass());

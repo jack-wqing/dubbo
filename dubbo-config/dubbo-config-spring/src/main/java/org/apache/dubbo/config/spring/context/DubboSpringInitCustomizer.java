@@ -27,6 +27,7 @@ import static org.apache.dubbo.common.extension.ExtensionScope.FRAMEWORK;
 /**
  * Custom dubbo spring initialization
  */
+// DubboSpringInit: Customer
 @SPI(scope = FRAMEWORK)
 public interface DubboSpringInitCustomizer {
 

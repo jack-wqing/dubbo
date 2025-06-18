@@ -27,8 +27,8 @@ import org.apache.dubbo.config.ServiceConfig;
  */
 // takeover mode
 public enum BootstrapTakeoverMode {
-    SPRING,
-    MANUAL,
+    SPRING,    // spring 控制
+    MANUAL,  // init 之后使用start
     AUTO,
-    SERVLET
+    SERVLET  // Servlet容器
 }

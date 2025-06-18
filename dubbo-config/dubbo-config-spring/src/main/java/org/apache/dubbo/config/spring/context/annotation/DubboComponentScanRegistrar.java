@@ -49,6 +49,7 @@ import static org.springframework.beans.factory.support.BeanDefinitionBuilder.ro
  * @see ReferenceAnnotationBeanPostProcessor
  * @since 2.5.7
  */
+// 处理dubbo注解功能支持: ServiceAnnotationPostProcessor postProcessor支持
 public class DubboComponentScanRegistrar implements ImportBeanDefinitionRegistrar {
 
     @Override

@@ -41,6 +41,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROXY_ERROR_
 /**
  * This Invoker works on provider side, delegates RPC to interface implementation.
  */
+// Delegates to Interface implementation
 public abstract class AbstractProxyInvoker<T> implements Invoker<T> {
     ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(AbstractProxyInvoker.class);
 

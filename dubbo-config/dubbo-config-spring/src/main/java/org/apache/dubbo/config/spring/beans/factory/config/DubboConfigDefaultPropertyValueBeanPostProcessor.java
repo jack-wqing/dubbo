@@ -45,6 +45,7 @@ import static org.springframework.util.ReflectionUtils.invokeMethod;
  *
  * @since 2.7.6
  */
+// AbstractConfig: 设置默认值
 public class DubboConfigDefaultPropertyValueBeanPostProcessor extends GenericBeanPostProcessorAdapter<AbstractConfig>
         implements MergedBeanDefinitionPostProcessor, PriorityOrdered {
 

@@ -36,6 +36,8 @@ import org.springframework.context.EnvironmentAware;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
 
+// BeanDefinitionRegistryPostProcessor
+// Spring Application 与 dubbo的结合
 public class DubboContextPostProcessor
         implements BeanDefinitionRegistryPostProcessor, ApplicationContextAware, EnvironmentAware {
 

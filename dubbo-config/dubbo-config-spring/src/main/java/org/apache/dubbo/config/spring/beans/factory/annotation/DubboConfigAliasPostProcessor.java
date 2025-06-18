@@ -34,6 +34,7 @@ import static org.springframework.util.StringUtils.hasText;
  *
  * @since 2.7.5
  */
+// Dubbo Alias: id name
 public class DubboConfigAliasPostProcessor implements BeanDefinitionRegistryPostProcessor, BeanPostProcessor {
 
     /**

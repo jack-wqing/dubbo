@@ -20,6 +20,7 @@ import org.apache.dubbo.common.URL;
 import org.apache.dubbo.rpc.executor.ExecutorSupport;
 import org.apache.dubbo.rpc.executor.IsolationExecutorSupportFactory;
 
+// DubboIsolationExecutorSupportFactory
 public class DubboIsolationExecutorSupportFactory implements IsolationExecutorSupportFactory {
     @Override
     public ExecutorSupport createIsolationExecutorSupport(URL url) {

@@ -49,6 +49,7 @@ public interface ApplicationDeployer extends Deployer<ApplicationModel> {
     /**
      * Register application instance and start internal services
      */
+    // Register Application and start service
     void prepareApplicationInstance(ModuleModel moduleModel);
 
     void exportMetadataService();
@@ -58,6 +59,7 @@ public interface ApplicationDeployer extends Deployer<ApplicationModel> {
     /**
      * Register application instance and start internal services
      */
+    // Internal Module
     void prepareInternalModule();
 
     /**

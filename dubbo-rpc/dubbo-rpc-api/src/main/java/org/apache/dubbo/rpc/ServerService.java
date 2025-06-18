@@ -19,6 +19,7 @@ package org.apache.dubbo.rpc;
 import org.apache.dubbo.common.URL;
 import org.apache.dubbo.rpc.model.ServiceDescriptor;
 
+// 服务端的ServerService服务
 public interface ServerService<T> {
 
     Invoker<T> getInvoker(URL url);

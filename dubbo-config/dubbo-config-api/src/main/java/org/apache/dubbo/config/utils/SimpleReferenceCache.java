@@ -44,7 +44,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.CONFIG_API_W
  * <p>
  * You can implement and use your own {@link ReferenceConfigBase} cache if you need use complicate strategy.
  */
-// single cache: concurrentMap
+// ReferenceCache: Simple -> 对于Reference代理对象的控制
 public class SimpleReferenceCache implements ReferenceCache {
     private static final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(SimpleReferenceCache.class);
@@ -154,6 +154,7 @@ public class SimpleReferenceCache implements ReferenceCache {
      * @return object from the cached ReferenceConfigBase
      * @see KeyGenerator#generateKey(ReferenceConfigBase)
      */
+    // group/interfaceClass:version
     @Override
     @SuppressWarnings("unchecked")
     public <T> T get(String key, Class<T> type) {

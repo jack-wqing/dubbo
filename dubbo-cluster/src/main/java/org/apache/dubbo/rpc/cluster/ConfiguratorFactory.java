@@ -25,7 +25,7 @@ import org.apache.dubbo.common.extension.SPI;
  * ConfiguratorFactory. (SPI, Singleton, ThreadSafe)
  *
  */
-// Configurator: Factory
+// URL 可以重新设置属性
 @SPI
 public interface ConfiguratorFactory {
 

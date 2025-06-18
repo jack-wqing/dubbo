@@ -45,6 +45,10 @@ import static org.apache.dubbo.common.constants.QosConstants.QOS_ENABLE;
 import static org.apache.dubbo.common.constants.QosConstants.QOS_HOST;
 import static org.apache.dubbo.common.constants.QosConstants.QOS_PORT;
 
+/**
+ * Dubbo Qos(Quality of Service): Dubbo 服务质量管理功能
+ *  服务动态管理，优雅停机，查看服务状态等
+ */
 @Activate(order = 200)
 public class QosProtocolWrapper implements Protocol, ScopeModelAware {
 
@@ -95,7 +99,7 @@ public class QosProtocolWrapper implements Protocol, ScopeModelAware {
     public List<ProtocolServer> getServers() {
         return protocol.getServers();
     }
-
+    // 启动Qos服务器
     private void startQosServer(URL url, boolean isServer) throws RpcException {
         boolean qosCheck = url.getParameter(QOS_CHECK, false);
 

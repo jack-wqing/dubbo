@@ -32,7 +32,7 @@ import java.util.Optional;
  *
  * @export
  */
-// AbstractMethodConfig
+// AbstractMethodConfig: 方法级别的调用熟悉设置
 public abstract class AbstractMethodConfig extends AbstractConfig {
 
     private static final long serialVersionUID = 5809761483000878437L;
@@ -60,6 +60,7 @@ public abstract class AbstractMethodConfig extends AbstractConfig {
     /**
      * Enable asynchronous invocation. Note that it is unreliable asynchronous, ignoring return values and not blocking threads.
      */
+    // 不可靠的异步，忽略返回值，不阻塞线程
     protected Boolean async;
 
     /**
@@ -71,6 +72,7 @@ public abstract class AbstractMethodConfig extends AbstractConfig {
      * Mock class name to be called when a service fails to execute. The mock doesn't support on the provider side,
      * and it is executed when a non-business exception occurs after a remote service call.
      */
+    // 远程调用发生，不是业务异常的时候
     protected String mock;
 
     /**
@@ -81,11 +83,13 @@ public abstract class AbstractMethodConfig extends AbstractConfig {
     /**
      * Cache provider for caching return results. available options: lru, threadlocal, jcache etc.
      */
+    // lru, threadlocal, jcache
     protected String cache;
 
     /**
      * Enable JSR303 standard annotation validation for method parameters.
      */
+    // JSR303 验证
     protected String validation;
 
     /**

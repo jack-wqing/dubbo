@@ -40,6 +40,7 @@ import io.micrometer.tracing.propagation.Propagator;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_NOT_FOUND_TRACER_DEPENDENCY;
 
+// DubboObservation
 public class DubboObservationRegistry {
 
     private static final ErrorTypeAwareLogger logger =

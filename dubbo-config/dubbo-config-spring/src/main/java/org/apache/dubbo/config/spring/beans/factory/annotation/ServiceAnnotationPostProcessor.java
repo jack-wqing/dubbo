@@ -113,8 +113,9 @@ public class ServiceAnnotationPostProcessor
 
     public static final String BEAN_NAME = "dubboServiceAnnotationPostProcessor";
 
+    // 服务端支持的 service bean注解
     private static final List<Class<? extends Annotation>> serviceAnnotationTypes = loadServiceAnnotationTypes();
-
+    // 判断支持 Dubbo2  alibaba 类下面的注解
     private static List<Class<? extends Annotation>> loadServiceAnnotationTypes() {
         if (Dubbo2CompactUtils.isEnabled() && Dubbo2CompactUtils.isServiceClassLoaded()) {
             return asList(
@@ -160,17 +161,20 @@ public class ServiceAnnotationPostProcessor
         this.packagesToScan = (Set<String>) packagesToScan.stream().collect(Collectors.toSet());
     }
 
+    // 处理扫描的包
     @Override
     public void afterPropertiesSet() throws Exception {
         this.resolvedPackagesToScan = resolvePackagesToScan(packagesToScan);
     }
 
+    // Spring 处理Bean定义
     @Override
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {
         this.registry = registry;
         scanServiceBeans(resolvedPackagesToScan, registry);
     }
 
+    // BeanFactoryPostProcessor
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
         if (this.registry == null) {
@@ -202,6 +206,7 @@ public class ServiceAnnotationPostProcessor
      * @param packagesToScan The base packages to scan
      * @param registry       {@link BeanDefinitionRegistry}
      */
+    // 扫描注册 @Service的Bean
     private void scanServiceBeans(Set<String> packagesToScan, BeanDefinitionRegistry registry) {
 
         scanned = true;
@@ -227,7 +232,7 @@ public class ServiceAnnotationPostProcessor
 
         ScanExcludeFilter scanExcludeFilter = new ScanExcludeFilter();
         scanner.addExcludeFilter(scanExcludeFilter);
-
+        // 配置的包进行扫描
         for (String packageToScan : packagesToScan) {
 
             // avoid duplicated scans
@@ -329,6 +334,7 @@ public class ServiceAnnotationPostProcessor
      * @return non-null
      * @since 2.5.8
      */
+    // Dubbo Service bean定义集合
     private Set<BeanDefinitionHolder> findServiceBeanDefinitionHolders(
             ClassPathBeanDefinitionScanner scanner,
             String packageToScan,
@@ -356,6 +362,7 @@ public class ServiceAnnotationPostProcessor
      * @see ServiceBean
      * @see BeanDefinition
      */
+    // 处理扫描的Bean
     private void processScannedBeanDefinition(BeanDefinitionHolder beanDefinitionHolder) {
 
         Class<?> beanClass = resolveClass(beanDefinitionHolder);
@@ -409,6 +416,7 @@ public class ServiceAnnotationPostProcessor
      * @return ServiceBean@interfaceClassName#annotatedServiceBeanName
      * @since 2.7.3
      */
+    // ServiceName
     private String generateServiceBeanName(Map<String, Object> serviceAnnotationAttributes, String serviceInterface) {
         ServiceBeanNameBuilder builder = create(serviceInterface, environment)
                 .group((String) serviceAnnotationAttributes.get("group"))
@@ -429,7 +437,7 @@ public class ServiceAnnotationPostProcessor
 
         return resolveClassName(beanClassName, classLoader);
     }
-
+    // 处理扫描的包的占位符
     private Set<String> resolvePackagesToScan(Set<String> packagesToScan) {
         Set<String> resolvedPackagesToScan = new LinkedHashSet<>(packagesToScan.size());
         for (String packageToScan : packagesToScan) {
@@ -450,6 +458,7 @@ public class ServiceAnnotationPostProcessor
      * @return
      * @since 2.7.3
      */
+    // AbstractBeanDefinition: ServiceBean的定义构建
     private AbstractBeanDefinition buildServiceBeanDefinition(
             Map<String, Object> serviceAnnotationAttributes, String serviceInterface, String refServiceBeanName) {
 
@@ -613,6 +622,7 @@ public class ServiceAnnotationPostProcessor
      * @param refServiceBeanDefinition
      * @param attributes
      */
+    // 基于Java配置的 在配置类中: @Bean @DubboService的方法
     private void processAnnotatedBeanDefinition(
             String refServiceBeanName,
             AnnotatedBeanDefinition refServiceBeanDefinition,

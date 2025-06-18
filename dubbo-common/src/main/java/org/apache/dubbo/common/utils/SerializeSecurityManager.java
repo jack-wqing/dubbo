@@ -23,6 +23,7 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.Set;
 
+// SerializeSecurityManager
 public class SerializeSecurityManager {
     private static final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(SerializeSecurityManager.class);

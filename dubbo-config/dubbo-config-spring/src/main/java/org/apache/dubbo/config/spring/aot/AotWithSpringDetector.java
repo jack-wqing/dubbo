@@ -20,6 +20,7 @@ import org.apache.dubbo.common.aot.NativeDetector;
 
 import org.springframework.core.SpringProperties;
 
+// 依赖 spring.properties
 public abstract class AotWithSpringDetector {
 
     /**

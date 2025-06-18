@@ -28,6 +28,10 @@ import org.springframework.context.annotation.Import;
  * The annotation composes the multiple {@link EnableConfigurationBeanBinding EnableConfigurationBeanBindings}
  *
  */
+
+/**
+ * Spring boot 整合类
+ */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented

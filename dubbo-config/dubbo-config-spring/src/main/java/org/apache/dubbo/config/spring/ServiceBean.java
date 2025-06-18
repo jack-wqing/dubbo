@@ -107,7 +107,7 @@ public class ServiceBean<T> extends ServiceConfig<T>
     public Service getService() {
         return service;
     }
-
+    // 添加服务 通过InitializeBean
     @Override
     public void afterPropertiesSet() throws Exception {
         if (StringUtils.isEmpty(getPath())) {
@@ -145,6 +145,7 @@ public class ServiceBean<T> extends ServiceConfig<T>
     /**
      * @since 2.6.5
      */
+    // 导出事件
     private void publishExportEvent() {
         ServiceBeanExportedEvent exportEvent = new ServiceBeanExportedEvent(this);
         applicationEventPublisher.publishEvent(exportEvent);

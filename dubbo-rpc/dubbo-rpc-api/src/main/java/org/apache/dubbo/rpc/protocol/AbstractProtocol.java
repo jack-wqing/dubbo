@@ -55,6 +55,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROTOCOL_FAI
  */
 // Protocol: 抽象统一接口
 // protocolBindingRefer: refer 方法
+// 多协议支持的抽象类: 每个协议都可以有很多服务
 public abstract class AbstractProtocol implements Protocol, ScopeModelAware {
 
     protected final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(getClass());
@@ -86,7 +87,7 @@ public abstract class AbstractProtocol implements Protocol, ScopeModelAware {
     protected static String serviceKey(int port, String serviceName, String serviceVersion, String serviceGroup) {
         return ProtocolUtils.serviceKey(port, serviceName, serviceVersion, serviceGroup);
     }
-
+    // 该协议启动的 ProtocolServer 列表
     @Override
     public List<ProtocolServer> getServers() {
         return Collections.unmodifiableList(new ArrayList<>(serverMap.values()));
@@ -150,6 +151,7 @@ public abstract class AbstractProtocol implements Protocol, ScopeModelAware {
         return Collections.unmodifiableCollection(exporterMap.values());
     }
 
+    // optimizeSerialization
     protected void optimizeSerialization(URL url) throws RpcException {
         String className = url.getParameter(OPTIMIZER_KEY, "");
         if (StringUtils.isEmpty(className) || optimizers.contains(className)) {

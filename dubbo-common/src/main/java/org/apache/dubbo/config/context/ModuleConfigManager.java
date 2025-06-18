@@ -53,7 +53,7 @@ import static org.apache.dubbo.config.AbstractConfig.getTagName;
 /**
  * Manage configs of module
  */
-// ConfigManager: Module
+// ModuleConfigManager
 public class ModuleConfigManager extends AbstractConfigManager implements ModuleExt {
 
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(ModuleConfigManager.class);
@@ -177,7 +177,7 @@ public class ModuleConfigManager extends AbstractConfigManager implements Module
     public Collection<ConsumerConfig> getConsumers() {
         return getConfigs(getTagName(ConsumerConfig.class));
     }
-
+    // 属性的加载
     @Override
     public void refreshAll() {
         // refresh all configs here
@@ -286,7 +286,7 @@ public class ModuleConfigManager extends AbstractConfigManager implements Module
         }
         configCache.remove(uniqueServiceName, config);
     }
-
+    // 加载Module级别的配置: ProviderConfig, ConsumerConfig, ModuleConfig
     @Override
     public void loadConfigs() {
         // load dubbo.providers.xxx

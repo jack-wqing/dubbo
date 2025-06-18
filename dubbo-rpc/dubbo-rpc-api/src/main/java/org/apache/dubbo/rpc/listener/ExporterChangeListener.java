@@ -21,6 +21,7 @@ import org.apache.dubbo.rpc.Exporter;
 /**
  * An interface for listening to changes in the export state of an Exporter object.
  */
+// listener ExportObject state change
 public interface ExporterChangeListener {
 
     /**

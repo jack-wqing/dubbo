@@ -19,6 +19,7 @@ package org.apache.dubbo.metrics.model;
 /**
  * Metric category.
  */
+// 指标类型
 public enum MetricsCategory {
     RT,
     QPS,

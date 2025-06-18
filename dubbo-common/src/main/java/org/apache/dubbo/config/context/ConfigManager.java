@@ -269,7 +269,7 @@ public class ConfigManager extends AbstractConfigManager implements ApplicationE
     public Collection<RegistryConfig> getRegistries() {
         return getConfigs(getTagName(RegistryConfig.class));
     }
-
+    // 属性填充
     @Override
     public void refreshAll() {
         // refresh all configs here

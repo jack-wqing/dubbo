@@ -19,7 +19,7 @@ package org.apache.dubbo.common.deploy;
 /**
  * Deploy state enum
  */
-// 补数状态
+// Deployer的状态
 public enum DeployState {
     /**
      * Unknown state

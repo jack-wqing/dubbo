@@ -91,6 +91,9 @@ import static org.springframework.util.StringUtils.hasText;
  * @see com.alibaba.dubbo.config.annotation.Reference
  * @since 2.5.7
  */
+// 1.通过postProcessBeanFactory 先注册使用到的Reference -> ReferenceBean
+// InstantiationAwareBeanPostProcessor: 实例化进行注入 Reference 调用
+// 会缓存解析之后的Bean信息
 public class ReferenceAnnotationBeanPostProcessor extends AbstractAnnotationBeanPostProcessor
         implements ApplicationContextAware, BeanFactoryPostProcessor {
 
@@ -105,10 +108,10 @@ public class ReferenceAnnotationBeanPostProcessor extends AbstractAnnotationBean
     private static final int CACHE_SIZE = Integer.getInteger(BEAN_NAME + ".cache.size", 32);
 
     private final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(getClass());
-
+    // File InjectElement -> BeanName
     private final ConcurrentMap<InjectionMetadata.InjectedElement, String> injectedFieldReferenceBeanCache =
             new ConcurrentHashMap<>(CACHE_SIZE);
-
+    // Method InjectElement -> BeanName
     private final ConcurrentMap<InjectionMetadata.InjectedElement, String> injectedMethodReferenceBeanCache =
             new ConcurrentHashMap<>(CACHE_SIZE);
 
@@ -126,6 +129,7 @@ public class ReferenceAnnotationBeanPostProcessor extends AbstractAnnotationBean
         super(loadAnnotationTypes());
     }
 
+    // 客户端支持的引用注解
     @SuppressWarnings("unchecked")
     private static Class<? extends Annotation>[] loadAnnotationTypes() {
         if (Dubbo2CompactUtils.isEnabled() && Dubbo2CompactUtils.isReferenceClassLoaded()) {
@@ -201,6 +205,7 @@ public class ReferenceAnnotationBeanPostProcessor extends AbstractAnnotationBean
     /**
      * check whether is @DubboReference at java-config @bean method
      */
+    // 方法注解@DubboReference
     private boolean isAnnotatedReferenceBean(BeanDefinition beanDefinition) {
         if (beanDefinition instanceof AnnotatedBeanDefinition) {
             AnnotatedBeanDefinition annotatedBeanDefinition = (AnnotatedBeanDefinition) beanDefinition;

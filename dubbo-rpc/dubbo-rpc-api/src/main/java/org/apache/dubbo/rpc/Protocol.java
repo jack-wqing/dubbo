@@ -59,6 +59,7 @@ import java.util.List;
 // Refer Invoker 通过协议实现,  export方法接受Invoker通过Dubbo框架实现
 // Protocol 不需要关注透明代理，Invoker由其他layer实现
 // Protocol 不一定需要 TCP Connection
+
 @SPI(value = "dubbo", scope = ExtensionScope.FRAMEWORK)
 public interface Protocol {
 

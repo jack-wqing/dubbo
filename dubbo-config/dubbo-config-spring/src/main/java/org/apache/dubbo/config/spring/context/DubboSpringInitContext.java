@@ -30,6 +30,7 @@ import org.springframework.context.ApplicationContext;
 /**
  * Dubbo spring initialization context object
  */
+// DubboSpringInit: Context
 public class DubboSpringInitContext {
 
     private BeanDefinitionRegistry registry;

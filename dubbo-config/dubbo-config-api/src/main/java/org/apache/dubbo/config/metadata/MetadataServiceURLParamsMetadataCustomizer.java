@@ -42,6 +42,7 @@ import static org.apache.dubbo.registry.client.metadata.ServiceInstanceMetadataU
 /**
  * Used to interact with non-dubbo systems, also see {@link SpringCloudMetadataServiceURLBuilder}
  */
+// MetadataServiceURLParams
 public class MetadataServiceURLParamsMetadataCustomizer implements ServiceInstanceCustomizer {
 
     @Override

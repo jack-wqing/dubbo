@@ -49,6 +49,7 @@ import static org.springframework.util.ObjectUtils.nullSafeEquals;
 /**
  * An ApplicationListener to control Dubbo application.
  */
+// DubboApplication: Dubbo Listener监听 Spring 容器事件，然后操作 ServerBean
 public class DubboDeployApplicationListener
         implements ApplicationListener<ApplicationContextEvent>, ApplicationContextAware, Ordered {
 
@@ -187,7 +188,7 @@ public class DubboDeployApplicationListener
             }
         }
     }
-
+    // Spring容器停止 / 否继续运行
     private void onContextClosedEvent(ContextClosedEvent event) {
         try {
             Object value = moduleModel.getAttribute(ModelConstants.KEEP_RUNNING_ON_SPRING_CLOSED);

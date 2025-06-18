@@ -49,6 +49,7 @@ import org.springframework.context.annotation.Configuration;
  * @see org.apache.dubbo.config.ConfigCenterConfig
  * @since 2.5.8
  */
+// Dubbo Config
 public class DubboConfigConfiguration {
 
     /**

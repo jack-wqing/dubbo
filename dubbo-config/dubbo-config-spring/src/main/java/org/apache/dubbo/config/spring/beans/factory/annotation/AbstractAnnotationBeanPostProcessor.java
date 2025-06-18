@@ -62,6 +62,7 @@ import static org.springframework.core.BridgeMethodResolver.isVisibilityBridgeMe
 /**
  * Abstract common {@link BeanPostProcessor} implementation for customized annotation that annotated injected-object.
  */
+// 主要寻找类中，Reference 使用的地方进行缓存： 方法上使用指的是方法的返回值
 @SuppressWarnings("unchecked")
 public abstract class AbstractAnnotationBeanPostProcessor
         implements InstantiationAwareBeanPostProcessor,
@@ -333,6 +334,7 @@ public abstract class AbstractAnnotationBeanPostProcessor
      * @return The injected object
      * @throws Exception If resolving an injected object is failed.
      */
+    // 获得注入的对象
     protected abstract Object doGetInjectedBean(
             AnnotationAttributes attributes,
             Object bean,

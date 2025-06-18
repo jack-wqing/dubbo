@@ -31,6 +31,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_FAILE
 /**
  * ListenerExporter
  */
+// Protocol: ExporterListener 监听管理
 public class ListenerExporterWrapper<T> implements Exporter<T> {
 
     private static final ErrorTypeAwareLogger logger =

@@ -35,6 +35,7 @@ import static org.springframework.beans.BeanUtils.getPropertyDescriptor;
  * @since 2.6.6
  * @deprecated {@link DubboConfigDefaultPropertyValueBeanPostProcessor} instead
  */
+// SetName
 @Deprecated
 public class NamePropertyDefaultValueDubboConfigBeanCustomizer implements DubboConfigBeanCustomizer {
 

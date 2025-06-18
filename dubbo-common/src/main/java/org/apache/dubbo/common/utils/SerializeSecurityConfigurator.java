@@ -46,6 +46,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.SERIALIZE_ALLOW_
 import static org.apache.dubbo.common.constants.CommonConstants.SERIALIZE_BLOCKED_LIST_FILE_PATH;
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_IO_EXCEPTION;
 
+// 主要用于配置和管理序列话相关的安全策略
 public class SerializeSecurityConfigurator implements ScopeClassLoaderListener<ModuleModel> {
     private final SerializeSecurityManager serializeSecurityManager;
 
@@ -182,8 +183,7 @@ public class SerializeSecurityConfigurator implements ScopeClassLoaderListener<M
     }
 
     public void refreshStatus() {
-        Optional<ApplicationConfig> application =
-                moduleModel.getApplicationModel().getApplicationConfigManager().getApplication();
+        Optional<ApplicationConfig> application = moduleModel.getApplicationModel().getApplicationConfigManager().getApplication();
         String statusString =
                 application.map(ApplicationConfig::getSerializeCheckStatus).orElse(null);
         SerializeCheckStatus checkStatus = null;

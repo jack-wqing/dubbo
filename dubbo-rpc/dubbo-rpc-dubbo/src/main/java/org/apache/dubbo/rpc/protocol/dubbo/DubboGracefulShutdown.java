@@ -33,6 +33,9 @@ import static org.apache.dubbo.common.constants.CommonConstants.READONLY_EVENT;
 import static org.apache.dubbo.common.constants.CommonConstants.WRITEABLE_EVENT;
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.TRANSPORT_FAILED_CLOSE_STREAM;
 
+/**
+ * send readonly or writeable event
+ */
 public class DubboGracefulShutdown implements GracefulShutdown {
     private static final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(DubboGracefulShutdown.class);

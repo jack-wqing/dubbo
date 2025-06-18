@@ -29,6 +29,7 @@ import org.springframework.context.ApplicationContext;
 /**
  * SpringExtensionInjector
  */
+// Spring ExtensionInjector
 public class SpringExtensionInjector implements ExtensionInjector {
 
     private ApplicationContext context;

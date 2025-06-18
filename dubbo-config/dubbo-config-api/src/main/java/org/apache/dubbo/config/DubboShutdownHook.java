@@ -38,6 +38,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.CONFIG_FAILE
  * Because {@link ApplicationShutdownHooks} use {@link java.util.IdentityHashMap}
  * to store the shutdown hooks.
  */
+// Dubbo ShutdownHook
 public class DubboShutdownHook extends Thread {
 
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(DubboShutdownHook.class);

@@ -27,7 +27,7 @@ import java.util.Objects;
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROTOCOL_ERROR_CLOSE_CLIENT;
 
 // ShareClientsProvider:
-//
+// 客户端连接提供者是否使用共享链接
 public class SharedClientsProvider implements ClientsProvider {
     private static final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(SharedClientsProvider.class);

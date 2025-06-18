@@ -23,7 +23,7 @@ import org.apache.dubbo.common.extension.SPI;
  * 2019/12/30
  * it will be instead of CommonConfigPostProcessor
  */
-// postProcess: ReferConfig ServiceConfig instead Of CommonConfigPostProcessor
+// ConfigPostProcessor: Service And Reference
 @SPI(scope = ExtensionScope.MODULE)
 public interface ConfigPostProcessor {
 

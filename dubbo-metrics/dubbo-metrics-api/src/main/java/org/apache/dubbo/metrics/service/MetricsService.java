@@ -30,6 +30,7 @@ import static org.apache.dubbo.metrics.service.MetricsService.DEFAULT_EXTENSION_
  * Metrics Service.
  * Provide an interface to get metrics from {@link MetricsCollector}
  */
+// 指标服务
 @SPI(value = DEFAULT_EXTENSION_NAME, scope = ExtensionScope.APPLICATION)
 public interface MetricsService {
 

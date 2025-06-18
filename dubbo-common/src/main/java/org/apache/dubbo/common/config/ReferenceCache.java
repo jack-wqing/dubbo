@@ -21,6 +21,7 @@ import org.apache.dubbo.config.ReferenceConfigBase;
 import java.util.List;
 
 // Reference heavy operator
+// ReferenceCache 因为Reference是重量级操作所以进行缓存
 public interface ReferenceCache {
     @SuppressWarnings("unchecked")
     default <T> T get(ReferenceConfigBase<T> referenceConfig) {

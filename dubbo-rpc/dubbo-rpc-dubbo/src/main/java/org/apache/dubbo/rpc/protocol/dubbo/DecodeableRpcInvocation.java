@@ -63,6 +63,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROTOCOL_FAI
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.TRANSPORT_EXCEED_PAYLOAD_LIMIT;
 import static org.apache.dubbo.rpc.Constants.SERIALIZATION_ID_KEY;
 
+// DecodeableRpcInvocation
 public class DecodeableRpcInvocation extends RpcInvocation implements Codec, Decodeable {
 
     protected static final ErrorTypeAwareLogger log =

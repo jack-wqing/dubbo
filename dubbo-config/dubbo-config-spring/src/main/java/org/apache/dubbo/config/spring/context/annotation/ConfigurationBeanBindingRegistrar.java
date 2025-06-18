@@ -54,6 +54,7 @@ import static org.springframework.beans.factory.support.BeanDefinitionBuilder.ro
  * The {@link ImportBeanDefinitionRegistrar} implementation for {@link EnableConfigurationBeanBinding @EnableConfigurationBinding}
  *
  */
+// dubbo config: dubbo 的所有配置
 public class ConfigurationBeanBindingRegistrar implements ImportBeanDefinitionRegistrar, EnvironmentAware {
 
     static final Class ENABLE_CONFIGURATION_BINDING_CLASS = EnableConfigurationBeanBinding.class;

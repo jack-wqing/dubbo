@@ -24,7 +24,7 @@ import java.util.concurrent.Future;
 /**
  * Export/refer services of module
  */
-// Module Deployer:  暴露或者引用 Module 的 Service
+// Module Deployer: 管理ModuleModel 中的service
 public interface ModuleDeployer extends Deployer<ModuleModel> {
 
     void initialize() throws IllegalStateException;

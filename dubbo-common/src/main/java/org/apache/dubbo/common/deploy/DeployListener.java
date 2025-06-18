@@ -18,7 +18,7 @@ package org.apache.dubbo.common.deploy;
 
 import org.apache.dubbo.rpc.model.ScopeModel;
 
-// 部署监听器
+// 部署监听器: 部署生命周期管理，添加自定义操作
 public interface DeployListener<E extends ScopeModel> {
     /**
      * Useful to inject some configuration like MetricsConfig, RegistryConfig, etc.
@@ -44,6 +44,7 @@ public interface DeployListener<E extends ScopeModel> {
      * Triggered before the app is destroyed,
      * can do some customized things before offline the service and destroy reference.
      */
+    // offline service and destroy reference
     void onStopping(E scopeModel);
 
     /**
@@ -55,5 +56,6 @@ public interface DeployListener<E extends ScopeModel> {
     /**
      * Useful to do something when deployer was failed.
      */
+    // Deployer failed
     void onFailure(E scopeModel, Throwable cause);
 }

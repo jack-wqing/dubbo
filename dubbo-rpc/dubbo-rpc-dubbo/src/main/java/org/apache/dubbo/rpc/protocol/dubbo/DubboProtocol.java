@@ -92,7 +92,7 @@ import static org.apache.dubbo.rpc.protocol.dubbo.Constants.SHARE_CONNECTIONS_KE
 /**
  * dubbo protocol support.
  */
-// Dubbo protocol, default 20880
+// 默认协议使用: Dubbo协议， 默认20880端口
 public class DubboProtocol extends AbstractProtocol {
 
     public static final String NAME = "dubbo";
@@ -105,6 +105,7 @@ public class DubboProtocol extends AbstractProtocol {
      * <host:port,Exchanger>
      * Map<String, List<ReferenceCountExchangeClient>
      */
+    // 客户端统一协议 统一服务提供者是否共享链接
     private final Map<String, SharedClientsProvider> referenceClientMap = new ConcurrentHashMap<>();
 
     private final AtomicBoolean destroyed = new AtomicBoolean();
@@ -112,8 +113,9 @@ public class DubboProtocol extends AbstractProtocol {
     private final ExchangeHandler requestHandler;
 
     public DubboProtocol(FrameworkModel frameworkModel) {
+        // 贴近服务的Handler
         requestHandler = new ExchangeHandlerAdapter(frameworkModel) {
-
+            // 服务端处理响应
             @Override
             public CompletableFuture<Object> reply(ExchangeChannel channel, Object message) throws RemotingException {
 
@@ -284,7 +286,7 @@ public class DubboProtocol extends AbstractProtocol {
                 && NetUtils.filterLocalHost(channel.getUrl().getIp())
                         .equals(NetUtils.filterLocalHost(address.getAddress().getHostAddress()));
     }
-
+    // 通过ServiceKey 需要找Exporter
     Invoker<?> getInvoker(Channel channel, Invocation inv) throws RemotingException {
         boolean isCallBackServiceInvoke;
         boolean isStubServiceInvoke;
@@ -450,6 +452,7 @@ public class DubboProtocol extends AbstractProtocol {
         return invoker;
     }
 
+    // 是否共享客户端与服务端的连接
     private ClientsProvider getClients(URL url) {
         int connections = url.getParameter(CONNECTIONS_KEY, 0);
         // whether to share connection

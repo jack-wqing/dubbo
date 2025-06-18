@@ -1,0 +1,40 @@
+DubboComponentScanRegistrar: 注册ServiceAnnotationPostProcessor
+    ServiceAnnotationPostProcessor: 扫描Dubbo服务端注解 -> ServiceBean
+        ServiceBean:
+
+DubboConfigConfigurationRegistrar: 注册ReferenceAnnotationBeanPostProcessor
+    ReferenceAnnotationBeanPostProcessor: 通过InstantiationAwareBeanPostProcessor关注那些Bean使用服务消费端的注解，并对这些bean进行管理 -> ReferenceBean
+        ReferenceBean:
+
+
+
+------------------------------------------------------------------------------------------------------------------------
+
+Deployer模块:
+    ApplicationDeployer:
+        DefaultApplicationDeployer:
+             1.Config管理，通过Environment及配置中心的组合,管理Dubbo的所有配置
+                    2.
+    ModuleDeployer:
+        DefaultModuleDeployer:
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------
+1、Dubbo通过dubbo.properties 文件设置默认值；减少用户设置
+
+
+2、ReferenceBean的初始化时机 和 ServiceBean的暴露时机
+
+
+
+
+
+
+
+
+
+

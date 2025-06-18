@@ -24,6 +24,7 @@ import java.util.Objects;
 /**
  * Metrics response entity.
  */
+// Metrics 指标
 public class MetricsEntity {
 
     private String name;

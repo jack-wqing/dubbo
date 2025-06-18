@@ -39,6 +39,7 @@ import org.springframework.util.ObjectUtils;
 /**
  * Dubbo spring initialization entry point
  */
+// Dubbo spring initialization: register bean
 public class DubboSpringInitializer {
 
     private static final Logger logger = LoggerFactory.getLogger(DubboSpringInitializer.class);
@@ -108,7 +109,7 @@ public class DubboSpringInitializer {
         // customize context, you can change the bind module model via DubboSpringInitCustomizer SPI
         customize(context);
 
-        // init ModuleModel
+        // init ModuleModel: Default ApplicationModule -> DefaultModuleModel
         ModuleModel moduleModel = context.getModuleModel();
         if (moduleModel == null) {
             ApplicationModel applicationModel;
@@ -144,7 +145,7 @@ public class DubboSpringInitializer {
         // mark context as bound
         context.markAsBound();
         moduleModel.setLifeCycleManagedExternally(true);
-
+        // 使用useGeneratedArtifacts
         if (!AotWithSpringDetector.useGeneratedArtifacts()) {
             // register common beans
             DubboBeanUtils.registerCommonBeans(registry);
@@ -168,7 +169,7 @@ public class DubboSpringInitializer {
         }
         return beanFactory;
     }
-
+    // register ApplicationModule ModuleModel DubboSpringInitContext
     private static void registerContextBeans(
             ConfigurableListableBeanFactory beanFactory, DubboSpringInitContext context) {
         // register singleton

@@ -119,7 +119,7 @@ public abstract class AbstractInvoker<T> implements Invoker<T> {
         this.attachment = attachment == null ? null : Collections.unmodifiableMap(attachment);
         this.version = url.getVersion(DEFAULT_VERSION);
     }
-
+    // 传输带入的负载信息
     private static Map<String, Object> convertAttachment(URL url, String[] keys) {
         if (ArrayUtils.isEmpty(keys)) {
             return null;
@@ -348,5 +348,6 @@ public abstract class AbstractInvoker<T> implements Invoker<T> {
     /**
      * Specific implementation of the {@link #invoke(Invocation)} method
      */
+    // Invoker doInvoke
     protected abstract Result doInvoke(Invocation invocation) throws Throwable;
 }

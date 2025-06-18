@@ -58,6 +58,7 @@ public interface FilterChainBuilder {
      * @param <T>
      * @param <TYPE>
      */
+    // Provider Side: 过滤器链节点
     class FilterChainNode<T, TYPE extends Invoker<T>, FILTER extends BaseFilter> implements Invoker<T> {
         TYPE originalInvoker;
         Invoker<T> nextNode;
@@ -159,6 +160,7 @@ public interface FilterChainBuilder {
      * @param <T>
      * @param <TYPE>
      */
+    // Consumer Side
     class ClusterFilterChainNode<T, TYPE extends ClusterInvoker<T>, FILTER extends BaseFilter>
             extends FilterChainNode<T, TYPE, FILTER> implements ClusterInvoker<T> {
         public ClusterFilterChainNode(TYPE originalInvoker, Invoker<T> nextNode, FILTER filter) {
@@ -180,7 +182,7 @@ public interface FilterChainBuilder {
             return getOriginalInvoker().isDestroyed();
         }
     }
-
+    // CallbackRegistrationInvoker: 过滤器的回调接口
     class CallbackRegistrationInvoker<T, FILTER extends BaseFilter> implements Invoker<T> {
         private static final ErrorTypeAwareLogger LOGGER =
                 LoggerFactory.getErrorTypeAwareLogger(CallbackRegistrationInvoker.class);
@@ -275,7 +277,7 @@ public interface FilterChainBuilder {
             filterInvoker.destroy();
         }
     }
-
+    // ClusterCallbackRegistrationInvoker: Cluster 支持回调
     class ClusterCallbackRegistrationInvoker<T, FILTER extends BaseFilter>
             extends CallbackRegistrationInvoker<T, FILTER> implements ClusterInvoker<T> {
         private ClusterInvoker<T> originalInvoker;
@@ -306,6 +308,7 @@ public interface FilterChainBuilder {
         }
     }
 
+    // CopyOfFilter
     @Experimental(
             "Works for the same purpose as FilterChainNode, replace FilterChainNode with this one when proved stable enough")
     class CopyOfFilterChainNode<T, TYPE extends Invoker<T>, FILTER extends BaseFilter> implements Invoker<T> {

@@ -62,6 +62,7 @@ import org.springframework.context.annotation.Import;
  * @see DubboConfigConfigurationRegistrar
  * @since 2.5.8
  */
+//EnableDubboConfig
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
