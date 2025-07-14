@@ -52,7 +52,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_UNEXP
  *
  * @export
  */
-// ReferenceConfigBase is base class for ReferenceConfig and ReferenceBean
+// dubbo 服务引用的基本配置
 public abstract class ReferenceConfigBase<T> extends AbstractReferenceConfig {
 
     private static final long serialVersionUID = -5864351140409987595L;

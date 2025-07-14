@@ -75,7 +75,7 @@ public class JavassistProxyFactory extends AbstractProxyFactory {
             }
         }
     }
-
+    // 服务端框架的Invoker生成
     @Override
     public <T> Invoker<T> getInvoker(T proxy, Class<T> type, URL url) {
         try {

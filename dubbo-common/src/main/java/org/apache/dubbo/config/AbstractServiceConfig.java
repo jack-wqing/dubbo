@@ -37,7 +37,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.SERVICE_FILTER_K
  *
  * @export
  */
-// abstract service: 服务的配置属性
+// 服务的服务service 配置
 public abstract class AbstractServiceConfig extends AbstractInterfaceConfig {
 
     private static final long serialVersionUID = -9026290350363878309L;
@@ -81,7 +81,6 @@ public abstract class AbstractServiceConfig extends AbstractInterfaceConfig {
      * Whether to register the service as a dynamic service on the registry. If true, the service
      * will be enabled automatically after registration, and manual disabling is required to stop it.
      */
-    // 何为手动停止
     protected Boolean dynamic;
 
     /**

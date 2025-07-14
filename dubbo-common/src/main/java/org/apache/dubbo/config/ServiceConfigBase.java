@@ -48,7 +48,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.DUBBO;
  *
  * @export
  */
-// service Config: 具体的视线配置
+// 具体的服务配置 抽象
 @SuppressWarnings({"rawtypes", "deprecation"})
 public abstract class ServiceConfigBase<T> extends AbstractServiceConfig {
 
@@ -242,7 +242,7 @@ public abstract class ServiceConfigBase<T> extends AbstractServiceConfig {
                     .orElseThrow(() -> new IllegalStateException("Provider config not found: " + providerIds));
         }
     }
-    // 配置中心管理
+    // 协议配置
     protected void convertProtocolIdsToProtocols() {
         if (StringUtils.isEmpty(protocolIds)) {
             if (CollectionUtils.isEmpty(protocols)) {

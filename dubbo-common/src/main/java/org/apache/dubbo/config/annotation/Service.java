@@ -30,7 +30,7 @@ import java.lang.annotation.Target;
  * @since 2.7.0
  * @deprecated Recommend {@link DubboService} as the substitute
  */
-// DubboService
+// Service DubboService
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE, ElementType.METHOD})

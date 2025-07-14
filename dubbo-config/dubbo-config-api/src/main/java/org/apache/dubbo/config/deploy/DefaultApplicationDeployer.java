@@ -198,7 +198,7 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
         }
         return Boolean.TRUE.equals(registerConsumer);
     }
-
+    // 编程的方式可以直接获得引用端的代理
     @Override
     public ReferenceCache getReferenceCache() {
         return referenceCache;
@@ -207,6 +207,7 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
     /**
      * Initialize
      */
+    // 初始化应用级别的配置
     @Override
     public void initialize() {
         if (initialized) {
@@ -219,15 +220,15 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
             }
             onInitialize();
 
-            // register shutdown hook
+            // register shutdown hook  // 注册关闭钩子- 程序终止关闭 application 及 module
             registerShutdownHook();
-
+            // 启动配置中心
             startConfigCenter();
-
+            // 加载配置，一般配置信息 环境变量，JVM启动参数，配置文字
             loadApplicationConfigs();
-
+            // 初始化模块初始器
             initModuleDeployers();
-
+            // MetricsReporter: 是用于收集、聚合并报告Dubbo运行时指标的核心组件
             initMetricsReporter();
 
             initMetricsService();
@@ -263,7 +264,6 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
         configManager.loadConfigs();
     }
 
-    // startConfig
     private void startConfigCenter() {
 
         // load application config
@@ -298,8 +298,9 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
                 ConfigValidationUtils.validateConfigCenterConfig(configCenterConfig);
             }
         }
-        // 加载配置中心外部的配置
+        // 配置中心不为空则将配置中心配置添加到environment中
         if (CollectionUtils.isNotEmpty(configCenters)) {
+            // 多配置中心本地动态配置对象创建
             CompositeDynamicConfiguration compositeDynamicConfiguration = new CompositeDynamicConfiguration();
             for (ConfigCenterConfig configCenter : configCenters) {
                 // Pass config from ConfigCenterBean to environment
@@ -307,9 +308,10 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
                 environment.updateAppExternalConfigMap(configCenter.getAppExternalConfiguration());
 
                 // Fetch config from remote config center
-                // 从远程拉取配置
+                // 将配置配置中心拉取配置添加到组合配置中
                 compositeDynamicConfiguration.addConfiguration(prepareEnvironment(configCenter));
             }
+            // 动态配置中心的动态配置信息，设置到Environment的动态配置中
             environment.setDynamicConfiguration(compositeDynamicConfiguration);
         }
     }
@@ -497,7 +499,7 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
         cc.setHighestPriority(false);
         return cc;
     }
-    // UseRegistry 作为 MetadataCenter
+    // 使用注册中心作为元数据中心
     private void useRegistryAsMetadataCenterIfNecessary() {
 
         Collection<MetadataReportConfig> originMetadataConfigs = configManager.getMetadataConfigs();
@@ -767,7 +769,7 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
         //            }
         //        });
     }
-
+    // 优先开启start InternalModule, 之后启动其他的module
     private void startModules() {
         // ensure init and start internal module first
         prepareInternalModule();
@@ -780,9 +782,10 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
         }
     }
 
-    // 注册应用实例
+    // 注册服务实例
     @Override
     public void prepareApplicationInstance(ModuleModel moduleModel) {
+        // 是否注册过应用实例数据
         if (hasPreparedApplicationInstance.get()) {
             return;
         }
@@ -997,7 +1000,7 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
      * Indicate that how many threads are updating service
      */
     private final AtomicInteger serviceRefreshState = new AtomicInteger(0);
-    // 注册服务实例
+    // 注册实例数据
     public synchronized void registerServiceInstance() {
         if (!registered) {
             try {
@@ -1306,7 +1309,7 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
             }
         }
     }
-
+    // 导出MetadataService
     private void doExportMetadataService() {
         if (!isStarting() && !isStarted() && !isCompletion()) {
             return;

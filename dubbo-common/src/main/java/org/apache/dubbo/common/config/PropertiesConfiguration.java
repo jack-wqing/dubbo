@@ -25,7 +25,7 @@ import java.util.Properties;
 /**
  * Configuration from system properties and dubbo.properties
  */
-// dubbo.properties.file: 属性指定的文件
+// 对应的配置文件: dubbo.properties文件
 public class PropertiesConfiguration implements Configuration {
 
     private Properties properties;

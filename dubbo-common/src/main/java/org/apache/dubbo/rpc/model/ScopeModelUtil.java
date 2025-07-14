@@ -19,6 +19,7 @@ package org.apache.dubbo.rpc.model;
 import org.apache.dubbo.common.extension.ExtensionLoader;
 import org.apache.dubbo.common.extension.SPI;
 
+// 更具SPI Scope 操作
 public class ScopeModelUtil {
 
     public static <T> ScopeModel getOrDefault(ScopeModel scopeModel, Class<T> type) {

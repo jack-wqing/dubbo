@@ -24,6 +24,7 @@ import java.util.Set;
 /**
  * ServiceModel and ServiceMetadata are to some extent duplicated with each other. We should merge them in the future.
  */
+// ServiceModel 和 ServiceMetadata 信息重复
 public interface ServiceDescriptor {
 
     FullServiceDefinition getFullServiceDefinition(String serviceKey);

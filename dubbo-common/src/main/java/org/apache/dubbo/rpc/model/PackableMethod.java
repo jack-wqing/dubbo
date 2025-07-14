@@ -20,6 +20,7 @@ package org.apache.dubbo.rpc.model;
  * A packable method is used to customize serialization for methods. It can provide a common wrapper
  * for RESP / Protobuf.
  */
+// 方法支持Packable
 public interface PackableMethod {
 
     default Object parseRequest(byte[] data) throws Exception {

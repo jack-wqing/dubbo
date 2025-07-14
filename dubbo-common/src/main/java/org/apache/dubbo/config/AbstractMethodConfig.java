@@ -32,7 +32,7 @@ import java.util.Optional;
  *
  * @export
  */
-// AbstractMethodConfig: 方法级别的调用熟悉设置
+// 方法级别的统一配置
 public abstract class AbstractMethodConfig extends AbstractConfig {
 
     private static final long serialVersionUID = 5809761483000878437L;
@@ -72,7 +72,7 @@ public abstract class AbstractMethodConfig extends AbstractConfig {
      * Mock class name to be called when a service fails to execute. The mock doesn't support on the provider side,
      * and it is executed when a non-business exception occurs after a remote service call.
      */
-    // 远程调用发生，不是业务异常的时候
+    // 远程调用发生，框架架构异常
     protected String mock;
 
     /**

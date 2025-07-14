@@ -39,6 +39,7 @@ import static org.apache.dubbo.registry.client.metadata.ServiceInstanceMetadataU
  *
  * @since 2.7.5
  */
+// 元数据中endpoint设置
 public class ProtocolPortsMetadataCustomizer implements ServiceInstanceCustomizer {
     private static final ErrorTypeAwareLogger LOGGER =
             LoggerFactory.getErrorTypeAwareLogger(ProtocolPortsMetadataCustomizer.class);

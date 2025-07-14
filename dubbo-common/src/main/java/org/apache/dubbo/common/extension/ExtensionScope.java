@@ -25,6 +25,7 @@ import org.apache.dubbo.rpc.model.ModuleModel;
  * @see SPI
  * @see ExtensionDirector
  */
+// 扩展 SPI Scope
 public enum ExtensionScope {
 
     /**
@@ -74,5 +75,6 @@ public enum ExtensionScope {
     /**
      * self-sufficient, creates an instance for per scope, for special SPI extension, like {@link ExtensionInjector}
      */
+    // ExtensionInjector
     SELF
 }

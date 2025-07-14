@@ -34,6 +34,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.PROVIDER_SIDE;
 import static org.apache.dubbo.rpc.Constants.ASYNC_KEY;
 import static org.apache.dubbo.rpc.Constants.RETURN_KEY;
 
+// Rpc调用上下文
 public class RpcServiceContext extends RpcContext {
 
     protected RpcServiceContext() {}

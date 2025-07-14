@@ -23,6 +23,6 @@ import org.apache.dubbo.rpc.model.ModuleModel;
 /**
  * Module deploy listener
  */
-// DeployListener: Module
+// module 部署监听哦
 @SPI(scope = ExtensionScope.MODULE)
 public interface ModuleDeployListener extends DeployListener<ModuleModel> {}

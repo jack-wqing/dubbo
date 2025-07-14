@@ -29,7 +29,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.DEFAULT_KEY;
  * @see DynamicConfigurationFactory
  * @since 2.7.5
  */
-// abstract dynamic factory
+// 缓存的配置工厂
 public abstract class AbstractDynamicConfigurationFactory implements DynamicConfigurationFactory {
 
     private volatile ConcurrentHashMap<String, DynamicConfiguration> dynamicConfigurations = new ConcurrentHashMap<>();

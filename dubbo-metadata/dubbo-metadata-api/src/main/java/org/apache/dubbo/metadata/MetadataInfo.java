@@ -54,7 +54,11 @@ import static org.apache.dubbo.common.constants.CommonConstants.IS_EXTRA;
 import static org.apache.dubbo.common.constants.CommonConstants.METHODS_KEY;
 import static org.apache.dubbo.common.constants.CommonConstants.TIMESTAMP_KEY;
 import static org.apache.dubbo.metadata.RevisionResolver.EMPTY_REVISION;
-// MetadataInfo
+
+/**
+ * 应用的Metadata 信息
+ */
+
 public class MetadataInfo implements Serializable {
     public static final MetadataInfo EMPTY = new MetadataInfo();
     private static final Logger logger = LoggerFactory.getLogger(MetadataInfo.class);

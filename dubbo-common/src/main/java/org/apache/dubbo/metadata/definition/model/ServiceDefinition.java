@@ -27,7 +27,7 @@ import java.util.Objects;
 /**
  * 2015/1/27.
  */
-// service
+// service 定义
 public class ServiceDefinition implements Serializable {
 
     /**
@@ -35,6 +35,7 @@ public class ServiceDefinition implements Serializable {
      *
      * @see Class#getCanonicalName()
      */
+    // 接口的全限定名
     private String canonicalName;
 
     /**

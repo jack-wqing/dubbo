@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 package org.apache.dubbo.registry.client.migration.model;
-
+// 迁移类型
 public enum MigrationStep {
     FORCE_INTERFACE,
     APPLICATION_FIRST,

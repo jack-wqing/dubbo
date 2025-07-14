@@ -76,13 +76,13 @@ import static java.util.Collections.singletonList;
  *
  * @since 2.7.5
  */
-// DubboBootstrap
+// DubboBootstrap: 设计为单利，因为dubbo的一些类每个进程一个实例
 public final class DubboBootstrap {
 
     private static final String NAME = DubboBootstrap.class.getSimpleName();
 
     private static final Logger logger = LoggerFactory.getLogger(DubboBootstrap.class);
-
+    // ApplicationModel 一对一 DubboBootstrap
     private static final ConcurrentMap<ApplicationModel, DubboBootstrap> instanceMap = new ConcurrentHashMap<>();
     private static volatile DubboBootstrap instance;
 
@@ -340,7 +340,7 @@ public final class DubboBootstrap {
         }
         return this;
     }
-
+    // 到module的具体的缓存
     public ReferenceCache getCache() {
         return applicationDeployer.getReferenceCache();
     }

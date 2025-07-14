@@ -25,7 +25,7 @@ import org.apache.dubbo.common.URL;
  * <p>
  * 2018/10/25
  */
-//  method descriptor
+//  MetadataIdentifier
 public class MetadataIdentifier extends BaseServiceMetadataIdentifier implements BaseMetadataIdentifier {
 
     private String application;

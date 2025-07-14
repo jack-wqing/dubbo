@@ -26,7 +26,7 @@ import static org.apache.dubbo.common.extension.ExtensionScope.APPLICATION;
 /**
  * Customize parameters for interface-level registration
  */
-// ServiceURLCustomer:
+// 注册的服务url定制
 @SPI(scope = APPLICATION)
 public interface ServiceURLCustomizer extends Prioritized {
 

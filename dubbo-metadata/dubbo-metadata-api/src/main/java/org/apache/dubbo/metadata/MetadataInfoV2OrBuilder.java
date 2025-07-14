@@ -15,7 +15,10 @@
  * limitations under the License.
  */
 package org.apache.dubbo.metadata;
-// MetadataInfoV2 Builder
+
+/**
+ * MetadataInfoV2 Builder
+ */
 public interface MetadataInfoV2OrBuilder
         extends
         // @@protoc_insertion_point(interface_extends:org.apache.dubbo.metadata.MetadataInfoV2)

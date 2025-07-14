@@ -46,6 +46,7 @@ import static org.apache.dubbo.common.constants.RegistryConstants.SUBSCRIBED_SER
 import static org.apache.dubbo.common.utils.CollectionUtils.toTreeSet;
 import static org.apache.dubbo.common.utils.StringUtils.isBlank;
 
+// ServiceNameMapping 统一抽象类
 public abstract class AbstractServiceNameMapping implements ServiceNameMapping {
     protected final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(getClass());
     protected ApplicationModel applicationModel;

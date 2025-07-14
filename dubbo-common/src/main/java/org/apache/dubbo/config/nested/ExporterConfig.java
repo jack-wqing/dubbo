@@ -26,7 +26,7 @@ import java.util.Map;
 /**
  * Configuration for the exporter.
  */
-// zipkin 配置
+// 报告期的配置
 public class ExporterConfig implements Serializable {
 
     private static final long serialVersionUID = -559392305178067845L;

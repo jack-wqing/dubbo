@@ -19,6 +19,7 @@ package org.apache.dubbo.rpc.model;
 import org.apache.dubbo.common.extension.ExtensionScope;
 import org.apache.dubbo.common.extension.SPI;
 
+// ApplicationInitListener: 监听ApplicationModel的初始化
 @SPI(scope = ExtensionScope.APPLICATION)
 public interface ApplicationInitListener {
     /**

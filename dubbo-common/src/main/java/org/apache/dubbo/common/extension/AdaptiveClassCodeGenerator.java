@@ -36,6 +36,7 @@ import java.util.stream.IntStream;
 /**
  * Code generator for Adaptive class
  */
+// 自适应类的代码生成器
 public class AdaptiveClassCodeGenerator {
 
     private static final Logger logger = LoggerFactory.getLogger(AdaptiveClassCodeGenerator.class);

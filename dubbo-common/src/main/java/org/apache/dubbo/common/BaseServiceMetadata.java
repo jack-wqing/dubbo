@@ -24,7 +24,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.DEFAULT_VERSION;
 /**
  * 2019-10-10
  */
-// BaseService Metadata
+// service 元数据: 基本元数据： path group version
 public class BaseServiceMetadata {
     public static final char COLON_SEPARATOR = ':';
 

@@ -16,6 +16,7 @@
  */
 package org.apache.dubbo.rpc.model;
 
+// Model Constants
 public interface ModelConstants {
 
     String DEPLOYER = "deployer";

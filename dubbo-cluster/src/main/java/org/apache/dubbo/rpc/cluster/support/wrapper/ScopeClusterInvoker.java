@@ -57,6 +57,7 @@ import static org.apache.dubbo.rpc.cluster.Constants.PEER_KEY;
  *
  * @param <T> the type of service interface
  */
+// 特定scope local remoter
 public class ScopeClusterInvoker<T> implements ClusterInvoker<T>, ExporterChangeListener {
 
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(ScopeClusterInvoker.class);

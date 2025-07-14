@@ -53,9 +53,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROTOCOL_FAI
 /**
  * abstract ProtocolSupport.
  */
-// Protocol: 抽象统一接口
-// protocolBindingRefer: refer 方法
-// 多协议支持的抽象类: 每个协议都可以有很多服务
+// 所有协议的统一父类
 public abstract class AbstractProtocol implements Protocol, ScopeModelAware {
 
     protected final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(getClass());
@@ -92,7 +90,7 @@ public abstract class AbstractProtocol implements Protocol, ScopeModelAware {
     public List<ProtocolServer> getServers() {
         return Collections.unmodifiableList(new ArrayList<>(serverMap.values()));
     }
-
+    // Server Shutdown的时间
     protected void loadServerProperties(ProtocolServer server) {
         // read and hold config before destroy
         int serverShutdownTimeout =

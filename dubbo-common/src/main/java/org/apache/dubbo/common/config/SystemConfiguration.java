@@ -21,7 +21,7 @@ import java.util.Map;
 /**
  * Configuration from system properties
  */
-// System
+// 系统属性
 public class SystemConfiguration implements Configuration {
 
     @Override

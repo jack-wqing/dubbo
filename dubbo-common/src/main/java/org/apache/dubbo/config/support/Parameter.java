@@ -25,6 +25,7 @@ import java.lang.annotation.Target;
 /**
  * Parameter
  */
+// config -> URL参数设置
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD})

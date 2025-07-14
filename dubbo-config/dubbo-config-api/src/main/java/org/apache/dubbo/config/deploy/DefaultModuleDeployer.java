@@ -63,7 +63,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.CONFIG_UNABL
 /**
  * Export/refer services of module
  */
-// ModuleModel Deployer: Export or refer service of module
+// 来启动服务： 先启动内部服务，在启动外部服务
 public class DefaultModuleDeployer extends AbstractDeployer<ModuleModel> implements ModuleDeployer {
 
     private static final ErrorTypeAwareLogger logger =
@@ -127,7 +127,7 @@ public class DefaultModuleDeployer extends AbstractDeployer<ModuleModel> impleme
                 return;
             }
             onInitialize();
-
+            // 默认的提供者，默认的消费者， Module配置
             loadConfigs();
             // 默认的ModuleConfig
             // read ModuleConfig
@@ -151,7 +151,7 @@ public class DefaultModuleDeployer extends AbstractDeployer<ModuleModel> impleme
             }
         }
     }
-
+    // module 启动
     @Override
     public Future start() throws IllegalStateException {
         // initialize，maybe deadlock applicationDeployer lock & moduleDeployer lock
@@ -171,10 +171,12 @@ public class DefaultModuleDeployer extends AbstractDeployer<ModuleModel> impleme
             }
             // 发布开启事件
             onModuleStarting();
-
+            // 如果应用为初始化，则初始化
+            // ApplicationDeployer 初始化的时候，就会把ModuleDeployer一起初始化
             initialize();
 
-            // export services // 导出服务
+            // export services
+            // 暴露服务
             exportServices();
 
             // prepare application instance
@@ -184,6 +186,7 @@ public class DefaultModuleDeployer extends AbstractDeployer<ModuleModel> impleme
             }
 
             // refer services
+            // 引用服务
             referServices();
 
             // if no async export/refer services, just set started
@@ -437,7 +440,8 @@ public class DefaultModuleDeployer extends AbstractDeployer<ModuleModel> impleme
         moduleModel.getConfigManager().loadConfigs();
         moduleModel.getConfigManager().refreshAll();
     }
-    // AbstractConfigManager: 缓存的服务
+
+    // ModuleModel 配置管理器中的服务进行暴露
     private void exportServices() {
         for (ServiceConfigBase sc : configManager.getServices()) {
             exportServiceInternal(sc);
@@ -460,7 +464,7 @@ public class DefaultModuleDeployer extends AbstractDeployer<ModuleModel> impleme
             referenceCache.check(rc, timeout);
         }
     }
-    // ServiceConfigBase: ServiceConfig
+    // 暴露服务
     private void exportServiceInternal(ServiceConfigBase sc) {
         ServiceConfig<?> serviceConfig = (ServiceConfig<?>) sc;
         if (!serviceConfig.isRefreshed()) {
@@ -470,6 +474,7 @@ public class DefaultModuleDeployer extends AbstractDeployer<ModuleModel> impleme
             return;
         }
         if (exportAsync || sc.shouldExportAsync()) {
+            // 异步导出
             ExecutorService executor = executorRepository.getServiceExportExecutor();
             CompletableFuture<Void> future = CompletableFuture.runAsync(
                     () -> {
@@ -492,6 +497,7 @@ public class DefaultModuleDeployer extends AbstractDeployer<ModuleModel> impleme
 
             asyncExportingFutures.add(future);
         } else {
+            // 同步导出
             if (!sc.isExported()) {
                 sc.export(RegisterTypeEnum.AUTO_REGISTER_BY_DEPLOYER);
                 exportedServices.add(sc);

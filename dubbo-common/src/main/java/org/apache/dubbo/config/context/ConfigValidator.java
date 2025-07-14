@@ -18,7 +18,7 @@ package org.apache.dubbo.config.context;
 
 import org.apache.dubbo.config.AbstractConfig;
 
-//ConfigValidator
+//配置验证器
 public interface ConfigValidator {
 
     void validate(AbstractConfig config);

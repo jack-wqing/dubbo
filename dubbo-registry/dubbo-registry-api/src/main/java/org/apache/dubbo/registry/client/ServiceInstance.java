@@ -31,7 +31,7 @@ import java.util.SortedMap;
  *
  * @since 2.7.5
  */
-// 服务实力
+// 服务实力的模型类: 用于服务的注册和发现
 public interface ServiceInstance extends Serializable {
 
     /**

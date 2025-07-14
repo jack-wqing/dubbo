@@ -20,6 +20,7 @@ package org.apache.dubbo.common.extension;
  * ExtensionFactory
  * @deprecated use {@link ExtensionInjector} instead
  */
+// Extension Injection
 @Deprecated
 @SPI(scope = ExtensionScope.FRAMEWORK)
 public interface ExtensionFactory extends ExtensionInjector {

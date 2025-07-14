@@ -106,6 +106,13 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.CONFIG_FAILE
  * @see org.apache.dubbo.common.extension.Adaptive
  * @see org.apache.dubbo.common.extension.Activate
  */
+
+/**
+ * 自动注入依赖扩展
+ * 自动Wrapper扩展
+ * 默认的扩展是一个 adaptive instance
+ * @param <T>
+ */
 public class ExtensionLoader<T> {
 
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(ExtensionLoader.class);
@@ -199,6 +206,7 @@ public class ExtensionLoader<T> {
         return asList(strategies);
     }
 
+    // 忽略注入的属性
     private static List<String> getIgnoredInjectMethodsDesc() {
         List<String> ignoreInjectMethodsDesc = new ArrayList<>();
         Arrays.stream(ScopeModelAware.class.getMethods())

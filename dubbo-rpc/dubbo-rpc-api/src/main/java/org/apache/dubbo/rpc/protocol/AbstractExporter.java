@@ -24,7 +24,7 @@ import org.apache.dubbo.rpc.Invoker;
 /**
  * AbstractExporter.
  */
-// 控制Invoker.destroy
+// Exporter 统一抽象
 public abstract class AbstractExporter<T> implements Exporter<T> {
 
     protected final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(getClass());

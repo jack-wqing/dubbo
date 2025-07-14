@@ -16,6 +16,7 @@
  */
 package org.apache.dubbo.rpc.model;
 
+// pack Object
 public interface Pack {
 
     /**

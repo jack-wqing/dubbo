@@ -24,7 +24,7 @@ import org.apache.dubbo.common.extension.SPI;
  * @scene 2.7.9
  * @see DubboBootstrap
  */
-// DubboBootstrap Stop Listener
+// DubboBootstrap生命周期时间: start / stop 监听
 @SPI
 @Deprecated
 public interface DubboBootstrapStartStopListener {

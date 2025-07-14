@@ -33,7 +33,7 @@ import java.util.function.Consumer;
 /**
  * ListenerInvoker
  */
-// Referred  destroy
+// Invoker Wrapper
 public class ListenerInvokerWrapper<T> implements Invoker<T> {
 
     private static final ErrorTypeAwareLogger logger =

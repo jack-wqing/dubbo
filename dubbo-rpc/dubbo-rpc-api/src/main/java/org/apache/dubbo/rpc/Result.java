@@ -43,7 +43,7 @@ import java.util.function.Function;
  * @see org.apache.dubbo.rpc.Invoker#invoke(Invocation)
  * @see AppResponse
  */
-// 通常实现: AsyncRpcResult Or AppResponse
+// RPC的结果: 通常实现为 AsyncRpcResult + AppResponse
 public interface Result extends Serializable {
 
     /**

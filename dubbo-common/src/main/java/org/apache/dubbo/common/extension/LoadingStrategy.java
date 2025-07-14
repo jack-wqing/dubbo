@@ -18,6 +18,7 @@ package org.apache.dubbo.common.extension;
 
 import org.apache.dubbo.common.lang.Prioritized;
 
+// Extension Loading Strategy
 public interface LoadingStrategy extends Prioritized {
 
     String directory();

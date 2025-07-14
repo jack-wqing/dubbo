@@ -252,6 +252,7 @@ public class ConfigValidationUtils {
 
     private static List<URL> genCompatibleRegistries(ScopeModel scopeModel, List<URL> registryList, boolean provider) {
         List<URL> result = new ArrayList<>(registryList.size());
+        // 遍历所有注册中心，为每个注册中心增加兼容的服务发现注册注册中心地址
         registryList.forEach(registryURL -> {
             if (provider) {
                 // for registries enabled service discovery, automatically register interface compatible addresses.
@@ -281,6 +282,7 @@ public class ConfigValidationUtils {
                     if (!isValidRegisterMode(registerMode)) {
                         registerMode = DEFAULT_REGISTER_MODE_INTERFACE;
                     }
+                    // 支持实例 应用级别服务注册
                     if ((DEFAULT_REGISTER_MODE_INSTANCE.equalsIgnoreCase(registerMode)
                                     || DEFAULT_REGISTER_MODE_ALL.equalsIgnoreCase(registerMode))
                             && registryNotExists(registryURL, registryList, SERVICE_REGISTRY_PROTOCOL)) {
@@ -290,13 +292,13 @@ public class ConfigValidationUtils {
                                 .build();
                         result.add(serviceDiscoveryRegistryURL);
                     }
-
+                    // 接口级别服务注册
                     if (DEFAULT_REGISTER_MODE_INTERFACE.equalsIgnoreCase(registerMode)
                             || DEFAULT_REGISTER_MODE_ALL.equalsIgnoreCase(registerMode)) {
                         result.add(registryURL);
                     }
                 }
-
+                // FrameworkStatusReportService
                 FrameworkStatusReportService reportService = ScopeModelUtil.getApplicationModel(scopeModel)
                         .getBeanFactory()
                         .getBean(FrameworkStatusReportService.class);

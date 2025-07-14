@@ -20,6 +20,9 @@ import org.apache.dubbo.common.config.configcenter.ConfigurationListener;
 import org.apache.dubbo.common.config.configcenter.DynamicConfiguration;
 import org.apache.dubbo.rpc.model.ModuleModel;
 
+/**
+ * 容错规则默认从DynamicConfiguration 动态配置中心获取
+ */
 public class DefaultGovernanceRuleRepositoryImpl implements GovernanceRuleRepository {
 
     private final ModuleModel moduleModel;

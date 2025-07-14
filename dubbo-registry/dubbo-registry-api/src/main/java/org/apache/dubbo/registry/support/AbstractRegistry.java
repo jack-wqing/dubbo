@@ -83,7 +83,7 @@ import static org.apache.dubbo.registry.Constants.REGISTRY_FILESAVE_SYNC_KEY;
  * <p>
  * (SPI, Prototype, ThreadSafe)
  */
-// local cache file: 防止注册中心崩溃
+// 提供基于文件的缓存注册服务，防止注册中心崩溃导致不可用
 public abstract class AbstractRegistry implements Registry {
 
     // URL address separator, used in file cache, service provider URL separation
@@ -101,8 +101,9 @@ public abstract class AbstractRegistry implements Registry {
     // Local disk cache, where the special key value.registries records the list of registry centers, and the others are
     // the list of notified service providers
     // special key registries
+    // 特殊的key value.registries 记录列表
     private final Properties properties = new Properties();
-    // File cache timing writing
+    // File cache timing writing file cache
     private final ScheduledExecutorService registryCacheExecutor;
     private final AtomicLong lastCacheChanged = new AtomicLong();
     private final AtomicInteger savePropertiesRetryTimes = new AtomicInteger();
@@ -477,7 +478,7 @@ public abstract class AbstractRegistry implements Registry {
         // do not forget remove notified
         notified.remove(url);
     }
-
+    // 恢复重新 注册和订阅
     protected void recover() throws Exception {
         // register
         Set<URL> recoverRegistered = new HashSet<>(getRegistered());
@@ -542,6 +543,7 @@ public abstract class AbstractRegistry implements Registry {
      * @param listener listener
      * @param urls     provider latest urls
      */
+    // 服务侧通知改变
     protected void notify(URL url, NotifyListener listener, List<URL> urls) {
         if (url == null) {
             throw new IllegalArgumentException("notify url == null");

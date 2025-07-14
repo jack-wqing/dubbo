@@ -23,8 +23,8 @@ package org.apache.dubbo.rpc;
  * @see org.apache.dubbo.rpc.ExporterListener
  * @see org.apache.dubbo.rpc.protocol.AbstractExporter
  */
-// Exporter: Invoker  unexport  register unregister
-// 使服务能够暴露都网络[端口]，使其他服务能够调用
+
+// 使服务暴露到网络，可以被访问
 
 public interface Exporter<T> {
 

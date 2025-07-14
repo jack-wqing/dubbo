@@ -81,7 +81,7 @@ import static org.apache.dubbo.metadata.report.support.Constants.DEFAULT_METADAT
 import static org.apache.dubbo.metadata.report.support.Constants.DEFAULT_METADATA_REPORT_RETRY_TIMES;
 import static org.apache.dubbo.metadata.report.support.Constants.DUBBO_METADATA;
 
-// AbstractMetadataReport
+// MetadataReport统一的父接口
 public abstract class AbstractMetadataReport implements MetadataReport {
 
     protected static final String DEFAULT_ROOT = "dubbo";
@@ -94,22 +94,30 @@ public abstract class AbstractMetadataReport implements MetadataReport {
     // Local disk cache, where the special key value.registries records the list of metadata centers, and the others are
     // the list of notified service providers
     final Properties properties = new Properties();
+
     private final ExecutorService reportCacheExecutor =
             Executors.newFixedThreadPool(1, new NamedThreadFactory("DubboSaveMetadataReport", true));
+
     final Map<MetadataIdentifier, Object> allMetadataReports = new ConcurrentHashMap<>(4);
 
     private final AtomicLong lastCacheChanged = new AtomicLong();
+
     final Map<MetadataIdentifier, Object> failedReports = new ConcurrentHashMap<>(4);
+
     private URL reportURL;
     boolean syncReport;
     // Local disk cache file
     File file;
+
     private AtomicBoolean initialized = new AtomicBoolean(false);
+
     public MetadataReportRetry metadataReportRetry;
+
     private ScheduledExecutorService reportTimerScheduler;
 
     private final boolean reportMetadata;
     private final boolean reportDefinition;
+
     protected ApplicationModel applicationModel;
 
     public AbstractMetadataReport(URL reportServerURL) {

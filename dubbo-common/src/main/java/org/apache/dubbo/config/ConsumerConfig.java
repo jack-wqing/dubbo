@@ -32,7 +32,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.URL_MERGE_PROCES
  *
  * @export
  */
-// service consumer: default configuration
+// dubbo 消费端统一的配置
 public class ConsumerConfig extends AbstractReferenceConfig {
 
     private static final long serialVersionUID = 2827274711143680600L;

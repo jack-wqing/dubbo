@@ -41,6 +41,7 @@ import javassist.CtMethod;
 /**
  * Wrapper.
  */
+// 生成代理类
 public abstract class Wrapper {
     // class wrapper map
     private static final ConcurrentMap<Class<?>, Wrapper> WRAPPER_MAP = new ConcurrentHashMap<>();

@@ -19,6 +19,7 @@ package org.apache.dubbo.rpc.model;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
+// MethodDescriptor
 public interface MethodDescriptor {
 
     String getMethodName();
@@ -35,7 +36,7 @@ public interface MethodDescriptor {
     Class<?> getReturnClass();
 
     Type[] getReturnTypes();
-
+    // RpcType
     RpcType getRpcType();
 
     boolean isGeneric();

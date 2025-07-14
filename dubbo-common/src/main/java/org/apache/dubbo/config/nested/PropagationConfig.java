@@ -21,7 +21,7 @@ import java.io.Serializable;
 /**
  * Configuration for the propagation.
  */
-// Propagation: W3C
+// Trace的广播类型
 public class PropagationConfig implements Serializable {
 
     private static final long serialVersionUID = -2570106396211532046L;

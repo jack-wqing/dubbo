@@ -182,7 +182,7 @@ public interface FilterChainBuilder {
             return getOriginalInvoker().isDestroyed();
         }
     }
-    // CallbackRegistrationInvoker: 过滤器的回调接口
+    // 过滤回调分装: CallbackRegistrationInvoker
     class CallbackRegistrationInvoker<T, FILTER extends BaseFilter> implements Invoker<T> {
         private static final ErrorTypeAwareLogger LOGGER =
                 LoggerFactory.getErrorTypeAwareLogger(CallbackRegistrationInvoker.class);
@@ -277,7 +277,7 @@ public interface FilterChainBuilder {
             filterInvoker.destroy();
         }
     }
-    // ClusterCallbackRegistrationInvoker: Cluster 支持回调
+    // ClusterCallbackRegistrationInvoker: 消费端 过滤器支持监听
     class ClusterCallbackRegistrationInvoker<T, FILTER extends BaseFilter>
             extends CallbackRegistrationInvoker<T, FILTER> implements ClusterInvoker<T> {
         private ClusterInvoker<T> originalInvoker;
@@ -308,7 +308,7 @@ public interface FilterChainBuilder {
         }
     }
 
-    // CopyOfFilter
+    // 替换 FilterChainNode
     @Experimental(
             "Works for the same purpose as FilterChainNode, replace FilterChainNode with this one when proved stable enough")
     class CopyOfFilterChainNode<T, TYPE extends Invoker<T>, FILTER extends BaseFilter> implements Invoker<T> {
@@ -392,6 +392,7 @@ public interface FilterChainBuilder {
         }
     }
 
+    // 替换ClusterFilterChain
     @Experimental(
             "Works for the same purpose as ClusterFilterChainNode, replace ClusterFilterChainNode with this one when proved stable enough")
     class CopyOfClusterFilterChainNode<T, TYPE extends ClusterInvoker<T>, FILTER extends BaseFilter>

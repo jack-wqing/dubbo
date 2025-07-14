@@ -18,7 +18,7 @@ package org.apache.dubbo.common.deploy;
 
 import org.apache.dubbo.rpc.model.ScopeModel;
 
-// DeployListener Adapter
+// 部署监听器 Adapter
 public class DeployListenerAdapter<E extends ScopeModel> implements DeployListener<E> {
     @Override
     public void onInitialize(E scopeModel) {}

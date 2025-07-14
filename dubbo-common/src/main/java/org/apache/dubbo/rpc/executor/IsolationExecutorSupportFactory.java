@@ -21,7 +21,7 @@ import org.apache.dubbo.common.extension.ExtensionLoader;
 import org.apache.dubbo.common.extension.SPI;
 import org.apache.dubbo.rpc.model.ApplicationModel;
 
-// 隔离的执行器工厂类: IsolationExecutorSupport
+// 创建隔离线程池: 默认default
 @SPI("default")
 public interface IsolationExecutorSupportFactory {
 

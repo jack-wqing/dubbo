@@ -32,6 +32,7 @@ import java.util.concurrent.atomic.AtomicLong;
 /**
  * Round robin load balance.
  */
+// 加权轮训
 public class RoundRobinLoadBalance extends AbstractLoadBalance {
     public static final String NAME = "roundrobin";
 

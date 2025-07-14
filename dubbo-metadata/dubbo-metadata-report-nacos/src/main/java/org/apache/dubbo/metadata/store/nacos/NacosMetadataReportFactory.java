@@ -23,7 +23,7 @@ import org.apache.dubbo.metadata.report.support.AbstractMetadataReportFactory;
 /**
  * metadata report factory impl for nacos
  */
-// nacos metadata
+// nacos 存储元数据
 public class NacosMetadataReportFactory extends AbstractMetadataReportFactory {
     @Override
     protected MetadataReport createMetadataReport(URL url) {

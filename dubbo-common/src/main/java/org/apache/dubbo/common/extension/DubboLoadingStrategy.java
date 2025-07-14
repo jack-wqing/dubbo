@@ -21,6 +21,7 @@ package org.apache.dubbo.common.extension;
  *
  * @since 2.7.7
  */
+// 从目录 /META-INF/dubbo/ 目录下加载优先级正常
 public class DubboLoadingStrategy implements LoadingStrategy {
 
     @Override

@@ -67,6 +67,7 @@ import static org.apache.dubbo.common.constants.RegistryConstants.INIT;
  * - Refer, invoker behaviour is determined with default rule.
  * - Rule change, invoker behaviour is changed according to the newly received rule.
  */
+// 迁移规则监听器
 @Activate
 public class MigrationRuleListener implements RegistryProtocolListener, ConfigurationListener {
     private static final ErrorTypeAwareLogger logger =

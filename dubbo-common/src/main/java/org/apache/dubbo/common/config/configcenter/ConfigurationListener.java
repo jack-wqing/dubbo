@@ -21,7 +21,7 @@ import java.util.EventListener;
 /**
  * Config listener, will get notified when the config it listens on changes.
  */
-// dynamic Listener
+// 动态配置的配置监听器
 public interface ConfigurationListener extends EventListener {
 
     /**

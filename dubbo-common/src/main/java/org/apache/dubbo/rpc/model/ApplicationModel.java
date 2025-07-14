@@ -50,6 +50,11 @@ import java.util.concurrent.locks.Lock;
  * and many Consumer Model which is about subscribed services.
  * <p>
  */
+
+/**
+ * 表示正在使用Dubbo的应用程序，存储基本元数据信息，以便在RPC调用过程中使用
+ * 3.3已经不是静态了
+ */
 public class ApplicationModel extends ScopeModel {
     protected static final Logger LOGGER = LoggerFactory.getLogger(ApplicationModel.class);
     public static final String NAME = "ApplicationModel";
@@ -86,6 +91,7 @@ public class ApplicationModel extends ScopeModel {
      *
      * @return the global default ApplicationModel
      */
+    // 精良避免使用默认的 ApplicationModel
     public static ApplicationModel defaultModel() {
         // should get from default FrameworkModel, avoid out of sync
         return FrameworkModel.defaultModel().defaultApplication();
@@ -107,7 +113,7 @@ public class ApplicationModel extends ScopeModel {
                 LOGGER.info(getDesc() + " is created");
             }
             initialize();
-
+            // internal module
             this.internalModule = new ModuleModel(this, true);
             this.serviceRepository = new ServiceRepository(this);
 

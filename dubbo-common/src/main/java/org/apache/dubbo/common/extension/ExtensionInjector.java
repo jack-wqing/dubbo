@@ -19,6 +19,10 @@ package org.apache.dubbo.common.extension;
 /**
  * An injector to provide resources for SPI extension.
  */
+
+/**
+ * Dubbo SPI Extension Injector
+ */
 @SPI(scope = ExtensionScope.SELF)
 public interface ExtensionInjector extends ExtensionAccessorAware {
 

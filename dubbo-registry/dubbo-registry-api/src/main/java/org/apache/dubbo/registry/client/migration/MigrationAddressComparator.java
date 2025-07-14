@@ -22,7 +22,7 @@ import org.apache.dubbo.rpc.cluster.ClusterInvoker;
 
 import java.util.Map;
 
-// 迁移判断
+// 接口应用级迁移判断
 @SPI
 public interface MigrationAddressComparator {
 

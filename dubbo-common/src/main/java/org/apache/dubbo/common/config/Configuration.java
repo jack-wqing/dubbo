@@ -27,7 +27,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_PROPE
 /**
  * Configuration interface, to fetch the value for the specified key.
  */
-// Configuration: key/value config
+// Environment 父接口
 public interface Configuration {
 
     ErrorTypeAwareLogger interfaceLevelLogger = LoggerFactory.getErrorTypeAwareLogger(Configuration.class);

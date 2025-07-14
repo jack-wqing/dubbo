@@ -22,7 +22,7 @@ import java.util.Map;
 /**
  * In-memory configuration
  */
-// 自定义 Inmemory
+// 内存map: 存储key-value
 public class InmemoryConfiguration implements Configuration {
 
     private String name;

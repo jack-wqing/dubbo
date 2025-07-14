@@ -37,7 +37,7 @@ import java.util.Optional;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.INTERNAL_ERROR;
 
-// 增强协议层的安全性
+// 序列化安全相关 SerializeSecurityConfigurator
 @Activate(order = 200)
 public class ProtocolSecurityWrapper implements Protocol {
     private final Protocol protocol;

@@ -21,6 +21,7 @@ package org.apache.dubbo.common.extension;
  *
  * @since 2.7.7
  */
+// 从目录 META-INF/dubbo/internal/ 目录下加载 优先级最高
 public class DubboInternalLoadingStrategy implements LoadingStrategy {
 
     @Override

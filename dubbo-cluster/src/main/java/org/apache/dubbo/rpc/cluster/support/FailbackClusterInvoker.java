@@ -51,6 +51,7 @@ import static org.apache.dubbo.rpc.cluster.Constants.FAIL_BACK_TASKS_KEY;
  *
  * <a href="http://en.wikipedia.org/wiki/Failback">Failback</a>
  */
+// 失败定时重试
 public class FailbackClusterInvoker<T> extends AbstractClusterInvoker<T> {
 
     private static final ErrorTypeAwareLogger logger =

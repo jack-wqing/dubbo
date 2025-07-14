@@ -29,6 +29,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.GENERIC_SERIALIZ
 import static org.apache.dubbo.common.constants.CommonConstants.GENERIC_SERIALIZATION_NATIVE_JAVA;
 import static org.apache.dubbo.common.constants.CommonConstants.GENERIC_SERIALIZATION_PROTOBUF;
 
+// 接口服务的key
 public class ProtocolUtils {
 
     private static final ConcurrentMap<String, GroupServiceKeyCache> groupServiceKeyCacheMap =

@@ -25,7 +25,7 @@ import org.apache.dubbo.config.ServiceConfig;
  * AUTO: env will be init once {@link ServiceConfig#export()} finished
  * SERVLET: will be controlled by java servlet container
  */
-// takeover mode
+// DubboBootstrap 生命周期管理模型
 public enum BootstrapTakeoverMode {
     SPRING,    // spring 控制
     MANUAL,  // init 之后使用start

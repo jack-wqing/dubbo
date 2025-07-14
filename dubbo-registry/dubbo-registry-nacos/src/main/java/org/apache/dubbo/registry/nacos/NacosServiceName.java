@@ -31,6 +31,7 @@ import static org.apache.dubbo.common.utils.StringUtils.isBlank;
  *
  * @since 2.7.3
  */
+// nacos 服务名接口级别
 public class NacosServiceName {
 
     public static final String NAME_SEPARATOR = ":";

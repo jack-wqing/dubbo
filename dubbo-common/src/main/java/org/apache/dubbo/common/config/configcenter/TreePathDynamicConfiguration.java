@@ -37,7 +37,7 @@ import static org.apache.dubbo.common.utils.PathUtils.normalize;
  * @see AbstractDynamicConfiguration
  * @since 2.7.8
  */
-// dynamic config: tree path
+// 树结构的动态配置中心，比如：zk 及 FileSystem
 public abstract class TreePathDynamicConfiguration extends AbstractDynamicConfiguration {
 
     /**

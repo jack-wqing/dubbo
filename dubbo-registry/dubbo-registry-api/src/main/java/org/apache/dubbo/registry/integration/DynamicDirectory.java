@@ -60,7 +60,7 @@ import static org.apache.dubbo.remoting.Constants.CHECK_KEY;
 /**
  * DynamicDirectory
  */
-// DynamicDirectory
+// 通过注册中心实现的Directory
 public abstract class DynamicDirectory<T> extends AbstractDirectory<T> implements NotifyListener {
 
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(DynamicDirectory.class);

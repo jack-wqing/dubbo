@@ -33,7 +33,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.DubboProperty.DU
 /**
  * TODO, Using randomly accessible file-based cache can be another choice if memory consumption turns to be an issue.
  */
-// MappingCacheManager: Local
+// 文件内存缓存
 public class MappingCacheManager extends AbstractCacheManager<Set<String>> {
     private static final String DEFAULT_FILE_NAME = ".mapping";
     private static final int DEFAULT_ENTRY_SIZE = 10000;

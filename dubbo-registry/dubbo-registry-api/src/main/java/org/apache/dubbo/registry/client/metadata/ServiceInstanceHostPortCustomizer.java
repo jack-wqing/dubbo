@@ -33,6 +33,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROTOCOL_FAI
 /**
  * The {@link ServiceInstanceCustomizer} to customize the {@link ServiceInstance#getPort() port} of service instance.
  */
+// 服务实例 主机端口设置
 public class ServiceInstanceHostPortCustomizer implements ServiceInstanceCustomizer {
     private static final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(ServiceInstanceHostPortCustomizer.class);

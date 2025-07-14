@@ -72,19 +72,19 @@ import static org.apache.dubbo.registry.client.ServiceDiscoveryFactory.getExtens
  * - Maps interface to applications depending on ServiceNameMapping.
  * - Starts the new service discovery listener (InstanceListener) and makes NotifierListeners part of the InstanceListener.
  */
-// 桥接新的的服务发现 与 旧服务发现模式
+// 桥接新的的服务发现 与 旧服务发现模式 兼容
 // register 聚合接口级别的数据到metadataInfo中，通过MetaService
-// subscribe 整个应用级别实现
-// 通过ServiceNameMapping映射接口到应用级别
-// InstanceListener: 启动实例监听
+// subscribe 应用及服务发现订阅实现
+// 应用级别和接口基本的映射关系通过ServiceNameMapping 实现
+// 启动新的实例监听(InstanceListener), 并使NotifierListeners 作为InstanceListener的一部分
 public class ServiceDiscoveryRegistry extends FailbackRegistry {
 
     protected final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(getClass());
-
+    // 管理应用级别服务实现
     private final ServiceDiscovery serviceDiscovery;
-
+    // 管理服务映射
     private final AbstractServiceNameMapping serviceNameMapping;
-
+    // 所有的app -> 监听哦
     /* apps - listener */
     private final Map<String, ServiceInstancesChangedListener> serviceListeners = new ConcurrentHashMap<>();
     private final Map<String, Set<MappingListener>> mappingListeners = new ConcurrentHashMap<>();

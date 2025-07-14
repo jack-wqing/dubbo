@@ -92,7 +92,7 @@ import static org.apache.dubbo.rpc.protocol.dubbo.Constants.SHARE_CONNECTIONS_KE
 /**
  * dubbo protocol support.
  */
-// 默认协议使用: Dubbo协议， 默认20880端口
+// Dubbo协议: DubboProtocol
 public class DubboProtocol extends AbstractProtocol {
 
     public static final String NAME = "dubbo";
@@ -310,6 +310,7 @@ public class DubboProtocol extends AbstractProtocol {
 
         String serviceKey = serviceKey(port, path, (String) inv.getObjectAttachmentWithoutConvert(VERSION_KEY), (String)
                 inv.getObjectAttachmentWithoutConvert(GROUP_KEY));
+        // 每个协议导出的所有Export都在这里记录
         DubboExporter<?> exporter = (DubboExporter<?>) exporterMap.get(serviceKey);
 
         if (exporter == null) {
@@ -366,7 +367,7 @@ public class DubboProtocol extends AbstractProtocol {
 
         return exporter;
     }
-
+    // 开启服务
     private void openServer(URL url) {
         checkDestroyed();
         // find server.

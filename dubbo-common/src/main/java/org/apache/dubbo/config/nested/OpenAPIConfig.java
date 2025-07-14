@@ -19,7 +19,7 @@ package org.apache.dubbo.config.nested;
 import java.io.Serializable;
 import java.util.Map;
 
-// OpenAPIConfig
+// Dubbo OpenAPI配置
 public class OpenAPIConfig implements Serializable {
 
     private static final long serialVersionUID = 6943417456345001947L;

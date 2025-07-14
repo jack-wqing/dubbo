@@ -33,7 +33,7 @@ import java.util.concurrent.ConcurrentMap;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_PROPERTY_TYPE_MISMATCH;
 
-// Default: MigrationAddressComparator
+// Default: 默认的迁移比较器
 public class DefaultMigrationAddressComparator implements MigrationAddressComparator {
     private static final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(DefaultMigrationAddressComparator.class);

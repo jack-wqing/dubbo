@@ -18,7 +18,7 @@ package org.apache.dubbo.config.nested;
 
 import java.io.Serializable;
 
-// Cors
+// 跨域配置
 public class CorsConfig implements Serializable {
 
     private static final long serialVersionUID = -7106481576053641726L;

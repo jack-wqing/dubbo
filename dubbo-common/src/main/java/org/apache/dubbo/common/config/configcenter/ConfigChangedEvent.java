@@ -24,7 +24,7 @@ import java.util.Objects;
  *
  * @see ConfigChangeType
  */
-// Event
+// 配置更新事件
 public class ConfigChangedEvent extends EventObject {
 
     private final String key;

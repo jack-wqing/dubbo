@@ -36,6 +36,7 @@ import org.apache.dubbo.rpc.cluster.router.RouterSnapshotNode;
  * @see Directory#list(Invocation)
  * @since 3.0
  */
+// 状态路由
 public interface StateRouter<T> {
 
     /**
@@ -55,6 +56,7 @@ public interface StateRouter<T> {
      * @return state with route result
      * @since 3.0
      */
+    // 路由
     BitList<Invoker<T>> route(
             BitList<Invoker<T>> invokers,
             URL url,
@@ -87,6 +89,7 @@ public interface StateRouter<T> {
      *
      * @param invokers invoker list
      */
+    // 调用router之前修改调用列表
     void notify(BitList<Invoker<T>> invokers);
 
     /**

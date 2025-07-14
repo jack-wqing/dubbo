@@ -34,7 +34,7 @@ import java.util.concurrent.ConcurrentMap;
  * @see ServiceDiscoveryFactory
  * @since 2.7.5
  */
-// 多服务发现支持
+// 多服务发现支持 响应的RAM 缓存
 public abstract class AbstractServiceDiscoveryFactory implements ServiceDiscoveryFactory, ScopeModelAware {
 
     protected ApplicationModel applicationModel;

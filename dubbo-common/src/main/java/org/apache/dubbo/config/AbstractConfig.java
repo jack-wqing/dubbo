@@ -78,7 +78,7 @@ import static org.apache.dubbo.config.Constants.PARAMETERS;
  * @export
  */
 @SuppressWarnings({"unchecked", "rawtypes"})
-// AbstractConfig: 主要是刷新方法
+// 设计配置的统一父类
 public abstract class AbstractConfig implements Serializable {
 
     private static final long serialVersionUID = 4267533505537413570L;
@@ -179,7 +179,7 @@ public abstract class AbstractConfig implements Serializable {
     public static void appendAttributes(Map<String, String> parameters, Object config, String prefix) {
         appendParameters0(parameters, config, prefix, false);
     }
-
+    // 通过对象的属性填充参数
     private static void appendParameters0(
             Map<String, String> parameters, Object config, String prefix, boolean asParameters) {
         if (config == null) {
@@ -450,6 +450,7 @@ public abstract class AbstractConfig implements Serializable {
             ScopeModel oldScopeModel = this.scopeModel;
             this.scopeModel = scopeModel;
             // reinitialize spi extension and change referenced config's scope model
+            // scope model 发生了变化
             this.postProcessAfterScopeModelChanged(oldScopeModel, this.scopeModel);
         }
     }
@@ -480,6 +481,7 @@ public abstract class AbstractConfig implements Serializable {
      * @param oldScopeModel
      * @param newScopeModel
      */
+    // 通知ScopeModel变更操作
     protected void postProcessAfterScopeModelChanged(ScopeModel oldScopeModel, ScopeModel newScopeModel) {
         // remove this config from old ConfigManager
         //        if (oldScopeModel != null && oldScopeModel instanceof ApplicationModel) {
@@ -509,6 +511,7 @@ public abstract class AbstractConfig implements Serializable {
      * @param annotationClass
      * @param annotation
      */
+    // 通过注解填充属性
     protected void appendAnnotation(Class<?> annotationClass, Object annotation) {
         Method[] methods = annotationClass.getMethods();
         for (Method method : methods) {
@@ -568,6 +571,7 @@ public abstract class AbstractConfig implements Serializable {
      * @see AbstractConfig#checkDefault()
      * @see AbstractConfig#appendParameters(Map, Object, String)
      */
+    // 应该在所有的配置初始化完成之后调用
     @Transient
     public Map<String, String> getMetaData() {
         return getMetaData(null);
@@ -589,7 +593,7 @@ public abstract class AbstractConfig implements Serializable {
         }
         return beanInfo;
     }
-
+    // 是否存在可写的属性
     private static boolean isWritableProperty(BeanInfo beanInfo, String key) {
         for (PropertyDescriptor propertyDescriptor : beanInfo.getPropertyDescriptors()) {
             if (key.equals(propertyDescriptor.getName())) {
@@ -599,6 +603,7 @@ public abstract class AbstractConfig implements Serializable {
         return false;
     }
 
+    // 属性的前缀，指的是是否包含 id or name 指定的表示
     @Parameter(excluded = true, attribute = false)
     @Transient
     public List<String> getPrefixes() {
@@ -631,7 +636,7 @@ public abstract class AbstractConfig implements Serializable {
     public ConfigMode getConfigMode() {
         return getApplicationModel().getApplicationConfigManager().getConfigMode();
     }
-
+    // 新对象覆盖就对象的属性
     public void overrideWithConfig(AbstractConfig newOne, boolean overrideAll) {
         if (!Objects.equals(this.getClass(), newOne.getClass())) {
             // ignore if two config is not the same class
@@ -737,7 +742,7 @@ public abstract class AbstractConfig implements Serializable {
         }
         refreshed.set(true);
     }
-
+    // 最终的属性刷新方法: 通过环境配置给各个组件设置配置的属性
     protected void refreshWithPrefixes(List<String> prefixes, ConfigMode configMode) {
         Environment environment = getScopeModel().modelEnvironment();
         List<Map<String, String>> configurationMaps = environment.getConfigurationMaps();
@@ -778,7 +783,7 @@ public abstract class AbstractConfig implements Serializable {
         // process extra refresh of subclass, e.g. refresh method configs
         processExtraRefresh(preferredPrefix, subPropsConfiguration);
     }
-
+    // 分配属性
     private void assignProperties(
             Object obj,
             Environment environment,
@@ -1005,11 +1010,11 @@ public abstract class AbstractConfig implements Serializable {
     protected void processExtraRefresh(String preferredPrefix, InmemoryConfiguration subPropsConfiguration) {
         // process extra refresh
     }
-
+    // 刷新之前的回调钩子
     protected void preProcessRefresh() {
         // pre-process refresh
     }
-
+    // 刷新之后的回调钩子
     protected void postProcessRefresh() {
         // post-process refresh
         checkDefault();
@@ -1030,6 +1035,7 @@ public abstract class AbstractConfig implements Serializable {
      * @see AbstractConfig#getMetaData()
      * @see AbstractConfig#appendAttributes(Map, Object)
      */
+    // 刷新之后操作属性的默认值
     protected void checkDefault() {}
 
     @Parameter(excluded = true, attribute = false)
@@ -1159,6 +1165,7 @@ public abstract class AbstractConfig implements Serializable {
      *
      * @return
      */
+    // Parameter 标记的属性方法
     protected List<Method> computeAttributedMethods() {
         Class<? extends AbstractConfig> cls = this.getClass();
         BeanInfo beanInfo = getBeanInfo(cls);

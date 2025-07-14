@@ -59,6 +59,7 @@ import static org.apache.dubbo.rpc.cluster.Constants.DEFAULT_CLUSTER_STICKY;
 /**
  * AbstractClusterInvoker
  */
+// 抽象的机器Invoker
 public abstract class AbstractClusterInvoker<T> implements ClusterInvoker<T> {
 
     private static final ErrorTypeAwareLogger logger =

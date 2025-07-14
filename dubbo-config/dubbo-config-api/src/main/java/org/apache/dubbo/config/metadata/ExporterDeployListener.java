@@ -28,7 +28,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.DEFAULT_REGISTER
 import static org.apache.dubbo.common.constants.CommonConstants.INTERFACE_REGISTER_MODE;
 import static org.apache.dubbo.common.constants.CommonConstants.REMOTE_METADATA_STORAGE_TYPE;
 
-// MetadataExport Listener
+// 导出MetadataService 服务
 public class ExporterDeployListener implements ApplicationDeployListener, Prioritized {
     protected volatile ConfigurableMetadataServiceExporter metadataServiceExporter;
 
@@ -91,6 +91,7 @@ public class ExporterDeployListener implements ApplicationDeployListener, Priori
             metadataServiceExporter =
                     new ConfigurableMetadataServiceExporter(applicationModel, metadataService, metadataServiceV2);
             // fixme, let's disable local metadata service export at this moment
+            // dubbo3的元数据服务
             if (!REMOTE_METADATA_STORAGE_TYPE.equals(getMetadataType(applicationModel))
                     && !INTERFACE_REGISTER_MODE.equals(getRegisterMode(applicationModel))) {
                 metadataServiceExporter.export();

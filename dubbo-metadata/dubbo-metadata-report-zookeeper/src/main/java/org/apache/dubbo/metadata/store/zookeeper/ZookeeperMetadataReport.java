@@ -56,7 +56,7 @@ import static org.apache.dubbo.metadata.ServiceNameMapping.getAppNames;
 /**
  * ZookeeperMetadataReport
  */
-// zk MetaReport
+// 元数据管理器: zk管理器
 public class ZookeeperMetadataReport extends AbstractMetadataReport {
 
     private static final ErrorTypeAwareLogger logger =

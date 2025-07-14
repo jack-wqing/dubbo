@@ -23,7 +23,7 @@ import java.util.Map;
 /**
  * Configuration from system environment
  */
-// System ENV
+// 系统环境变量
 public class EnvironmentConfiguration implements Configuration {
 
     @Override

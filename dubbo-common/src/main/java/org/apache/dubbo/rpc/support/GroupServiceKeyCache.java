@@ -21,6 +21,7 @@ import org.apache.dubbo.common.utils.StringUtils;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
+// 包含组的接口信息
 public class GroupServiceKeyCache {
 
     private final String serviceGroup;

@@ -60,7 +60,7 @@ import static org.apache.dubbo.rpc.Constants.TOKEN_KEY;
 /**
  * DubboInvoker
  */
-// Dubbo Invoker: one way / two way 表示 消费端与服务端通信的方式，需不需返回结果
+// Dubbo Invoker 支持
 public class DubboInvoker<T> extends AbstractInvoker<T> {
 
     private final ClientsProvider clientsProvider;

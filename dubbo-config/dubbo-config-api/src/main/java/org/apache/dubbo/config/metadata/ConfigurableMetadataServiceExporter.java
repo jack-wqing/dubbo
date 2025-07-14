@@ -45,7 +45,7 @@ import static org.apache.dubbo.metadata.util.MetadataServiceVersionUtils.V2;
 /**
  * Export metadata service
  */
-// ConfigMetadataServiceExporter
+// 可配置的元数据服务导出器: 支持的MetadataService 导出到Dubbo应用
 public class ConfigurableMetadataServiceExporter {
 
     private final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(getClass());
@@ -70,7 +70,7 @@ public class ConfigurableMetadataServiceExporter {
         this.metadataService = metadataService;
         this.metadataServiceV2 = metadataServiceV2;
     }
-
+    // 版本1 / 版本2
     public synchronized ConfigurableMetadataServiceExporter export() {
         if (serviceConfig == null || !isExported()) {
             if (MetadataServiceVersionUtils.needExportV1(applicationModel)) {

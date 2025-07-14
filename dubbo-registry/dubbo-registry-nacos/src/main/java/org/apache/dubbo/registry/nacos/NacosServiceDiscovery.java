@@ -62,6 +62,7 @@ import static org.apache.dubbo.rpc.RpcException.REGISTRY_EXCEPTION;
  * @see ServiceDiscovery
  * @since 2.7.5
  */
+// Service Discovery Nacos实现
 public class NacosServiceDiscovery extends AbstractServiceDiscovery {
 
     private final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(getClass());
@@ -89,7 +90,7 @@ public class NacosServiceDiscovery extends AbstractServiceDiscovery {
         this.namingService.shutdown();
         this.eventListeners.clear();
     }
-
+    // 服务实例注册
     @Override
     public void doRegister(ServiceInstance serviceInstance) {
         execute(namingService, service -> {
@@ -236,7 +237,7 @@ public class NacosServiceDiscovery extends AbstractServiceDiscovery {
     public URL getUrl() {
         return registryURL;
     }
-
+    // 服务名实例信息
     private void handleEvent(NamingEvent event, ServiceInstancesChangedListener listener) {
         String serviceName = event.getServiceName();
         List<ServiceInstance> serviceInstances = event.getInstances().stream()

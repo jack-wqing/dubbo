@@ -28,7 +28,7 @@ import static org.apache.dubbo.common.extension.ExtensionScope.APPLICATION;
  * @see ServiceInstance#getMetadata()
  * @since 2.7.5
  */
-// customer: ServiceInstance
+// 注册服务实例自定义属性
 @SPI(scope = APPLICATION)
 public interface ServiceInstanceCustomizer extends Prioritized {
 

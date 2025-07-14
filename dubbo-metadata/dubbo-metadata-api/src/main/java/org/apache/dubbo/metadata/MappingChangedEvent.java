@@ -17,7 +17,10 @@
 package org.apache.dubbo.metadata;
 
 import java.util.Set;
-// 映射改变事件
+
+/**
+ * 元数据映射改变事件
+ */
 public class MappingChangedEvent {
 
     private final String serviceKey;

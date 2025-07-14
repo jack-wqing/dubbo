@@ -21,6 +21,7 @@ package org.apache.dubbo.common.extension;
  *
  * @since 2.7.7
  */
+// 从目录 /META-INF/services/ 下加载优先级最低
 public class ServicesLoadingStrategy implements LoadingStrategy {
 
     @Override

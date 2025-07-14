@@ -55,7 +55,7 @@ public class ModuleEnvironment extends Environment implements ModuleExt {
         this.moduleModel = moduleModel;
         this.applicationDelegate = moduleModel.getApplicationModel().modelEnvironment();
     }
-
+    // SPI 加载就会调用
     @Override
     public void initialize() throws IllegalStateException {
         if (initialized.compareAndSet(false, true)) {

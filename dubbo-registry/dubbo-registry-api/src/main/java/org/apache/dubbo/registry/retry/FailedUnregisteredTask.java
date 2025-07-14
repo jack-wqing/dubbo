@@ -23,7 +23,7 @@ import org.apache.dubbo.registry.support.FailbackRegistry;
 /**
  * FailedUnregisteredTask
  */
-// RetryTask: Unregister
+// 取消注册失败重试
 public final class FailedUnregisteredTask extends AbstractRetryTask {
 
     private static final String NAME = "retry unregister";

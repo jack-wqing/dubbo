@@ -23,6 +23,7 @@ import java.util.Set;
 /**
  * Uniform accessor for extension
  */
+// 扩展的统一访问器
 public interface ExtensionAccessor {
 
     ExtensionDirector getExtensionDirector();

@@ -34,7 +34,7 @@ import static org.apache.dubbo.rpc.cluster.Constants.PRIORITY_KEY;
  * Configurator. (SPI, Prototype, ThreadSafe)
  *
  */
-// 用于动态调整服务的配置
+// url 支持动态配置
 public interface Configurator extends Comparable<Configurator> {
 
     /**

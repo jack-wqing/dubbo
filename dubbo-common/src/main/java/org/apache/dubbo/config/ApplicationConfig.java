@@ -79,7 +79,7 @@ import static org.apache.dubbo.config.Constants.TEST_ENVIRONMENT;
  *
  * @export
  */
-// application
+// Dubbo ApplicationConfig
 public class ApplicationConfig extends AbstractConfig {
 
     private static final long serialVersionUID = 5508512956753757169L;
@@ -209,6 +209,7 @@ public class ApplicationConfig extends AbstractConfig {
     /**
      * Metadata type, local or remote. If 'remote' is chosen, you need to specify a metadata center further.
      */
+    // 若果指定为 remote，需要配置元数据中心
     private String metadataType;
 
     /**

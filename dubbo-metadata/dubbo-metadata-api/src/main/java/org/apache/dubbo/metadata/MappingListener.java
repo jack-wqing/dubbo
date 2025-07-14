@@ -16,7 +16,9 @@
  */
 package org.apache.dubbo.metadata;
 
-// 映射监听器
+/**
+ * 映射监听器
+ */
 public interface MappingListener {
     void onEvent(MappingChangedEvent event);
 

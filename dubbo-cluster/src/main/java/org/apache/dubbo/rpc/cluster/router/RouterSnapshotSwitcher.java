@@ -21,7 +21,7 @@ import org.apache.dubbo.common.utils.ConcurrentHashSet;
 import java.util.Collections;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
-
+// 路由快照切换
 public class RouterSnapshotSwitcher {
     private volatile boolean enable;
     private final Set<String> enabledService = new ConcurrentHashSet<>();

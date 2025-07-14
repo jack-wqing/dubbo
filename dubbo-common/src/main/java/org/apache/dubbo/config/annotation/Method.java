@@ -28,6 +28,10 @@ import java.lang.annotation.Target;
  *  *
  *  * 2018/9/29
  */
+
+/**
+ * 方法级别的配置注解
+ */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.ANNOTATION_TYPE})

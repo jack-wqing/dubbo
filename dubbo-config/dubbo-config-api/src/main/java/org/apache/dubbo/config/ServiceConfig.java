@@ -310,7 +310,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
         serviceMetadata.setTarget(getRef());
         serviceMetadata.generateServiceKey();
     }
-
+    // 服务的暴露方法
     @Override
     public void export(RegisterTypeEnum registerType) {
         if (this.exported) {
@@ -319,6 +319,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
         // service 的生命周期管理位置: Spring 环境未true
         if (getScopeModel().isLifeCycleManagedExternally()) {
             // prepare model for reference
+            // initialize 初始化
             getScopeModel().getDeployer().prepare();
         } else {
             // ensure start module, compatible with old api usage
@@ -398,7 +399,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
                         getDelay(),
                         TimeUnit.MILLISECONDS);
     }
-
+   // 暴露接口服务映射
     protected void exported() {
         exported = true;
         List<URL> exportedURLs = this.getExportedUrls();
@@ -427,7 +428,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
                         .getApplicationConfigManager()
                         .getRegistries());
     }
-    // 接口实例映射
+    // 接口服务映射
     protected void mapServiceName(
             URL url, ServiceNameMapping serviceNameMapping, ScheduledExecutorService scheduledExecutor) {
         if (!exported) {
@@ -560,7 +561,9 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
         if (StringUtils.isEmpty(path)) {
             path = interfaceName;
         }
+        // 导出URL
         doExportUrls(registerType);
+        // 服务接口服务映射 + MetadataService服务导出
         exported();
     }
 
@@ -577,6 +580,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
             }
             repository.registerService(serviceDescriptor);
         } else {
+            // 模块服务存储库存储服务接口信息
             serviceDescriptor = repository.registerService(getInterfaceClass());
         }
         providerModel = new ProviderModel(
@@ -593,6 +597,10 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
         providerModel.setDestroyRunner(getDestroyRunner());
         repository.registerProvider(providerModel);
         // 加载service-discovery-registry 和 Registry URL
+        // 获取配置的注册中心列表，将注册中心配置转化为URL
+        // 会获取到两个注册中西地址 由dubbo.application.register-moder 双注册配置决定
+        // 注册中心: registry://127.0.0.1:2181/org.apache.dubbo.registry.RegistryService
+        //          service-discovery-registry://127.0.0.1:2181/org.apache.dubbo.registry.RegistryService
         List<URL> registryURLs = !Boolean.FALSE.equals(isRegister())
                 ? ConfigValidationUtils.loadRegistries(this, true)
                 : Collections.emptyList();
@@ -605,6 +613,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
                 // In case user specified path, register service one more time to map it to path.
                 repository.registerService(pathKey, interfaceClass);
             }
+            // 根据协议导出配置到注册中心
             doExportUrlsFor1Protocol(protocolConfig, registryURLs, registerType);
         }
 
@@ -621,7 +630,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
         serviceMetadata.getAttachments().putAll(map);
 
         URL url = buildUrl(protocolConfig, map);
-
+        // 执行线程池
         processServiceExecutor(url);
 
         if (CollectionUtils.isEmpty(registryURLs)) {
@@ -857,18 +866,23 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
         url = url.setServiceModel(providerModel);
         return url;
     }
-    // url:具体的服务url / registryURLs: 注册中心URLs
+
+    /**
+     * url: 注册接口url
+     * registryURLs: 接口及，应用及 注册服务
+     */
     private void exportUrl(URL url, List<URL> registryURLs, RegisterTypeEnum registerType) {
         String scope = url.getParameter(SCOPE_KEY);
         // don't export when none is configured
         if (!SCOPE_NONE.equalsIgnoreCase(scope)) {
-            // 先进行本地导出
+            // 未明确指定远程导出，先进行本地导出
             // export to local if the config is not remote (export to remote only when config is remote)
             if (!SCOPE_REMOTE.equalsIgnoreCase(scope)) {
                 exportLocal(url);
             }
 
             // export to remote if the config is not local (export to local only when config is local)
+            // 未明确指定本地导出，进行远程导出
             if (!SCOPE_LOCAL.equalsIgnoreCase(scope)) {
                 // export to extra protocol is used in remote export
                 String extProtocol = url.getParameter(EXT_PROTOCOL, "");
@@ -883,6 +897,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
 
                 url = exportRemote(url, registryURLs, registerType);
                 if (!isGeneric(generic) && !getScopeModel().isInternal()) {
+                    // 服务接口服务信息 元数据中心
                     MetadataUtils.publishServiceDefinition(url, providerModel.getServiceModel(), getApplicationModel());
                 }
 
@@ -970,7 +985,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
                 || registerType == RegisterTypeEnum.AUTO_REGISTER_BY_DEPLOYER) {
             url = url.addParameter(REGISTER_KEY, false);
         }
-
+        // javassist 通过Wrapper 生成 代理对象最终调用ref
         Invoker<?> invoker = proxyFactory.getInvoker(ref, (Class) interfaceClass, url);
         if (withMetaData) {
             invoker = new DelegateProviderMetaDataInvoker(invoker, this);
@@ -984,6 +999,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
     /**
      * always export injvm
      */
+    // 本地导出使用injvm协议，不开启端口，不发起远程调用，只在JVM内直接关联，但执行Dubbo的Filter链
     private void exportLocal(URL url) {
         URL local = URLBuilder.from(url)
                 .setProtocol(LOCAL_PROTOCOL)

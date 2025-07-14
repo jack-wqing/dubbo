@@ -55,7 +55,7 @@ import static org.apache.dubbo.common.utils.CollectionUtils.isEmpty;
 /**
  * Implementation providing remote RPC service to facilitate the query of metadata information.
  */
-// MetadataService
+// 实现支持远程Rpc方式查询元数据
 public class MetadataServiceDelegation implements MetadataService, Disposable {
     ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(getClass());
 
@@ -102,6 +102,7 @@ public class MetadataServiceDelegation implements MetadataService, Disposable {
         SortedSet<URL> bizURLs = new TreeSet<>(URLComparator.INSTANCE);
         List<ServiceDiscovery> serviceDiscoveries = registryManager.getServiceDiscoveries();
         for (ServiceDiscovery sd : serviceDiscoveries) {
+            // 本地保存
             MetadataInfo metadataInfo = sd.getLocalMetadata();
             Map<String, SortedSet<URL>> serviceURLs = metadataInfo.getExportedServiceURLs();
             joinNonMetadataServiceUrls(bizURLs, serviceURLs);

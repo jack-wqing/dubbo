@@ -38,6 +38,7 @@ import static org.apache.dubbo.common.constants.RegistryConstants.REGISTRY_KEY;
 /**
  * StaticDirectory
  */
+// 静态的Directory 通过传入的Invoker
 public class StaticDirectory<T> extends AbstractDirectory<T> {
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(StaticDirectory.class);
     private final Class<T> interfaceClass;

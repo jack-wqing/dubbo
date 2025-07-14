@@ -23,7 +23,7 @@ package org.apache.dubbo.metadata;
  *
  * Protobuf type {@code org.apache.dubbo.metadata.OpenAPIRequest}
  */
-// OpenAPIRequest:
+// OpenAPI request message
 public final class OpenAPIRequest extends com.google.protobuf.GeneratedMessageV3
         implements
         // @@protoc_insertion_point(message_implements:org.apache.dubbo.metadata.OpenAPIRequest)

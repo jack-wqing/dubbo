@@ -23,7 +23,7 @@ package org.apache.dubbo.metadata;
  *
  * Protobuf enum {@code org.apache.dubbo.metadata.OpenAPIFormat}
  */
-// OpenAPIFormat: enumeration
+// OpenAPI: Format
 public enum OpenAPIFormat implements com.google.protobuf.ProtocolMessageEnum {
     /**
      * <pre>

@@ -30,6 +30,7 @@ import java.util.Map;
 /**
  * 2015/1/27.
  */
+// Collection
 public class CollectionTypeBuilder implements TypeBuilder {
 
     @Override

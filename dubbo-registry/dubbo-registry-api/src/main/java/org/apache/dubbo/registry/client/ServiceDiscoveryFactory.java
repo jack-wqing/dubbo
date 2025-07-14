@@ -28,7 +28,7 @@ import static org.apache.dubbo.common.extension.ExtensionScope.APPLICATION;
  * @see ServiceDiscovery
  * @since 2.7.5
  */
-// 服务复现Factory
+// 服务发现Factory
 @SPI(value = "default", scope = APPLICATION)
 public interface ServiceDiscoveryFactory {
 

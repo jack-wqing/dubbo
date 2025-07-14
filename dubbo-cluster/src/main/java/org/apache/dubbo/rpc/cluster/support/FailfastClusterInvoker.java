@@ -34,6 +34,7 @@ import java.util.List;
  *
  * <a href="http://en.wikipedia.org/wiki/Fail-fast">Fail-fast</a>
  */
+// 失败抛出异常
 public class FailfastClusterInvoker<T> extends AbstractClusterInvoker<T> {
 
     public FailfastClusterInvoker(Directory<T> directory) {

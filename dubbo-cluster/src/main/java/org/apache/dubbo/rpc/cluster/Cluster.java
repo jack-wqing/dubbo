@@ -31,7 +31,7 @@ import org.apache.dubbo.rpc.model.ScopeModelUtil;
  * <a href="http://en.wikipedia.org/wiki/Fault-tolerant_system">Fault-Tolerant</a>
  *
  */
-// Cluster: 将多个服务提供者组织为一个集群；对外提供同意的服务调用入口
+// 管理服务调用集群的接口
 @SPI(Cluster.DEFAULT)
 public interface Cluster {
 

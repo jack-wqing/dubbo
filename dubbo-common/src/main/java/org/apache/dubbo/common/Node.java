@@ -19,6 +19,7 @@ package org.apache.dubbo.common;
 /**
  * Node. (API/SPI, Prototype, ThreadSafe)
  */
+// 抽象节点
 public interface Node {
 
     /**

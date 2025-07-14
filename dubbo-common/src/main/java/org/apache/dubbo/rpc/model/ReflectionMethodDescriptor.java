@@ -36,6 +36,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.$INVOKE_ASYNC;
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_REFLECTIVE_OPERATION_FAILED;
 import static org.apache.dubbo.common.utils.MethodUtils.toShortString;
 
+// ReflectionMethod: Descriptor
 public class ReflectionMethodDescriptor implements MethodDescriptor {
     private static final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(ReflectionMethodDescriptor.class);

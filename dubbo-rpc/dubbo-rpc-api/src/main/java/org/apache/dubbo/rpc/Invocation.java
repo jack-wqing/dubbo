@@ -34,7 +34,7 @@ import java.util.stream.Stream;
  * @see org.apache.dubbo.rpc.Invoker#invoke(Invocation)
  * @see org.apache.dubbo.rpc.RpcInvocation
  */
-// 会话域: 持有调用过程中的变量，比如方法名，参数
+//会话域，具有调用所需的全部信息
 public interface Invocation {
 
     String getTargetServiceUniqueName();

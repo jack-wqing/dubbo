@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.function.Consumer;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.INTERNAL_ERROR;
-// 带 RegistryServiceListener 的 Registry
+// 注册服务 Wrapper
 public class ListenerRegistryWrapper implements Registry {
     private static final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(ListenerRegistryWrapper.class);

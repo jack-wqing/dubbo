@@ -31,6 +31,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * <p>ExtensionDirector supports multiple levels, and the child can inherit the parent's extension instances. </p>
  * <p>The way to find and create an extension instance is similar to Java classloader.</p>
  */
+// 一个作用域扩展管理加载器,支持多个级别的加载
 public class ExtensionDirector implements ExtensionAccessor {
 
     private final ConcurrentMap<Class<?>, ExtensionLoader<?>> extensionLoadersMap = new ConcurrentHashMap<>(64);

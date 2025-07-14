@@ -31,7 +31,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /**
  * ProviderModel is about published services
  */
-// 提供的url -> 映射的方法
+// 发布服务的内存映射
 public class ProviderModel extends ServiceModel {
     private final List<RegisterStatedURL> urls;
     private final Map<String, List<ProviderMethodModel>> methods = new HashMap<>();

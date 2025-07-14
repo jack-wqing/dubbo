@@ -70,18 +70,18 @@ import static org.apache.dubbo.registry.client.metadata.ServiceInstanceMetadataU
  * <p>
  * The operations of ServiceInstancesChangedListener should be synchronized.
  */
-// 修正的元数据到 ServiceDiscovery: 最终到 notify(urls)
+// 服务实例变更监听器，应该是同步操作
 public class ServiceInstancesChangedListener {
 
     private static final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(ServiceInstancesChangedListener.class);
-
+    // 表示接受那些服务事件通知
     protected final Set<String> serviceNames;
     protected final ServiceDiscovery serviceDiscovery;
     protected Map<String, Set<NotifyListenerWithKey>> listeners;
 
     protected AtomicBoolean destroyed = new AtomicBoolean(false);
-
+    // 服务对用的服务实例
     protected Map<String, List<ServiceInstance>> allInstances;
     protected Map<String, List<ProtocolServiceKeyWithUrls>> serviceUrls;
 

@@ -24,7 +24,7 @@ import org.apache.dubbo.rpc.model.ProviderModel;
 import java.util.List;
 import java.util.concurrent.Executor;
 
-// Dubbo, Triple 使用的 Executor
+// Dubbo Triple ExecutorSupport
 public abstract class AbstractIsolationExecutorSupport implements ExecutorSupport {
     private final URL url;
     private final ExecutorRepository executorRepository;

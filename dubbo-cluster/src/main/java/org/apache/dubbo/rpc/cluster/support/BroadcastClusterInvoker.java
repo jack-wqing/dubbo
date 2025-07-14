@@ -37,6 +37,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.CLUSTER_ERRO
 /**
  * BroadcastClusterInvoker
  */
+//广播调用
 public class BroadcastClusterInvoker<T> extends AbstractClusterInvoker<T> {
 
     private static final ErrorTypeAwareLogger logger =

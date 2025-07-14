@@ -141,6 +141,7 @@ import static org.apache.dubbo.rpc.model.ScopeModelUtil.getApplicationModel;
 /**
  * TODO, replace RegistryProtocol completely in the future.
  */
+// 通过注册协议完成导出服务和注册服务的流程
 public class RegistryProtocol implements Protocol, ScopeModelAware {
     public static final String[] DEFAULT_REGISTER_PROVIDER_KEYS = {
         APPLICATION_KEY,
@@ -235,6 +236,7 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
         return map;
     }
 
+    // 注册中心注册服务
     private static void register(Registry registry, URL registeredProviderUrl) {
         ApplicationDeployer deployer =
                 registeredProviderUrl.getOrDefaultApplicationModel().getDeployer();
@@ -265,7 +267,7 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
         ProviderModel model = (ProviderModel) registeredProviderUrl.getServiceModel();
         model.addStatedUrl(new ProviderModel.RegisterStatedURL(registeredProviderUrl, registryUrl, registered));
     }
-
+    // Provider export
     @Override
     public <T> Exporter<T> export(final Invoker<T> originInvoker) throws RpcException {
         URL registryUrl = getRegistryUrl(originInvoker);
@@ -289,6 +291,7 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
         final ExporterChangeableWrapper<T> exporter = doLocalExport(originInvoker, providerUrl);
 
         // url to registry
+        // 通过协议获取注册器: service-discovery-registry 是 ServiceDiscoveryRegistry
         final Registry registry = getRegistry(registryUrl);
         final URL registeredProviderUrl = customizeURL(providerUrl, registryUrl);
 
@@ -349,7 +352,7 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
         String providerUrlKey = getProviderUrlKey(originInvoker);
         String registryUrlKey = getRegistryUrlKey(originInvoker);
         Invoker<?> invokerDelegate = new InvokerDelegate<>(originInvoker, providerUrl);
-
+        // 动态注入的Protocol$Adaptive
         ReferenceCountExporter<?> exporter =
                 exporterFactory.createExporter(providerUrlKey, () -> protocol.export(invokerDelegate));
         return (ExporterChangeableWrapper<T>) bounds.computeIfAbsent(providerUrlKey, k -> new ConcurrentHashMap<>())
@@ -569,7 +572,8 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
                         Cluster.getCluster(url.getScopeModel(), MERGEABLE_CLUSTER_NAME), registry, type, url, qs);
             }
         }
-
+        // 降级容错的逻辑处理对象 类型为Cluster 实际类型为MockClusterWrapper 内部包装为FailoverCluster
+        // 获取具体Cluster failfast fialsafe failover
         Cluster cluster = Cluster.getCluster(url.getScopeModel(), qs.get(CLUSTER_KEY));
         return doRefer(cluster, registry, type, url, qs);
     }
@@ -589,14 +593,16 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
                 parameters,
                 consumerAttribute);
         url = url.putAttribute(CONSUMER_URL_KEY, consumerUrl);
+        // 带迁移性质的Invoker对象
         ClusterInvoker<T> migrationInvoker = getMigrationInvoker(this, cluster, registry, type, url, consumerUrl);
+        // 创建应用级优先的服务发现Invoker对象
         return interceptInvoker(migrationInvoker, url, consumerUrl);
     }
 
     private String getPath(Map<String, String> parameters, Class<?> type) {
         return !ProtocolUtils.isGeneric(parameters.get(GENERIC_KEY)) ? type.getName() : parameters.get(INTERFACE_KEY);
     }
-
+    // 服务发现迁移的Invoker
     protected <T> ClusterInvoker<T> getMigrationInvoker(
             RegistryProtocol registryProtocol,
             Cluster cluster,
@@ -630,13 +636,13 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
         }
         return invoker;
     }
-
+    // 支持应用级的服务发现
     public <T> ClusterInvoker<T> getServiceDiscoveryInvoker(
             Cluster cluster, Registry registry, Class<T> type, URL url) {
         DynamicDirectory<T> directory = new ServiceDiscoveryRegistryDirectory<>(type, url);
         return doCreateInvoker(directory, cluster, registry, type);
     }
-
+    // 接口级别引用发现
     public <T> ClusterInvoker<T> getInvoker(Cluster cluster, Registry registry, Class<T> type, URL url) {
         // FIXME, this method is currently not used, create the right registry before enable.
         DynamicDirectory<T> directory = new RegistryDirectory<>(type, url);
@@ -756,7 +762,7 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
         }
         return url;
     }
-
+    // InvokerDelegate
     public static class InvokerDelegate<T> extends InvokerWrapper<T> {
 
         /**
@@ -969,7 +975,7 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
             }
         }
     }
-
+    // Provider 提供者配置监听器
     private class ProviderConfigurationListener extends AbstractConfiguratorListener {
 
         private final Map<URL, Set<NotifyListener>> overrideListeners = new ConcurrentHashMap<>();

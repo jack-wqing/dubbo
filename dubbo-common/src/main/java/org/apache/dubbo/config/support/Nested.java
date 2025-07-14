@@ -25,6 +25,7 @@ import java.lang.annotation.Target;
 /**
  * Nested Class Parameter
  */
+// 内嵌参数支持
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD})

@@ -49,6 +49,7 @@ import static org.apache.dubbo.rpc.Constants.INVOCATION_KEY;
  *
  * @serial Do not change the class name and properties.
  */
+// 代表一个真实的返回结果
 public class AppResponse implements Result {
 
     private static final long serialVersionUID = -6925924956850004727L;

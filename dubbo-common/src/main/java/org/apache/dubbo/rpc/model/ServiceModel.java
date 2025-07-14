@@ -24,7 +24,7 @@ import org.apache.dubbo.config.ServiceConfigBase;
 import java.util.Objects;
 import java.util.Set;
 
-// ServiceModel: 提供服务的基本配置
+// 服务的基础信息配置
 public class ServiceModel {
     private String serviceKey;
     private Object proxyObject;

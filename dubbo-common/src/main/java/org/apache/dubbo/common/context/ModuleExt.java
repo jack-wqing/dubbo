@@ -19,6 +19,7 @@ package org.apache.dubbo.common.context;
 import org.apache.dubbo.common.extension.ExtensionScope;
 import org.apache.dubbo.common.extension.SPI;
 
-// ModuleExt
+// module的生命周期
+// ModuleConfigManager、ModuleEnvironment
 @SPI(scope = ExtensionScope.MODULE)
 public interface ModuleExt extends Lifecycle {}

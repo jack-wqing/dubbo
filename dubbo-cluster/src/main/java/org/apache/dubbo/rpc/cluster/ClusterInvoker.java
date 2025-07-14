@@ -31,7 +31,7 @@ import org.apache.dubbo.rpc.Invoker;
  *
  * @param <T>
  */
-// 包含一组正常的Invoker
+// 消费端的最终引用的Invoker，包含一组Invoker，支持多注册中心模式
 public interface ClusterInvoker<T> extends Invoker<T> {
 
     URL getRegistryUrl();

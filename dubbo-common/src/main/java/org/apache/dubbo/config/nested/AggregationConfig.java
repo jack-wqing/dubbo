@@ -21,7 +21,7 @@ import java.io.Serializable;
 /**
  * Configuration for the metric aggregation.
  */
-// Aggregation
+// 指标聚合配置
 public class AggregationConfig implements Serializable {
 
     private static final long serialVersionUID = 4878693820314125085L;

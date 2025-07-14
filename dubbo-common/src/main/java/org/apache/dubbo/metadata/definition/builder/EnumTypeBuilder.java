@@ -30,6 +30,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_UNEXP
 /**
  * 2015/1/27.
  */
+// Enum
 public class EnumTypeBuilder implements TypeBuilder {
     private static final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(TypeDefinitionBuilder.class);

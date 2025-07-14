@@ -35,6 +35,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * OrderComparator
  */
+// active 比较器
 public class ActivateComparator implements Comparator<Class<?>> {
 
     private final List<ExtensionDirector> extensionDirectors;

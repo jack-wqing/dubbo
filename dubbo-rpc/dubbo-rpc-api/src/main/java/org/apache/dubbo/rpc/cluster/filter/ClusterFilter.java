@@ -21,5 +21,6 @@ import org.apache.dubbo.common.extension.SPI;
 import org.apache.dubbo.rpc.BaseFilter;
 
 // ClusterFilter， 3.0新引入的架构， 负载均衡使用
+// 集群Filter
 @SPI(scope = ExtensionScope.MODULE)
 public interface ClusterFilter extends BaseFilter {}

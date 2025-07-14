@@ -45,6 +45,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.CLUSTER_FAIL
  * <a href="http://en.wikipedia.org/wiki/Failover">Failover</a>
  *
  */
+// 失败伦旭重试
 public class FailoverClusterInvoker<T> extends AbstractClusterInvoker<T> {
 
     private static final ErrorTypeAwareLogger logger =

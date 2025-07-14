@@ -25,7 +25,7 @@ import java.util.Map;
 /**
  * DubboExporter
  */
-// DubboExporter: AfterUnExport
+// DubboExporter: Dubbo协议服务端导出的Exporter
 public class DubboExporter<T> extends AbstractExporter<T> {
 
     private final String key;

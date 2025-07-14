@@ -31,6 +31,7 @@ import java.util.List;
 /**
  * Interface to create instance for specify type, using both in {@link ExtensionLoader} and {@link ScopeBeanFactory}.
  */
+// Dubbo: 只通过 ScopeModel参数的构造函数，或者默认的构造函数初始化
 public class InstantiationStrategy {
 
     private final ScopeModelAccessor scopeModelAccessor;

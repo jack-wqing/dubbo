@@ -29,7 +29,7 @@ import org.apache.dubbo.rpc.cluster.Cluster;
 import org.apache.dubbo.rpc.cluster.ClusterInvoker;
 
 import java.util.concurrent.CountDownLatch;
-// ServiceDiscoveryMigrationInvoker
+// 服务发现的迁移Invoker
 public class ServiceDiscoveryMigrationInvoker<T> extends MigrationInvoker<T> {
     private static final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(ServiceDiscoveryMigrationInvoker.class);

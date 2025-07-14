@@ -37,7 +37,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_UNEXP
 /**
  * Configuration for the protocol.
  */
-// ProtocolConfig
+// Dubbo 协议配置
 public class ProtocolConfig extends AbstractConfig {
 
     private static final long serialVersionUID = 6913423882496634749L;
@@ -230,6 +230,7 @@ public class ProtocolConfig extends AbstractConfig {
     /**
      * Extra protocol for this service, using Port Unification Server.
      */
+    // 多端口支持
     private String extProtocol;
 
     private String preferredProtocol;

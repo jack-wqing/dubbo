@@ -25,6 +25,7 @@ import java.util.Map;
 /**
  * 2015/1/27.
  */
+// ArrayType
 public class ArrayTypeBuilder implements TypeBuilder {
 
     @Override

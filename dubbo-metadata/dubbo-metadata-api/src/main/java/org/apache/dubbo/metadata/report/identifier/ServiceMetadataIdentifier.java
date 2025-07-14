@@ -26,7 +26,7 @@ import static org.apache.dubbo.metadata.MetadataConstants.KEY_REVISON_PREFIX;
  * <p>
  * 2019-08-09
  */
-// consumer / provider 的 URL
+// revision protocol
 public class ServiceMetadataIdentifier extends BaseServiceMetadataIdentifier implements BaseMetadataIdentifier {
 
     private String revision;

@@ -31,7 +31,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.REGISTRY_DELAY_N
 /**
  * Defines the common operations of Service Discovery, extended and loaded by ServiceDiscoveryFactory
  */
-// ServiceDiscovery: ServiceDiscoveryFactory
+// 定义通用的服务发现的功能
 public interface ServiceDiscovery extends RegistryService, Prioritized {
 
     void register() throws RuntimeException;

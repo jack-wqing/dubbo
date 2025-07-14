@@ -73,7 +73,7 @@ import static org.apache.dubbo.rpc.Constants.PROXY_KEY;
 
 public class MetadataUtils {
     public static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(MetadataUtils.class);
-
+    // 发布服务定义信息
     public static void publishServiceDefinition(
             URL url, ServiceDescriptor serviceDescriptor, ApplicationModel applicationModel) {
         if (getMetadataReports(applicationModel).isEmpty()) {

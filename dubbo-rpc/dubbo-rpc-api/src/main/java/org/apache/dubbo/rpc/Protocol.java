@@ -55,10 +55,10 @@ import java.util.List;
  *
  * (API/SPI, Singleton, ThreadSafe)
  */
-// Refer 返回的 Invoker调用invoke 将执行 receive 接受的 Invoker
-// Refer Invoker 通过协议实现,  export方法接受Invoker通过Dubbo框架实现
-// Protocol 不需要关注透明代理，Invoker由其他layer实现
-// Protocol 不一定需要 TCP Connection
+// Refer返回的Invoker通过协议实现
+// Export接受的Invoker是框架通过代理实现的，协议不需要关心
+// 协议层不需要关注透明代理， invoker 都业务接口由其他层实现
+    // 协议层也不一定要TCP连接，可以通过文件或者进程内的通信方式实现
 
 @SPI(value = "dubbo", scope = ExtensionScope.FRAMEWORK)
 public interface Protocol {
@@ -83,7 +83,7 @@ public interface Protocol {
      * @return exporter reference for exported service, useful for unexport the service later
      * @throws RpcException thrown when error occurs during export the service, for example: port is occupied
      */
-    // 幂等接口 RPC Context, Invoker 框架生成 服务端支持远程调用
+    // 幂等接口 RPC Context, Invoker 框架生成 服务端支持远程调用,记录远程地址
     @Adaptive
     <T> Exporter<T> export(Invoker<T> invoker) throws RpcException;
 

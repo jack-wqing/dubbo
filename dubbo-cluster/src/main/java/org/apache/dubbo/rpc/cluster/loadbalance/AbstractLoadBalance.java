@@ -36,6 +36,7 @@ import static org.apache.dubbo.rpc.cluster.Constants.WEIGHT_KEY;
 /**
  * AbstractLoadBalance
  */
+// 可以计算权重
 public abstract class AbstractLoadBalance implements LoadBalance {
     /**
      * Calculate the weight according to the uptime proportion of warmup time

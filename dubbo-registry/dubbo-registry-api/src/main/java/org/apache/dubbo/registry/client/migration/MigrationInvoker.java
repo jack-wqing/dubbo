@@ -48,7 +48,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.REGISTRY_FAI
 import static org.apache.dubbo.registry.client.migration.model.MigrationStep.APPLICATION_FIRST;
 import static org.apache.dubbo.rpc.cluster.Constants.REFER_KEY;
 
-// MigrationInvoker
+// 迁移Invoker
 public class MigrationInvoker<T> implements MigrationClusterInvoker<T> {
     private final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(MigrationInvoker.class);
 
@@ -445,7 +445,7 @@ public class MigrationInvoker<T> implements MigrationClusterInvoker<T> {
             serviceDiscoveryInvoker = null;
         }
     }
-
+    // 应用级别服务发现
     protected void refreshServiceDiscoveryInvoker(CountDownLatch latch) {
         clearListener(serviceDiscoveryInvoker);
         if (needRefresh(serviceDiscoveryInvoker)) {

@@ -62,7 +62,7 @@ import static org.apache.dubbo.config.Constants.DEFAULT_NATIVE_PROXY;
  *
  * @export
  */
-// AbstractInterfaceConfig: 接口级别的配置
+// 接口级别的配置类 AbstractInterfaceConfig
 public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
 
     private static final long serialVersionUID = -1559314110797223229L;

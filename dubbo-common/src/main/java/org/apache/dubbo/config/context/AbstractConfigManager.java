@@ -65,14 +65,20 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_PROPE
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_UNEXPECTED_EXCEPTION;
 import static org.apache.dubbo.config.AbstractConfig.getTagName;
 
-// AbstractConfigManager
+/**
+ * 两种类型：
+ *  1.Application: ConfigManager
+ *  2.Module: ModuleConfigManager
+ */
 public abstract class AbstractConfigManager extends LifecycleAdapter {
 
     private static final String CONFIG_NAME_READ_METHOD = "getName";
 
     private static final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(AbstractConfigManager.class);
+
     private static final Set<Class<? extends AbstractConfig>> uniqueConfigTypes = new ConcurrentHashSet<>();
+
     // tagName-type-config
     final Map<String, Map<String, AbstractConfig>> configsCache = new ConcurrentHashMap<>();
 
@@ -109,7 +115,7 @@ public abstract class AbstractConfigManager extends LifecycleAdapter {
         this.supportedConfigTypes = supportedConfigTypes;
         environment = scopeModel.modelEnvironment();
     }
-
+    // 生命周期接口，扩展加载的时候就会调用
     @Override
     public void initialize() throws IllegalStateException {
         if (!initialized.compareAndSet(false, true)) {
@@ -602,6 +608,7 @@ public abstract class AbstractConfigManager extends LifecycleAdapter {
      * @param clazz config type
      * @return ids of specify config type
      */
+    // 获取配置ids
     private Set<String> getConfigIdsFromProps(Class<? extends AbstractConfig> clazz) {
         String prefix = CommonConstants.DUBBO + "." + AbstractConfig.getPluralTagName(clazz) + ".";
         return ConfigurationUtils.getSubIds(environment.getConfigurationMaps(), prefix);

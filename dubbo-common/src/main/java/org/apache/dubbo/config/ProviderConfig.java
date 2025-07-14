@@ -32,7 +32,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.EXPORT_THREAD_NU
  * @see org.apache.dubbo.config.ProtocolConfig
  * @see ServiceConfigBase
  */
-// service provider: configuration
+// 提供端统一的配置
 public class ProviderConfig extends AbstractServiceConfig {
 
     private static final long serialVersionUID = 6913423882496634749L;

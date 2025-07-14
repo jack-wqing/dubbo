@@ -19,7 +19,11 @@ package org.apache.dubbo.rpc.model;
 import org.apache.dubbo.common.extension.ExtensionScope;
 import org.apache.dubbo.common.extension.SPI;
 
-// ScopeModel: Initializer
+// ScopeModel的初始化器
+
+/**
+ * 核心接口，在初始化scope 后置设置或者获取scopeModel中的资源
+ */
 @SPI(scope = ExtensionScope.SELF)
 public interface ScopeModelInitializer {
 

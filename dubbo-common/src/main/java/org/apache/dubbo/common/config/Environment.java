@@ -37,7 +37,7 @@ import java.util.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_UNEXPECTED_EXCEPTION;
-// dynamic system env app ext extapp dubbo
+// 系统环境配置
 public class Environment extends LifecycleAdapter implements ApplicationExt {
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(Environment.class);
 
@@ -66,7 +66,7 @@ public class Environment extends LifecycleAdapter implements ApplicationExt {
     protected List<Map<String, String>> globalConfigurationMaps;
 
     private CompositeConfiguration defaultDynamicGlobalConfiguration;
-
+    // 优先级最高
     private DynamicConfiguration defaultDynamicConfiguration;
 
     private String localMigrationRule;
@@ -95,6 +95,7 @@ public class Environment extends LifecycleAdapter implements ApplicationExt {
     /**
      * @deprecated MigrationRule will be removed in 3.1
      */
+    // dubbo 迁移新版本的配置文件
     @Deprecated
     private void loadMigrationRule() {
         if (Boolean.parseBoolean(SystemPropertyConfigUtils.getSystemProperty(

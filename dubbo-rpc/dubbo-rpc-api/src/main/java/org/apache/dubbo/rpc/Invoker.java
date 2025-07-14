@@ -25,7 +25,7 @@ import org.apache.dubbo.common.Node;
  * @see org.apache.dubbo.rpc.InvokerListener
  * @see org.apache.dubbo.rpc.protocol.AbstractInvoker
  */
-// 实体域: 核心模型，其它模型都向它靠拢，或转换成它，一个可执行体；向它发起Invoke调用，可能一是本地实现，远程实现，一个集群实现
+// 实体域
 public interface Invoker<T> extends Node {
 
     /**

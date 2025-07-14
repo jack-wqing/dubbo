@@ -20,6 +20,7 @@ import org.apache.dubbo.common.URL;
 import org.apache.dubbo.common.extension.ExtensionScope;
 import org.apache.dubbo.common.extension.SPI;
 
+// PackableMethod
 @SPI(scope = ExtensionScope.FRAMEWORK)
 public interface PackableMethodFactory {
 

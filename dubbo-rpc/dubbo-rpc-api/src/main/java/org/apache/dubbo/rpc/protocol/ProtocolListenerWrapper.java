@@ -43,6 +43,7 @@ import static org.apache.dubbo.rpc.Constants.LOCAL_PROTOCOL;
 /**
  * ListenerProtocol
  */
+// 对于Wrapper 和 Invoker 时间监听的Wrapper包装
 @Activate(order = 200)
 public class ProtocolListenerWrapper implements Protocol {
 

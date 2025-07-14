@@ -20,6 +20,7 @@ import org.apache.dubbo.rpc.model.FrameworkModel;
 
 import java.util.List;
 
+// 友好的关闭服务
 public interface GracefulShutdown {
     void readonly();
 

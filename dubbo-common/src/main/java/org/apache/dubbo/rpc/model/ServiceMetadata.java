@@ -27,7 +27,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * data related to service level such as name, version, classloader of business service,
  * security info, etc. Also, with a AttributeMap for extension.
  */
-// ServiceMetadata
+// dubbo 暂时么有使用；与 ServiceModel的配置信息有重复
 public class ServiceMetadata extends BaseServiceMetadata {
 
     private String defaultGroup;

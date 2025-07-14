@@ -19,7 +19,7 @@ package org.apache.dubbo.common.config.configcenter;
 /**
  * Hold content and version information
  */
-// config item
+// 配置中心的配置项
 public class ConfigItem {
 
     /**

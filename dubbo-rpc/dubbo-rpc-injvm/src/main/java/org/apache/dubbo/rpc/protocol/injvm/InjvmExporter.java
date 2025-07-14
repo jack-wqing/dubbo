@@ -25,6 +25,7 @@ import java.util.Map;
 /**
  * InjvmExporter
  */
+// InjvmExporter 只是记录到 exporterMap中
 public class InjvmExporter<T> extends AbstractExporter<T> {
 
     private final String key;

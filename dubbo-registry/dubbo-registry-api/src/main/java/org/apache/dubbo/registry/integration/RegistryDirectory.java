@@ -100,6 +100,7 @@ import static org.apache.dubbo.rpc.model.ScopeModelUtil.getModuleModel;
 /**
  * RegistryDirectory
  */
+// 接口级的目录发现
 public class RegistryDirectory<T> extends DynamicDirectory<T> {
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(RegistryDirectory.class);
 

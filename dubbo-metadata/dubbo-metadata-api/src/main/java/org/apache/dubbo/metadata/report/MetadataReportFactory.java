@@ -26,6 +26,7 @@ import static org.apache.dubbo.metadata.report.MetadataReportFactory.DEFAULT;
 /**
  * Factory
  */
+// MetadataReport 工厂
 @SPI(DEFAULT)
 public interface MetadataReportFactory {
 

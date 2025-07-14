@@ -26,7 +26,7 @@ import org.apache.dubbo.rpc.model.ApplicationModel;
 /**
  * Configuration for tracing.
  */
-// trace config
+// 链路追踪配置
 public class TracingConfig extends AbstractConfig {
 
     private static final long serialVersionUID = -9089919311611546383L;

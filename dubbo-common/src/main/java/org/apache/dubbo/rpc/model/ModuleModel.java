@@ -37,6 +37,11 @@ import java.util.concurrent.locks.Lock;
 /**
  * Model of a service module
  */
+
+/**
+ * moduleModel 和 ApplicationModel 的 配置和发布都是分开的
+ *  ConfigManager、 Environment、Deployer
+ */
 public class ModuleModel extends ScopeModel {
     private static final Logger logger = LoggerFactory.getLogger(ModuleModel.class);
 

@@ -34,6 +34,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.DubboProperty.DU
 /**
  * Metadata cache with limited size that uses LRU expiry policy.
  */
+// LRU cache MetadataInfo的缓存
 public class MetaCacheManager extends AbstractCacheManager<MetadataInfo> {
     private static final String DEFAULT_FILE_NAME = ".metadata";
     private static final int DEFAULT_ENTRY_SIZE = 100;

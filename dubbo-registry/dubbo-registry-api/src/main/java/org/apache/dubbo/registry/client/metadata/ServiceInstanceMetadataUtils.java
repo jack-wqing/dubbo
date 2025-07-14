@@ -205,7 +205,7 @@ public class ServiceInstanceMetadataUtils {
         }
         return null;
     }
-
+    // 触发注册服务实例
     public static void registerMetadataAndInstance(ApplicationModel applicationModel) {
         RegistryManager registryManager = applicationModel.getBeanFactory().getBean(RegistryManager.class);
         // register service instance

@@ -17,7 +17,7 @@
 package org.apache.dubbo.rpc.model;
 
 import java.lang.reflect.Method;
-
+// Async 调用之后的处理信息
 public class AsyncMethodInfo {
     // callback instance when async-call is invoked
     private Object oninvokeInstance;

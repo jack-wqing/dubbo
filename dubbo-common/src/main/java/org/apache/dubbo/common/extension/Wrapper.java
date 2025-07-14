@@ -22,6 +22,7 @@ import java.lang.annotation.RetentionPolicy;
 /**
  * The annotated class will only work as a wrapper when the condition matches.
  */
+// 注解一个类未Wrapper
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Wrapper {
 

@@ -28,6 +28,7 @@ import static org.apache.dubbo.rpc.Constants.DEPRECATED_KEY;
 /**
  * DeprecatedProtocolFilter
  */
+// Deprecated Listener
 @Activate(DEPRECATED_KEY)
 public class DeprecatedInvokerListener extends InvokerListenerAdapter {
 

@@ -33,7 +33,7 @@ import java.util.concurrent.ConcurrentMap;
 import static org.apache.dubbo.common.BaseServiceMetadata.interfaceFromServiceKey;
 import static org.apache.dubbo.common.BaseServiceMetadata.versionFromServiceKey;
 
-// 记录允许的序列化方法，方便之后使用
+// 缓存具体服务对应的序列化方式，支持之后查看寻
 public class PermittedSerializationKeeper {
     private final ConcurrentMap<String, Set<Byte>> serviceToSerializationId = new ConcurrentHashMap<>();
     private final Set<Byte> globalPermittedSerializationIds = new ConcurrentHashSet<>();

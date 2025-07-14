@@ -48,7 +48,7 @@ public class InjvmProtocol extends AbstractProtocol {
     public static InjvmProtocol getInjvmProtocol(ScopeModel scopeModel) {
         return (InjvmProtocol) scopeModel.getExtensionLoader(Protocol.class).getExtension(InjvmProtocol.NAME, false);
     }
-
+    // 满足条件的Exporter
     static Exporter<?> getExporter(Map<String, Exporter<?>> map, URL key) {
         Exporter<?> result = null;
 
@@ -67,7 +67,7 @@ public class InjvmProtocol extends AbstractProtocol {
 
         return result;
     }
-
+    // InJvm port = 0
     @Override
     public int getDefaultPort() {
         return DEFAULT_PORT;

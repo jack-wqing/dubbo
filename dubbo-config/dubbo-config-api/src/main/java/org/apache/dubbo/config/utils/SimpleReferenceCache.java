@@ -45,6 +45,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.CONFIG_API_W
  * You can implement and use your own {@link ReferenceConfigBase} cache if you need use complicate strategy.
  */
 // ReferenceCache: Simple -> 对于Reference代理对象的控制
+// 一个Mapper实现的缓存
 public class SimpleReferenceCache implements ReferenceCache {
     private static final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(SimpleReferenceCache.class);
@@ -54,6 +55,7 @@ public class SimpleReferenceCache implements ReferenceCache {
      * <p>
      * key example: <code>group1/org.apache.dubbo.foo.FooService:1.0.0</code>.
      */
+    // group/interface:version
     public static final KeyGenerator DEFAULT_KEY_GENERATOR = referenceConfig -> {
         String iName = referenceConfig.getInterface();
         if (StringUtils.isBlank(iName)) {
@@ -68,11 +70,11 @@ public class SimpleReferenceCache implements ReferenceCache {
     };
 
     private static final AtomicInteger nameIndex = new AtomicInteger();
-
+    // 多cache支持 _DEFAULT_#index 方式
     static final ConcurrentMap<String, SimpleReferenceCache> CACHE_HOLDER = new ConcurrentHashMap<>();
     private final String name;
     private final KeyGenerator generator;
-
+    // 因为支持多个属性组成的config, 所以映射为List
     private final ConcurrentMap<String, List<ReferenceConfigBase<?>>> referenceKeyMap = new ConcurrentHashMap<>();
     private final ConcurrentMap<Class<?>, List<ReferenceConfigBase<?>>> referenceTypeMap = new ConcurrentHashMap<>();
     private final Map<ReferenceConfigBase<?>, Object> references = new ConcurrentHashMap<>();

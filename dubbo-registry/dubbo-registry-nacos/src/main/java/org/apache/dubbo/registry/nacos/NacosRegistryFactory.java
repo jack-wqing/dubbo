@@ -30,6 +30,7 @@ import static org.apache.dubbo.registry.nacos.util.NacosNamingServiceUtils.creat
  *
  * @since 2.6.5
  */
+// NacosRegistry
 public class NacosRegistryFactory extends AbstractRegistryFactory {
 
     @Override

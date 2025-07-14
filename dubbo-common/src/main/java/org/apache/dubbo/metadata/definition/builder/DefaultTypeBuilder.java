@@ -29,6 +29,7 @@ import java.util.Map;
 /**
  * 2015/1/27.
  */
+// DefaultType
 public final class DefaultTypeBuilder {
 
     public static TypeDefinition build(Class<?> clazz, Map<String, TypeDefinition> typeCache) {

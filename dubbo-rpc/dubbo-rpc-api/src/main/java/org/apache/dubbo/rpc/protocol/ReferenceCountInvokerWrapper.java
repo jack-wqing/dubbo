@@ -31,7 +31,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-// 读写锁控制read
+// 销毁控制，等待访问完成，在destroy
 public class ReferenceCountInvokerWrapper<T> implements Invoker<T> {
     private final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(ReferenceCountInvokerWrapper.class);

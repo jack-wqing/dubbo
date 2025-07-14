@@ -29,7 +29,7 @@ import java.io.InputStream;
  *
  * @export
  */
-// ssl
+// dubbo ssl 配置
 public class SslConfig extends AbstractConfig {
 
     private static final long serialVersionUID = 4072725016922915851L;

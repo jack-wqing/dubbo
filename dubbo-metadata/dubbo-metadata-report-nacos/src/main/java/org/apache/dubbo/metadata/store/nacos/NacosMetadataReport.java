@@ -70,7 +70,7 @@ import static org.apache.dubbo.metadata.ServiceNameMapping.getAppNames;
 /**
  * metadata report impl for nacos
  */
-// Nacos: MetadataReport
+// nacos: 元数据上报服务
 public class NacosMetadataReport extends AbstractMetadataReport {
 
     private NacosConfigServiceWrapper configService;

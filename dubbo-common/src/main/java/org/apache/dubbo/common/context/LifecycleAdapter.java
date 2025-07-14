@@ -16,7 +16,7 @@
  */
 package org.apache.dubbo.common.context;
 
-// LifecycleAdapter
+// 生命周期Adapter
 public abstract class LifecycleAdapter implements Lifecycle {
 
     @Override

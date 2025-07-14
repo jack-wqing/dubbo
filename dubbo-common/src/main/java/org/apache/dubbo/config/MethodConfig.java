@@ -231,7 +231,7 @@ public class MethodConfig extends AbstractMethodConfig {
             }
         }
     }
-
+    // 可以配置到方法级别的参数
     private void refreshArgument(ArgumentConfig argument, InmemoryConfiguration subPropsConfiguration) {
         if (argument.getIndex() != null && argument.getIndex() >= 0) {
             String prefix = argument.getIndex() + ".";
@@ -269,7 +269,7 @@ public class MethodConfig extends AbstractMethodConfig {
             }
         }
     }
-
+    // Async Method
     public AsyncMethodInfo convertMethodConfig2AsyncInfo() {
         if ((getOninvoke() == null && getOnreturn() == null && getOnthrow() == null)) {
             return null;

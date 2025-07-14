@@ -29,6 +29,7 @@ import java.util.List;
  * AvailableClusterInvoker
  *
  */
+// 第一个可用Invoker
 public class AvailableClusterInvoker<T> extends AbstractClusterInvoker<T> {
 
     public AvailableClusterInvoker(Directory<T> directory) {

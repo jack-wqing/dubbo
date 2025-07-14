@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-// 上报存储元数据信息
+// 元数据管理
 public interface MetadataReport {
     /**
      * Service Definition -- START
@@ -42,6 +42,7 @@ public interface MetadataReport {
     /**
      * Application Metadata -- START
      **/
+    // 发布app Metadata
     default void publishAppMetadata(SubscriberMetadataIdentifier identifier, MetadataInfo metadataInfo) {}
 
     default void unPublishAppMetadata(SubscriberMetadataIdentifier identifier, MetadataInfo metadataInfo) {}

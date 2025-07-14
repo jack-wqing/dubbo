@@ -28,7 +28,7 @@ import static org.apache.dubbo.common.extension.ExtensionScope.APPLICATION;
  *
  * @see org.apache.dubbo.registry.support.AbstractRegistryFactory
  */
-// RegistryFactory
+// 注册器工厂
 @SPI(scope = APPLICATION)
 public interface RegistryFactory {
 
@@ -46,7 +46,7 @@ public interface RegistryFactory {
      * @param url Registry address, is not allowed to be empty
      * @return Registry reference, never return empty value
      */
-    // 支持check=false, 支持username:password的授权认证，支持backup=ip备份地址，file本地磁盘存储,request及session超时
+    // 支持check=false注册器检查，支持username:password权限验证，支持backup=10.20.153.10注册器集群，支持file=registry.cache本地文件缓存，支持timeout=1000请求超时设置，支持session=60000会话超时或过期设置
     @Adaptive({PROTOCOL_KEY})
     Registry getRegistry(URL url);
 }

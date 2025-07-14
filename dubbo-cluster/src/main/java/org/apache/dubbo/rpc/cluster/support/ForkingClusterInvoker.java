@@ -49,6 +49,7 @@ import static org.apache.dubbo.rpc.cluster.Constants.DEFAULT_FORKS;
  *
  * <a href="http://en.wikipedia.org/wiki/Fork_(topology)">Fork</a>
  */
+// 同时调用指定数量的
 public class ForkingClusterInvoker<T> extends AbstractClusterInvoker<T> {
 
     /**

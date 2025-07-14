@@ -17,7 +17,7 @@
 package org.apache.dubbo.common.utils;
 
 import java.util.Set;
-
+// 加载类监听器
 public interface AllowClassNotifyListener {
 
     SerializeCheckStatus DEFAULT_STATUS = SerializeCheckStatus.STRICT;

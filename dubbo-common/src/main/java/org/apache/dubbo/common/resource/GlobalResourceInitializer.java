@@ -24,6 +24,7 @@ import java.util.function.Consumer;
 /**
  * A initializer to release resource automatically on dubbo shutdown
  */
+// 资源放入到全局资源管理器中
 public class GlobalResourceInitializer<T> extends CallableSafeInitializer<T> {
 
     /**

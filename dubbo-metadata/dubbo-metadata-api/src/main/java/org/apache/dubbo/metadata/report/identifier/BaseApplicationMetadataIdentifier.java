@@ -23,7 +23,7 @@ import static org.apache.dubbo.metadata.MetadataConstants.DEFAULT_PATH_TAG;
  * <p>
  * 2019-08-09
  */
-// application scope
+// application 类型的key
 public class BaseApplicationMetadataIdentifier {
     protected String application;
 

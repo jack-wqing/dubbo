@@ -24,6 +24,10 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * ApplicationModel 使用的 ServiceRepository
+ * 其内部的服务都是通过ModuleService 来提供的
+ */
 public class ServiceRepository {
 
     public static final String NAME = "repository";

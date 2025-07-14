@@ -21,7 +21,7 @@ import org.apache.dubbo.common.extension.SPI;
 
 import java.util.Map;
 
-// DataStore
+// 简单的数据存储
 @SPI(value = "simple", scope = ExtensionScope.APPLICATION)
 public interface DataStore {
 

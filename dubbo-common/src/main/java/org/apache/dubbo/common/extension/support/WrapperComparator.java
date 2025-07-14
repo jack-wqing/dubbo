@@ -28,6 +28,7 @@ import java.util.Comparator;
  * OrderComparator
  * Derived from {@link ActivateComparator}
  */
+// Wrapper比较器
 public class WrapperComparator implements Comparator<Object> {
 
     public static final Comparator<Object> COMPARATOR = new WrapperComparator();

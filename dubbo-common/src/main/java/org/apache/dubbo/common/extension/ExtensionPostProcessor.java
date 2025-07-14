@@ -19,6 +19,7 @@ package org.apache.dubbo.common.extension;
 /**
  * A Post-processor called before or after extension initialization.
  */
+// Dubbo扩展初始化后置处理器
 public interface ExtensionPostProcessor {
 
     default Object postProcessBeforeInitialization(Object instance, String name) throws Exception {

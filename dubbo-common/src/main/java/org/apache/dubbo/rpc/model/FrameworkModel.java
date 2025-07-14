@@ -97,7 +97,7 @@ public class FrameworkModel extends ScopeModel {
                 for (ScopeModelInitializer initializer : initializers) {
                     initializer.initializeFrameworkModel(this);
                 }
-
+                // Internal application model: 创建FrameworkModel 自动创建
                 internalApplicationModel = new ApplicationModel(this, true);
                 internalApplicationModel
                         .getApplicationConfigManager()
@@ -176,6 +176,7 @@ public class FrameworkModel extends ScopeModel {
      * Recommendation: Avoid using the default model as much as possible.
      * @return the global default FrameworkModel
      */
+    // 使用默认的default FrameworkModel 如果在destroying期间可能出现不可以预测的问题
     public static FrameworkModel defaultModel() {
         FrameworkModel instance = defaultInstance;
         if (instance == null) {

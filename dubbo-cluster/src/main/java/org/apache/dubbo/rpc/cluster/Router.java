@@ -32,7 +32,7 @@ import java.util.List;
  * @see org.apache.dubbo.rpc.cluster.Cluster#join(Directory, boolean)
  * @see org.apache.dubbo.rpc.cluster.Directory#list(Invocation)
  */
-// 定义路由规则的逻辑
+// 路由器
 public interface Router extends Comparable<Router> {
 
     int DEFAULT_PRIORITY = Integer.MAX_VALUE;
@@ -89,6 +89,7 @@ public interface Router extends Comparable<Router> {
      *
      * @return true if the router need to execute every time.
      */
+    // 路由是不是实时改变
     boolean isRuntime();
 
     /**
@@ -98,6 +99,7 @@ public interface Router extends Comparable<Router> {
      *
      * @return true to execute if none of invokers matches the current router
      */
+    // 路由列表为空是否强制启动
     boolean isForce();
 
     /**

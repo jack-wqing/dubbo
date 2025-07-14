@@ -35,7 +35,8 @@ import static org.apache.dubbo.common.constants.CommonConstants.EXECUTOR_MANAGEM
 /**
  *
  */
-// ExecutorRepository
+// Dubbo 使用ExecutorService Repository
+// 默认使用 isolation
 @SPI(value = "isolation", scope = ExtensionScope.APPLICATION)
 public interface ExecutorRepository {
 
@@ -46,6 +47,7 @@ public interface ExecutorRepository {
      * @param url
      * @return
      */
+    // client server
     ExecutorService createExecutorIfAbsent(URL url);
 
     /**
@@ -66,20 +68,24 @@ public interface ExecutorRepository {
      */
     void updateThreadpool(URL url, ExecutorService executor);
 
+    // ServiceExportExecutor
     ScheduledExecutorService getServiceExportExecutor();
 
     /**
      * The executor only used in bootstrap currently, we should call this method to release the resource
      * after the async export is done.
      */
+    // 导出完成释放资源
     void shutdownServiceExportExecutor();
 
+    // ServiceReferExecutor
     ExecutorService getServiceReferExecutor();
 
     /**
      * The executor only used in bootstrap currently, we should call this method to release the resource
      * after the async refer is done.
      */
+    // 仅仅在引导阶段
     void shutdownServiceReferExecutor();
 
     /**
@@ -94,6 +100,7 @@ public interface ExecutorRepository {
      * @deprecated use {@link FrameworkExecutorRepository#nextScheduledExecutor()} instead
      * @return ScheduledExecutorService
      */
+    // 延迟考虑
     @Deprecated
     ScheduledExecutorService nextScheduledExecutor();
 
@@ -108,6 +115,7 @@ public interface ExecutorRepository {
      * @deprecated use {@link FrameworkExecutorRepository#getServiceDiscoveryAddressNotificationExecutor()} instead
      * @return ScheduledExecutorService
      */
+    // ServiceDiscovery
     @Deprecated
     ScheduledExecutorService getServiceDiscoveryAddressNotificationExecutor();
 
@@ -115,6 +123,7 @@ public interface ExecutorRepository {
      * @deprecated use {@link FrameworkExecutorRepository#getMetadataRetryExecutor()} instead
      * @return ScheduledExecutorService
      */
+    // metadata
     @Deprecated
     ScheduledExecutorService getMetadataRetryExecutor();
 
@@ -124,6 +133,7 @@ public interface ExecutorRepository {
      * @deprecated use {@link FrameworkExecutorRepository#getRegistryNotificationExecutor()} instead
      * @return ScheduledExecutorService
      */
+    // Registry
     @Deprecated
     ScheduledExecutorService getRegistryNotificationExecutor();
 

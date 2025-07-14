@@ -48,6 +48,7 @@ public class EnvironmentAdapter implements InfraAdapter, ScopeModelAware {
      *
      * @param params information of this Dubbo process, currently includes application name and host address.
      */
+    // 操作系统 JVM OS 获取
     @Override
     public Map<String, String> getExtraAttributes(Map<String, String> params) {
         Map<String, String> parameters = new HashMap<>();

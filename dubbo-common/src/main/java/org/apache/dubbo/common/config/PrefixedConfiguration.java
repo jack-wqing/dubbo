@@ -18,7 +18,7 @@ package org.apache.dubbo.common.config;
 
 import org.apache.dubbo.common.utils.StringUtils;
 
-// prefix
+// 自动拼接前缀
 public class PrefixedConfiguration implements Configuration {
 
     private final String prefix;

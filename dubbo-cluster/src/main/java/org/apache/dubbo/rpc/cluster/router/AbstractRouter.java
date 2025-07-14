@@ -19,7 +19,7 @@ package org.apache.dubbo.rpc.cluster.router;
 import org.apache.dubbo.common.URL;
 import org.apache.dubbo.rpc.cluster.Router;
 import org.apache.dubbo.rpc.cluster.governance.GovernanceRuleRepository;
-
+//路由抽象
 public abstract class AbstractRouter implements Router {
     private int priority = DEFAULT_PRIORITY;
     private boolean force = false;

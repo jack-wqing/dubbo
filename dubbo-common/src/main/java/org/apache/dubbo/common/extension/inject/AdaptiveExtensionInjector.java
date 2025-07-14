@@ -30,6 +30,7 @@ import java.util.stream.Collectors;
 /**
  * AdaptiveExtensionInjector
  */
+// 支持多个注入器
 @Adaptive
 public class AdaptiveExtensionInjector implements ExtensionInjector, Lifecycle {
 

@@ -22,7 +22,7 @@ import org.apache.dubbo.registry.client.AbstractServiceDiscoveryFactory;
 import org.apache.dubbo.registry.client.ServiceDiscovery;
 
 import static org.apache.dubbo.common.constants.CommonConstants.CONFIG_NAMESPACE_KEY;
-
+// Nacos服务发现
 public class NacosServiceDiscoveryFactory extends AbstractServiceDiscoveryFactory {
 
     @Override

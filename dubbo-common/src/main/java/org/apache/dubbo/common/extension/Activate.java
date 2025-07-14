@@ -39,6 +39,7 @@ import java.lang.annotation.Target;
  * @see URL
  * @see ExtensionLoader
  */
+// 按条件激活扩展
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE, ElementType.METHOD})

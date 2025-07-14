@@ -34,23 +34,26 @@ import java.util.stream.Collectors;
 /**
  * Service repository for module
  */
+// ModuleServiceRepository
 public class ModuleServiceRepository {
 
     private final ModuleModel moduleModel;
 
     /**
-     * services
+     * services: interface -> ServiceDescriptor 映射
      */
     private final ConcurrentMap<String, List<ServiceDescriptor>> services = new ConcurrentHashMap<>();
 
     /**
      * consumers ( key - group/interface:version value - consumerModel list)
      */
+    // 消费端
     private final ConcurrentMap<String, List<ConsumerModel>> consumers = new ConcurrentHashMap<>();
 
     /**
      * providers
      */
+    // 服务端
     private final ConcurrentMap<String, ProviderModel> providers = new ConcurrentHashMap<>();
 
     private final FrameworkServiceRepository frameworkServiceRepository;

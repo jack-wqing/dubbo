@@ -23,7 +23,7 @@ import org.apache.dubbo.common.resource.Disposable;
  *
  * @since 2.7.5
  */
-// Lifecycle
+// 表示Dubbo组件的生命周期组件
 public interface Lifecycle extends Disposable {
 
     /**

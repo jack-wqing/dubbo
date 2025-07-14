@@ -59,6 +59,7 @@ import static org.apache.dubbo.rpc.Constants.SERIALIZATION_ID_KEY;
 /**
  * This Invoker works on Consumer side.
  */
+// Consumer侧的Invoker
 public abstract class AbstractInvoker<T> implements Invoker<T> {
 
     protected static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(AbstractInvoker.class);
@@ -231,11 +232,13 @@ public abstract class AbstractInvoker<T> implements Invoker<T> {
 
     private void addInvocationAttachments(RpcInvocation invocation) {
         // invoker attachment
+        // invoker本身的负载
         if (CollectionUtils.isNotEmptyMap(attachment)) {
             invocation.addObjectAttachmentsIfAbsent(attachment);
         }
 
         // client context attachment
+        // 客户端上下文负载
         Map<String, Object> clientContextAttachments =
                 RpcContext.getClientAttachment().getObjectAttachments();
         if (CollectionUtils.isNotEmptyMap(clientContextAttachments)) {

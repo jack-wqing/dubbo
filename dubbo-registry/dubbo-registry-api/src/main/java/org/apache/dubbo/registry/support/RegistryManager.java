@@ -42,7 +42,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.REGISTRY_FAI
 /**
  * Application Level, used to collect Registries
  */
-// RegistryManager: registries
+// 对支持的注册管理支持
 public class RegistryManager {
     private static final ErrorTypeAwareLogger LOGGER = LoggerFactory.getErrorTypeAwareLogger(RegistryManager.class);
 

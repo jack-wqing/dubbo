@@ -39,7 +39,7 @@ import static org.apache.dubbo.common.extension.ExtensionScope.APPLICATION;
  *
  * Call variants of getCachedMapping() methods whenever need to use the mapping data.
  */
-// 本地缓存的interface-app mapping
+// 接口服务映射实现原理
 @SPI(value = "metadata", scope = APPLICATION)
 public interface ServiceNameMapping extends Destroyable {
 
@@ -48,6 +48,7 @@ public interface ServiceNameMapping extends Destroyable {
     /**
      * Map the specified Dubbo service interface, group, version and protocol to current Dubbo service name
      */
+    // 应用当前的服务接口到具体的Dubbo服务
     boolean map(URL url);
 
     boolean hasValidMetadataCenter();

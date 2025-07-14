@@ -31,7 +31,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.INTERNAL_ERR
 /**
  * support multiple config center, simply iterating each concrete config center.
  */
-// 支持多配置中心
+// 多个配置中心的组合
 public class CompositeDynamicConfiguration implements DynamicConfiguration {
 
     public static final String NAME = "COMPOSITE";

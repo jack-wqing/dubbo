@@ -18,7 +18,7 @@ package org.apache.dubbo.config.nested;
 
 import java.io.Serializable;
 
-// ServletConfig
+// dubbo servlet 支持
 public class ServletConfig implements Serializable {
 
     private static final long serialVersionUID = 1091478303358670173L;

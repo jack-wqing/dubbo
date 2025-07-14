@@ -20,7 +20,7 @@ import org.apache.dubbo.rpc.model.ScopeModel;
 
 import java.util.concurrent.Future;
 
-// Deployer 协议
+// Dubbo Deployer 统一的部署接口
 public interface Deployer<E extends ScopeModel> {
 
     /**

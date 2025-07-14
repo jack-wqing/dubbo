@@ -26,6 +26,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.stream.Stream;
 
+// packable MethodDescriptor
 public class StubMethodDescriptor implements MethodDescriptor, PackableMethod {
     private static final Logger logger = LoggerFactory.getLogger(StubMethodDescriptor.class);
     private final ConcurrentMap<String, Object> attributeMap = new ConcurrentHashMap<>();

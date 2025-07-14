@@ -21,7 +21,7 @@ import org.apache.dubbo.common.extension.ExtensionAccessor;
 /**
  * An interface for Initializing resources
  */
-// Initializable
+// 初始华资源的接口
 public interface Initializable {
 
     default void initialize(ExtensionAccessor accessor) {

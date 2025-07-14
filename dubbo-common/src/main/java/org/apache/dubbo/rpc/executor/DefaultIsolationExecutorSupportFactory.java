@@ -18,7 +18,7 @@ package org.apache.dubbo.rpc.executor;
 
 import org.apache.dubbo.common.URL;
 
-// DefaultIsolation: ExecutorSupportFactory
+// 创建DefaultExecutorSupport
 public class DefaultIsolationExecutorSupportFactory implements IsolationExecutorSupportFactory {
     @Override
     public ExecutorSupport createIsolationExecutorSupport(URL url) {

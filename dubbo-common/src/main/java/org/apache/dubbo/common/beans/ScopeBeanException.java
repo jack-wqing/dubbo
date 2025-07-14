@@ -16,6 +16,7 @@
  */
 package org.apache.dubbo.common.beans;
 
+// ScopeBeanException
 public class ScopeBeanException extends RuntimeException {
 
     public ScopeBeanException(String message, Throwable cause) {

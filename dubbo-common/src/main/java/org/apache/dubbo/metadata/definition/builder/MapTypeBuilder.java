@@ -31,6 +31,7 @@ import static org.apache.dubbo.common.utils.TypeUtils.isParameterizedType;
 /**
  * 2015/1/27.
  */
+// MapTypeBuilder
 public class MapTypeBuilder implements TypeBuilder {
 
     @Override

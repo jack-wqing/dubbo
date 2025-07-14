@@ -21,7 +21,7 @@ import org.apache.dubbo.registry.client.ServiceInstance;
 
 import java.util.List;
 
-// Customer: ServerInstanceNotification
+// 支持对服务实例的自定义修改
 @SPI
 public interface ServiceInstanceNotificationCustomizer {
 

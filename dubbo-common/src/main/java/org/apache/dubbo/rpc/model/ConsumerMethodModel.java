@@ -25,6 +25,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.$INVOKE;
 /**
  * Replaced with {@link MethodDescriptor}
  */
+// Method 方法信息描述
 @Deprecated
 public class ConsumerMethodModel {
     private final Method method;

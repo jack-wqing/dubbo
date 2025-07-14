@@ -16,7 +16,7 @@
  */
 package org.apache.dubbo.rpc.model;
 
-// 类加载监听器
+// ScopeModel 添加类加载器监听器
 public interface ScopeClassLoaderListener<T extends ScopeModel> {
 
     void onAddClassLoader(T scopeModel, ClassLoader classLoader);

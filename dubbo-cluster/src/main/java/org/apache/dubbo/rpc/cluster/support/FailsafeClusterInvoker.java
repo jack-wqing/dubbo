@@ -37,6 +37,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.CLUSTER_ERRO
  * <a href="http://en.wikipedia.org/wiki/Fail-safe">Fail-safe</a>
  *
  */
+// 失败记录日志
 public class FailsafeClusterInvoker<T> extends AbstractClusterInvoker<T> {
     private static final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(FailsafeClusterInvoker.class);

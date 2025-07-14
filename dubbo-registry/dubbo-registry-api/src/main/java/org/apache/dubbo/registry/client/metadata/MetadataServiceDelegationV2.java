@@ -37,7 +37,7 @@ import org.apache.dubbo.rpc.protocol.tri.TripleProtocol;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.REGISTRY_FAILED_LOAD_METADATA;
 import static org.apache.dubbo.metadata.util.MetadataServiceVersionUtils.toV2;
-// MetadataServiceDelegationV2
+// 支持gRpc方式获取
 public class MetadataServiceDelegationV2 extends MetadataServiceV2ImplBase {
 
     ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(getClass());

@@ -29,6 +29,7 @@ import org.apache.dubbo.rpc.model.ModuleModel;
 import org.apache.dubbo.rpc.model.ScopeModelInitializer;
 
 // ScopeModelInitializer： 对与 ApplicationDeployer ModuleDeployer 设置
+// 配置模块的 ScopeModelInitializer
 public class ConfigScopeModelInitializer implements ScopeModelInitializer {
 
     @Override

@@ -30,6 +30,7 @@ import java.lang.annotation.Target;
  * @see ExtensionLoader
  * @see URL
  */
+// 帮助信息进行注入
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE, ElementType.METHOD})
@@ -55,5 +56,6 @@ public @interface Adaptive {
      *
      * @return parameter names in URL
      */
+    // 根据参数或者扩展实现；参数名为空，更具接口自动生成
     String[] value() default {};
 }

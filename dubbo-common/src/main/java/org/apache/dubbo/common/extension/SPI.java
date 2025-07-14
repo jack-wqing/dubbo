@@ -50,6 +50,7 @@ import java.lang.annotation.Target;
  * instead of reporting which extract extension implementation fails and the extract reason.
  * </p>
  */
+// Dubbo 扩展的统计配置
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE})
@@ -58,6 +59,7 @@ public @interface SPI {
     /**
      * default extension name
      */
+    // 默认的扩展名
     String value() default "";
 
     /**

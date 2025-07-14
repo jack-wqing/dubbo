@@ -26,7 +26,7 @@ import static org.apache.dubbo.metadata.MetadataConstants.DEFAULT_PATH_TAG;
  * <p>
  * 2019-08-09
  */
-// service scope
+// 元数据服务表示key: interface version group side application
 public class BaseServiceMetadataIdentifier {
     protected String serviceInterface;
     protected String version;

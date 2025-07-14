@@ -25,7 +25,7 @@ import java.util.concurrent.Future;
 /**
  * initialize and start application instance
  */
-// Application Deployer
+// Application 部署器接口
 public interface ApplicationDeployer extends Deployer<ApplicationModel> {
 
     /**

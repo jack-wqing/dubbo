@@ -90,6 +90,7 @@ import static org.apache.dubbo.registry.nacos.NacosServiceName.valueOf;
  * @see #LOOKUP_INTERVAL
  * @since 2.6.5
  */
+// 接口级别应用注册类
 public class NacosRegistry extends FailbackRegistry {
 
     /**

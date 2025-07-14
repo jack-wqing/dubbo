@@ -45,6 +45,7 @@ public class InvokerCountWrapper implements Protocol {
 
     @Override
     public <T> Invoker<T> refer(Class<T> type, URL url) throws RpcException {
+        // 注册中心的协议直接执行
         if (UrlUtils.isRegistry(url)) {
             return protocol.refer(type, url);
         }

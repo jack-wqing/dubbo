@@ -87,7 +87,7 @@ public class DubboShutdownHook extends Thread {
     private void doDestroy() {
         int timeout = ConfigurationUtils.getServerShutdownTimeout(applicationModel);
         ConfigurationUtils.setExpectedShutdownTime(System.currentTimeMillis() + timeout);
-
+        // GraceFulShutdown
         // send readonly for shutdown hook
         List<GracefulShutdown> gracefulShutdowns =
                 GracefulShutdown.getGracefulShutdowns(applicationModel.getFrameworkModel());
@@ -103,6 +103,7 @@ public class DubboShutdownHook extends Thread {
                 break;
             }
         }
+        // 外部管理Module生命周期，等待外部关闭完成
         if (hasModuleBindSpring) {
             if (timeout > 0) {
                 long start = System.currentTimeMillis();

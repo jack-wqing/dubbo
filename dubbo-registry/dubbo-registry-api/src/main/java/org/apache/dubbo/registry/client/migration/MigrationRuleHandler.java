@@ -28,6 +28,11 @@ import java.util.concurrent.locks.ReentrantLock;
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.INTERNAL_ERROR;
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.REGISTRY_NO_PARAMETERS_URL;
 
+/**
+ * 迁移规则处理器
+ * @param <T>
+ */
+// 设置迁移规则到Invoker
 public class MigrationRuleHandler<T> {
     public static final String DUBBO_SERVICEDISCOVERY_MIGRATION = "dubbo.application.migration.step";
     private static final ErrorTypeAwareLogger logger =

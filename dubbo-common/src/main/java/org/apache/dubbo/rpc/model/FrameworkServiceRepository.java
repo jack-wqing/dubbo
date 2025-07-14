@@ -34,14 +34,17 @@ import static org.apache.dubbo.common.BaseServiceMetadata.versionFromServiceKey;
 /**
  * Service repository for framework
  */
+// FrameworkServiceRepository: 框架服务仓库
 public class FrameworkServiceRepository {
 
     private final FrameworkModel frameworkModel;
 
     // useful to find a provider model quickly with group/serviceInterfaceName:version
+    // key group/serviceInterfaceName:version
     private final ConcurrentMap<String, ProviderModel> providers = new ConcurrentHashMap<>();
 
     // useful to find a provider model quickly with serviceInterfaceName:version
+    // key serviceInterfaceName:version
     private final ConcurrentMap<String, List<ProviderModel>> providersWithoutGroup = new ConcurrentHashMap<>();
 
     public FrameworkServiceRepository(FrameworkModel frameworkModel) {

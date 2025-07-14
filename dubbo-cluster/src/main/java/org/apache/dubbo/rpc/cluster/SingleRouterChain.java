@@ -47,6 +47,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.INTERNAL_ERR
 /**
  * Router chain
  */
+// 路由过滤器链: 状态路由 + 内部路由
 public class SingleRouterChain<T> {
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(SingleRouterChain.class);
 

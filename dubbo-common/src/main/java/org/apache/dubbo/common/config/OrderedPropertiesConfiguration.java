@@ -26,7 +26,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
-// module: OrderedPropertiesConfiguration
+// 进行陪许的优先级
 public class OrderedPropertiesConfiguration implements Configuration {
     private Properties properties;
     private final ModuleModel moduleModel;

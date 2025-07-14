@@ -63,7 +63,7 @@ public class DefaultFilterChainBuilder implements FilterChainBuilder {
         } else {
             filters = ScopeModelUtil.getExtensionLoader(Filter.class, null).getActivateExtension(url, key, group);
         }
-
+        // 最后一个为 OriginalInvoker
         if (!CollectionUtils.isEmpty(filters)) {
             for (int i = filters.size() - 1; i >= 0; i--) {
                 final Filter filter = filters.get(i);

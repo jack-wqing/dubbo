@@ -77,7 +77,7 @@ import static org.apache.dubbo.common.constants.RegistryConstants.PROVIDERS_CATE
  * @see org.apache.dubbo.registry.support.FailbackRegistry
  * @see org.apache.dubbo.registry.support.AbstractRegistry
  */
-// Cache URLAddress + URLParam
+// 提供一些本地内存缓存的逻辑对注册中心有用 比如zk注册中心
 public abstract class CacheableFailbackRegistry extends FailbackRegistry {
     private static final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(CacheableFailbackRegistry.class);

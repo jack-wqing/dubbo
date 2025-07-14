@@ -124,6 +124,7 @@ public class ReferenceConfig<T> extends ReferenceConfigBase<T> {
      * <li>when the url is dubbo://224.5.6.7:1234/org.apache.dubbo.config.api.DemoService?application=dubbo-sample, then
      * the protocol is <b>DubboProtocol</b></li>
      * <p>
+     * 主要的RegistryProtocol 和 DubboProtocol
      * Actually，when the {@link ExtensionLoader} init the {@link Protocol} instants,it will automatically wrap three
      * layers, and eventually will get a <b>ProtocolSerializationWrapper</b> or <b>ProtocolFilterWrapper</b> or <b>ProtocolListenerWrapper</b>
      */
@@ -183,8 +184,7 @@ public class ReferenceConfig<T> extends ReferenceConfigBase<T> {
         super(moduleModel, reference);
     }
 
-    // ScopeModelChange
-    // ScopeModelChange
+
     @Override
     protected void postProcessAfterScopeModelChanged(ScopeModel oldScopeModel, ScopeModel newScopeModel) {
         super.postProcessAfterScopeModelChanged(oldScopeModel, newScopeModel);
@@ -332,7 +332,7 @@ public class ReferenceConfig<T> extends ReferenceConfigBase<T> {
     protected void init() {
         init(true);
     }
-
+    // 初始化引用服务
     protected void init(boolean check) {
         lock.lock();
         try {
@@ -348,7 +348,7 @@ public class ReferenceConfig<T> extends ReferenceConfigBase<T> {
                 if (StringUtils.isBlank(proxyType) && DubboStub.class.isAssignableFrom(interfaceClass)) {
                     setProxy(CommonConstants.NATIVE_STUB);
                 }
-
+                // 初始化元数据
                 // init serviceMetadata
                 initServiceMetadata(consumer);
 
@@ -383,7 +383,7 @@ public class ReferenceConfig<T> extends ReferenceConfigBase<T> {
                 repository.registerConsumer(consumerModel);
 
                 serviceMetadata.getAttachments().putAll(referenceParameters);
-
+                // 创建代理
                 ref = createProxy(referenceParameters);
 
                 serviceMetadata.setTarget(ref);
@@ -667,8 +667,9 @@ public class ReferenceConfig<T> extends ReferenceConfigBase<T> {
     }
 
     /**
-     * \create a reference invoker
+     * create a reference invoker
      */
+    // 创建远程引用
     @SuppressWarnings({"unchecked", "rawtypes"})
     private void createInvoker() {
         if (urls.size() == 1) {

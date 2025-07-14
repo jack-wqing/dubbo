@@ -16,6 +16,7 @@
  */
 package org.apache.dubbo.rpc.model;
 
+// ScopeModel: destroy事件 监听器
 public interface ScopeModelDestroyListener<T extends ScopeModel> {
     void onDestroy(T scopeModel);
 

@@ -29,7 +29,7 @@ import static org.apache.dubbo.common.utils.StringUtils.replace;
 /**
  * 2015/1/27.
  */
-// Type
+// 类型定义
 public class TypeDefinition implements Serializable {
 
     /**
@@ -45,6 +45,7 @@ public class TypeDefinition implements Serializable {
      * <p>
      * if this type is not ParameterizedType, the items is null or empty
      */
+    // 泛型参数
     private List<String> items;
 
     /**
@@ -52,12 +53,14 @@ public class TypeDefinition implements Serializable {
      * <p>
      * If this type is not enum, enums is null or empty
      */
+    // 枚举值
     private List<String> enums;
 
     /**
      * the key is property name,
      * the value is property's type name
      */
+    // 属性名 -> 属性类型名
     private Map<String, String> properties;
 
     public TypeDefinition() {}

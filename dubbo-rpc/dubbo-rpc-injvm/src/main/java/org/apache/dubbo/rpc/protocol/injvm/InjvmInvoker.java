@@ -59,6 +59,7 @@ import static org.apache.dubbo.rpc.Constants.ASYNC_KEY;
 /**
  * InjvmInvoker
  */
+// 直接访问 ExportMap 返回执行
 public class InjvmInvoker<T> extends AbstractInvoker<T> {
 
     private final String key;

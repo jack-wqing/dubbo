@@ -30,7 +30,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.THREAD_NAME_KEY;
 /**
  * Thread pool isolation between services, that is, a service has its own thread pool and not interfere with each other
  */
-// ExecutorRepository: Isolation
+// 服务之间有各自的线程池，互相不干扰
 public class IsolationExecutorRepository extends DefaultExecutorRepository {
 
     public IsolationExecutorRepository(ApplicationModel applicationModel) {

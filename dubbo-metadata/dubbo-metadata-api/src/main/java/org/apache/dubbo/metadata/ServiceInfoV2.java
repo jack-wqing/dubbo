@@ -23,7 +23,7 @@ package org.apache.dubbo.metadata;
  *
  * Protobuf type {@code org.apache.dubbo.metadata.ServiceInfoV2}
  */
-// ServiceInfoV2 支持 Protobuf
+// 服务接口信息
 public final class ServiceInfoV2 extends com.google.protobuf.GeneratedMessageV3
         implements
         // @@protoc_insertion_point(message_implements:org.apache.dubbo.metadata.ServiceInfoV2)

@@ -24,6 +24,7 @@ import java.util.Properties;
 /**
  * 2015/1/27.
  */
+// jaket.propertiese文件的支持
 public class JaketConfigurationUtils {
 
     private static final String CONFIGURATION_FILE = "jaket.properties";

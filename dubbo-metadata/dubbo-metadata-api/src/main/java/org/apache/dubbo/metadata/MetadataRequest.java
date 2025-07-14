@@ -23,7 +23,7 @@ package org.apache.dubbo.metadata;
  *
  * Protobuf type {@code org.apache.dubbo.metadata.MetadataRequest}
  */
-// Protobuf: Metadata Request message
+// MetadataRequest
 public final class MetadataRequest extends com.google.protobuf.GeneratedMessageV3
         implements
         // @@protoc_insertion_point(message_implements:org.apache.dubbo.metadata.MetadataRequest)

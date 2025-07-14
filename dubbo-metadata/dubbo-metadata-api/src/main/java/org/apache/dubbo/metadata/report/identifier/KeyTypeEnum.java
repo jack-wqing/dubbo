@@ -25,6 +25,7 @@ import static org.apache.dubbo.metadata.MetadataConstants.KEY_SEPARATOR;
 /**
  * 2019-08-15
  */
+// key构建器
 public enum KeyTypeEnum {
     PATH(PATH_SEPARATOR) {
         public String build(String one, String... others) {

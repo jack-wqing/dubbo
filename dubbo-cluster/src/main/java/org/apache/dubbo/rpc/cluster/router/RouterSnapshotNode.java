@@ -26,6 +26,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+// 路由切面节点
 public class RouterSnapshotNode<T> {
     private final String name;
     private final int beforeSize;

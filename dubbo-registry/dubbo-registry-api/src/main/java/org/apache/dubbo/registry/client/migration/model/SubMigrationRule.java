@@ -24,6 +24,7 @@ import static org.apache.dubbo.registry.Constants.MIGRATION_RULE_PROPORTION_KEY;
 import static org.apache.dubbo.registry.Constants.MIGRATION_RULE_STEP_KEY;
 import static org.apache.dubbo.registry.Constants.MIGRATION_RULE_THRESHOLD_KEY;
 
+// 具体的接口或者应用迁移规则
 public class SubMigrationRule {
     private String serviceKey;
     private MigrationStep step;
