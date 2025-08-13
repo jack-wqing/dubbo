@@ -24,6 +24,7 @@ import org.apache.dubbo.rpc.cluster.ConfiguratorFactory;
  * OverrideConfiguratorFactory
  *
  */
+// 配置的url直接覆盖
 public class OverrideConfiguratorFactory implements ConfiguratorFactory {
 
     @Override

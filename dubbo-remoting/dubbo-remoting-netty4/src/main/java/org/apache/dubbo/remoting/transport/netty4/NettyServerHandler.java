@@ -41,7 +41,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.TRANSPORT_UN
 /**
  * NettyServerHandler.
  */
-// Netty ChannelHandler
+// Dubbo 实现的Netty ChannelHandler支持 Inbound和Outbound
 @io.netty.channel.ChannelHandler.Sharable
 public class NettyServerHandler extends ChannelDuplexHandler {
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(NettyServerHandler.class);
@@ -49,6 +49,7 @@ public class NettyServerHandler extends ChannelDuplexHandler {
      * the cache for alive worker channel.
      * <ip:port, dubbo channel>
      */
+    // ip:ort -> Channel
     private final Map<String, Channel> channels = new ConcurrentHashMap<>();
 
     private static final AttributeKey<SSLSession> SSL_SESSION_KEY = AttributeKey.valueOf(Constants.SSL_SESSION_KEY);
@@ -71,7 +72,7 @@ public class NettyServerHandler extends ChannelDuplexHandler {
     public Map<String, Channel> getChannels() {
         return channels;
     }
-
+    // Netty channelActive 事件
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         io.netty.channel.Channel ch = ctx.channel();
@@ -79,6 +80,7 @@ public class NettyServerHandler extends ChannelDuplexHandler {
         if (channel != null) {
             channels.put(NetUtils.toAddressString(channel.getRemoteAddress()), channel);
         }
+        // 映射Dubbo Channel connected
         handler.connected(channel);
 
         if (logger.isInfoEnabled() && channel != null) {
@@ -89,13 +91,14 @@ public class NettyServerHandler extends ChannelDuplexHandler {
                     channel.getLocalAddressKey());
         }
     }
-
+    // channel Inactive事件
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         io.netty.channel.Channel ch = ctx.channel();
         NettyChannel channel = NettyChannel.getOrAddChannel(ch, url, handler);
         try {
             channels.remove(NetUtils.toAddressString(channel.getRemoteAddress()));
+            // Dubbo Channel disconnected
             handler.disconnected(channel);
         } finally {
             NettyChannel.removeChannel(ch);
@@ -109,10 +112,11 @@ public class NettyServerHandler extends ChannelDuplexHandler {
                     channel.getLocalAddressKey());
         }
     }
-
+    // Channel读取事件
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         NettyChannel channel = NettyChannel.getOrAddChannel(ctx.channel(), url, handler);
+        // 映射Dubbo Channel received
         handler.received(channel, msg);
         // trigger qos handler
         ctx.fireChannelRead(msg);
@@ -122,12 +126,14 @@ public class NettyServerHandler extends ChannelDuplexHandler {
     public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) throws Exception {
         super.write(ctx, msg, promise);
         NettyChannel channel = NettyChannel.getOrAddChannel(ctx.channel(), url, handler);
+        // 发送/写消息 之后映射到Dubbo channel的Send
         handler.sent(channel, msg);
     }
-
+    // 用户事件
     @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
         // server will close channel when server don't receive any heartbeat from client util timeout.
+        // 关闭闲置连接
         if (evt instanceof IdleStateEvent) {
             NettyChannel channel = NettyChannel.getOrAddChannel(ctx.channel(), url, handler);
             try {
@@ -138,6 +144,7 @@ public class NettyServerHandler extends ChannelDuplexHandler {
             }
         }
         super.userEventTriggered(ctx, evt);
+        // ssl握手完成事件 1个RTT  存储SSL Session消息
         if (evt instanceof SslHandshakeCompletionEvent) {
             SslHandshakeCompletionEvent handshakeEvent = (SslHandshakeCompletionEvent) evt;
             if (handshakeEvent.isSuccess()) {
@@ -148,7 +155,7 @@ public class NettyServerHandler extends ChannelDuplexHandler {
             }
         }
     }
-
+    // 异常时间: 关闭连接
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         io.netty.channel.Channel ch = ctx.channel();

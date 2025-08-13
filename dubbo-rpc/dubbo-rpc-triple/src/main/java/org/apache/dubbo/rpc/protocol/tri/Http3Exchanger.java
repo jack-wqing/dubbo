@@ -52,6 +52,7 @@ import io.netty.incubator.codec.quic.QuicStreamChannel;
 
 import static org.apache.dubbo.remoting.http3.netty4.Constants.PIPELINE_CONFIGURATOR_KEY;
 
+// Triple协议的 Http3协议实现
 public final class Http3Exchanger {
 
     private static final FluentLogger LOGGER = FluentLogger.of(Http3Exchanger.class);
@@ -91,7 +92,7 @@ public final class Http3Exchanger {
         }
         return null;
     }
-
+    // Http3 连接之后 对 Netty ChannelPipeline进行配置
     private static Consumer<ChannelPipeline> configServerPipeline(URL url) {
         NettyHttp3ProtocolSelectorHandler selectorHandler =
                 new NettyHttp3ProtocolSelectorHandler(url, ScopeModelUtil.getFrameworkModel(url.getScopeModel()));
@@ -101,6 +102,7 @@ public final class Http3Exchanger {
                 protected void initChannel(QuicStreamChannel ch) {
                     ch.pipeline()
                             .addLast(new HttpWriteQueueHandler())
+                            // 合并多次Flush操作
                             .addLast(new FlushConsolidationHandler(64, true))
                             .addLast(NettyHttp3FrameCodec.INSTANCE)
                             .addLast(selectorHandler);
@@ -125,7 +127,7 @@ public final class Http3Exchanger {
             return client;
         });
     }
-
+    // 默认的ClientPipeline
     private static Consumer<ChannelPipeline> configClientPipeline(URL url) {
         int heartbeat = UrlUtils.getHeartbeat(url);
         int closeTimeout = UrlUtils.getCloseTimeout(url);

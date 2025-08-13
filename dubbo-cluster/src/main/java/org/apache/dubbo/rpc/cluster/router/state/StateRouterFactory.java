@@ -21,7 +21,7 @@ import org.apache.dubbo.common.constants.CommonConstants;
 import org.apache.dubbo.common.extension.Adaptive;
 import org.apache.dubbo.common.extension.SPI;
 
-// 状态路由工厂
+// 状态路由路由工厂
 @SPI
 public interface StateRouterFactory {
     /**

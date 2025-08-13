@@ -31,7 +31,7 @@ import org.apache.dubbo.rpc.Invoker;
  *
  * @param <T>
  */
-// 消费端的最终引用的Invoker，包含一组Invoker，支持多注册中心模式
+// Consumer端引用的最终的模式，支持多注册中心模式，比如: ZoneAwareClusterInvoker
 public interface ClusterInvoker<T> extends Invoker<T> {
 
     URL getRegistryUrl();

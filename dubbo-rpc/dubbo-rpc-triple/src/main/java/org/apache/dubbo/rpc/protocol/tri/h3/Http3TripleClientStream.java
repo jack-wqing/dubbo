@@ -34,6 +34,7 @@ import io.netty.handler.codec.http2.Http2StreamChannel;
 import io.netty.incubator.codec.http3.Http3RequestStreamInitializer;
 import io.netty.incubator.codec.quic.QuicStreamChannel;
 
+// Http3: TripleClientStream
 public final class Http3TripleClientStream extends AbstractTripleClientStream {
 
     public Http3TripleClientStream(

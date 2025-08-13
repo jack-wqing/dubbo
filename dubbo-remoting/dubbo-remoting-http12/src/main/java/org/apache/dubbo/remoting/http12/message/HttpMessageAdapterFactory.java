@@ -22,6 +22,7 @@ import org.apache.dubbo.remoting.http12.HttpChannel;
 import org.apache.dubbo.remoting.http12.HttpRequest;
 import org.apache.dubbo.remoting.http12.HttpResponse;
 
+// http消息适配
 @SPI(scope = ExtensionScope.FRAMEWORK)
 public interface HttpMessageAdapterFactory<HR extends HttpRequest, REQUEST, RESPONSE> {
 

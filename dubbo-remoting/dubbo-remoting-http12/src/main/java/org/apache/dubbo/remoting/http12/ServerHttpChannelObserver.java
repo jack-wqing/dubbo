@@ -21,6 +21,7 @@ import org.apache.dubbo.common.stream.StreamObserver;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 
+// Dubbo ChannelObserver 像gRPC的StreamObserver: 支持定义一些自定义的操作
 public interface ServerHttpChannelObserver<H extends HttpChannel> extends StreamObserver<Object>, AutoCloseable {
 
     H getHttpChannel();

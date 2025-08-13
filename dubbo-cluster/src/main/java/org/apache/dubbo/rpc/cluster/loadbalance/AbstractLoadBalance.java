@@ -36,7 +36,7 @@ import static org.apache.dubbo.rpc.cluster.Constants.WEIGHT_KEY;
 /**
  * AbstractLoadBalance
  */
-// 可以计算权重
+// 可以计算权重的负载均衡器
 public abstract class AbstractLoadBalance implements LoadBalance {
     /**
      * Calculate the weight according to the uptime proportion of warmup time
@@ -73,6 +73,7 @@ public abstract class AbstractLoadBalance implements LoadBalance {
      * @param invocation the invocation of this invoker
      * @return weight
      */
+    // 通过自身的权重 + 预热时间计算权重
     protected int getWeight(Invoker<?> invoker, Invocation invocation) {
         int weight;
         URL url = invoker.getUrl();

@@ -29,6 +29,7 @@ import org.apache.dubbo.rpc.CancellationContext;
 
 import io.netty.handler.codec.http2.DefaultHttp2Headers;
 
+// Http2 ServerChannelObserver
 public class Http2ServerChannelObserver extends AbstractServerHttpChannelObserver<H2StreamChannel>
         implements FlowControlStreamObserver<Object>, Http2CancelableStreamObserver<Object> {
 

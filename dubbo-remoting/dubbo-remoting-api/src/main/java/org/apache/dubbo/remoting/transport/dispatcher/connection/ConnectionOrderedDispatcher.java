@@ -23,7 +23,7 @@ import org.apache.dubbo.remoting.Dispatcher;
 /**
  * connect disconnect ensure the order
  */
-// Connection
+// 对于每个连接创建一个线程，该链接上的所有消息都在该线程上执行
 public class ConnectionOrderedDispatcher implements Dispatcher {
 
     public static final String NAME = "connection";

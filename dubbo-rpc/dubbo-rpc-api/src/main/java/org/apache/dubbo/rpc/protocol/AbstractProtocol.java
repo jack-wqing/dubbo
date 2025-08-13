@@ -149,7 +149,7 @@ public abstract class AbstractProtocol implements Protocol, ScopeModelAware {
         return Collections.unmodifiableCollection(exporterMap.values());
     }
 
-    // optimizeSerialization
+    // optimizeSerialization 支持url的优化机制
     protected void optimizeSerialization(URL url) throws RpcException {
         String className = url.getParameter(OPTIMIZER_KEY, "");
         if (StringUtils.isEmpty(className) || optimizers.contains(className)) {

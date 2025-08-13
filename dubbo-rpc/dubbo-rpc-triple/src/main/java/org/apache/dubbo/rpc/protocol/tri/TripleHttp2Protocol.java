@@ -72,6 +72,7 @@ import io.netty.handler.flush.FlushConsolidationHandler;
 import io.netty.handler.logging.LogLevel;
 import io.netty.util.AsciiString;
 
+// tripleTripe协议配置器: 客户端和服务端
 @Activate
 public class TripleHttp2Protocol extends AbstractWireProtocol implements ScopeModelAware {
 
@@ -94,10 +95,11 @@ public class TripleHttp2Protocol extends AbstractWireProtocol implements ScopeMo
     public void close() {
         super.close();
     }
-
+    // Http2 Client 配置
     @Override
     public void configClientPipeline(URL url, ChannelOperator operator, ContextOperator contextOperator) {
         TripleConfig tripleConfig = ConfigManager.getProtocolOrDefault(url).getTripleOrDefault();
+        // http2 编解码
         Http2FrameCodec codec = Http2FrameCodecBuilder.forClient()
                 .gracefulShutdownTimeoutMillis(10000)
                 .initialSettings(new Http2Settings()
@@ -119,19 +121,19 @@ public class TripleHttp2Protocol extends AbstractWireProtocol implements ScopeMo
         handlers.add(new ChannelHandlerPretender(new TripleTailHandler()));
         operator.configChannelHandler(handlers);
     }
-
+    // 服务端配置
     @Override
     public void configServerProtocolHandler(URL url, ChannelOperator operator) {
         String httpVersion = operator.detectResult().getAttribute(TripleProtocolDetector.HTTP_VERSION);
         List<ChannelHandler> channelHandlerPretenders = new ArrayList<>();
         try {
-            // h1
+            // h1 http1
             if (HttpVersion.HTTP1.getVersion().equals(httpVersion)) {
                 configurerHttp1Handlers(url, channelHandlerPretenders);
                 return;
             }
 
-            // h2
+            // h2 http2
             if (HttpVersion.HTTP2.getVersion().equals(httpVersion)) {
                 configurerHttp2Handlers(url, channelHandlerPretenders);
             }
@@ -139,10 +141,11 @@ public class TripleHttp2Protocol extends AbstractWireProtocol implements ScopeMo
             operator.configChannelHandler(channelHandlerPretenders);
         }
     }
-
+    // 配置HTTP1
     @SuppressWarnings("deprecation")
     private void configurerHttp1Handlers(URL url, List<ChannelHandler> handlers) {
         TripleConfig tripleConfig = ConfigManager.getProtocolOrDefault(url).getTripleOrDefault();
+        // HTTP1编解码
         HttpServerCodec sourceCodec = new HttpServerCodec(
                 tripleConfig.getMaxInitialLineLengthOrDefault(),
                 tripleConfig.getMaxHeaderSizeOrDefault(),
@@ -154,15 +157,18 @@ public class TripleHttp2Protocol extends AbstractWireProtocol implements ScopeMo
         handlers.add(new ChannelHandlerPretender(new HttpServerUpgradeHandler(
                 sourceCodec,
                 protocol -> {
+                    // h2c 升级协议
                     if (AsciiString.contentEquals(Http2CodecUtil.HTTP_UPGRADE_PROTOCOL_NAME, protocol)) {
                         return new Http2ServerUpgradeCodec(
                                 buildHttp2FrameCodec(tripleConfig),
                                 new HttpWriteQueueHandler(),
+                                // 合并多次刷新操作
                                 new FlushConsolidationHandler(64, true),
                                 new TripleServerConnectionHandler(),
                                 buildHttp2MultiplexHandler(url, tripleConfig),
                                 new TripleTailHandler());
                     } else if (AsciiString.contentEquals(HttpHeaderValues.WEBSOCKET, protocol)) {
+                        // wss
                         return new WebSocketServerUpgradeCodec(
                                 Arrays.asList(
                                         HttpObjectAggregator.class,
@@ -190,7 +196,7 @@ public class TripleHttp2Protocol extends AbstractWireProtocol implements ScopeMo
         handlers.add(new ChannelHandlerPretender(new NettyHttp1ConnectionHandler(
                 url, frameworkModel, tripleConfig, DefaultHttp11ServerTransportListenerFactory.INSTANCE)));
     }
-
+    // HTTP2的监听器
     private Http2MultiplexHandler buildHttp2MultiplexHandler(URL url, TripleConfig tripleConfig) {
         return new Http2MultiplexHandler(new ChannelInitializer<Http2StreamChannel>() {
             @Override
@@ -205,10 +211,13 @@ public class TripleHttp2Protocol extends AbstractWireProtocol implements ScopeMo
 
     private void configurerHttp2Handlers(URL url, List<ChannelHandler> handlers) {
         TripleConfig tripleConfig = ConfigManager.getProtocolOrDefault(url).getTripleOrDefault();
+        // 帧编解码器和流控设置
         Http2FrameCodec codec = buildHttp2FrameCodec(tripleConfig);
+        // 创建子Channel 将父Channel中的读写事件传播到子Channel中
         Http2MultiplexHandler handler = buildHttp2MultiplexHandler(url, tripleConfig);
         handlers.add(new ChannelHandlerPretender(new HttpWriteQueueHandler()));
         handlers.add(new ChannelHandlerPretender(codec));
+        // 帧合并
         handlers.add(new ChannelHandlerPretender(new FlushConsolidationHandler(64, true)));
         handlers.add(new ChannelHandlerPretender(new TripleServerConnectionHandler()));
         handlers.add(new ChannelHandlerPretender(handler));

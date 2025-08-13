@@ -28,6 +28,7 @@ import java.util.concurrent.atomic.AtomicLong;
 /**
  * adaptive Metrics statistics.
  */
+// filter写入统计
 public class AdaptiveMetrics {
 
     private final ConcurrentMap<String, AdaptiveMetrics> metricsStatistics = new ConcurrentHashMap<>();

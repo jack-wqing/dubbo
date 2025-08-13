@@ -22,9 +22,11 @@ import org.apache.dubbo.common.extension.SPI;
 import org.apache.dubbo.remoting.http12.h2.H2StreamChannel;
 import org.apache.dubbo.rpc.model.FrameworkModel;
 
+// Http3ServerTransportListener: Factory
+
 @SPI(scope = ExtensionScope.FRAMEWORK)
 public interface Http3ServerTransportListenerFactory {
-
+    // 通过Http2StreamChannel
     Http3TransportListener newInstance(H2StreamChannel streamChannel, URL url, FrameworkModel frameworkModel);
 
     boolean supportContentType(String contentType);

@@ -57,7 +57,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-
+// 默认的RequestMappingRegistry  相当于Spring RequestMappingHandlerMapping
 public final class DefaultRequestMappingRegistry implements RequestMappingRegistry {
 
     private static final FluentLogger LOGGER = FluentLogger.of(DefaultRequestMappingRegistry.class);
@@ -70,6 +70,7 @@ public final class DefaultRequestMappingRegistry implements RequestMappingRegist
     private OpenAPIService openAPIService;
     private List<RequestMappingResolver> resolvers;
     private RestConfig restConfig;
+    // 优化路径匹配寻找的树
     private RadixTree<Registration> tree;
 
     public DefaultRequestMappingRegistry(FrameworkModel frameworkModel) {
@@ -93,6 +94,7 @@ public final class DefaultRequestMappingRegistry implements RequestMappingRegist
 
     @Override
     public void register(Invoker<?> invoker) {
+        // 第一次初始化 RestConfig 及路径处理器
         if (tree == null) {
             lock.writeLock().lock();
             try {
@@ -163,7 +165,7 @@ public final class DefaultRequestMappingRegistry implements RequestMappingRegist
                 url.toString(""),
                 System.currentTimeMillis() - start);
     }
-
+    // 路径映射
     private void register0(RequestMapping mapping, HandlerMeta handler, AtomicInteger counter) {
         lock.writeLock().lock();
         try {

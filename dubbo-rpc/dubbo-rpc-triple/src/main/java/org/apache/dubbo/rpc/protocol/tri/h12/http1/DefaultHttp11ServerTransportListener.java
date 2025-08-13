@@ -42,6 +42,7 @@ import org.apache.dubbo.rpc.protocol.tri.h12.ServerCallListener;
 import org.apache.dubbo.rpc.protocol.tri.h12.ServerStreamServerCallListener;
 import org.apache.dubbo.rpc.protocol.tri.h12.UnaryServerCallListener;
 
+// Http1 服务端传输监听器
 public class DefaultHttp11ServerTransportListener
         extends AbstractServerTransportListener<RequestMetadata, HttpInputMessage>
         implements Http1ServerTransportListener {

@@ -27,6 +27,7 @@ import static java.util.concurrent.TimeUnit.MILLISECONDS;
 
 final class Http3Helper {
 
+    // Netty的Quic协议编解码配置
     @SuppressWarnings("unchecked")
     static <T extends QuicCodecBuilder<T>> T configCodec(QuicCodecBuilder<T> builder, URL url) {
         Http3Config config =

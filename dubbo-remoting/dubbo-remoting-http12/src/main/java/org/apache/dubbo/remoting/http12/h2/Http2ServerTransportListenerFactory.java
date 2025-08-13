@@ -21,6 +21,7 @@ import org.apache.dubbo.common.extension.ExtensionScope;
 import org.apache.dubbo.common.extension.SPI;
 import org.apache.dubbo.rpc.model.FrameworkModel;
 
+// Http2 监听器工厂
 @SPI(scope = ExtensionScope.FRAMEWORK)
 public interface Http2ServerTransportListenerFactory {
 

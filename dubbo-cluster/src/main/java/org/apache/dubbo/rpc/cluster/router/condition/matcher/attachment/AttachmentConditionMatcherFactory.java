@@ -21,6 +21,7 @@ import org.apache.dubbo.rpc.cluster.router.condition.matcher.ConditionMatcher;
 import org.apache.dubbo.rpc.cluster.router.condition.matcher.ConditionMatcherFactory;
 import org.apache.dubbo.rpc.model.ModuleModel;
 
+// key attachments
 @Activate(order = 200)
 public class AttachmentConditionMatcherFactory implements ConditionMatcherFactory {
     private static final String ATTACHMENTS = "attachments";

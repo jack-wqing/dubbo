@@ -23,6 +23,7 @@ import java.util.concurrent.CompletableFuture;
 import io.netty.channel.Channel;
 import io.netty.handler.codec.http2.Http2StreamChannel;
 
+// TripleStreamChannelFuture
 public class TripleStreamChannelFuture extends CompletableFuture<Channel> {
 
     private final Channel parentChannel;

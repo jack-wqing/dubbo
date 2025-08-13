@@ -23,6 +23,7 @@ import org.apache.dubbo.rpc.protocol.tri.compressor.DeCompressor;
 import java.io.IOException;
 import java.io.InputStream;
 
+// GrpcStreamingDecoder
 public class GrpcStreamingDecoder extends LengthFieldStreamingDecoder {
 
     private static final int COMPRESSED_FLAG_MASK = 1;

@@ -25,6 +25,7 @@ import java.util.concurrent.Executor;
 /**
  * An abstract stream implementation.
  */
+// 服务端流
 public abstract class AbstractStream implements Stream {
 
     protected Executor executor;
@@ -33,6 +34,7 @@ public abstract class AbstractStream implements Stream {
     private static final boolean HAS_PROTOBUF = ClassUtils.hasProtobuf();
 
     public AbstractStream(Executor executor, FrameworkModel frameworkModel) {
+        // 包装顺序执行器
         this.executor = new SerializingExecutor(executor);
         this.frameworkModel = frameworkModel;
     }

@@ -35,7 +35,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 
 // ChannelHandler: Wrapped
-// default shareExecutor
+// WrapperChannelHandler
 public class WrappedChannelHandler implements ChannelHandlerDelegate {
 
     protected static final ErrorTypeAwareLogger logger =
@@ -80,7 +80,7 @@ public class WrappedChannelHandler implements ChannelHandlerDelegate {
     public void caught(Channel channel, Throwable exception) throws RemotingException {
         handler.caught(channel, exception);
     }
-
+    // 发送反馈主要是服务端线程池占满了
     protected void sendFeedback(Channel channel, Request request, Throwable t) throws RemotingException {
 
         if (!request.isTwoWay()) {
@@ -118,6 +118,7 @@ public class WrappedChannelHandler implements ChannelHandlerDelegate {
      * @param msg
      * @return
      */
+    // 在Consumer端通过消息 实现自定义的ExecutorService
     public ExecutorService getPreferredExecutorService(Object msg) {
         if (msg instanceof Response) {
             Response response = (Response) msg;
@@ -152,6 +153,7 @@ public class WrappedChannelHandler implements ChannelHandlerDelegate {
      *
      * @return
      */
+    // 优先使用ApplicationModel ExecutorService创建的线程，兜底是GlobalResourceRepository
     public ExecutorService getSharedExecutorService() {
         // Application may be destroyed before channel disconnected, avoid create new application model
         // see https://github.com/apache/dubbo/issues/9127

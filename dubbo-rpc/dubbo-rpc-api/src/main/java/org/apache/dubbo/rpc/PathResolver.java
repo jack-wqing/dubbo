@@ -23,6 +23,7 @@ import org.apache.dubbo.common.extension.SPI;
 /**
  * PathResolver maintains a mapping between request paths and invokers for multiple protocols.
  */
+// 多协议下维护请求和服务提供者之间的关系
 @SPI(value = CommonConstants.TRIPLE, scope = ExtensionScope.FRAMEWORK)
 public interface PathResolver {
 

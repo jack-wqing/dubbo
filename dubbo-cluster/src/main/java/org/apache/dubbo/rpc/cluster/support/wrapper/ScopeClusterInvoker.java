@@ -57,7 +57,7 @@ import static org.apache.dubbo.rpc.cluster.Constants.PEER_KEY;
  *
  * @param <T> the type of service interface
  */
-// 特定scope local remoter
+// 处理特定范围的调用阈服务
 public class ScopeClusterInvoker<T> implements ClusterInvoker<T>, ExporterChangeListener {
 
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(ScopeClusterInvoker.class);
@@ -69,7 +69,9 @@ public class ScopeClusterInvoker<T> implements ClusterInvoker<T>, ExporterChange
     private final AtomicBoolean isExported;
     private volatile Invoker<T> injvmInvoker;
     private volatile InjvmExporterListener injvmExporterListener;
+    // 强制调用远程 优先级高
     private boolean peerFlag;
+    // 进程内调用
     private boolean injvmFlag;
 
     public ScopeClusterInvoker(Directory<T> directory, Invoker<T> invoker) {
@@ -141,6 +143,7 @@ public class ScopeClusterInvoker<T> implements ClusterInvoker<T>, ExporterChange
     @Override
     public Result invoke(Invocation invocation) throws RpcException {
         // When broadcasting, it should be called remotely.
+        // 不支持广播调用
         if (isBroadcast()) {
             if (logger.isDebugEnabled()) {
                 logger.debug("Performing broadcast call for method: " + RpcUtils.getMethodName(invocation)
@@ -148,6 +151,7 @@ public class ScopeClusterInvoker<T> implements ClusterInvoker<T>, ExporterChange
             }
             return invoker.invoke(invocation);
         }
+        // 对端开启
         if (peerFlag) {
             if (logger.isDebugEnabled()) {
                 logger.debug("Performing point-to-point call for method: " + RpcUtils.getMethodName(invocation)
@@ -161,6 +165,7 @@ public class ScopeClusterInvoker<T> implements ClusterInvoker<T>, ExporterChange
                 logger.debug("Performing local JVM call for method: " + RpcUtils.getMethodName(invocation)
                         + " of service: " + getUrl().getServiceKey());
             }
+            // 本地调用
             // If it's exported to the local JVM, invoke the corresponding Invoker
             return injvmInvoker.invoke(invocation);
         }
@@ -242,6 +247,7 @@ public class ScopeClusterInvoker<T> implements ClusterInvoker<T>, ExporterChange
      *
      * @return boolean
      */
+    // 远程或者 generic
     private boolean isNotRemoteOrGeneric() {
         return !SCOPE_REMOTE.equalsIgnoreCase(getUrl().getParameter(SCOPE_KEY))
                 && !getUrl().getParameter(GENERIC_KEY, false);
@@ -253,6 +259,7 @@ public class ScopeClusterInvoker<T> implements ClusterInvoker<T>, ExporterChange
      * @return true if the ScopeClusterInvoker is exported to the local JVM, false otherwise
      * @throws RpcException if there was an error during the invocation
      */
+    // injvm判断
     private boolean isInjvmExported() {
         Boolean localInvoke = RpcContext.getServiceContext().getLocalInvoke();
         boolean isExportedValue = isExported.get();
@@ -303,7 +310,7 @@ public class ScopeClusterInvoker<T> implements ClusterInvoker<T>, ExporterChange
                             url.getUrlParam(),
                             exporter.getInvoker().getUrl(),
                             null);
-
+                    // 对应当前的 ClusterInvoker创建一个新的进行调用
                     Invoker<?> invoker = protocolSPI.refer(getInterface(), consumerUrl);
                     List<Invoker<?>> invokers = new ArrayList<>();
                     invokers.add(invoker);

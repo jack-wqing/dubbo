@@ -30,25 +30,66 @@
 
 6.双注册原理
     1.ServiceDiscovery: 在注册服务时同时发布元数据，MetadataReport默认不上报
-        Nacos: 1.服务注册
+      Nacos: 1.服务注册
                2.配置注册: dataId=applicationName Group=Reversion Content=元数据内容
 
+      通过META-INF 配置文件知道，service-discovery-registry寻找的是RegistryProtocol
+                            Registry寻找的是InterfaceCompatibleRegistryProtocol
+
+
+---------------------------------------------------------------------------------------------------------
+dubbo路由:
+    1.普通路由: 基于静态规则或自定义条件进行路由，与服务实例的运行状态无关  // 从业务的层面
+        例如: 标签路由，条件路由 脚本路由
+    2.状态路由: 基于服务实例的运行状态进行动态路由  // 从服务保障的层面
+        服务实例信息: 是否健康，负载情况，可用性等
+
+    条件路由: attachment，argument，param匹配方式
+
+---------------------------------------------------------------------------------------------------------------
+Configurator:
+    dubbo-admin: 动态配置支持，协议都是:Override协议
+            absent协议的时候: 只能通过数组内容配置
 
 
 
+---------------------------------------------------------------------------------------------------------------
+Triple协议:
+    参考gRPC，gRPC-Web,通用HTTP等多种协议
+    目标: 对人类，开发调试友好 + 完全兼容gRPC协议 + 仅依赖标准被广泛使用的HTTP特性
+    Unary请求: Http1仅支持Unary请求
+    Streaming调用请求: Triple仅在支持HTTP/2上支持Streaming RPC;与gRPC协议完全一致
+            Header帧 + Data帧
+    规范详情: Triple协议支持同时运行在Http/1和Http/2协议之上
+        1.一套自定义的精简HTTP RPC子协议，支持HTTP/1和HTTP2作为作为传输层实现，仅支持Request-Response类型的Unary RPC
+        2.一套基于gRPC协议的子协议(保持和gRPC的100%兼容).仅支持HTTP/2实现，支持Unary RPC和Streaming RPC
+    Triple 之 HTTP RPC协议:
+        Triple HTTP RPC同时支持HTTP/1,HTTP/2作为底层传输层协议，在实现上应支持Content-Type类型为application/json, application/proto
+        请求:
+            仅支持POST请求，请求path为interfaceName/methodName,超时机制使用头:tri-service-timeout
+            隔离机制: tri-service-group、tri-service-version
+            TRI-Protocol-Version: 区分Triple的协议请求和其他的请求
+            Message-Codec + Bare-Message: 指定消息 + 编码方式
+        响应: 正确效应使用标准的http: Bare-Message就是响应体使用Content-Type+Content-Encoding响应内容
+            错误响应时，返回的内容必须是Application/json
+    Triple之扩展版gRPC协议
+        Triple协议的Streaming请求处理完全遵循gRPC协议规范，且仅支持HTTP/2作为传输层协议；后端服务间的Unary请求默认采用扩展版gRPC协议
+        Content-Type: application/grpc、application/grpc+proto、application/grpc+json, 扩展了application/triple+wrapper编码格式
+        请求头: 请求头的发送在Http/2的头帧中
+        响应:
+
+Triple与gRPC的关系: 基于HTTP且完全兼容gRPC, 设计更加简单规避了gRPC官方库的问题
+        实现复杂，绑定IDL,难以调试
+
+原生多协议支持: 一个端口支持Triple gRPC和HTTP/1协议，
+
+
+单端口多协议:
+    PortUnificationExchanger:
+        默认Netty4实现:
+           adaptive创建PortUnificationTransport: 通过指定的 transport 和 client指定
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+逻辑整理：
+    Deframer ->

@@ -43,7 +43,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * if there are multiple invokers and the weights are not the same, then random according to the total weight;
  * if there are multiple invokers and the same weight, then randomly called.
  */
-// 最短响应时间负载均衡
+// 最短响应时间负载均衡 + 权重不一样加权随机/随机取值
 public class ShortestResponseLoadBalance extends AbstractLoadBalance implements ScopeModelAware {
 
     public static final String NAME = "shortestresponse";

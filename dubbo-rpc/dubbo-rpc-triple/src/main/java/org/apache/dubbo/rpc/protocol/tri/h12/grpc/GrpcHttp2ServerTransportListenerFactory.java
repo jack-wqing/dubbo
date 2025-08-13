@@ -22,6 +22,7 @@ import org.apache.dubbo.remoting.http12.h2.Http2ServerTransportListenerFactory;
 import org.apache.dubbo.remoting.http12.h2.Http2TransportListener;
 import org.apache.dubbo.rpc.model.FrameworkModel;
 
+// gRPC协议的支持 content-type有gRPC标识
 public class GrpcHttp2ServerTransportListenerFactory implements Http2ServerTransportListenerFactory {
 
     @Override

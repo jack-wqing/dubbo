@@ -17,7 +17,7 @@
 package org.apache.dubbo.rpc.cluster.router;
 
 import java.util.List;
-// 路由结果
+// 路由结果对象
 public class RouterResult<T> {
     private final boolean needContinueRoute;
     private final List<T> result;

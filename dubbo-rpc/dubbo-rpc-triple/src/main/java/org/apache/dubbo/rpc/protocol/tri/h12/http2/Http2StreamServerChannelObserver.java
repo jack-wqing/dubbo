@@ -21,6 +21,7 @@ import org.apache.dubbo.rpc.model.FrameworkModel;
 import org.apache.dubbo.rpc.protocol.tri.ExceptionUtils;
 import org.apache.dubbo.rpc.protocol.tri.TripleProtocol;
 
+// Http2: StreamServerChannelObserver
 public class Http2StreamServerChannelObserver extends Http2ServerStreamObserver {
 
     public Http2StreamServerChannelObserver(FrameworkModel frameworkModel, H2StreamChannel h2StreamChannel) {

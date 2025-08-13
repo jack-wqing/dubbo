@@ -26,6 +26,7 @@ import org.apache.dubbo.remoting.http12.h2.Http2ChannelDelegate;
 
 import java.util.concurrent.CompletableFuture;
 
+// 支持队列
 public class Http2WriteQueueChannel extends Http2ChannelDelegate {
 
     private final HttpWriteQueue httpWriteQueue;

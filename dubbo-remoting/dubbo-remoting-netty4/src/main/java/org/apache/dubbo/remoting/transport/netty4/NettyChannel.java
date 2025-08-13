@@ -57,13 +57,14 @@ import static org.apache.dubbo.rpc.model.ScopeModelUtil.getFrameworkModel;
 /**
  * NettyChannel maintains the cache of channel.
  */
-// netty Channel
+// Dubbo定义的Channel映射 Netty Channel
 final class NettyChannel extends AbstractChannel {
 
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(NettyChannel.class);
     /**
      * the cache for netty channel and dubbo channel
      */
+    // 缓存 Netty -> Dubbo Channel
     private static final ConcurrentMap<Channel, NettyChannel> CHANNEL_MAP = new ConcurrentHashMap<>();
     /**
      * netty channel
@@ -75,7 +76,7 @@ final class NettyChannel extends AbstractChannel {
     private final AtomicBoolean active = new AtomicBoolean(false);
 
     private final Netty4BatchWriteQueue writeQueue;
-
+    // I/O线程编码
     private final boolean encodeInIOThread;
 
     private Codec2 codec;
@@ -97,6 +98,7 @@ final class NettyChannel extends AbstractChannel {
         this.writeQueue = Netty4BatchWriteQueue.createWriteQueue(channel);
         this.codec = getChannelCodec(url);
         this.encodeInIOThread = getUrl().getParameter(ENCODE_IN_IO_THREAD_KEY, DEFAULT_ENCODE_IN_IO_THREAD);
+        // 记录操作的地址
         AddressUtils.initAddressIfNecessary(this);
     }
 

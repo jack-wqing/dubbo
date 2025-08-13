@@ -24,6 +24,7 @@ import org.apache.dubbo.rpc.cluster.support.wrapper.AbstractCluster;
  * AvailableCluster
  *
  */
+// Available
 public class AvailableCluster extends AbstractCluster {
 
     public static final String NAME = "available";

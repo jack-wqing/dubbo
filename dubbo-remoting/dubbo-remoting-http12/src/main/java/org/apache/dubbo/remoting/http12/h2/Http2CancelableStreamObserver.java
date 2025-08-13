@@ -19,6 +19,7 @@ package org.apache.dubbo.remoting.http12.h2;
 import org.apache.dubbo.common.stream.StreamObserver;
 import org.apache.dubbo.rpc.CancellationContext;
 
+// 支持取消
 public interface Http2CancelableStreamObserver<T> extends StreamObserver<T> {
 
     void setCancellationContext(CancellationContext cancellationContext);

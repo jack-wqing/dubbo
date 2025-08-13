@@ -56,6 +56,7 @@ import static org.apache.dubbo.rpc.Constants.H2_SETTINGS_REST_ENABLED;
 import static org.apache.dubbo.rpc.Constants.H2_SETTINGS_SUPPORT_NO_LOWER_HEADER_KEY;
 import static org.apache.dubbo.rpc.Constants.H2_SETTINGS_VERBOSE_ENABLED;
 
+// Dubbo Triple协议实现
 public class TripleProtocol extends AbstractProtocol {
 
     private final PathResolver pathResolver;
@@ -88,7 +89,7 @@ public class TripleProtocol extends AbstractProtocol {
         VERBOSE_ENABLED = globalConf.getBoolean(H2_SETTINGS_VERBOSE_ENABLED, false);
         REST_ENABLED = globalConf.getBoolean(H2_SETTINGS_REST_ENABLED, true);
         OPENAPI_ENABLED = globalConf.getBoolean(H2_SETTINGS_OPENAPI_ENABLED, false);
-
+        // Triple及Http3初始化
         ServletExchanger.init(globalConf);
         Http3Exchanger.init(globalConf);
     }
@@ -97,7 +98,7 @@ public class TripleProtocol extends AbstractProtocol {
     public int getDefaultPort() {
         return 50051;
     }
-
+    // triple协议的暴露
     @Override
     public <T> Exporter<T> export(Invoker<T> invoker) throws RpcException {
         URL url = invoker.getUrl();
@@ -125,10 +126,10 @@ public class TripleProtocol extends AbstractProtocol {
 
         // add invoker
         invokers.add(invoker);
-
+        // 一定会注册grpc 路径映射
         // register grpc path mapping
         pathResolver.register(invoker);
-
+        // Rest请求支持
         // register rest request mapping
         if (REST_ENABLED) {
             mappingRegistry.register(invoker);
@@ -149,7 +150,7 @@ public class TripleProtocol extends AbstractProtocol {
 
         return exporter;
     }
-
+    // 设置服务的状态
     private void setServiceStatus(URL url, boolean serving) {
         if (triBuiltinService.enable()) {
             ServingStatus status = serving ? ServingStatus.SERVING : ServingStatus.NOT_SERVING;
@@ -157,10 +158,10 @@ public class TripleProtocol extends AbstractProtocol {
             triBuiltinService.getHealthStatusManager().setStatus(url.getServiceInterface(), status);
         }
     }
-
+    // triple的端口绑定启动
     private void bindServerPort(URL url) {
         boolean bindPort = true;
-
+        // 启动Servlet
         if (ServletExchanger.isEnabled()) {
             int port = url.getParameter(Constants.BIND_PORT_KEY, url.getPort());
             Integer serverPort = ServletExchanger.getServerPort();
@@ -173,11 +174,11 @@ public class TripleProtocol extends AbstractProtocol {
             }
             ServletExchanger.bind(url);
         }
-
+        // Triple协议默认是多端口协议实现
         if (bindPort) {
             PortUnificationExchanger.bind(url, new DefaultPuHandler());
         }
-
+        // NettyHttp3Server
         Http3Exchanger.bind(url);
     }
 
@@ -185,6 +186,7 @@ public class TripleProtocol extends AbstractProtocol {
     public <T> Invoker<T> refer(Class<T> type, URL url) throws RpcException {
         optimizeSerialization(url);
         ExecutorService streamExecutor = getOrCreateStreamExecutor(url.getOrDefaultApplicationModel(), url);
+        //如果客户端想哟Http3,则直接使用Http3连接 负责使用PU
         AbstractConnectionClient connectionClient = Http3Exchanger.isEnabled(url)
                 ? Http3Exchanger.connect(url)
                 : PortUnificationExchanger.connect(url, new DefaultPuHandler());

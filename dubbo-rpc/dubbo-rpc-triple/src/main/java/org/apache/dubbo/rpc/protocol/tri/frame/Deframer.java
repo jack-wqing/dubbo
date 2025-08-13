@@ -25,6 +25,7 @@ public interface Deframer {
      *
      * @param data the raw data read from the remote endpoint. Must be non-null.
      */
+    // 帧解码到 listener
     void deframe(ByteBuf data);
 
     /**
@@ -35,6 +36,7 @@ public interface Deframer {
      *
      * @param numMessages the requested number of messages to be delivered to the listener.
      */
+    // 请求消息
     void request(int numMessages);
 
     /**

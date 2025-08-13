@@ -84,6 +84,7 @@ import static org.apache.dubbo.rpc.model.MethodDescriptor.RpcType.UNARY;
 /**
  * TripleInvoker
  */
+// 客户端创建 triple Invoker
 public class TripleInvoker<T> extends AbstractInvoker<T> {
 
     private static final ErrorTypeAwareLogger LOGGER = LoggerFactory.getErrorTypeAwareLogger(TripleInvoker.class);
@@ -146,7 +147,7 @@ public class TripleInvoker<T> extends AbstractInvoker<T> {
             future.completeExceptionally(exception);
             return new AsyncRpcResult(future, invocation);
         }
-
+        // Invocation 具有的消费实例信息
         ConsumerModel consumerModel = (ConsumerModel)
                 (invocation.getServiceModel() != null ? invocation.getServiceModel() : getUrl().getServiceModel());
         ServiceDescriptor serviceDescriptor = consumerModel.getServiceModel();
@@ -156,14 +157,17 @@ public class TripleInvoker<T> extends AbstractInvoker<T> {
             if (RpcUtils.isGenericCall(
                     ((RpcInvocation) invocation).getParameterTypesDesc(), invocation.getMethodName())) {
                 // Only reach when server generic
+                // $invoke
                 methodDescriptor = ServiceDescriptorInternalCache.genericService()
                         .getMethod(invocation.getMethodName(), invocation.getParameterTypes());
             } else if (RpcUtils.isEcho(
                     ((RpcInvocation) invocation).getParameterTypesDesc(), invocation.getMethodName())) {
+                // $echo
                 methodDescriptor = ServiceDescriptorInternalCache.echoService()
                         .getMethod(invocation.getMethodName(), invocation.getParameterTypes());
             }
         }
+        // 执行器
         ExecutorService callbackExecutor =
                 isSync(methodDescriptor, invocation) ? new ThreadlessExecutor() : streamExecutor;
         ClientCall call = new TripleClientCall(
@@ -214,6 +218,7 @@ public class TripleInvoker<T> extends AbstractInvoker<T> {
         RequestMetadata request = createRequest(methodDescriptor, invocation, null);
         Object[] arguments = invocation.getArguments();
         final StreamObserver<Object> requestObserver;
+        // 服务端流
         if (arguments.length == 2) {
             StreamObserver<Object> responseObserver = (StreamObserver<Object>) arguments[1];
             requestObserver = streamCall(call, request, responseObserver);

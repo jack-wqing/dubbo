@@ -26,10 +26,11 @@ import org.apache.dubbo.rpc.PathResolver;
 
 import java.util.Map;
 
+// triple 协议中路径处理器，请求路径和Invoker之间的映射
 public class TriplePathResolver implements PathResolver {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TripleProtocol.class);
-
+    // path(interface group version) -> invoker
     private final Map<String, Invoker<?>> mapping = CollectionUtils.newConcurrentHashMap();
     private final Map<String, Boolean> nativeStubs = CollectionUtils.newConcurrentHashMap();
 

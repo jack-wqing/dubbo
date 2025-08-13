@@ -26,6 +26,7 @@ import org.apache.dubbo.rpc.protocol.tri.rest.filter.RestExtension;
 
 import javax.servlet.ServletContext;
 
+// ServletHttp请求消息
 @Activate(order = -100, onClass = "javax.servlet.http.HttpServletRequest")
 public final class ServletHttpMessageAdapterFactory
         implements HttpMessageAdapterFactory<ServletHttpRequestAdapter, HttpMetadata, Void> {

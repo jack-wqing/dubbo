@@ -21,7 +21,7 @@ import org.apache.dubbo.common.config.configcenter.DynamicConfiguration;
 import org.apache.dubbo.rpc.model.ModuleModel;
 
 /**
- * 容错规则默认从DynamicConfiguration 动态配置中心获取
+ * 动态配置规则监听服务治理规则: 配置监听注册到DynamicConfiguration中
  */
 public class DefaultGovernanceRuleRepositoryImpl implements GovernanceRuleRepository {
 

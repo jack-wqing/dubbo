@@ -24,6 +24,7 @@ import org.apache.dubbo.remoting.http3.Http3TransportListener;
 import org.apache.dubbo.rpc.model.FrameworkModel;
 import org.apache.dubbo.rpc.protocol.tri.h12.grpc.GrpcHttp2ServerTransportListener;
 
+// http3 基础上的gRPC
 public final class GrpcHttp3ServerTransportListener extends GrpcHttp2ServerTransportListener
         implements Http3TransportListener {
 

@@ -23,6 +23,7 @@ import java.util.List;
 
 // ChannelOperator
 public interface ChannelOperator {
+    // Channel 的 channel handler配置
     void configChannelHandler(List<ChannelHandler> handlerList);
 
     ProtocolDetector.Result detectResult();

@@ -23,7 +23,7 @@ import org.apache.dubbo.remoting.Dispatcher;
 /**
  * Direct dispatcher
  */
-// direct handler
+// 所有消息在I/O线程上处理，不经过业务线程
 public class DirectDispatcher implements Dispatcher {
 
     public static final String NAME = "direct";

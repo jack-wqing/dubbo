@@ -25,6 +25,7 @@ import org.apache.dubbo.rpc.cluster.Directory;
  * mock impl
  *
  */
+// mock 优先级比Cluster集群处理优先级低
 public class MockClusterWrapper implements Cluster {
 
     private final Cluster cluster;
@@ -32,7 +33,6 @@ public class MockClusterWrapper implements Cluster {
     public MockClusterWrapper(Cluster cluster) {
         this.cluster = cluster;
     }
-
     @Override
     public <T> Invoker<T> join(Directory<T> directory, boolean buildFilterChain) throws RpcException {
         return new MockClusterInvoker<>(directory, this.cluster.join(directory, buildFilterChain));

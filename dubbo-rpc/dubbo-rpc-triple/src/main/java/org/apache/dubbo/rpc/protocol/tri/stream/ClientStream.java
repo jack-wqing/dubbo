@@ -26,6 +26,7 @@ import io.netty.util.concurrent.Future;
  * ClientStream is used to send request to server and receive response from server. Response is
  * received by {@link ClientStream.Listener} Requests are sent by {@link ClientStream} directly.
  */
+// Client Stream
 public interface ClientStream extends Stream {
 
     interface Listener extends Stream.Listener {

@@ -47,7 +47,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.INTERNAL_ERR
 /**
  * Router chain
  */
-// 路由过滤器链: 状态路由 + 内部路由
+// 路由过滤器链: 内部过滤器 + 配置过滤器 + 状态过滤器
 public class SingleRouterChain<T> {
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(SingleRouterChain.class);
 
@@ -65,8 +65,10 @@ public class SingleRouterChain<T> {
      * Fixed router instances: ConfigConditionRouter, TagRouter, e.g.,
      * the rule for each instance may change but the instance will never delete or recreate.
      */
+    // 内部的过滤器: 实例不会变，但是配置的路由规则可以实时改变
     private volatile List<Router> builtinRouters = Collections.emptyList();
 
+    // 状态路由头
     private volatile StateRouter<T> headStateRouter;
 
     private volatile List<StateRouter<T>> stateRouters;
@@ -75,7 +77,7 @@ public class SingleRouterChain<T> {
      * Should continue route if current router's result is empty
      */
     private final boolean shouldFailFast;
-
+    // 保证路由切换时服务的稳定性
     private final RouterSnapshotSwitcher routerSnapshotSwitcher;
 
     private final ReadWriteLock lock = new ReentrantReadWriteLock();
@@ -121,6 +123,7 @@ public class SingleRouterChain<T> {
      *
      * @param routers routers from 'router://' rules in 2.6.x or before.
      */
+    // 2.7 之前的版本都是每次路由规则改变都是最新的路由实例
     public void addRouters(List<Router> routers) {
         List<Router> newRouters = new LinkedList<>();
         newRouters.addAll(builtinRouters);
@@ -163,7 +166,7 @@ public class SingleRouterChain<T> {
     public List<Invoker<T>> simpleRoute(URL url, BitList<Invoker<T>> availableInvokers, Invocation invocation) {
         BitList<Invoker<T>> resultInvokers = availableInvokers.clone();
 
-        // 1. route state router
+        // 1. route state router 优先状态路由
         resultInvokers = headStateRouter.route(resultInvokers, url, invocation, false, null);
         if (resultInvokers.isEmpty() && (shouldFailFast || routers.isEmpty())) {
             printRouterSnapshot(url, availableInvokers, invocation);
@@ -174,7 +177,7 @@ public class SingleRouterChain<T> {
             return resultInvokers;
         }
         List<Invoker<T>> commonRouterResult = resultInvokers.cloneToArrayList();
-        // 2. route common router
+        // 2. route common router  通用路由
         for (Router router : routers) {
             // Copy resultInvokers to a arrayList. BitList not support
             RouterResult<Invoker<T>> routeResult = router.route(commonRouterResult, url, invocation, false);
@@ -216,7 +219,7 @@ public class SingleRouterChain<T> {
         RouterSnapshotNode<T> parentNode = new RouterSnapshotNode<>("Parent", resultInvokers.clone());
         parentNode.setNodeOutputInvokers(resultInvokers.clone());
 
-        // 1. route state router
+        // 1. route state router  // 状态路由
         Holder<RouterSnapshotNode<T>> nodeHolder = new Holder<>();
         nodeHolder.set(parentNode);
 
@@ -232,7 +235,7 @@ public class SingleRouterChain<T> {
         parentNode.appendNode(commonRouterNode);
         List<Invoker<T>> commonRouterResult = resultInvokers;
 
-        // 2. route common router
+        // 2. route common router  // 通用路由
         for (Router router : routers) {
             // Copy resultInvokers to a arrayList. BitList not support
             List<Invoker<T>> inputInvokers = new ArrayList<>(commonRouterResult);
@@ -264,7 +267,7 @@ public class SingleRouterChain<T> {
         }
         commonRouterNode.setChainOutputInvokers(commonRouterNode.getNodeOutputInvokers());
 
-        // 3. set router chain output reverse
+        // 3. set router chain output reverse // 路由链记录整个链路的路由输出
         RouterSnapshotNode<T> currentNode = commonRouterNode;
         while (currentNode != null) {
             RouterSnapshotNode<T> parent = currentNode.getParentNode();
@@ -311,6 +314,7 @@ public class SingleRouterChain<T> {
      * Notify router chain of the initial addresses from registry at the first time.
      * Notify whenever addresses in registry change.
      */
+    // 注册表中的地址改变，通知路由器链
     public void setInvokers(BitList<Invoker<T>> invokers) {
         this.invokers = (invokers == null ? BitList.emptyList() : invokers);
         routers.forEach(router -> router.notify(this.invokers));

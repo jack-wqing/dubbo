@@ -40,7 +40,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.CLUSTER_INTERCEP
 import static org.apache.dubbo.common.constants.CommonConstants.INVOCATION_INTERCEPTOR_KEY;
 import static org.apache.dubbo.common.constants.CommonConstants.REFERENCE_FILTER_KEY;
 
-// 主要构建ClusterInvoker的拦截方式
+// 具体Cluster的抽象统一实现类,具有统一抽象逻辑
 public abstract class AbstractCluster implements Cluster {
 
     private <T> Invoker<T> buildClusterInterceptors(AbstractClusterInvoker<T> clusterInvoker) {
@@ -76,7 +76,7 @@ public abstract class AbstractCluster implements Cluster {
     }
 
     protected abstract <T> AbstractClusterInvoker<T> doJoin(Directory<T> directory) throws RpcException;
-
+    // 封装ClusterFilter拦截
     static class ClusterFilterInvoker<T> extends AbstractClusterInvoker<T> {
         private final ClusterInvoker<T> filterInvoker;
 
@@ -185,7 +185,7 @@ public abstract class AbstractCluster implements Cluster {
             return null;
         }
     }
-
+    // 2.7集群拦截器，兼容实现
     @Deprecated
     private <T> ClusterInvoker<T> build27xCompatibleClusterInterceptors(
             AbstractClusterInvoker<T> clusterInvoker, AbstractClusterInvoker<T> last) {
@@ -203,7 +203,7 @@ public abstract class AbstractCluster implements Cluster {
         }
         return last;
     }
-
+    // 2.7兼容低版本实现
     @Deprecated
     static class InterceptorInvokerNode<T> extends AbstractClusterInvoker<T> {
 

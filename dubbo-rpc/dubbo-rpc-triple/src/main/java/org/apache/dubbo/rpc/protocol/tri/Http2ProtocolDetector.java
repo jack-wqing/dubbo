@@ -25,6 +25,7 @@ import io.netty.handler.codec.http2.Http2CodecUtil;
 
 import static java.lang.Math.min;
 
+// Http2协议检测器
 public class Http2ProtocolDetector implements ProtocolDetector {
     private final ChannelBuffer clientPrefaceString = new ByteBufferBackedChannelBuffer(
             Http2CodecUtil.connectionPrefaceBuf().nioBuffer());

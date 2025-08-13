@@ -18,7 +18,7 @@ package org.apache.dubbo.rpc.cluster.filter;
 
 import org.apache.dubbo.common.extension.SPI;
 import org.apache.dubbo.rpc.cluster.ClusterInvoker;
-// InvocationInterceptorBuilder
+// 扩展接口: 之前在负载之前的ClusterInvoker的拦截
 @SPI("default")
 public interface InvocationInterceptorBuilder {
     <T> ClusterInvoker<T> buildClusterInterceptorChain(final ClusterInvoker<T> invoker, String key, String group);

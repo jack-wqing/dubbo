@@ -42,6 +42,7 @@ import io.netty.handler.codec.http.HttpUtil;
 import io.netty.handler.codec.http.HttpVersion;
 import io.netty.handler.codec.http.LastHttpContent;
 
+// Netty Http1编解码
 public class NettyHttp1Codec extends ChannelDuplexHandler {
 
     private boolean keepAlive;

@@ -49,6 +49,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.CLUSTER_FAIL
 /**
  * Abstract router which listens to dynamic configuration
  */
+// 支持条件路由的监听 nacos中的配置为 .condition-router结尾的
 public abstract class ListenableStateRouter<T> extends AbstractStateRouter<T> implements ConfigurationListener {
     public static final String NAME = "LISTENABLE_ROUTER";
     public static final String RULE_SUFFIX = ".condition-router";

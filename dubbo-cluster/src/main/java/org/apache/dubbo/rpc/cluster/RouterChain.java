@@ -42,6 +42,7 @@ import static org.apache.dubbo.rpc.cluster.Constants.ROUTER_KEY;
  * Router chain
  */
 // RouterChain 与 SingleRouterChain 组合组成路由链
+// 关联着 新旧过滤器链的切换
 public class RouterChain<T> {
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(RouterChain.class);
 
@@ -97,7 +98,7 @@ public class RouterChain<T> {
     public ReadWriteLock getLock() {
         return lock;
     }
-
+    // 查看setInvokers是否更新完成
     public SingleRouterChain<T> getSingleChain(URL url, BitList<Invoker<T>> availableInvokers, Invocation invocation) {
         // If current is in:
         // 1. `setInvokers` is in progress

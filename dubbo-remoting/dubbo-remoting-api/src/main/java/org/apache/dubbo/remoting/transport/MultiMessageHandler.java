@@ -28,7 +28,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.INTERNAL_ERR
 /**
  * @see MultiMessage
  */
-// MultiMessage
+// 支持批量消息的Channel Handler
 public class MultiMessageHandler extends AbstractChannelHandlerDelegate {
 
     protected static final ErrorTypeAwareLogger logger =

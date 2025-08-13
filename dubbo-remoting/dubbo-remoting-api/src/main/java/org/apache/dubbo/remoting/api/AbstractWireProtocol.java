@@ -20,7 +20,7 @@ import org.apache.dubbo.common.URL;
 import org.apache.dubbo.remoting.api.pu.ChannelOperator;
 import org.apache.dubbo.remoting.api.ssl.ContextOperator;
 
-// ProtocolDetector
+// 提供协议检测器
 public abstract class AbstractWireProtocol implements WireProtocol {
 
     private final ProtocolDetector detector;

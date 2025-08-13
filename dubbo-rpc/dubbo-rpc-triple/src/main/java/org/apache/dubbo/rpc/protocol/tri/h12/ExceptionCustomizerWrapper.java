@@ -29,6 +29,7 @@ import org.apache.dubbo.rpc.model.MethodDescriptor;
 import org.apache.dubbo.rpc.protocol.tri.TripleHeaderEnum;
 import org.apache.dubbo.rpc.protocol.tri.h12.grpc.GrpcHeaderNames;
 
+// 对异常进行自定义
 public final class ExceptionCustomizerWrapper {
 
     private final CompositeExceptionHandler exceptionHandler;

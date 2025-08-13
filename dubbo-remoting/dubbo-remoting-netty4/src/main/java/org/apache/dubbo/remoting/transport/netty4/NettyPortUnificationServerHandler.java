@@ -48,7 +48,7 @@ import io.netty.handler.ssl.SslHandshakeCompletionEvent;
 import io.netty.util.AttributeKey;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.INTERNAL_ERROR;
-// PU ServerHandler
+// 单一单口协商的 NettyChannelHandler
 public class NettyPortUnificationServerHandler extends ByteToMessageDecoder {
 
     private static final ErrorTypeAwareLogger LOGGER =
@@ -85,7 +85,7 @@ public class NettyPortUnificationServerHandler extends ByteToMessageDecoder {
                 "Unexpected exception from downstream before protocol detected.",
                 cause);
     }
-
+    // 握手完成的协议
     @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
         if (evt instanceof SslHandshakeCompletionEvent) {
@@ -136,6 +136,7 @@ public class NettyPortUnificationServerHandler extends ByteToMessageDecoder {
         p.addLast(
                 "unificationA",
                 new NettyPortUnificationServerHandler(url, false, protocols, handler, urlMapper, handlerMapper));
+        // 应用层协议协商
         p.addLast("ALPN", new ApplicationProtocolNegotiationHandler(ApplicationProtocolNames.HTTP_1_1) {
             @Override
             protected void configurePipeline(ChannelHandlerContext ctx, String protocol) throws Exception {

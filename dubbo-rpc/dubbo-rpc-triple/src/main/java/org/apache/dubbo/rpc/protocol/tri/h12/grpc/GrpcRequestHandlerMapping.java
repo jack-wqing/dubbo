@@ -33,6 +33,7 @@ import org.apache.dubbo.rpc.protocol.tri.TripleHeaderEnum;
 import org.apache.dubbo.rpc.protocol.tri.route.RequestHandler;
 import org.apache.dubbo.rpc.protocol.tri.route.RequestHandlerMapping;
 
+// gRPC 请求RequestHandler
 @Activate(order = -3000)
 public final class GrpcRequestHandlerMapping implements RequestHandlerMapping {
 

@@ -22,6 +22,7 @@ import org.apache.dubbo.rpc.cluster.router.condition.matcher.ConditionMatcherFac
 import org.apache.dubbo.rpc.model.ModuleModel;
 
 // Make sure this is the last matcher being executed.
+// Url Param的都会匹配 最后的一个
 @Activate(order = Integer.MAX_VALUE)
 public class UrlParamConditionMatcherFactory implements ConditionMatcherFactory {
     @Override

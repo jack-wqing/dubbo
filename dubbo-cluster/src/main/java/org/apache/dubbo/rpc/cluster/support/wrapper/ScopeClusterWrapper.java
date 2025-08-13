@@ -25,6 +25,7 @@ import org.apache.dubbo.rpc.cluster.Directory;
 /**
  * Introducing ScopeClusterInvoker section through Dubbo SPI mechanism
  */
+// 指定调用阈的服务
 @Wrapper(order = -1)
 public class ScopeClusterWrapper implements Cluster {
     private final Cluster cluster;

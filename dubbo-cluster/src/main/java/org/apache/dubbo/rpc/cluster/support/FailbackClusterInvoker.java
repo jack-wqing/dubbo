@@ -51,7 +51,7 @@ import static org.apache.dubbo.rpc.cluster.Constants.FAIL_BACK_TASKS_KEY;
  *
  * <a href="http://en.wikipedia.org/wiki/Failback">Failback</a>
  */
-// 失败定时重试
+// 失败通过定时器重试 服务通知的场景
 public class FailbackClusterInvoker<T> extends AbstractClusterInvoker<T> {
 
     private static final ErrorTypeAwareLogger logger =
@@ -63,7 +63,7 @@ public class FailbackClusterInvoker<T> extends AbstractClusterInvoker<T> {
      * Number of retries obtained from the configuration, don't contain the first invoke.
      */
     private final int retries;
-
+    // 失败重试的任务数，默认100
     private final int failbackTasks;
 
     private volatile Timer failTimer;
@@ -152,6 +152,7 @@ public class FailbackClusterInvoker<T> extends AbstractClusterInvoker<T> {
     /**
      * RetryTimerTask
      */
+    // 重复执行的任务
     private class RetryTimerTask implements TimerTask {
         private final Invocation invocation;
         private final LoadBalance loadbalance;

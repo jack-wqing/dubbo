@@ -21,6 +21,7 @@ import org.apache.dubbo.remoting.http12.HttpChannel;
 import org.apache.dubbo.remoting.http12.RequestMetadata;
 import org.apache.dubbo.rpc.protocol.tri.RpcInvocationBuildContext;
 
+// 统一的请求路由处理器
 public interface RequestRouter {
 
     RpcInvocationBuildContext route(URL url, RequestMetadata metadata, HttpChannel httpChannel);

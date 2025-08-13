@@ -25,7 +25,7 @@ import org.apache.dubbo.remoting.Constants;
 import org.apache.dubbo.remoting.RemotingException;
 import org.apache.dubbo.remoting.api.connection.AbstractConnectionClient;
 
-// PU Netty$
+// 多协议Transporter实现
 @SPI(value = "netty4", scope = ExtensionScope.FRAMEWORK)
 public interface PortUnificationTransporter {
 

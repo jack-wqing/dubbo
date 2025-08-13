@@ -24,6 +24,7 @@ import java.util.List;
 
 import static org.apache.dubbo.common.constants.CommonConstants.APPLICATION_KEY;
 
+// 配置的匹配条件
 public class ConditionMatch {
     private AddressMatch address;
     private AddressMatch providerAddress;

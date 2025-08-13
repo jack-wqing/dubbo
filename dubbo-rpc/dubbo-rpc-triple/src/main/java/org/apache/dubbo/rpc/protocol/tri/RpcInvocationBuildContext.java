@@ -25,6 +25,7 @@ import org.apache.dubbo.rpc.model.ServiceDescriptor;
 
 import java.util.Map;
 
+// 路由结果
 public interface RpcInvocationBuildContext {
 
     Invoker<?> getInvoker();

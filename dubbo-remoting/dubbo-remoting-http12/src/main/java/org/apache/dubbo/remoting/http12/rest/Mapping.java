@@ -35,6 +35,7 @@ import java.lang.annotation.Target;
  * </pre>
  * @see <a href="https://dubbo-next.staged.apache.org/zh-cn/overview/mannual/java-sdk/reference-manual/protocol/tripe-rest-manual/#Q6XyG">Tripe Rest Manual</a>
  */
+// Dubbo API 路径注解
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented

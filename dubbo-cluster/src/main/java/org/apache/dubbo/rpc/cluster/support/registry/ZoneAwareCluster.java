@@ -21,6 +21,7 @@ import org.apache.dubbo.rpc.cluster.Directory;
 import org.apache.dubbo.rpc.cluster.support.AbstractClusterInvoker;
 import org.apache.dubbo.rpc.cluster.support.wrapper.AbstractCluster;
 
+// 支持区域规划调用
 public class ZoneAwareCluster extends AbstractCluster {
 
     public static final String NAME = "zone-aware";

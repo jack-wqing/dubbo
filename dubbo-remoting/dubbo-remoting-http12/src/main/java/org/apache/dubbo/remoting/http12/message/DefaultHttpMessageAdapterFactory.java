@@ -21,6 +21,7 @@ import org.apache.dubbo.remoting.http12.HttpChannel;
 import org.apache.dubbo.remoting.http12.HttpMetadata;
 import org.apache.dubbo.remoting.http12.HttpResponse;
 
+// Default HttpMessage
 @Activate
 public final class DefaultHttpMessageAdapterFactory
         implements HttpMessageAdapterFactory<DefaultHttpRequest, HttpMetadata, Void> {

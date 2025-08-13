@@ -31,6 +31,7 @@ import java.util.Set;
 
 import io.netty.handler.codec.http.DefaultHttpHeaders;
 
+// Netty Http1 Headers
 public final class NettyHttp1HttpHeaders implements HttpHeaders {
 
     private final io.netty.handler.codec.http.HttpHeaders headers;

@@ -32,6 +32,7 @@ import java.util.concurrent.ConcurrentMap;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.CLUSTER_FAILED_LOAD_MERGER;
 
+// 支持结果合并的策略 默认机制
 public class MergerFactory implements ScopeModelAware {
 
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(MergerFactory.class);

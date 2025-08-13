@@ -20,6 +20,7 @@ import org.apache.dubbo.remoting.http12.exception.DecodeException;
 
 import java.io.InputStream;
 
+// 支持request StreamingDecode
 public interface StreamingDecoder {
 
     void request(int numMessages);

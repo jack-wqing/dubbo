@@ -18,6 +18,9 @@ package org.apache.dubbo.rpc.protocol.tri.rest.mapping;
 
 import org.apache.dubbo.rpc.protocol.tri.rest.mapping.meta.HandlerMeta;
 
+/**
+ * 元数据 + 实际的Invoker
+ */
 public final class Registration {
 
     private final RequestMapping mapping;

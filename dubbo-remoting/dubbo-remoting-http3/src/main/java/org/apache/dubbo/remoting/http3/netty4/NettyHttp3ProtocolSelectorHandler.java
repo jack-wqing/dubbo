@@ -33,6 +33,7 @@ import io.netty.channel.ChannelPipeline;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.incubator.codec.quic.QuicStreamChannel;
 
+// 通过Http3的ContentType判断具体的协议
 @Sharable
 public class NettyHttp3ProtocolSelectorHandler extends SimpleChannelInboundHandler<HttpMetadata> {
 

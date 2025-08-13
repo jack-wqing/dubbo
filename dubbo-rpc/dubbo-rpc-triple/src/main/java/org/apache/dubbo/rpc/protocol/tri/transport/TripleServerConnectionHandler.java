@@ -36,6 +36,7 @@ import io.netty.util.ReferenceCountUtil;
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROTOCOL_FAILED_RESPONSE;
 import static org.apache.dubbo.rpc.protocol.tri.transport.GracefulShutdown.GRACEFUL_SHUTDOWN_PING;
 
+// 关键的读帧
 public class TripleServerConnectionHandler extends Http2ChannelDuplexHandler {
     private static final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(TripleServerConnectionHandler.class);

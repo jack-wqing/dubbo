@@ -45,6 +45,7 @@ import static org.apache.dubbo.rpc.Constants.RETURN_KEY;
 import static org.apache.dubbo.rpc.Constants.RETURN_PREFIX;
 import static org.apache.dubbo.rpc.Constants.THROW_PREFIX;
 
+// 支持自定义实现mock类
 public final class MockInvoker<T> implements Invoker<T> {
     private final ProxyFactory proxyFactory;
     private static final Map<String, Invoker<?>> MOCK_MAP = new ConcurrentHashMap<>();
@@ -91,6 +92,7 @@ public final class MockInvoker<T> implements Invoker<T> {
             value = mock;
         }
         if (ArrayUtils.isNotEmpty(returnTypes)) {
+            // 实例化默认
             value = PojoUtils.realize(value, (Class<?>) returnTypes[0], returnTypes.length > 1 ? returnTypes[1] : null);
         }
         return value;
@@ -169,6 +171,7 @@ public final class MockInvoker<T> implements Invoker<T> {
 
         T mockObject = (T) getMockObject(url.getOrDefaultApplicationModel().getExtensionDirector(), mock, serviceType);
         invoker = proxyFactory.getInvoker(mockObject, serviceType, url);
+        // 1w mock
         if (MOCK_MAP.size() < 10000) {
             MOCK_MAP.put(mockService, invoker);
         }

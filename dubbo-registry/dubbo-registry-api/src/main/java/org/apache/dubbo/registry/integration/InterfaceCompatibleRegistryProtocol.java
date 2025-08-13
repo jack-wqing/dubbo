@@ -32,6 +32,7 @@ import static org.apache.dubbo.registry.Constants.DEFAULT_REGISTRY;
 /**
  * RegistryProtocol
  */
+// 接口兼容的RegistryProtocol
 public class InterfaceCompatibleRegistryProtocol extends RegistryProtocol {
 
     @Override

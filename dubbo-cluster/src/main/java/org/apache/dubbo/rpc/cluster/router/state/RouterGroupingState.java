@@ -22,6 +22,7 @@ import org.apache.dubbo.rpc.Invoker;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+// 路由分组 组状态
 public class RouterGroupingState<T> {
     private final String routerName;
     private final int total;

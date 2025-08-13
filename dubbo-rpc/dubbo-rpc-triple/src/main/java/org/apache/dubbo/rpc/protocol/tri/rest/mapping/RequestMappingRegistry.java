@@ -25,12 +25,13 @@ import java.util.Collection;
 /**
  * RequestMappingRegistry used for registering and unregistering rest request mappings.
  */
+// 管理Rest的Triple请求处理路径
 public interface RequestMappingRegistry {
 
     void register(Invoker<?> invoker);
 
     void unregister(Invoker<?> invoker);
-
+    // 通过Http查找对应的Handler处理器
     HandlerMeta lookup(HttpRequest request);
 
     boolean exists(String path, String method);

@@ -33,6 +33,7 @@ import org.apache.dubbo.rpc.protocol.tri.rest.util.RestToolKit;
 
 import org.springframework.http.HttpStatus;
 
+// 支持SpringRequestMapping的解析
 @Activate(onClass = "org.springframework.web.bind.annotation.RequestMapping")
 public class SpringMvcRequestMappingResolver implements RequestMappingResolver {
 

@@ -50,6 +50,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.TRANSPORT_FA
 import static org.apache.dubbo.remoting.Constants.EVENT_LOOP_BOSS_POOL_NAME;
 import static org.apache.dubbo.remoting.http3.netty4.Constants.PIPELINE_CONFIGURATOR_KEY;
 
+// netty 实现HTTP3服务
 public class NettyHttp3Server extends AbstractServer {
 
     private Map<String, Channel> channels;
@@ -63,11 +64,12 @@ public class NettyHttp3Server extends AbstractServer {
     @SuppressWarnings("unchecked")
     public NettyHttp3Server(URL url, ChannelHandler handler) throws RemotingException {
         super(url, ChannelHandlers.wrap(handler, url));
+        // http3 netty pipeline 配置器
         pipelineConfigurator = (Consumer<ChannelPipeline>) getUrl().getAttribute(PIPELINE_CONFIGURATOR_KEY);
         Objects.requireNonNull(pipelineConfigurator, "pipelineConfigurator should be set");
         serverShutdownTimeoutMills = ConfigurationUtils.getServerShutdownTimeout(getUrl().getOrDefaultModuleModel());
     }
-
+    // 基于UDP的NioDatagramChannel数据报协议
     @Override
     protected void doOpen() throws Throwable {
         bootstrap = new Bootstrap();
@@ -78,8 +80,11 @@ public class NettyHttp3Server extends AbstractServer {
             ChannelFuture channelFuture = bootstrap
                     .group(bossGroup)
                     .channel(NioDatagramChannel.class)
+                    // Quic协议编解码
                     .handler(Http3Helper.configCodec(Http3.newQuicServerCodecBuilder(), getUrl())
+                            // ssl 转给你书
                             .sslContext(Http3SslContexts.buildServerSslContext(getUrl()))
+                            // tokenHandler处理
                             .tokenHandler(InsecureQuicTokenHandler.INSTANCE)
                             .handler(new ChannelInitializer<QuicChannel>() {
                                 @Override

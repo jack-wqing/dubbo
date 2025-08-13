@@ -20,6 +20,7 @@ import org.apache.dubbo.common.stream.StreamObserver;
 import org.apache.dubbo.rpc.CancellationContext;
 import org.apache.dubbo.rpc.protocol.tri.observer.ClientCallToObserverAdapter;
 
+// 支持可取消的StreamObserver
 public abstract class CancelableStreamObserver<T> implements StreamObserver<T> {
 
     private CancellationContext cancellationContext;

@@ -23,7 +23,7 @@ import org.apache.dubbo.remoting.Dispatcher;
 /**
  * Only message receive uses the thread pool.
  */
-// message
+// message 没有判断message类型 与Execution类似
 public class MessageOnlyDispatcher implements Dispatcher {
 
     public static final String NAME = "message";

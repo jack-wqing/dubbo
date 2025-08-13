@@ -20,6 +20,7 @@ import org.apache.dubbo.remoting.http12.HttpChannel;
 
 import java.util.concurrent.CompletableFuture;
 
+// HTTP2 StreamChannel  主要是写 帧
 public interface H2StreamChannel extends HttpChannel {
 
     CompletableFuture<Void> writeResetFrame(long errorCode);

@@ -69,6 +69,7 @@ import static org.apache.dubbo.rpc.cluster.Constants.RUNTIME_KEY;
  * - method=sayHi => address=*:20881
  * ...
  */
+// 条件路由: =>未分割服 consumer.condition => provider.condition // 当左侧消费端满足这个条件，则只能调用右侧的服务端满足的条件
 public class ConditionStateRouter<T> extends AbstractStateRouter<T> {
     public static final String NAME = "condition";
 

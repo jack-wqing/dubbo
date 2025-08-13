@@ -22,6 +22,7 @@ import org.apache.dubbo.remoting.http12.HttpMetadata;
 import org.apache.dubbo.remoting.http12.HttpOutputMessage;
 import org.apache.dubbo.remoting.http12.netty4.h1.NettyHttp1HttpHeaders;
 
+// http1
 public class Http1ServerChannelObserver extends AbstractServerHttpChannelObserver<HttpChannel> {
 
     public Http1ServerChannelObserver(HttpChannel httpChannel) {

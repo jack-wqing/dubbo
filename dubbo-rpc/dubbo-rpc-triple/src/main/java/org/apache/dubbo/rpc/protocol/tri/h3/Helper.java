@@ -25,6 +25,7 @@ import org.apache.dubbo.remoting.http12.netty4.NettyHttpHeaders;
 
 import io.netty.incubator.codec.http3.DefaultHttp3Headers;
 
+// Http3编解码
 public final class Helper {
 
     private Helper() {}

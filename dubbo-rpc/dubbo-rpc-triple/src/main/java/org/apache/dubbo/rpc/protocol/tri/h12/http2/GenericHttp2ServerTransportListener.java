@@ -47,6 +47,7 @@ import org.apache.dubbo.rpc.protocol.tri.h12.UnaryServerCallListener;
 
 import java.io.InputStream;
 
+// 默认的Http2视线
 public class GenericHttp2ServerTransportListener extends AbstractServerTransportListener<Http2Header, Http2InputMessage>
         implements Http2TransportListener {
 

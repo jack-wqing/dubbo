@@ -25,8 +25,8 @@ import org.apache.dubbo.remoting.api.pu.ChannelOperator;
 import java.util.ArrayList;
 import java.util.List;
 
-// DubboWireProtocol: 默认是dubbo协议支持
 
+// 使用ChannelHandler配置
 @Activate
 public class DubboWireProtocol extends AbstractWireProtocol {
     public DubboWireProtocol() {

@@ -18,9 +18,11 @@ package org.apache.dubbo.rpc;
 
 // Dubbo 内部过滤器
 public interface BaseFilter {
+
     /**
      * Always call invoker.invoke() in the implementation to hand over the request to the next filter node.
      */
+    // 路由之后才会走filter
     Result invoke(Invoker<?> invoker, Invocation invocation) throws RpcException;
 
     /**
@@ -30,7 +32,7 @@ public interface BaseFilter {
      * There's something that needs to pay attention on legacy synchronous style filer refactor, the thing is, try to move logics
      * previously defined in the 'finally block' to both onResponse and onError.
      */
-    // 异常 正常返回的 Listener 监听器
+    // 异常 正常返回的 Listener 监听器: filter invoker方法中的finally逻辑移动到Listener中
     interface Listener {
 
         /**

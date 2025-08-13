@@ -22,6 +22,7 @@ import org.apache.dubbo.common.extension.SPI;
  * Extend and provide your own implementation if you want to distribute traffic around registries.
  * Please, name it as 'default'
  */
+// 服务区域检测
 @SPI
 public interface ZoneDetector {
 

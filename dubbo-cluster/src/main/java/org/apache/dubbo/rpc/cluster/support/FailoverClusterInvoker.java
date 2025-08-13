@@ -45,7 +45,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.CLUSTER_FAIL
  * <a href="http://en.wikipedia.org/wiki/Failover">Failover</a>
  *
  */
-// 失败伦旭重试
+// 默认失败轮训
 public class FailoverClusterInvoker<T> extends AbstractClusterInvoker<T> {
 
     private static final ErrorTypeAwareLogger logger =
@@ -126,7 +126,7 @@ public class FailoverClusterInvoker<T> extends AbstractClusterInvoker<T> {
                         + le.getMessage(),
                 le.getCause() != null ? le.getCause() : le);
     }
-
+    // 重试默认次数 + 自身一次最多三次
     private int calculateInvokeTimes(String methodName) {
         int len = getUrl().getMethodParameter(methodName, RETRIES_KEY, DEFAULT_RETRIES) + 1;
         RpcContext rpcContext = RpcContext.getClientAttachment();

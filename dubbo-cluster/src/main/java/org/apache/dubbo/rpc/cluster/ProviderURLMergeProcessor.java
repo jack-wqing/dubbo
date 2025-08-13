@@ -21,6 +21,7 @@ import org.apache.dubbo.common.extension.SPI;
 
 import java.util.Map;
 
+// 合并Provider的提供测参数
 @SPI("default")
 public interface ProviderURLMergeProcessor {
 

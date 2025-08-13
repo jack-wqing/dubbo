@@ -34,7 +34,7 @@ import java.util.concurrent.RejectedExecutionException;
  * Only request message will be dispatched to thread pool. Other messages like response, connect, disconnect,
  * heartbeat will be directly executed by I/O thread.
  */
-// 仅仅request dispatcher threadpool, other I/O thread
+// 仅仅请求消息也业务线程
 public class ExecutionChannelHandler extends WrappedChannelHandler {
 
     public ExecutionChannelHandler(ChannelHandler handler, URL url) {
@@ -44,7 +44,7 @@ public class ExecutionChannelHandler extends WrappedChannelHandler {
     @Override
     public void received(Channel channel, Object message) throws RemotingException {
         ExecutorService executor = getPreferredExecutorService(message);
-
+        // request
         if (message instanceof Request) {
             try {
                 executor.execute(new ChannelEventRunnable(channel, handler, ChannelState.RECEIVED, message));

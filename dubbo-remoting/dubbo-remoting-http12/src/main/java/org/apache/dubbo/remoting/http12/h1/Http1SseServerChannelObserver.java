@@ -24,6 +24,8 @@ import org.apache.dubbo.remoting.http12.HttpOutputMessage;
 
 import java.io.IOException;
 
+// 服务端向客户端推送数据 技术SSE(Server-Sent Event)
+// 相比较WebSocket, SSE 基于http1, wss是独立协议， SSE单向，wss是双向的
 public class Http1SseServerChannelObserver extends Http1ServerChannelObserver {
 
     public Http1SseServerChannelObserver(HttpChannel httpChannel) {

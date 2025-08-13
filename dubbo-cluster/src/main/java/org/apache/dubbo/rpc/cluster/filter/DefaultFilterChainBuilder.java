@@ -52,6 +52,7 @@ public class DefaultFilterChainBuilder implements FilterChainBuilder {
         } else if (moduleModels != null && moduleModels.size() > 1) {
             filters = new ArrayList<>();
             List<ExtensionDirector> directors = new ArrayList<>();
+            // 多个moduleModel的Filter进行过滤
             for (ModuleModel moduleModel : moduleModels) {
                 List<Filter> tempFilters = ScopeModelUtil.getExtensionLoader(Filter.class, moduleModel)
                         .getActivateExtension(url, key, group);
@@ -135,6 +136,7 @@ public class DefaultFilterChainBuilder implements FilterChainBuilder {
      * @param url URL
      * @return All ModuleModels in the url
      */
+    // 支持应用级注册和服务级注册
     private List<ModuleModel> getModuleModelsFromUrl(URL url) {
         List<ModuleModel> moduleModels = null;
         ScopeModel scopeModel = url.getScopeModel();

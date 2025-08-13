@@ -18,6 +18,7 @@ package org.apache.dubbo.rpc.protocol.tri.h12;
 
 import java.io.InputStream;
 
+// http 消息监听器
 public interface HttpMessageListener {
 
     void onMessage(InputStream inputStream);

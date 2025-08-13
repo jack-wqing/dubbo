@@ -24,6 +24,7 @@ import org.apache.dubbo.remoting.exchange.PortUnificationExchanger;
 import org.apache.dubbo.remoting.transport.netty4.NettyHttp3ConnectionClient;
 import org.apache.dubbo.rpc.protocol.tri.ExceptionUtils;
 
+// 客户端连接
 public class Helper {
 
     private Helper() {}

@@ -34,6 +34,7 @@ import io.netty.handler.codec.http2.Http2Headers;
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.INTERNAL_ERROR;
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROTOCOL_FAILED_PARSE;
 
+// H2TransportListener 对头处理的抽象方法
 public abstract class AbstractH2TransportListener implements H2TransportListener {
 
     private static final ErrorTypeAwareLogger LOGGER =

@@ -25,6 +25,7 @@ import org.apache.dubbo.rpc.model.FrameworkModel;
 
 import java.io.IOException;
 
+// H2 实现的SSE
 public final class Http2SseServerChannelObserver extends Http2StreamServerChannelObserver {
 
     public Http2SseServerChannelObserver(FrameworkModel frameworkModel, H2StreamChannel h2StreamChannel) {

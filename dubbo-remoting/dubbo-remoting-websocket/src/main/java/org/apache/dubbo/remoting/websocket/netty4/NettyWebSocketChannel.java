@@ -30,6 +30,7 @@ import java.util.concurrent.CompletableFuture;
 
 import io.netty.channel.Channel;
 
+// Netty WebSocketChannel
 public class NettyWebSocketChannel implements H2StreamChannel {
 
     private final Channel channel;

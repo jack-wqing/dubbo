@@ -28,7 +28,7 @@ import java.net.InetSocketAddress;
  * @see org.apache.dubbo.remoting.Client
  * @see RemotingServer
  */
-// endpoint
+// Endpoint统一通信端的抽象 分离通信能力和业务能力 客户端和服务端通过该抽象模型抽象
 public interface Endpoint {
 
     /**

@@ -16,7 +16,7 @@
  */
 package org.apache.dubbo.remoting.api.ssl;
 
-// ContextOperator
+// ssl 使用
 public interface ContextOperator {
     Object buildContext();
 }

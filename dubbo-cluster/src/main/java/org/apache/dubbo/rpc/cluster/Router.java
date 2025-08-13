@@ -81,6 +81,7 @@ public interface Router extends Comparable<Router> {
      * @param invokers invoker list
      * @param <T>      invoker's type
      */
+    // 路由之前
     default <T> void notify(List<Invoker<T>> invokers) {}
 
     /**

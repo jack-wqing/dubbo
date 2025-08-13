@@ -24,6 +24,7 @@ import org.apache.dubbo.rpc.cluster.router.state.StateRouter;
  * ConditionRouterFactory
  * Load when "override://" is configured {@link ConditionStateRouter}
  */
+// 条件路由工厂
 public class ConditionStateRouterFactory extends CacheableStateRouterFactory {
 
     public static final String NAME = "condition";

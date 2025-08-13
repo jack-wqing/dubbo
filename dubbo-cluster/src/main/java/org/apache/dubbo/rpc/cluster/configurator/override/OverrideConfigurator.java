@@ -24,6 +24,7 @@ import org.apache.dubbo.rpc.cluster.configurator.AbstractConfigurator;
 /**
  * OverrideConfigurator
  */
+// 直接进行覆盖
 public class OverrideConfigurator extends AbstractConfigurator {
     public static final Logger logger = LoggerFactory.getLogger(OverrideConfigurator.class);
 

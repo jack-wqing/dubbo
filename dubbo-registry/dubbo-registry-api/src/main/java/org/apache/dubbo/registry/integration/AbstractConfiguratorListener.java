@@ -45,7 +45,7 @@ import static org.apache.dubbo.rpc.cluster.Constants.TYPE_KEY;
 /**
  * AbstractConfiguratorListener
  */
-// 抽象的配置更改监听器
+// dubbo 提供的Configurator更新监听器 configurators 保存了并更的配置
 public abstract class AbstractConfiguratorListener implements ConfigurationListener {
     private static final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(AbstractConfiguratorListener.class);
@@ -104,7 +104,7 @@ public abstract class AbstractConfiguratorListener implements ConfigurationListe
 
         notifyOverrides();
     }
-
+    // 原始规则生成配置
     private boolean genConfiguratorsFromRawRule(String rawConfig) {
         List<URL> urls;
         try {

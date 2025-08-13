@@ -22,6 +22,7 @@ import org.apache.dubbo.rpc.model.FrameworkModel;
 import org.apache.dubbo.rpc.protocol.tri.h12.grpc.GrpcStreamServerChannelObserver;
 import org.apache.dubbo.rpc.protocol.tri.h3.Helper;
 
+// gRPC在Http3上的视线
 public final class GrpcHttp3ServerChannelObserver extends GrpcStreamServerChannelObserver {
 
     public GrpcHttp3ServerChannelObserver(FrameworkModel frameworkModel, H2StreamChannel h2StreamChannel) {

@@ -40,16 +40,19 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.CLUSTER_EXEC
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.INTERNAL_ERROR;
 import static org.apache.dubbo.common.extension.ExtensionScope.APPLICATION;
 
+// 过滤器链构建
 @SPI(value = "default", scope = APPLICATION)
 public interface FilterChainBuilder {
     /**
      * build consumer/provider filter chain
      */
+    // 单个Invoker实例
     <T> Invoker<T> buildInvokerChain(final Invoker<T> invoker, String key, String group);
 
     /**
      * build consumer cluster filter chain
      */
+    // 负载均衡之前的过滤拦截器
     <T> ClusterInvoker<T> buildClusterInvokerChain(final ClusterInvoker<T> invoker, String key, String group);
 
     /**

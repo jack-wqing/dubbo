@@ -22,6 +22,7 @@ import org.apache.dubbo.rpc.TriRpcStatus;
 import java.util.Map;
 import java.util.function.Consumer;
 
+// Observer 流式消息
 public class ObserverToClientCallListenerAdapter implements ClientCall.Listener {
 
     private final StreamObserver<Object> delegate;

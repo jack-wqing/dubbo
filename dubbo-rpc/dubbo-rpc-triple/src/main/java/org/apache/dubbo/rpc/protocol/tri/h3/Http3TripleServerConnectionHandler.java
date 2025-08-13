@@ -21,7 +21,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelPromise;
 import io.netty.incubator.codec.http3.Http3GoAwayFrame;
 import io.netty.util.ReferenceCountUtil;
-
+// 处理Http3GoAwayFrame帧
 public class Http3TripleServerConnectionHandler extends ChannelDuplexHandler {
 
     @Override

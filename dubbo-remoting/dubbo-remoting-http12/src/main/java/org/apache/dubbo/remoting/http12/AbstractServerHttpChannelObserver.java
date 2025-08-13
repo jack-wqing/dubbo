@@ -30,6 +30,7 @@ import java.util.function.Function;
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.INTERNAL_ERROR;
 import static org.apache.dubbo.common.logger.LoggerFactory.getErrorTypeAwareLogger;
 
+// Server端的HttpChannelObserver
 public abstract class AbstractServerHttpChannelObserver<H extends HttpChannel> implements ServerHttpChannelObserver<H> {
 
     private static final ErrorTypeAwareLogger LOGGER = getErrorTypeAwareLogger(AbstractServerHttpChannelObserver.class);
@@ -139,7 +140,7 @@ public abstract class AbstractServerHttpChannelObserver<H extends HttpChannel> i
         }
         onCompleted(null);
     }
-
+    // 发送消息
     protected void doOnNext(Object data) throws Throwable {
         int statusCode = resolveStatusCode(data);
         if (!headerSent) {

@@ -26,7 +26,7 @@ import java.util.concurrent.ConcurrentMap;
  * If you want to provide a router implementation based on design of v2.7.0, please extend from this abstract class.
  * For 2.6.x style router, please implement and use RouterFactory directly.
  */
-// 2.6 与 2.7的不同
+// 2.7 之后对于一个服务，一类个类型的过滤器只创建一个 url.getServiceKey()标识
 public abstract class CacheableRouterFactory implements RouterFactory {
     private ConcurrentMap<String, Router> routerMap = new ConcurrentHashMap<>();
 

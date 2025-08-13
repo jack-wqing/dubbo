@@ -23,6 +23,7 @@ import org.apache.dubbo.rpc.Constants;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicReference;
 
+// 当triple 协议启动servlet时，启动的是Http2的协议
 public final class ServletExchanger {
 
     private static final AtomicReference<URL> url = new AtomicReference<>();

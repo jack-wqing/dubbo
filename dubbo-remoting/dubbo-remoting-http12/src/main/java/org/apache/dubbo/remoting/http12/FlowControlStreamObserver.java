@@ -18,6 +18,7 @@ package org.apache.dubbo.remoting.http12;
 
 import org.apache.dubbo.common.stream.StreamObserver;
 
+// 支持流控 背压
 public interface FlowControlStreamObserver<T> extends StreamObserver<T> {
 
     /**

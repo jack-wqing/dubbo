@@ -22,6 +22,7 @@ import org.apache.dubbo.common.config.configcenter.DynamicConfiguration;
 /**
  * Service level router, "server-unique-name.condition-router"
  */
+// 接口级配置的路由
 public class ServiceStateRouter<T> extends ListenableStateRouter<T> {
     public static final String NAME = "SERVICE_ROUTER";
 

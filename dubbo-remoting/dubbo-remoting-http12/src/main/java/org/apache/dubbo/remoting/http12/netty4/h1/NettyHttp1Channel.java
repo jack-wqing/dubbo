@@ -29,6 +29,8 @@ import java.util.concurrent.CompletableFuture;
 
 import io.netty.channel.Channel;
 
+// 使用Netty 实现Http1通信机制
+
 public class NettyHttp1Channel implements HttpChannel {
 
     private final Channel channel;

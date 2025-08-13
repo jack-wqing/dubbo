@@ -51,7 +51,7 @@ public abstract class AbstractEndpoint extends AbstractPeer implements Resetable
     }
 
     protected AbstractEndpoint() {}
-
+    // 获取编解码
     protected static Codec2 getChannelCodec(URL url) {
         String codecName = url.getParameter(Constants.CODEC_KEY);
         if (StringUtils.isEmpty(codecName)) {
@@ -68,7 +68,7 @@ public abstract class AbstractEndpoint extends AbstractPeer implements Resetable
             return frameworkModel.getExtensionLoader(Codec2.class).getExtension("default");
         }
     }
-
+    // 通过URL重置连接参数
     @Override
     public void reset(URL url) {
         if (isClosed()) {

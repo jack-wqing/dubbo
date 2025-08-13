@@ -25,6 +25,7 @@ import org.apache.dubbo.remoting.http12.HttpVersion;
 
 import io.netty.handler.codec.http2.Http2CodecUtil;
 
+// Triple 协议检查器: 表明Tri 协议是基于Http1 和 Http2建立的协议 同时检查Http1 和 Http2
 public class TripleProtocolDetector implements ProtocolDetector {
 
     public static final String HTTP_VERSION = "HTTP_VERSION";
@@ -39,6 +40,7 @@ public class TripleProtocolDetector implements ProtocolDetector {
         }
         byte[] magics = new byte[7];
         in.getBytes(in.readerIndex(), magics, 0, 7);
+        // http1的几中请求类型
         if (isHttp(magics)) {
             Result recognized = Result.recognized();
             recognized.setAttribute(HTTP_VERSION, HttpVersion.HTTP1.getVersion());
@@ -46,7 +48,7 @@ public class TripleProtocolDetector implements ProtocolDetector {
         }
         in.resetReaderIndex();
 
-        // http2
+        // http2 preface 前言: PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n
         int prefaceLen = CLIENT_PREFACE_STRING.readableBytes();
         int bytesRead = Math.min(in.readableBytes(), prefaceLen);
         if (bytesRead == 0 || !ChannelBuffers.prefixEquals(in, CLIENT_PREFACE_STRING, bytesRead)) {
@@ -59,7 +61,7 @@ public class TripleProtocolDetector implements ProtocolDetector {
         }
         return Result.needMoreData();
     }
-
+    // 检查请求头的HTTP协议方法
     private static boolean isHttp(byte[] magic) {
         for (int i = 0; i < 8; i++) {
             byte[] methodBytes = HttpMethods.HTTP_METHODS_BYTES[i];

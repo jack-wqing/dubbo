@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+// Http Request
 public interface HttpRequest extends RequestMetadata {
 
     boolean isHttp2();

@@ -26,6 +26,7 @@ import io.netty.handler.codec.http.FullHttpRequest;
 import io.netty.handler.codec.http.HttpHeaders;
 import io.netty.handler.codec.http.HttpServerUpgradeHandler;
 
+// 支持Websocket升级
 public class WebSocketServerUpgradeCodec implements HttpServerUpgradeHandler.UpgradeCodec {
 
     private final List<Class<? extends ChannelHandler>> shouldRemoveChannelHandlers;

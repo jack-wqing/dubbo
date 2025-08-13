@@ -22,6 +22,7 @@ import org.apache.dubbo.rpc.model.FrameworkModel;
 import org.apache.dubbo.rpc.protocol.tri.h12.grpc.GrpcUnaryServerChannelObserver;
 import org.apache.dubbo.rpc.protocol.tri.h3.Helper;
 
+// gRPC h3Unary
 public class GrpcHttp3UnaryServerChannelObserver extends GrpcUnaryServerChannelObserver {
 
     public GrpcHttp3UnaryServerChannelObserver(FrameworkModel frameworkModel, H2StreamChannel h2StreamChannel) {

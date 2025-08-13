@@ -46,6 +46,7 @@ import java.util.function.Function;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROTOCOL_FAILED_PARSE;
 
+// gRPC Http2 传输监听器
 public class GrpcHttp2ServerTransportListener extends GenericHttp2ServerTransportListener
         implements Http2TransportListener {
 

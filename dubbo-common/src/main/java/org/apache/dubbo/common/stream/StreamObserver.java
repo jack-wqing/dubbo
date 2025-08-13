@@ -22,6 +22,7 @@ package org.apache.dubbo.common.stream;
  *
  * @param <T> type of message
  */
+// Stream 调用抽象: onNext  OnError  onCompleted
 public interface StreamObserver<T> {
 
     /**

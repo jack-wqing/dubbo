@@ -23,6 +23,7 @@ import org.apache.dubbo.rpc.protocol.tri.rest.mapping.meta.MethodMeta;
 import org.apache.dubbo.rpc.protocol.tri.rest.mapping.meta.ServiceMeta;
 import org.apache.dubbo.rpc.protocol.tri.rest.util.RestToolKit;
 
+// 请求路径处理器
 @SPI(scope = ExtensionScope.FRAMEWORK)
 public interface RequestMappingResolver {
 

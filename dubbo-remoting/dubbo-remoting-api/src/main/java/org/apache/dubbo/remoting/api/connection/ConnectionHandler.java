@@ -16,7 +16,7 @@
  */
 package org.apache.dubbo.remoting.api.connection;
 
-// ConnectionHandler
+// 在Http3的情况下，使用的ConnectionHandler
 public interface ConnectionHandler {
 
     /**

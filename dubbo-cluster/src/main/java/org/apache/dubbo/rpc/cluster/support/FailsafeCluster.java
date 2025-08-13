@@ -24,6 +24,7 @@ import org.apache.dubbo.rpc.cluster.support.wrapper.AbstractCluster;
  * {@link FailsafeClusterInvoker}
  *
  */
+// failsafe
 public class FailsafeCluster extends AbstractCluster {
 
     public static final String NAME = "failsafe";

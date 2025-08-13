@@ -29,6 +29,7 @@ import org.apache.dubbo.rpc.protocol.tri.stream.StreamUtils;
 
 import io.netty.handler.codec.http2.DefaultHttp2Headers;
 
+// Htt2 实现的 Unary
 public class Http2UnaryServerChannelObserver extends Http2StreamServerChannelObserver {
 
     private static final FluentLogger LOGGER = FluentLogger.of(Http2UnaryServerChannelObserver.class);

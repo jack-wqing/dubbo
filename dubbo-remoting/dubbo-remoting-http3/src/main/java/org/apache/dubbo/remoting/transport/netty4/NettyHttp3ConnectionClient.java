@@ -47,6 +47,7 @@ public final class NettyHttp3ConnectionClient extends AbstractNettyConnectionCli
 
     private Consumer<ChannelPipeline> pipelineConfigurator;
     private AtomicReference<io.netty.channel.Channel> datagramChannel;
+    // HTTP3的ChannelBootstrap视线
     private QuicChannelBootstrap bootstrap;
 
     public NettyHttp3ConnectionClient(URL url, ChannelHandler handler) throws RemotingException {

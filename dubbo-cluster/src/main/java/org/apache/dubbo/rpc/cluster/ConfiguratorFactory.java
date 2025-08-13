@@ -25,7 +25,7 @@ import org.apache.dubbo.common.extension.SPI;
  * ConfiguratorFactory. (SPI, Singleton, ThreadSafe)
  *
  */
-// 配置工厂
+// ServiceConfig 中提供对url的配置进行配置的机制
 @SPI
 public interface ConfiguratorFactory {
 

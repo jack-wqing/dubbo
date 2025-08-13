@@ -23,6 +23,7 @@ import io.netty.buffer.ByteBuf;
 import io.netty.buffer.CompositeByteBuf;
 import io.netty.buffer.Unpooled;
 
+// TriDecode
 public class TriDecoder implements Deframer {
 
     private static final int HEADER_LENGTH = 5;
@@ -130,6 +131,7 @@ public class TriDecoder implements Deframer {
     /**
      * Processes the GRPC message body, which depending on frame header flags may be compressed.
      */
+    // 帧头标记
     private void processBody() {
         // There is no reliable way to get the uncompressed size per message when it's compressed,
         // because the uncompressed bytes are provided through an InputStream whose total size is

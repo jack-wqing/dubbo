@@ -23,7 +23,7 @@ import org.apache.dubbo.remoting.Dispatcher;
 /**
  * default thread pool configure
  */
-// AllChannelHandler: default
+// 默认All: 请求，响应，心跳 到派发到业务线程
 public class AllDispatcher implements Dispatcher {
 
     public static final String NAME = "all";

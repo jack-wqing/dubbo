@@ -22,7 +22,7 @@ import org.apache.dubbo.common.extension.SPI;
 import static org.apache.dubbo.common.extension.ExtensionScope.MODULE;
 
 /**
- * 治理规则 repository
+ * 治理规则仓库管理
  */
 @SPI(value = "default", scope = MODULE)
 public interface GovernanceRuleRepository {

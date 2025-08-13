@@ -32,6 +32,7 @@ import static org.apache.dubbo.common.utils.StringUtils.isEmpty;
 /**
  * Application level router, "application.condition-router"
  */
+// 应用路由
 public class ProviderAppStateRouter<T> extends ListenableStateRouter<T> {
     private static final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(ListenableStateRouter.class);

@@ -31,6 +31,7 @@ import io.netty.handler.codec.http2.Http2ResetFrame;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROTOCOL_FAILED_RESPONSE;
 
+// Http2Frame 和监听器兼容
 public class NettyHttp2FrameHandler extends ChannelDuplexHandler {
 
     private static final ErrorTypeAwareLogger LOGGER =

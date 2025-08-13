@@ -31,6 +31,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.FullHttpRequest;
 
+// WebSocket 协议检测器
 public class WebSocketProtocolSelectorHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
 
     private final URL url;

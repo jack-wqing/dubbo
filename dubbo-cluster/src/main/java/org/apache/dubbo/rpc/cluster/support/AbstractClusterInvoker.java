@@ -59,7 +59,7 @@ import static org.apache.dubbo.rpc.cluster.Constants.DEFAULT_CLUSTER_STICKY;
 /**
  * AbstractClusterInvoker
  */
-// 抽象的机器Invoker
+// 实现集群的统一过滤功能
 public abstract class AbstractClusterInvoker<T> implements ClusterInvoker<T> {
 
     private static final ErrorTypeAwareLogger logger =
@@ -68,9 +68,9 @@ public abstract class AbstractClusterInvoker<T> implements ClusterInvoker<T> {
     protected Directory<T> directory;
 
     protected boolean availableCheck;
-
+    // 当调用失败之后，重新选择调用的次数
     private volatile int reselectCount = DEFAULT_RESELECT_COUNT;
-
+    // 简历的连接可用性校验
     private volatile boolean enableConnectivityValidation = true;
 
     private final AtomicBoolean destroyed = new AtomicBoolean(false);
@@ -161,7 +161,7 @@ public abstract class AbstractClusterInvoker<T> implements ClusterInvoker<T> {
             return null;
         }
         String methodName = invocation == null ? StringUtils.EMPTY_STRING : RpcUtils.getMethodName(invocation);
-
+        // 提供的方法配置参数，是否启动粘性
         boolean sticky =
                 invokers.get(0).getUrl().getMethodParameter(methodName, CLUSTER_STICKY_KEY, DEFAULT_CLUSTER_STICKY);
 
@@ -252,6 +252,7 @@ public abstract class AbstractClusterInvoker<T> implements ClusterInvoker<T> {
      * @return the reselect result to do invoke
      * @throws RpcException exception
      */
+    // 当选择的Invoker在已选列表或者不可用，则进行重新选择
     private Invoker<T> reselect(
             LoadBalance loadbalance,
             Invocation invocation,
@@ -306,7 +307,7 @@ public abstract class AbstractClusterInvoker<T> implements ClusterInvoker<T> {
         if (!reselectInvokers.isEmpty()) {
             return loadbalance.select(reselectInvokers, getUrl(), invocation);
         }
-
+        // 从已经选择的列表中选择可用
         // 3. reselectInvokers is empty. Unable to find at least one available invoker.
         //    Re-check all the selected invokers. If some in the selected list are available, add to reselectInvokers.
         if (selected != null) {
@@ -341,7 +342,7 @@ public abstract class AbstractClusterInvoker<T> implements ClusterInvoker<T> {
             }
         }
     }
-
+    // 负载之前的集群调用
     @Override
     public Result invoke(final Invocation invocation) throws RpcException {
         checkWhetherDestroyed();
@@ -357,7 +358,7 @@ public abstract class AbstractClusterInvoker<T> implements ClusterInvoker<T> {
         InvocationProfilerUtils.releaseDetailProfiler(invocation);
 
         checkInvokers(invokers, invocation);
-
+        // 负载均衡策略服务端控制么？
         LoadBalance loadbalance = initLoadBalance(invokers, invocation);
         RpcUtils.attachInvocationIdIfAsync(getUrl(), invocation);
 
@@ -464,6 +465,7 @@ public abstract class AbstractClusterInvoker<T> implements ClusterInvoker<T> {
      * @param invocation invocation
      * @return LoadBalance instance. if not need init, return null.
      */
+    // 服务端的url参数设置
     protected LoadBalance initLoadBalance(List<Invoker<T>> invokers, Invocation invocation) {
         ApplicationModel applicationModel = ScopeModelUtil.getApplicationModel(invocation.getModuleModel());
         if (CollectionUtils.isNotEmpty(invokers)) {

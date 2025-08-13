@@ -41,15 +41,17 @@ import static org.apache.dubbo.rpc.cluster.configurator.parser.model.Configurato
 /**
  * Config parser
  */
+// 配置中心的配置内容解析
 public class ConfigParser {
 
     public static List<URL> parseConfigurators(String rawConfig) {
         // compatible url JsonArray, such as [ "override://xxx", "override://xxx" ]
+        // 直接通过urL 数组的方式配置
         List<URL> compatibleUrls = parseJsonArray(rawConfig);
         if (CollectionUtils.isNotEmpty(compatibleUrls)) {
             return compatibleUrls;
         }
-
+        // 以后支持的配置对象
         List<URL> urls = new ArrayList<>();
         ConfiguratorConfig configuratorConfig = parseObject(rawConfig);
 

@@ -29,7 +29,7 @@ import java.util.List;
  * AvailableClusterInvoker
  *
  */
-// 第一个可用Invoker
+// 找到第一个可用的直接调用，忽略负载均衡
 public class AvailableClusterInvoker<T> extends AbstractClusterInvoker<T> {
 
     public AvailableClusterInvoker(Directory<T> directory) {

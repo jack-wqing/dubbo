@@ -22,6 +22,7 @@ import org.apache.dubbo.rpc.cluster.configurator.AbstractConfigurator;
 /**
  * AbsentConfigurator
  */
+// 如果确实进行覆盖
 public class AbsentConfigurator extends AbstractConfigurator {
 
     public AbsentConfigurator(URL url) {

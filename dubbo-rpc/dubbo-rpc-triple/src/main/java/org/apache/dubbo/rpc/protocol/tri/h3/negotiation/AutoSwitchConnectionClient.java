@@ -33,6 +33,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROTOCOL_ERROR_CLOSE_CLIENT;
 
+// 支持协议协商
 public class AutoSwitchConnectionClient extends AbstractConnectionClient {
 
     private static final int MAX_RETRIES = 8;

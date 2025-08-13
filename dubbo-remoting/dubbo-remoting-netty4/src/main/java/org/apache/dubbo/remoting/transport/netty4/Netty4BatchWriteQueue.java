@@ -31,7 +31,7 @@ import io.netty.channel.EventLoop;
 /**
  * netty4 batch write queue
  */
-// Batch op
+// 每个Channel 的批量操作
 public class Netty4BatchWriteQueue extends BatchExecutorQueue<Netty4BatchWriteQueue.MessageTuple> {
 
     private final Channel channel;

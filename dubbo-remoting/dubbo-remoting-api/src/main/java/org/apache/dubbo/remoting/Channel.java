@@ -25,7 +25,7 @@ import java.net.InetSocketAddress;
  * @see RemotingServer#getChannels()
  * @see RemotingServer#getChannel(InetSocketAddress)
  */
-// Channel
+// Dubbo定义的Channel映射到 Netty的Channel
 public interface Channel extends Endpoint {
 
     /**

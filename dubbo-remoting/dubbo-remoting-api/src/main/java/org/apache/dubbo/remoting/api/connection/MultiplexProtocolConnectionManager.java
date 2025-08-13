@@ -25,7 +25,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.function.Consumer;
 
-// Multiplex Protocol
+// 客户端使用，多协议链接管理
 public class MultiplexProtocolConnectionManager implements ConnectionManager {
     public static final String NAME = "multiple";
 

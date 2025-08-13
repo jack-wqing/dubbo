@@ -26,7 +26,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-// 路由切面节点
+// 存储和管理某一时刻的路由规则快照信息: 主要用于动态路由
 public class RouterSnapshotNode<T> {
     private final String name;
     private final int beforeSize;

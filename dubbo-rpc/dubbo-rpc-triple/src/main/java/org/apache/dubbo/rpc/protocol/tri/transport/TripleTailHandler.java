@@ -24,6 +24,7 @@ import io.netty.util.ReferenceCounted;
 /**
  * Process unhandled message to avoid mem leak and netty's unhandled exception
  */
+// 兜底ChannelHandler 释放未处理的消息
 public class TripleTailHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {

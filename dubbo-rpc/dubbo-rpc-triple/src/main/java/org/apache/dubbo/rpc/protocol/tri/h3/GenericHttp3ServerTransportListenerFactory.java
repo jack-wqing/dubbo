@@ -23,6 +23,7 @@ import org.apache.dubbo.remoting.http3.Http3ServerTransportListenerFactory;
 import org.apache.dubbo.remoting.http3.Http3TransportListener;
 import org.apache.dubbo.rpc.model.FrameworkModel;
 
+// Http3
 @Activate
 public class GenericHttp3ServerTransportListenerFactory implements Http3ServerTransportListenerFactory {
 

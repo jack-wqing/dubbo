@@ -22,6 +22,7 @@ import org.apache.dubbo.remoting.http12.h2.Http2ServerTransportListenerFactory;
 import org.apache.dubbo.remoting.http12.h2.Http2TransportListener;
 import org.apache.dubbo.rpc.model.FrameworkModel;
 
+// HTTP2监听器工厂
 public class GenericHttp2ServerTransportListenerFactory implements Http2ServerTransportListenerFactory {
 
     public static final Http2ServerTransportListenerFactory INSTANCE = new GenericHttp2ServerTransportListenerFactory();

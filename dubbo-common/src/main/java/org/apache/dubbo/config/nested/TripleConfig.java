@@ -24,7 +24,7 @@ import java.io.Serializable;
 /**
  * Configuration for triple protocol.
  */
-// Triple协议的支持
+// Triple协议配置多协议
 public class TripleConfig implements Serializable {
 
     private static final long serialVersionUID = -3682252713701362155L;

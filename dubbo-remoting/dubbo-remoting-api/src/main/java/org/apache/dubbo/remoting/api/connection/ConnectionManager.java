@@ -23,7 +23,7 @@ import org.apache.dubbo.remoting.ChannelHandler;
 
 import java.util.function.Consumer;
 
-// ConnectionManager
+// 连接管理器
 @SPI(scope = ExtensionScope.FRAMEWORK)
 public interface ConnectionManager {
 

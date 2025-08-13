@@ -68,6 +68,7 @@ public class ZoneAwareClusterInvoker<T> extends AbstractClusterInvoker<T> {
             throws RpcException {
         // First, pick the invoker (XXXClusterInvoker) that comes from the local registry, distinguish by a 'preferred'
         // key.
+        // 注册中心 preferred
         for (Invoker<T> invoker : invokers) {
             ClusterInvoker<T> clusterInvoker = (ClusterInvoker<T>) invoker;
             if (clusterInvoker.isAvailable() && clusterInvoker.getRegistryUrl().getParameter(PREFERRED_KEY, false)) {
@@ -77,6 +78,7 @@ public class ZoneAwareClusterInvoker<T> extends AbstractClusterInvoker<T> {
 
         RpcContext rpcContext = RpcContext.getClientAttachment();
         String zone = rpcContext.getAttachment(REGISTRY_ZONE);
+        // 表示强制使用zone的方式
         String force = rpcContext.getAttachment(REGISTRY_ZONE_FORCE);
         if (StringUtils.isEmpty(zone) && zoneDetector != null) {
             zone = zoneDetector.getZoneOfCurrentRequest(invocation);
@@ -104,7 +106,7 @@ public class ZoneAwareClusterInvoker<T> extends AbstractClusterInvoker<T> {
                                         .collect(Collectors.joining(",")));
             }
         }
-
+        // 通过负载均衡选择
         // load balance among all registries, with registry weight count in.
         Invoker<T> balancedInvoker = select(loadbalance, invocation, invokers, null);
         if (balancedInvoker != null && balancedInvoker.isAvailable()) {
@@ -113,6 +115,7 @@ public class ZoneAwareClusterInvoker<T> extends AbstractClusterInvoker<T> {
 
         // If none of the invokers has a preferred signal or is picked by the loadbalancer, pick the first one
         // available.
+        // 兜底选择可用
         for (Invoker<T> invoker : invokers) {
             ClusterInvoker<T> clusterInvoker = (ClusterInvoker<T>) invoker;
             if (clusterInvoker.isAvailable()) {

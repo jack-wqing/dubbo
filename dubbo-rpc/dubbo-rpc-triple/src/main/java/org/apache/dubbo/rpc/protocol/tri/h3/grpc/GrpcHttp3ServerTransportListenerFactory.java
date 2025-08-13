@@ -25,6 +25,7 @@ import org.apache.dubbo.remoting.http3.Http3TransportListener;
 import org.apache.dubbo.rpc.model.FrameworkModel;
 import org.apache.dubbo.rpc.protocol.tri.h12.grpc.GrpcUtils;
 
+// Http3 gRPC工厂
 @Activate(order = -100, onClass = CommonConstants.PROTOBUF_MESSAGE_CLASS_NAME)
 public class GrpcHttp3ServerTransportListenerFactory implements Http3ServerTransportListenerFactory {
 

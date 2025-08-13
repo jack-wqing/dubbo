@@ -18,6 +18,7 @@ package org.apache.dubbo.rpc.cluster;
 
 import org.apache.dubbo.common.extension.SPI;
 
+// 默认的结果合并接口
 @SPI
 public interface Merger<T> {
 

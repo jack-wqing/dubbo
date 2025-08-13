@@ -33,13 +33,13 @@ import java.util.concurrent.ConcurrentMap;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROTOCOL_ERROR_CLOSE_SERVER;
 
-// 单个端口，多个协议的支持: Port Unification
+// 单端口多协议实现
 public class PortUnificationExchanger {
 
     private static final ErrorTypeAwareLogger log =
             LoggerFactory.getErrorTypeAwareLogger(PortUnificationExchanger.class);
     private static final ConcurrentMap<String, RemotingServer> servers = new ConcurrentHashMap<>();
-
+    // url key
     public static RemotingServer bind(URL url, ChannelHandler handler) {
         ConcurrentHashMapUtils.computeIfAbsent(servers, url.getAddress(), addr -> {
             final AbstractPortUnificationServer server;

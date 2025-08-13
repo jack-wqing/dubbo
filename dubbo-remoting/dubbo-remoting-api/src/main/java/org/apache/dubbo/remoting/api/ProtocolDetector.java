@@ -24,13 +24,13 @@ import java.util.Map;
 /**
  * Determine incoming bytes belong to the specific protocol.
  */
-// Protocol Detector: Dubbo Http2 Triple
+// 协议检测器: 通过输入的值检测当前属于哪个协议: Dubbo Http2 grpc
 public interface ProtocolDetector {
 
     Result detect(ChannelBuffer in);
-
+    // 检测的结果
     class Result {
-
+        // 状态结果
         private final Flag flag;
 
         private final Map<String, String> detectContext = new HashMap<>(4);

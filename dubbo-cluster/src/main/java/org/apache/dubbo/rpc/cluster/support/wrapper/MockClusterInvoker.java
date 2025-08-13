@@ -45,7 +45,7 @@ import static org.apache.dubbo.rpc.Constants.MOCK_KEY;
 import static org.apache.dubbo.rpc.cluster.Constants.FORCE_KEY;
 import static org.apache.dubbo.rpc.cluster.Constants.INVOCATION_NEED_MOCK;
 
-// mock 功能支持
+// Dubbo提供服务的服务降级(Mock)能力，服务不可用返回预设的结果，而不是抛出异常，保证服务的稳定性和容错性
 public class MockClusterInvoker<T> implements ClusterInvoker<T> {
 
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(MockClusterInvoker.class);
@@ -115,13 +115,14 @@ public class MockClusterInvoker<T> implements ClusterInvoker<T> {
                         "force-mock: " + RpcUtils.getMethodName(invocation) + " force-mock enabled , url : "
                                 + getUrl());
             }
+            // mock 以值一force开头，强制进行mock
             // force:direct mock
             result = doMockInvoke(invocation, null);
         } else {
             // fail-mock
             try {
                 result = this.invoker.invoke(invocation);
-
+                // 非业务异常进行mock
                 // fix:#4585
                 if (result.getException() != null && result.getException() instanceof RpcException) {
                     RpcException rpcException = (RpcException) result.getException();
@@ -159,7 +160,7 @@ public class MockClusterInvoker<T> implements ClusterInvoker<T> {
 
         RpcInvocation rpcInvocation = (RpcInvocation) invocation;
         rpcInvocation.setInvokeMode(RpcUtils.getInvokeMode(getUrl(), invocation));
-
+        // 多个使用第一个
         List<Invoker<T>> mockInvokers = selectMockInvoker(invocation);
         if (CollectionUtils.isEmpty(mockInvokers)) {
             mockInvoker = (Invoker<T>) new MockInvoker(getUrl(), directory.getInterface());
@@ -203,6 +204,7 @@ public class MockClusterInvoker<T> implements ClusterInvoker<T> {
      * @param invocation
      * @return
      */
+    // 通过Directory返回mock的Invoker列表
     private List<Invoker<T>> selectMockInvoker(Invocation invocation) {
         List<Invoker<T>> invokers = null;
         // TODO generic invoker？

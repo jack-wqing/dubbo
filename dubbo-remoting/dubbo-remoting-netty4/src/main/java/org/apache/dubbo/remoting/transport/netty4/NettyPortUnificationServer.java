@@ -55,7 +55,7 @@ import static org.apache.dubbo.remoting.Constants.EVENT_LOOP_WORKER_POOL_NAME;
 /**
  * PortUnificationServer.
  */
-// NettyPU Server
+// Netty 多协议 单个端口
 public class NettyPortUnificationServer extends AbstractPortUnificationServer {
 
     private final int serverShutdownTimeoutMills;

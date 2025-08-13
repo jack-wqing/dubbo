@@ -51,6 +51,8 @@ import java.util.concurrent.Executor;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+// 抽象的统一服务端传输监听器
+// RequestMetadata HttpInputMessage
 public abstract class AbstractServerTransportListener<HEADER extends RequestMetadata, MESSAGE extends HttpInputMessage>
         implements HttpTransportListener<HEADER, MESSAGE> {
 

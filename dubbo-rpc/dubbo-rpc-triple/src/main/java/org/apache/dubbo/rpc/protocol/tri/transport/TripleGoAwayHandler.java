@@ -26,6 +26,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http2.Http2GoAwayFrame;
 import io.netty.util.ReferenceCountUtil;
 
+//goAway帧
 public class TripleGoAwayHandler extends ChannelDuplexHandler {
 
     private static final Logger logger = LoggerFactory.getLogger(TripleGoAwayHandler.class);

@@ -177,7 +177,7 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
     };
 
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(RegistryProtocol.class);
-
+    // 接口级别的ConfigurationListener 监听映射
     private final Map<String, ServiceConfigurationListener> serviceConfigurationListeners = new ConcurrentHashMap<>();
     // To solve the problem of RMI repeated exposure port conflicts, the services that have been exposed are no longer
     // exposed.
@@ -279,13 +279,14 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
         //  the same service. Because the subscribed is cached key with the name of the service, it causes the
         //  subscription information to cover.
         final URL overrideSubscribeUrl = getSubscribedOverrideUrl(providerUrl);
+        // provider 协议
         final OverrideListener overrideSubscribeListener = new OverrideListener(overrideSubscribeUrl, originInvoker);
         Map<URL, Set<NotifyListener>> overrideListeners =
                 getProviderConfigurationListener(overrideSubscribeUrl).getOverrideListeners();
         overrideListeners
                 .computeIfAbsent(overrideSubscribeUrl, k -> new ConcurrentHashSet<>())
                 .add(overrideSubscribeListener);
-
+        // 动态配置修复覆盖的是服务端的url,同步注册
         providerUrl = overrideUrlWithConfig(providerUrl, overrideSubscribeListener);
         // export invoker
         final ExporterChangeableWrapper<T> exporter = doLocalExport(originInvoker, providerUrl);
@@ -564,6 +565,7 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
         }
 
         // group="a,b" or group="*"
+        // 支持多个cluster策略
         Map<String, String> qs = (Map<String, String>) url.getAttribute(REFER_KEY);
         String group = qs.get(GROUP_KEY);
         if (StringUtils.isNotEmpty(group)) {
@@ -753,7 +755,7 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
         return protocol.getServers();
     }
 
-    // Merge the urls of configurators
+    // Merge the urls of configurators 聚合配置
     private static URL getConfiguredInvokerUrl(List<Configurator> configurators, URL url) {
         if (CollectionUtils.isNotEmpty(configurators)) {
             for (Configurator configurator : configurators) {
@@ -897,6 +899,7 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
             Invoker<?> exporterInvoker = exporter.getInvoker();
             URL currentUrl = exporterInvoker == null ? null : exporterInvoker.getUrl();
             // Merged with this configuration
+            // 聚合配置
             URL newUrl = getConfiguredInvokerUrl(configurators, originUrl);
             newUrl = getConfiguredInvokerUrl(
                     getProviderConfigurationListener(originUrl).getConfigurators(), newUrl);
@@ -939,7 +942,7 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
                 .getOrRegisterBean(
                         ProviderConfigurationListener.class, type -> new ProviderConfigurationListener(moduleModel));
     }
-
+    // 接口级别配置
     private class ServiceConfigurationListener extends AbstractConfiguratorListener {
         private URL providerUrl;
         private OverrideListener notifyListener;
@@ -975,7 +978,7 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
             }
         }
     }
-    // Provider 提供者配置监听器
+    // 应用级别配置
     private class ProviderConfigurationListener extends AbstractConfiguratorListener {
 
         private final Map<URL, Set<NotifyListener>> overrideListeners = new ConcurrentHashMap<>();

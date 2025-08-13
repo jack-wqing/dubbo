@@ -22,6 +22,7 @@ import org.apache.dubbo.common.extension.SPI;
 import org.apache.dubbo.remoting.http12.HttpRequest;
 import org.apache.dubbo.remoting.http12.HttpResponse;
 
+// 所有的支持的RequestHandlerMapping 类似 Spring HandlerMapping
 @SPI(scope = ExtensionScope.FRAMEWORK)
 public interface RequestHandlerMapping {
 

@@ -33,6 +33,7 @@ import io.netty.buffer.ByteBufOutputStream;
 import io.netty.handler.codec.http2.DefaultHttp2ResetFrame;
 import io.netty.handler.codec.http2.Http2StreamChannel;
 
+// Netty 实现的H2StreamChannel
 public class NettyH2StreamChannel implements H2StreamChannel {
 
     private final Http2StreamChannel http2StreamChannel;

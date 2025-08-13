@@ -16,6 +16,7 @@
  */
 package org.apache.dubbo.remoting.http12;
 
+// Http 统一的传输监听器
 public interface HttpTransportListener<HEADER extends HttpMetadata, MESSAGE extends HttpInputMessage> {
 
     void onMetadata(HEADER metadata);

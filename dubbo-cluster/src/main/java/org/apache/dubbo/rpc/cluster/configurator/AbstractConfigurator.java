@@ -51,6 +51,7 @@ import static org.apache.dubbo.rpc.cluster.configurator.parser.model.Configurato
 /**
  * AbstractConfigurator
  */
+// 进行版本兼容 选择配置器
 public abstract class AbstractConfigurator implements Configurator {
     private static final Logger logger = LoggerFactory.getLogger(AbstractConfigurator.class);
     private static final String TILDE = "~";
@@ -79,7 +80,7 @@ public abstract class AbstractConfigurator implements Configurator {
             logger.info("Cannot apply configurator rule, the rule is disabled or is invalid: \n" + configuratorUrl);
             return url;
         }
-
+        // 区分版本
         String apiVersion = configuratorUrl.getParameter(CONFIG_VERSION_KEY);
         if (StringUtils.isNotEmpty(apiVersion)) { // v2.7 or above
             String currentSide = url.getSide();
@@ -159,6 +160,7 @@ public abstract class AbstractConfigurator implements Configurator {
      * @param url the configurator rule url
      * @return true if v2.7 configurator rule is not set or the rule can be matched.
      */
+    // providerAddresses
     private boolean isV27ConditionMatchOrUnset(URL url) {
         String providers = configuratorUrl.getParameter(OVERRIDE_PROVIDERS_KEY);
         if (StringUtils.isNotEmpty(providers)) {

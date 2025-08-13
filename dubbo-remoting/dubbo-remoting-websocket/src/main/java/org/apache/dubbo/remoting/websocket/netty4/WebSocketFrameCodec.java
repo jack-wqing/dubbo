@@ -48,6 +48,7 @@ import io.netty.handler.codec.http.websocketx.WebSocketFrame;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import io.netty.handler.codec.http2.DefaultHttp2ResetFrame;
 
+// WebSocket 帧编解码器
 public class WebSocketFrameCodec extends ChannelDuplexHandler {
 
     @Override

@@ -45,6 +45,7 @@ import io.netty.handler.codec.http2.Http2StreamChannelBootstrap;
 import io.netty.handler.timeout.ReadTimeoutHandler;
 import io.netty.util.concurrent.Future;
 
+// Htt3的消息协商
 public class NegotiateClientCall {
 
     private final AbstractConnectionClient connectionClient;

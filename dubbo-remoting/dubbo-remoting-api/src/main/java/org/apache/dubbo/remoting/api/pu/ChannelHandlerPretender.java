@@ -18,7 +18,7 @@ package org.apache.dubbo.remoting.api.pu;
 
 import org.apache.dubbo.remoting.transport.ChannelHandlerAdapter;
 
-// RealHandler
+// 相当于代理: 代理到一个真实的ChannelHandler
 public class ChannelHandlerPretender extends ChannelHandlerAdapter {
     private final Object realHandler;
 

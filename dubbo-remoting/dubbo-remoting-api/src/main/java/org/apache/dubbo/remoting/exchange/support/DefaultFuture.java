@@ -47,7 +47,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROTOCOL_TIM
 /**
  * DefaultFuture.
  */
-// Future
+// 管理RPC调用的异步结构
 public class DefaultFuture extends CompletableFuture<Object> {
 
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(DefaultFuture.class);
@@ -61,7 +61,7 @@ public class DefaultFuture extends CompletableFuture<Object> {
      * in-flight requests
      */
     private static final Map<Long, DefaultFuture> FUTURES = new ConcurrentHashMap<>();
-
+    // 超时器机制
     private static final GlobalResourceInitializer<Timer> TIME_OUT_TIMER = new GlobalResourceInitializer<>(
             () -> new HashedWheelTimer(new NamedThreadFactory("dubbo-future-timeout", true), 30, TimeUnit.MILLISECONDS),
             DefaultFuture::destroy);

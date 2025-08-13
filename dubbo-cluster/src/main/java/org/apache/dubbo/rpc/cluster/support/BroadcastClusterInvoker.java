@@ -37,7 +37,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.CLUSTER_ERRO
 /**
  * BroadcastClusterInvoker
  */
-//广播调用
+// 所有节点广播调用
 public class BroadcastClusterInvoker<T> extends AbstractClusterInvoker<T> {
 
     private static final ErrorTypeAwareLogger logger =
@@ -71,7 +71,7 @@ public class BroadcastClusterInvoker<T> extends AbstractClusterInvoker<T> {
                     broadcastFailPercent));
             broadcastFailPercent = MAX_BROADCAST_FAIL_PERCENT;
         }
-
+        // 失败的阈值
         int failThresholdIndex = invokers.size() * broadcastFailPercent / MAX_BROADCAST_FAIL_PERCENT;
         int failIndex = 0;
         for (int i = 0, invokersSize = invokers.size(); i < invokersSize; i++) {

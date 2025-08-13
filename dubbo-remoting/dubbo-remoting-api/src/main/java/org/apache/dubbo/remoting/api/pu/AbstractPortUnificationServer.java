@@ -33,7 +33,7 @@ import java.util.stream.Collectors;
 import static org.apache.dubbo.common.constants.CommonConstants.COMMA_SEPARATOR;
 import static org.apache.dubbo.common.constants.CommonConstants.EXT_PROTOCOL;
 
-// AbstractPUServer
+// 单端口多协议的的服务维护
 public abstract class AbstractPortUnificationServer extends AbstractServer {
 
     /**
@@ -45,6 +45,7 @@ public abstract class AbstractPortUnificationServer extends AbstractServer {
     protocol name --> URL object
     wire protocol will get url object to config server pipeline for channel
      */
+    // protocol name -> URL Object
     private final Map<String, URL> supportedUrls = new ConcurrentHashMap<>();
 
     /*
@@ -52,6 +53,7 @@ public abstract class AbstractPortUnificationServer extends AbstractServer {
     wire protocol will get handler to config server pipeline for channel
     (for triple protocol, it's a default handler that do nothing)
      */
+    // protocol name -> ChannelHandler
     private final Map<String, ChannelHandler> supportedHandlers = new ConcurrentHashMap<>();
 
     public AbstractPortUnificationServer(URL url, ChannelHandler handler) throws RemotingException {
@@ -61,7 +63,8 @@ public abstract class AbstractPortUnificationServer extends AbstractServer {
     public Map<String, WireProtocol> getProtocols() {
         return protocols;
     }
-
+    // 多协议检测
+    // 支持自动的扩展协议 extra
     @Override
     protected final void doOpen() {
         ExtensionLoader<WireProtocol> loader =

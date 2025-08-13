@@ -38,6 +38,7 @@ import io.netty.handler.codec.http2.Http2DataFrame;
 import io.netty.handler.codec.http2.Http2Headers;
 import io.netty.handler.codec.http2.Http2HeadersFrame;
 
+// 基于Netty Http2帧的编解码器
 public class NettyHttp2FrameCodec extends ChannelDuplexHandler {
 
     @Override

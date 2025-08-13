@@ -59,7 +59,7 @@ public class TriplePingPongHandler extends ChannelDuplexHandler {
         }
         // not null means last ping ack not received
     }
-
+    // 收不到响应，则关闭通道
     private static class CloseChannelTask implements Runnable {
 
         private final ChannelHandlerContext ctx;

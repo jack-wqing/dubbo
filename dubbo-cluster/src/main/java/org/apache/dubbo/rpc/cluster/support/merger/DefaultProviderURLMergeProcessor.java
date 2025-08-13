@@ -43,6 +43,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.THREAD_NAME_KEY;
 import static org.apache.dubbo.common.constants.CommonConstants.TIMESTAMP_KEY;
 import static org.apache.dubbo.common.constants.CommonConstants.VERSION_KEY;
 
+// 合并参数
 public class DefaultProviderURLMergeProcessor implements ProviderURLMergeProcessor {
 
     @Override

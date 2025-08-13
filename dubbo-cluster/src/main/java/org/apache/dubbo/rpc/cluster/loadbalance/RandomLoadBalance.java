@@ -39,7 +39,7 @@ import static org.apache.dubbo.rpc.cluster.Constants.WEIGHT_KEY;
  * Note that if the performance of the machine is better than others, you can set a larger weight.
  * If the performance is not so good, you can set a smaller weight.
  */
-// 加权随机
+// 默认随机路由
 public class RandomLoadBalance extends AbstractLoadBalance {
 
     public static final String NAME = "random";

@@ -31,6 +31,7 @@ import org.apache.dubbo.rpc.model.ModuleModel;
  * The abstract class of StateRoute.
  * @since 3.0
  */
+// 抽象的状态过滤器: 状态路由通过过滤器链的构建
 public abstract class AbstractStateRouter<T> implements StateRouter<T> {
     private volatile boolean force = false;
     private volatile URL url;

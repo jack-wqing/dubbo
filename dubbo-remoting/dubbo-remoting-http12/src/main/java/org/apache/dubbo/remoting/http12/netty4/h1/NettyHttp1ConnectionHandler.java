@@ -25,7 +25,7 @@ import org.apache.dubbo.rpc.model.FrameworkModel;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-
+// Netty Http1的 统一处理为监听器
 public class NettyHttp1ConnectionHandler extends SimpleChannelInboundHandler<Http1Request> {
 
     private final URL url;
@@ -50,6 +50,7 @@ public class NettyHttp1ConnectionHandler extends SimpleChannelInboundHandler<Htt
     /**
      * process h1 request
      */
+    // 处理h1请求
     protected void channelRead0(ChannelHandlerContext ctx, Http1Request http1Request) {
         Http1ServerTransportListener http1TransportListener = http1ServerTransportListenerFactory.newInstance(
                 new NettyHttp1Channel(ctx.channel(), tripleConfig), url, frameworkModel);

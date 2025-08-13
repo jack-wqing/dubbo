@@ -51,15 +51,16 @@ import static org.apache.dubbo.remoting.utils.UrlUtils.getIdleTimeout;
 /**
  * AbstractClient
  */
-// Dubbo层: Abstract Client
+// Dubbo Consumer端的链接
 public abstract class AbstractClient extends AbstractEndpoint implements Client {
 
     private final Lock connectLock = new ReentrantLock();
-
+    // 需要重连
     private final boolean needReconnect;
 
     private final FrameworkModel frameworkModel;
 
+    // 客户端的任务执行器
     protected volatile ExecutorService executor;
 
     protected volatile ScheduledExecutorService connectivityExecutor;

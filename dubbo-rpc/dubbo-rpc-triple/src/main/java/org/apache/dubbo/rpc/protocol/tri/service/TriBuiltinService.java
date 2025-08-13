@@ -40,6 +40,7 @@ import static org.apache.dubbo.rpc.Constants.PROXY_KEY;
 /**
  * tri internal service like grpc internal service
  **/
+// tri 内部的服务 向 grpc服务一致
 public class TriBuiltinService {
 
     private ProxyFactory proxyFactory;

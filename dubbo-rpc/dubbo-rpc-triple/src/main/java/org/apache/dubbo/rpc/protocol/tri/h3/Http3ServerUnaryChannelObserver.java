@@ -21,6 +21,7 @@ import org.apache.dubbo.remoting.http12.h2.H2StreamChannel;
 import org.apache.dubbo.rpc.model.FrameworkModel;
 import org.apache.dubbo.rpc.protocol.tri.h12.http2.Http2UnaryServerChannelObserver;
 
+// Http3 Unary编解码
 public final class Http3ServerUnaryChannelObserver extends Http2UnaryServerChannelObserver {
 
     public Http3ServerUnaryChannelObserver(FrameworkModel frameworkModel, H2StreamChannel h2StreamChannel) {

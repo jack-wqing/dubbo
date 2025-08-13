@@ -34,7 +34,7 @@ import io.netty.handler.codec.MessageToByteEncoder;
 /**
  * NettyCodecAdapter.
  */
-// NettyCodec: Adapter -> Codec
+// // Netty 编解码接口适配
 public final class NettyCodecAdapter {
 
     private final ChannelHandler encoder = new InternalEncoder();

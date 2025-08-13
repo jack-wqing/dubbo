@@ -55,6 +55,7 @@ import io.netty.incubator.codec.quic.QuicStreamChannel;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.TRANSPORT_FAILED_RECONNECT;
 
+// Http3Frame: Codec
 @Sharable
 public class Http3ClientFrameCodec extends ChannelDuplexHandler {
 
@@ -86,6 +87,7 @@ public class Http3ClientFrameCodec extends ChannelDuplexHandler {
         pipeline.fireChannelReadComplete();
     }
 
+    // Quic协议StreamChannel
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) {
         if (ctx instanceof QuicStreamChannel) {
@@ -116,7 +118,7 @@ public class Http3ClientFrameCodec extends ChannelDuplexHandler {
             ctx.write(msg, promise);
         }
     }
-
+    // Ping Pong
     private void sendPing(QuicChannel channel) {
         Http3.newRequestStream(channel, new Http3RequestStreamInitializer() {
                     @Override

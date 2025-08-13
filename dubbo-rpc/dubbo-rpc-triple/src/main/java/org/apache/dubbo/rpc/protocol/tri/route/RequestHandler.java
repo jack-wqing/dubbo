@@ -27,6 +27,7 @@ import org.apache.dubbo.rpc.protocol.tri.RpcInvocationBuildContext;
 import java.util.HashMap;
 import java.util.Map;
 
+// 路由请求结果
 public final class RequestHandler implements RpcInvocationBuildContext {
 
     private final Invoker<?> invoker;

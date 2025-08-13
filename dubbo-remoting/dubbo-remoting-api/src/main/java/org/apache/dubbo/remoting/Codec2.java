@@ -23,7 +23,7 @@ import org.apache.dubbo.remoting.buffer.ChannelBuffer;
 
 import java.io.IOException;
 
-// Codec2: encode decode
+// 提供编解消息编解码能力
 @SPI(scope = ExtensionScope.FRAMEWORK)
 public interface Codec2 {
 

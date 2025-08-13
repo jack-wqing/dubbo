@@ -31,7 +31,7 @@ import org.apache.dubbo.rpc.model.ScopeModelUtil;
  * <a href="http://en.wikipedia.org/wiki/Fault-tolerant_system">Fault-Tolerant</a>
  *
  */
-// 管理服务调用集群的接口
+// 管理服务调用集群的接口 
 @SPI(Cluster.DEFAULT)
 public interface Cluster {
 

@@ -21,6 +21,7 @@ import org.apache.dubbo.common.URL;
 /**
  * Application level router, "application.condition-router"
  */
+// APP_Router路由
 public class AppStateRouter<T> extends ListenableStateRouter<T> {
     public static final String NAME = "APP_ROUTER";
 

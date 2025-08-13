@@ -46,12 +46,12 @@ import io.netty.incubator.codec.http3.Http3RequestStreamInboundHandler;
 import io.netty.incubator.codec.quic.QuicStreamChannel;
 
 import static org.apache.dubbo.remoting.http3.netty4.Constants.TRI_PING;
-
+// HTTP3帧编解码器
 @Sharable
 public class NettyHttp3FrameCodec extends Http3RequestStreamInboundHandler implements ChannelOutboundHandler {
 
     public static final NettyHttp3FrameCodec INSTANCE = new NettyHttp3FrameCodec();
-
+    // HTTP3帧
     @Override
     protected void channelRead(ChannelHandlerContext ctx, Http3HeadersFrame frame) {
         Http3Headers headers = frame.headers();
@@ -62,6 +62,7 @@ public class NettyHttp3FrameCodec extends Http3RequestStreamInboundHandler imple
 
         ctx.fireChannelRead(new Http2MetadataFrame(getStreamId(ctx), new DefaultHttpHeaders(headers), false));
     }
+    // Http3 ping pong
 
     private void pingReceived(ChannelHandlerContext ctx) {
         Http3Headers pongHeader = new DefaultHttp3Headers(false);
@@ -70,6 +71,7 @@ public class NettyHttp3FrameCodec extends Http3RequestStreamInboundHandler imple
         ctx.write(new DefaultHttp3HeadersFrame(pongHeader));
         ctx.close();
     }
+    // http3 读取数据帧
 
     @Override
     protected void channelRead(ChannelHandlerContext ctx, Http3DataFrame frame) {
@@ -80,12 +82,12 @@ public class NettyHttp3FrameCodec extends Http3RequestStreamInboundHandler imple
     private static long getStreamId(ChannelHandlerContext ctx) {
         return ((QuicStreamChannel) ctx.channel()).streamId();
     }
-
+    // input Closed
     @Override
     protected void channelInputClosed(ChannelHandlerContext ctx) {
         ctx.fireChannelRead(new Http2InputMessageFrame(getStreamId(ctx), StreamUtils.EMPTY, true));
     }
-
+    // Http2Header
     @Override
     @SuppressWarnings("unchecked")
     public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) throws Exception {

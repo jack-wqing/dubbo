@@ -29,6 +29,7 @@ import java.io.OutputStream;
 
 import io.netty.buffer.ByteBufOutputStream;
 
+// http1 一元操作
 public final class Http1UnaryServerChannelObserver extends Http1ServerChannelObserver {
 
     public Http1UnaryServerChannelObserver(HttpChannel httpChannel) {

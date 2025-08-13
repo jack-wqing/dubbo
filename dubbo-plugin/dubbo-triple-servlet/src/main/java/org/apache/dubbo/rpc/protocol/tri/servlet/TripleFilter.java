@@ -61,11 +61,16 @@ import java.util.Set;
 
 import static org.apache.dubbo.rpc.protocol.tri.TripleConstants.UPGRADE_HEADER_KEY;
 
+/**
+ * 基于 Servlet容器Dubbo实现 通过Filter实现了
+ */
 public class TripleFilter implements Filter {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TripleFilter.class);
-
+    //路径映射 Invoker
     private PathResolver pathResolver;
+
+    // DefaultRequestMappingRegistry 相当于Spring RequestMappingHandlerMapping
     private RequestMappingRegistry mappingRegistry;
 
     @Override
@@ -80,14 +85,16 @@ public class TripleFilter implements Filter {
             throws ServletException, IOException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
-
+        // Http2 协议判断
         boolean isHttp2 = HttpVersion.HTTP2.getProtocol().equals(request.getProtocol());
+        // PathResolver
         if (isHttp2) {
             if (hasGrpcMapping(request) || mappingRegistry.exists(request.getRequestURI(), request.getMethod())) {
                 handleHttp2(request, response);
                 return;
             }
         } else {
+            // 是否是升级协议
             if (notUpgradeRequest(request) && mappingRegistry.exists(request.getRequestURI(), request.getMethod())) {
                 handleHttp1(request, response);
                 return;
@@ -143,6 +150,7 @@ public class TripleFilter implements Filter {
     public void destroy() {}
 
     private boolean hasGrpcMapping(HttpServletRequest request) {
+        // application/grpc
         if (!GrpcUtils.isGrpcRequest(request.getContentType())) {
             return false;
         }
@@ -151,7 +159,7 @@ public class TripleFilter implements Filter {
         if (path == null) {
             return false;
         }
-
+        // grpc 需要解析tri-service-group 和 tri-service-version
         String group = request.getHeader(TripleHeaderEnum.SERVICE_GROUP.getName());
         String version = request.getHeader(TripleHeaderEnum.SERVICE_VERSION.getName());
         return pathResolver.resolve(path.getPath(), group, version) != null;
@@ -193,7 +201,7 @@ public class TripleFilter implements Filter {
         }
         return 0;
     }
-
+    // Triple异步监听哦
     private static final class TripleAsyncListener implements AsyncListener {
 
         private final ServletStreamChannel streamChannel;
@@ -231,7 +239,7 @@ public class TripleFilter implements Filter {
             this.channel = channel;
             this.input = input;
         }
-
+        // 读可用监听器
         @Override
         public void onDataAvailable() throws IOException {
             while (input.isReady()) {
@@ -243,7 +251,7 @@ public class TripleFilter implements Filter {
                 listener.onData(new Http2InputMessageFrame(new ByteArrayInputStream(copy), false));
             }
         }
-
+        // 所有数据已经读取完成
         @Override
         public void onAllDataRead() {
             listener.onData(new Http2InputMessageFrame(StreamUtils.EMPTY, true));
@@ -254,7 +262,7 @@ public class TripleFilter implements Filter {
             channel.writeError(Code.CANCELLED.code, t);
         }
     }
-
+    // 可写监听器
     private static final class TripleWriteListener implements WriteListener {
 
         private final ServletStreamChannel channel;

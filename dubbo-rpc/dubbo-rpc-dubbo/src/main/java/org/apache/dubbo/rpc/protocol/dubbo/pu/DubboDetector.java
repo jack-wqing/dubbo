@@ -24,7 +24,7 @@ import org.apache.dubbo.remoting.buffer.ChannelBuffers;
 import java.nio.ByteBuffer;
 
 import static java.lang.Math.min;
-// 0xdabb
+// 通过十六进制 0xdabb 前置字符检测
 public class DubboDetector implements ProtocolDetector {
     private final ChannelBuffer Preface =
             new ByteBufferBackedChannelBuffer(ByteBuffer.wrap(new byte[] {(byte) 0xda, (byte) 0xbb}));

@@ -21,7 +21,7 @@ import org.apache.dubbo.common.utils.ConcurrentHashSet;
 import java.util.Collections;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
-// 路由快照切换
+// 路由快照切换: 当路由规则改变时支持维持路由切换的稳定性和原子性 最多31个快照
 public class RouterSnapshotSwitcher {
     private volatile boolean enable;
     private final Set<String> enabledService = new ConcurrentHashSet<>();

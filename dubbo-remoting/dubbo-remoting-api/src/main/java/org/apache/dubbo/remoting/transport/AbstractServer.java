@@ -48,12 +48,14 @@ public abstract class AbstractServer extends AbstractEndpoint implements Remotin
     private Set<ExecutorService> executors = new ConcurrentHashSet<>();
     private InetSocketAddress localAddress;
     private InetSocketAddress bindAddress;
+    // 当前接受的最大连接
     private int accepts;
 
     private ExecutorRepository executorRepository;
 
     public AbstractServer(URL url, ChannelHandler handler) throws RemotingException {
         super(url, handler);
+        // 默认的配置提供具体的执行器生成
         executorRepository = ExecutorRepository.getInstance(url.getOrDefaultApplicationModel());
         localAddress = getUrl().toInetSocketAddress();
 
@@ -81,7 +83,7 @@ public abstract class AbstractServer extends AbstractEndpoint implements Remotin
         executors.add(
                 executorRepository.createExecutorIfAbsent(ExecutorUtil.setThreadName(url, SERVER_THREAD_POOL_NAME)));
     }
-
+    // 打开服务端
     protected abstract void doOpen() throws Throwable;
 
     protected abstract void doClose() throws Throwable;
@@ -111,7 +113,7 @@ public abstract class AbstractServer extends AbstractEndpoint implements Remotin
         executorRepository.updateThreadpool(url, executor);
         super.setUrl(getUrl().addParameters(url.getParameters()));
     }
-
+    // 发送消息
     @Override
     public void send(Object message, boolean sent) throws RemotingException {
         Collection<Channel> channels = getChannels();

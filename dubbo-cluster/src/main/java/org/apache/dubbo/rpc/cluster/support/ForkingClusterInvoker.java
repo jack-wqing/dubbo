@@ -49,7 +49,7 @@ import static org.apache.dubbo.rpc.cluster.Constants.DEFAULT_FORKS;
  *
  * <a href="http://en.wikipedia.org/wiki/Fork_(topology)">Fork</a>
  */
-// 同时调用指定数量的
+// 要求苛刻的实时操作， 同时并发执行
 public class ForkingClusterInvoker<T> extends AbstractClusterInvoker<T> {
 
     /**
@@ -90,6 +90,7 @@ public class ForkingClusterInvoker<T> extends AbstractClusterInvoker<T> {
             }
             RpcContext.getServiceContext().setInvokers((List) selected);
             final AtomicInteger count = new AtomicInteger();
+            // 阻塞队列获取结果
             final BlockingQueue<Object> ref = new LinkedBlockingQueue<>(1);
             selected.forEach(invoker -> {
                 URL consumerUrl = RpcContext.getServiceContext().getConsumerUrl();

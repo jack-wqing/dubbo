@@ -21,6 +21,8 @@ import org.apache.dubbo.remoting.http12.message.MediaType;
 import org.apache.dubbo.rpc.model.FrameworkModel;
 import org.apache.dubbo.rpc.protocol.tri.h12.http2.Http2StreamServerChannelObserver;
 
+
+// gRPC流
 public class GrpcStreamServerChannelObserver extends Http2StreamServerChannelObserver {
 
     public GrpcStreamServerChannelObserver(FrameworkModel frameworkModel, H2StreamChannel h2StreamChannel) {

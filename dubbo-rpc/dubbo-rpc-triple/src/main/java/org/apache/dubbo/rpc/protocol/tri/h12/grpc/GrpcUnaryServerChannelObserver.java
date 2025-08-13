@@ -19,6 +19,7 @@ package org.apache.dubbo.rpc.protocol.tri.h12.grpc;
 import org.apache.dubbo.remoting.http12.h2.H2StreamChannel;
 import org.apache.dubbo.rpc.model.FrameworkModel;
 
+// Grpc Unary
 public class GrpcUnaryServerChannelObserver extends GrpcStreamServerChannelObserver {
 
     public GrpcUnaryServerChannelObserver(FrameworkModel frameworkModel, H2StreamChannel h2StreamChannel) {

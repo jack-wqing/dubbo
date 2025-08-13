@@ -25,6 +25,7 @@ import org.apache.dubbo.rpc.protocol.tri.transport.TripleWriteQueue;
 
 import java.util.concurrent.Executor;
 
+// 客户端流工厂
 @SPI(scope = ExtensionScope.FRAMEWORK)
 public interface ClientStreamFactory {
 

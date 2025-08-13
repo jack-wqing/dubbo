@@ -23,7 +23,7 @@ import org.apache.dubbo.remoting.Dispatcher;
 /**
  * In addition to sending all the use thread pool processing
  */
-// execution
+// 请求消息到业务线程，其他的在I/O线程
 public class ExecutionDispatcher implements Dispatcher {
 
     public static final String NAME = "execution";

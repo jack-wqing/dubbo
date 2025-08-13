@@ -18,6 +18,7 @@ package org.apache.dubbo.remoting.http12.rest;
 
 import java.util.Collection;
 
+// OpenAPIService
 public interface OpenAPIService {
 
     Collection<String> getOpenAPIGroups();

@@ -24,6 +24,7 @@ import org.apache.dubbo.rpc.cluster.support.wrapper.AbstractCluster;
  * {@link ForkingClusterInvoker}
  *
  */
+// Forking
 public class ForkingCluster extends AbstractCluster {
 
     public static final String NAME = "forking";

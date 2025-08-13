@@ -18,5 +18,6 @@ package org.apache.dubbo.rpc.protocol.tri;
 
 import org.apache.dubbo.common.extension.Activate;
 
+// gRPC协议wireProtocol 是基于Triple 的Http2协议
 @Activate
 public class GrpcHttp2Protocol extends TripleHttp2Protocol {}

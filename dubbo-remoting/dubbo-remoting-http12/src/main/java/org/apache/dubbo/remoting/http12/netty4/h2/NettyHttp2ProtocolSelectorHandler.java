@@ -38,6 +38,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http2.Http2StreamChannel;
 
+// Netty Http2协议选择器 通过HttpMetadata
 public class NettyHttp2ProtocolSelectorHandler extends SimpleChannelInboundHandler<HttpMetadata> {
 
     private static final String TRANSPORT_LISTENER_FACTORY_CACHE = "TRANSPORT_LISTENER_FACTORY_CACHE";
@@ -46,7 +47,7 @@ public class NettyHttp2ProtocolSelectorHandler extends SimpleChannelInboundHandl
     private final FrameworkModel frameworkModel;
 
     private final TripleConfig tripleConfig;
-
+    // 监听器工厂 创建TransportListener 和 grpc基本相同的设计
     private final Http2ServerTransportListenerFactory defaultHttp2ServerTransportListenerFactory;
 
     public NettyHttp2ProtocolSelectorHandler(
@@ -57,6 +58,7 @@ public class NettyHttp2ProtocolSelectorHandler extends SimpleChannelInboundHandl
         this.url = url;
         this.frameworkModel = frameworkModel;
         this.tripleConfig = tripleConfig;
+        // 默认的监听器
         this.defaultHttp2ServerTransportListenerFactory = defaultHttp2ServerTransportListenerFactory;
     }
 
@@ -74,12 +76,15 @@ public class NettyHttp2ProtocolSelectorHandler extends SimpleChannelInboundHandl
             throw new UnsupportedMediaTypeException(contentType);
         }
         Channel channel = ctx.channel();
+        // H2StreamChannel
         H2StreamChannel h2StreamChannel = new NettyH2StreamChannel((Http2StreamChannel) channel, tripleConfig);
         HttpWriteQueueHandler writeQueueHandler = channel.parent().pipeline().get(HttpWriteQueueHandler.class);
         if (writeQueueHandler != null) {
             HttpWriteQueue writeQueue = writeQueueHandler.getWriteQueue();
+            // WriteQueue
             h2StreamChannel = new Http2WriteQueueChannel(h2StreamChannel, writeQueue);
         }
+        // Http2TransportListener
         Http2TransportListener http2TransportListener = factory.newInstance(h2StreamChannel, url, frameworkModel);
         channel.closeFuture().addListener(future -> http2TransportListener.close());
         ctx.pipeline()
@@ -92,6 +97,7 @@ public class NettyHttp2ProtocolSelectorHandler extends SimpleChannelInboundHandl
         Set<Http2ServerTransportListenerFactory> http2ServerTransportListenerFactories = frameworkModel
                 .getExtensionLoader(Http2ServerTransportListenerFactory.class)
                 .getSupportedExtensionInstances();
+        // ContentType 判断监听的类型
         for (Http2ServerTransportListenerFactory factory : http2ServerTransportListenerFactories) {
             if (factory.supportContentType(contentType)) {
                 return factory;

@@ -34,7 +34,7 @@ import static org.apache.dubbo.rpc.cluster.Constants.PRIORITY_KEY;
  * Configurator. (SPI, Prototype, ThreadSafe)
  *
  */
-// url 支持动态配置
+// url 更新的配置器
 public interface Configurator extends Comparable<Configurator> {
 
     /**
@@ -68,6 +68,7 @@ public interface Configurator extends Comparable<Configurator> {
      * @param urls URL list to convert
      * @return converted configurator list
      */
+    //配置url转换为map
     static Optional<List<Configurator>> toConfigurators(List<URL> urls) {
         if (CollectionUtils.isEmpty(urls)) {
             return Optional.empty();

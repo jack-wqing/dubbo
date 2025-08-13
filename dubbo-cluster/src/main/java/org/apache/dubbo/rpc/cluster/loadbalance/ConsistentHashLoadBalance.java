@@ -33,7 +33,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.COMMA_SPLIT_PATT
 /**
  * ConsistentHashLoadBalance
  */
-// 一致性hash
+// 一致性hash选择 参数hash选择 会更具具体invoker的hash值：地址hash 和 参数hash映射
 public class ConsistentHashLoadBalance extends AbstractLoadBalance {
     public static final String NAME = "consistenthash";
 

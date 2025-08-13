@@ -48,6 +48,8 @@ import static org.apache.dubbo.rpc.Constants.MERGER_KEY;
 /**
  * @param <T>
  */
+// 支持多个Custer操作 如果为空，选择第一个可用直接调用
+// 支持对分组的结构进行聚合返回结果
 @SuppressWarnings("unchecked")
 public class MergeableClusterInvoker<T> extends AbstractClusterInvoker<T> {
 
@@ -90,7 +92,7 @@ public class MergeableClusterInvoker<T> extends AbstractClusterInvoker<T> {
         } catch (NoSuchMethodException e) {
             returnType = null;
         }
-
+        // 支持欢度多个版本
         Map<String, Result> results = new HashMap<>();
         for (final Invoker<T> invoker : invokers) {
             RpcInvocation subInvocation = new RpcInvocation(invocation, invoker);

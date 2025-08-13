@@ -26,6 +26,7 @@ import org.apache.dubbo.rpc.protocol.tri.transport.TripleWriteQueue;
 
 import java.util.concurrent.Executor;
 
+// Http2 流工厂
 @Activate
 public class Http2ClientStreamFactory implements ClientStreamFactory {
 

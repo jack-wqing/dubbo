@@ -37,7 +37,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.LOADBALANCE_KEY;
  * AdaptiveLoadBalance
  * </p>
  */
-// 最低性能消耗，内存 + 负载
+// 通过filter的统计数据 计算服务端负载
 public class AdaptiveLoadBalance extends AbstractLoadBalance {
 
     public static final String NAME = "adaptive";

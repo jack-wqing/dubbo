@@ -21,6 +21,7 @@ import org.apache.dubbo.remoting.http12.h2.H2StreamChannel;
 import org.apache.dubbo.rpc.model.FrameworkModel;
 import org.apache.dubbo.rpc.protocol.tri.h12.http2.Http2StreamServerChannelObserver;
 
+// WebSocket: ServerChannelObserver
 public class WebSocketServerChannelObserver extends Http2StreamServerChannelObserver {
 
     protected WebSocketServerChannelObserver(FrameworkModel frameworkModel, H2StreamChannel h2StreamChannel) {

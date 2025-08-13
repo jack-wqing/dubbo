@@ -21,6 +21,7 @@ import org.apache.dubbo.rpc.Invoker;
 import org.apache.dubbo.rpc.model.MethodDescriptor;
 import org.apache.dubbo.rpc.model.ServiceDescriptor;
 
+// 映射Handler Meta
 public final class HandlerMeta {
 
     private final Invoker<?> invoker;

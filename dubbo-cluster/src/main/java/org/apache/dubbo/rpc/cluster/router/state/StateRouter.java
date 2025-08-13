@@ -36,7 +36,7 @@ import org.apache.dubbo.rpc.cluster.router.RouterSnapshotNode;
  * @see Directory#list(Invocation)
  * @since 3.0
  */
-// 状态路由
+// 基于服务保障层的状态路由
 public interface StateRouter<T> {
 
     /**

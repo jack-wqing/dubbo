@@ -31,6 +31,7 @@ import io.netty.handler.codec.http2.Http2StreamFrame;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROTOCOL_FAILED_SERIALIZE_TRIPLE;
 
+//TripleHtt2Client ResponseHandler
 public final class TripleHttp2ClientResponseHandler extends SimpleChannelInboundHandler<Http2StreamFrame> {
 
     private static final ErrorTypeAwareLogger LOGGER =

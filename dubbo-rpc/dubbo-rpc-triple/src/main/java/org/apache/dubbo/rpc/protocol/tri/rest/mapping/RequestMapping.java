@@ -36,7 +36,7 @@ import org.apache.dubbo.rpc.protocol.tri.rest.mapping.meta.ResponseMeta;
 import java.util.Objects;
 
 import static org.apache.dubbo.common.utils.ArrayUtils.isEmpty;
-
+// 相当与Spring RequestMapping注解元数据
 public final class RequestMapping implements Condition<RequestMapping, HttpRequest> {
 
     private final String name;

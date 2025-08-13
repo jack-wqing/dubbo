@@ -22,6 +22,7 @@ import org.apache.dubbo.remoting.http12.h1.Http1ServerTransportListener;
 import org.apache.dubbo.remoting.http12.h1.Http1ServerTransportListenerFactory;
 import org.apache.dubbo.rpc.model.FrameworkModel;
 
+// 默认的Http11ServerTransportListener: 工厂 http1
 public class DefaultHttp11ServerTransportListenerFactory implements Http1ServerTransportListenerFactory {
 
     public static final Http1ServerTransportListenerFactory INSTANCE =

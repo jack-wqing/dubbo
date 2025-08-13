@@ -76,6 +76,7 @@ public class ProtocolFilterWrapper implements Protocol {
             return protocol.refer(type, url);
         }
         FilterChainBuilder builder = getFilterChainBuilder(url);
+        // 比如这里是dubbo协议: 创建的是dubbo filter链
         return builder.buildInvokerChain(protocol.refer(type, url), REFERENCE_FILTER_KEY, CommonConstants.CONSUMER);
     }
 

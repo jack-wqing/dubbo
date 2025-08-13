@@ -25,11 +25,13 @@ import java.util.Map;
 /**
  * ClientCall does not care about transport layer details.
  */
+// ClientCall 近似 gRPC的ClientCall
 public interface ClientCall {
 
     /**
      * Listener for receive response.
      */
+    // Listener
     interface Listener {
 
         /**

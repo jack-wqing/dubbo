@@ -29,6 +29,7 @@ import org.apache.dubbo.rpc.protocol.tri.TripleConstants;
 
 import java.util.List;
 
+// 真实的默认路由
 public final class DefaultRequestRouter implements RequestRouter {
 
     private final HttpMessageAdapterFactory<HttpRequest, HttpMetadata, Void> httpMessageAdapterFactory;

@@ -854,7 +854,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
                 port,
                 getContextPath(protocolConfig).map(p -> p + "/" + path).orElse(path),
                 params);
-
+        // 此时url是dubbo协议
         // You can customize Configurator to append extra parameters
         if (this.getExtensionLoader(ConfiguratorFactory.class).hasExtension(url.getProtocol())) {
             url = this.getExtensionLoader(ConfiguratorFactory.class)

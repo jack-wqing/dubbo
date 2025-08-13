@@ -23,6 +23,7 @@ import org.apache.dubbo.rpc.Invoker;
 import org.apache.dubbo.rpc.RpcException;
 import org.apache.dubbo.rpc.cluster.router.RouterSnapshotNode;
 
+// 状态路由的尾部过滤器 单利模式: 就是一个标记过滤器，没有实际的操作
 public class TailStateRouter<T> implements StateRouter<T> {
     private static final TailStateRouter INSTANCE = new TailStateRouter();
 

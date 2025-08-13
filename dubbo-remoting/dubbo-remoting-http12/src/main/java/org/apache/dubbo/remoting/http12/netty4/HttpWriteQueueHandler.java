@@ -22,10 +22,11 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.channel.EventLoop;
 
+// HTTP 写队列
 public class HttpWriteQueueHandler extends ChannelInboundHandlerAdapter {
 
     private HttpWriteQueue writeQueue;
-
+    // Handler 加入时调用该事件
     @Override
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
         EventLoop eventLoop = ctx.channel().eventLoop();

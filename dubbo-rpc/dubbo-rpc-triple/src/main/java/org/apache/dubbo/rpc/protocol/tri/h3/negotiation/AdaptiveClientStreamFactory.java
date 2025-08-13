@@ -30,6 +30,7 @@ import java.util.concurrent.Executor;
 
 import io.netty.channel.Channel;
 
+// 自适应流工厂
 @Activate(order = -90, onClass = "io.netty.incubator.codec.quic.QuicChannel")
 public class AdaptiveClientStreamFactory implements ClientStreamFactory {
 

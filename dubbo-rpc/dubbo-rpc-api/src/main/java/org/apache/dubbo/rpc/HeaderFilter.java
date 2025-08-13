@@ -19,6 +19,7 @@ package org.apache.dubbo.rpc;
 import org.apache.dubbo.common.extension.ExtensionScope;
 import org.apache.dubbo.common.extension.SPI;
 
+// RPC请求头过滤器
 @SPI(scope = ExtensionScope.FRAMEWORK)
 public interface HeaderFilter {
 

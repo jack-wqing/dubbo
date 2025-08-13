@@ -22,6 +22,7 @@ import org.apache.dubbo.common.extension.SPI;
 import org.apache.dubbo.remoting.http12.HttpChannel;
 import org.apache.dubbo.rpc.model.FrameworkModel;
 
+// Http1 TransportListener
 @SPI(scope = ExtensionScope.FRAMEWORK)
 public interface Http1ServerTransportListenerFactory {
 

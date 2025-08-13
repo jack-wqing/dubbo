@@ -32,7 +32,7 @@ import org.apache.dubbo.remoting.transport.codec.CodecAdapter;
 
 import java.util.Collection;
 import java.util.List;
-// NettyConfig
+// Netty配置: 通过WireProtocol传入的ChannelHandler 配置 Channel
 public class NettyConfigOperator implements ChannelOperator {
 
     private final Channel channel;

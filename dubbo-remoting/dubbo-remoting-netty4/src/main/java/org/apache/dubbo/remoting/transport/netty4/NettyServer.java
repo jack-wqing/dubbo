@@ -60,7 +60,7 @@ import static org.apache.dubbo.remoting.Constants.EVENT_LOOP_WORKER_POOL_NAME;
 /**
  * NettyServer.
  */
-// Server: Netty4
+// Server 使用 Netty 实现， 支持内存池的实现
 public class NettyServer extends AbstractServer {
 
     /**
@@ -177,6 +177,7 @@ public class NettyServer extends AbstractServer {
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception {
                         int closeTimeout = UrlUtils.getCloseTimeout(getUrl());
+                        // 试下Netty的编解码
                         NettyCodecAdapter adapter = new NettyCodecAdapter(getCodec(), getUrl(), NettyServer.this);
                         ch.pipeline().addLast("negotiation", new SslServerTlsHandler(getUrl()));
                         ch.pipeline()

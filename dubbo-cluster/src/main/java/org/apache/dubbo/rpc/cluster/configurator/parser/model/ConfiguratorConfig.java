@@ -23,6 +23,7 @@ import java.util.stream.Collectors;
 /**
  *
  */
+// 这个配置内容的json
 public class ConfiguratorConfig {
     public static final String MATCH_CONDITION = "MATCH_CONDITION";
     public static final String SCOPE_SERVICE = "service";

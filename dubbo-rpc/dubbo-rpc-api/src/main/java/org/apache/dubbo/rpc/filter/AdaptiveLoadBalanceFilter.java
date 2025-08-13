@@ -45,6 +45,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.LOADBALANCE_KEY;
  * @see Filter
  * @see org.apache.dubbo.rpc.RpcContext
  */
+// 负载均衡的负载统计
 @Activate(
         group = CONSUMER,
         order = -200000,
