@@ -49,6 +49,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.CONFIG_FAILE
 /**
  * A bean factory for internal sharing.
  */
+// 作用域Bean工厂
 public final class ScopeBeanFactory {
 
     private static final ErrorTypeAwareLogger LOGGER = LoggerFactory.getErrorTypeAwareLogger(ScopeBeanFactory.class);

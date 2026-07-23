@@ -25,6 +25,7 @@ import org.apache.dubbo.common.extension.SPI;
  * ConfiguratorFactory. (SPI, Singleton, ThreadSafe)
  *
  */
+// URL 进行配置
 @SPI
 public interface ConfiguratorFactory {
 

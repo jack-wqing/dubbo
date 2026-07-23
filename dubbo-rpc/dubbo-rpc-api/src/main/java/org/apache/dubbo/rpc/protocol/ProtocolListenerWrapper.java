@@ -43,6 +43,7 @@ import static org.apache.dubbo.rpc.Constants.LOCAL_PROTOCOL;
 /**
  * ListenerProtocol
  */
+// ListenerExportWrapper ListenerInvokeWrapper
 @Activate(order = 200)
 public class ProtocolListenerWrapper implements Protocol {
 

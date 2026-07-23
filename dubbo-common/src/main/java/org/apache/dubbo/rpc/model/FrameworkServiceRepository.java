@@ -34,6 +34,7 @@ import static org.apache.dubbo.common.BaseServiceMetadata.versionFromServiceKey;
 /**
  * Service repository for framework
  */
+// 框架内置的服务
 public class FrameworkServiceRepository {
 
     private final FrameworkModel frameworkModel;

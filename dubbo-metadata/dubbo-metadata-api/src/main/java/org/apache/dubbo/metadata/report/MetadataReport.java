@@ -30,6 +30,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+// 元数据报告
 public interface MetadataReport {
     /**
      * Service Definition -- START

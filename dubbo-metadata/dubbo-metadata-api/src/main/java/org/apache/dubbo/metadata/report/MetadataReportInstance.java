@@ -52,6 +52,7 @@ import static org.apache.dubbo.metadata.report.support.Constants.METADATA_REPORT
  * <dubbo:registry id=demo2 address="registry://"/>
  * <dubbo:metadata id=demo2 address="metadata://"/>
  */
+// MetadataReport Repository
 public class MetadataReportInstance implements Disposable {
 
     private final AtomicBoolean initialized = new AtomicBoolean(false);

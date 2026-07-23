@@ -25,6 +25,7 @@ import java.util.Map;
  * Distinct from {@link RemotingServer}, each protocol holds one or more ProtocolServers(the number usually decides by port numbers),
  * while each ProtocolServer holds zero or one RemotingServer.
  */
+// Dubbo3引入的"协议服务实例"抽象，用来表示一个已经启动并监听端口的服务端实例(ServerInstance),主要解决多协议，多端口和统一生命周期管理的问题
 public interface ProtocolServer {
 
     default RemotingServer getRemotingServer() {

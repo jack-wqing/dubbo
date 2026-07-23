@@ -106,6 +106,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.CONFIG_FAILE
  * @see org.apache.dubbo.common.extension.Adaptive
  * @see org.apache.dubbo.common.extension.Activate
  */
+// 扩展访问器
 public class ExtensionLoader<T> {
 
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(ExtensionLoader.class);

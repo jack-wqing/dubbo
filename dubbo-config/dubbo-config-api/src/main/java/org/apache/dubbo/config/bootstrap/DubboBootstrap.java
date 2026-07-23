@@ -76,6 +76,7 @@ import static java.util.Collections.singletonList;
  *
  * @since 2.7.5
  */
+// 设计为静态类
 public final class DubboBootstrap {
 
     private static final String NAME = DubboBootstrap.class.getSimpleName();
@@ -159,7 +160,7 @@ public final class DubboBootstrap {
 
         ApplicationModel.reset();
     }
-
+    // new
     private DubboBootstrap(ApplicationModel applicationModel) {
         this.applicationModel = applicationModel;
         configManager = applicationModel.getApplicationConfigManager();
@@ -184,7 +185,7 @@ public final class DubboBootstrap {
                 notifyStopped(applicationModel);
             }
         });
-        // register DubboBootstrap bean
+        // register DubboBootstrap bean  --> Application BeanFactory
         applicationModel.getBeanFactory().registerBean(this);
     }
 

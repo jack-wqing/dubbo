@@ -32,6 +32,7 @@ import static org.apache.dubbo.common.deploy.DeployState.STARTING;
 import static org.apache.dubbo.common.deploy.DeployState.STOPPED;
 import static org.apache.dubbo.common.deploy.DeployState.STOPPING;
 
+// 应用部署状态 和 监听器
 public abstract class AbstractDeployer<E extends ScopeModel> implements Deployer<E> {
 
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(AbstractDeployer.class);

@@ -43,6 +43,7 @@ import static org.apache.dubbo.common.utils.StringUtils.isEmpty;
  *
  * @export
  */
+// Dubbo3 元数据配置中心(Metadata Center)的配置对象
 public class MetadataReportConfig extends AbstractConfig {
 
     private static final long serialVersionUID = 55233L;

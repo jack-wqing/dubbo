@@ -28,6 +28,7 @@ import org.apache.dubbo.rpc.model.FrameworkModel;
 import org.apache.dubbo.rpc.model.ModuleModel;
 import org.apache.dubbo.rpc.model.ScopeModelInitializer;
 
+// Model 启动需要的东西
 public class ConfigScopeModelInitializer implements ScopeModelInitializer {
 
     @Override

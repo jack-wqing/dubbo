@@ -31,13 +31,18 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /**
  * ProviderModel is about published services
  */
+// 描述一个已经导出的Provider服务，保存了服务接口、实例对象、方法信息、ServiceConfig等所有运行时元数据。
+// ServiceConfig是配置，ProviderModel是"运行时实例"
 public class ProviderModel extends ServiceModel {
+    // Provider 实际注册到注册中心的 URL 信息及其注册状态。
     private final List<RegisterStatedURL> urls;
+    // 当前服务所有方法的运行时模型。
     private final Map<String, List<ProviderMethodModel>> methods = new HashMap<>();
 
     /**
      * The url of the reference service
      */
+    // 当前服务实际导出的 Service URL
     private List<URL> serviceUrls = new ArrayList<>();
 
     private volatile long lastInvokeTime = 0;

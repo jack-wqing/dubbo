@@ -72,7 +72,7 @@ public abstract class AbstractConfigManager extends LifecycleAdapter {
     private static final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(AbstractConfigManager.class);
     private static final Set<Class<? extends AbstractConfig>> uniqueConfigTypes = new ConcurrentHashSet<>();
-
+    // tag, id, config
     final Map<String, Map<String, AbstractConfig>> configsCache = new ConcurrentHashMap<>();
 
     private final Map<String, AtomicInteger> configIdIndexes = new ConcurrentHashMap<>();

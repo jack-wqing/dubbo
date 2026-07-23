@@ -16,6 +16,7 @@
  */
 package org.apache.dubbo.rpc.model;
 
+// 类加载通知
 public interface ScopeClassLoaderListener<T extends ScopeModel> {
 
     void onAddClassLoader(T scopeModel, ClassLoader classLoader);

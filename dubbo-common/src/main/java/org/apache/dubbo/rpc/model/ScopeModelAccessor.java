@@ -19,6 +19,7 @@ package org.apache.dubbo.rpc.model;
 /**
  * An accessor for scope model, it can be use in interface default methods to get scope model.
  */
+// Scope访问，可以在接口默认访问中范文
 public interface ScopeModelAccessor {
 
     ScopeModel getScopeModel();

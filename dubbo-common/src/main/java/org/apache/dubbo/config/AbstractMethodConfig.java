@@ -32,6 +32,7 @@ import java.util.Optional;
  *
  * @export
  */
+// 方法配置
 public abstract class AbstractMethodConfig extends AbstractConfig {
 
     private static final long serialVersionUID = 5809761483000878437L;

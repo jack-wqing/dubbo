@@ -22,6 +22,7 @@ import java.util.Map;
 /**
  * In-memory configuration
  */
+// Memory Configuration
 public class InmemoryConfiguration implements Configuration {
 
     private String name;

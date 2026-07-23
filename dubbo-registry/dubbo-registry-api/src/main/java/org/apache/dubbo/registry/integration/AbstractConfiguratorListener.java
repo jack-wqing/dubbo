@@ -45,6 +45,7 @@ import static org.apache.dubbo.rpc.cluster.Constants.TYPE_KEY;
 /**
  * AbstractConfiguratorListener
  */
+// 治理规则监听
 public abstract class AbstractConfiguratorListener implements ConfigurationListener {
     private static final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(AbstractConfiguratorListener.class);

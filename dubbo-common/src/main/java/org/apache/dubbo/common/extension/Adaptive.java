@@ -30,6 +30,7 @@ import java.lang.annotation.Target;
  * @see ExtensionLoader
  * @see URL
  */
+// value->spi->generate
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE, ElementType.METHOD})

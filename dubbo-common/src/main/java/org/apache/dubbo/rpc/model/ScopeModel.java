@@ -38,6 +38,7 @@ import java.util.concurrent.locks.Lock;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.CONFIG_UNABLE_DESTROY_MODEL;
 
+// 作用域Model
 @SuppressWarnings({"unchecked", "rawtypes"})
 public abstract class ScopeModel implements ExtensionAccessor {
     protected static final ErrorTypeAwareLogger LOGGER = LoggerFactory.getErrorTypeAwareLogger(ScopeModel.class);
@@ -55,6 +56,7 @@ public abstract class ScopeModel implements ExtensionAccessor {
      *     FrameworkModel (index=1) -> ApplicationModel (index=2) -> ModuleModel (index=1, first user module)
      * </ol>
      */
+    // 层级标识
     private String internalId;
 
     /**

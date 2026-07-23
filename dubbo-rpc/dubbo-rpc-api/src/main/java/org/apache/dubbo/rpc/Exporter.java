@@ -23,6 +23,7 @@ package org.apache.dubbo.rpc;
  * @see org.apache.dubbo.rpc.ExporterListener
  * @see org.apache.dubbo.rpc.protocol.AbstractExporter
  */
+// Export表示"表示一个已经成功导出的服务"。它负责管理这个服务的生命周期(尤其是取消导出)
 public interface Exporter<T> {
 
     /**

@@ -63,11 +63,12 @@ public class FrameworkModel extends ScopeModel {
     private volatile ApplicationModel defaultAppModel;
 
     private final List<ApplicationModel> applicationModels = new CopyOnWriteArrayList<>();
-
+    // 记录已经发布的
     private final List<ApplicationModel> pubApplicationModels = new CopyOnWriteArrayList<>();
-
+    // 存储框架内置服务，不和用户开发的服务混合到一起
     private final FrameworkServiceRepository serviceRepository;
 
+    // Framework依赖的创建内部组件
     private final ApplicationModel internalApplicationModel;
 
     private final ReentrantLock destroyLock = new ReentrantLock();
@@ -161,7 +162,7 @@ public class FrameworkModel extends ScopeModel {
             }
         }
     }
-
+    // GlobalResource
     private void destroyGlobalResources() {
         synchronized (globalLock) {
             if (allInstances.isEmpty()) {
@@ -370,7 +371,7 @@ public class FrameworkModel extends ScopeModel {
     protected Lock acquireDestroyLock() {
         return destroyLock;
     }
-
+    // 框架不支持 Environment
     @Override
     public Environment modelEnvironment() {
         throw new UnsupportedOperationException("Environment is inaccessible for FrameworkModel");

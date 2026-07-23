@@ -120,5 +120,11 @@
       <artifactId>zipkin-reporter</artifactId>
       <optional>true</optional>
     </dependency>
+      <dependency>
+          <groupId>org.apache.dubbo</groupId>
+          <artifactId>dubbo-common</artifactId>
+          <version>3.3.4-SNAPSHOT</version>
+          <scope>compile</scope>
+      </dependency>
   </dependencies>
 </project>

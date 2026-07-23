@@ -82,6 +82,7 @@ public abstract class ServiceConfigBase<T> extends AbstractServiceConfig {
      * Indicates whether the service is a GenericService.
      * If set, this means that the service is a generic service that can handle multiple types.
      */
+    // 泛华调用支持
     protected volatile String generic;
 
     public ServiceConfigBase() {

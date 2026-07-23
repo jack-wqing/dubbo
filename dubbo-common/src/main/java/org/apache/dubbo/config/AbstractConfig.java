@@ -77,6 +77,7 @@ import static org.apache.dubbo.config.Constants.PARAMETERS;
  *
  * @export
  */
+// 配置解析，属性绑定，参数类型转换，url参数生成
 @SuppressWarnings({"unchecked", "rawtypes"})
 public abstract class AbstractConfig implements Serializable {
 

@@ -26,6 +26,7 @@ import java.util.Properties;
  * The smaller value, the higher priority
  *
  */
+// ordered properties
 @SPI(scope = ExtensionScope.MODULE)
 public interface OrderedPropertiesProvider {
     /**

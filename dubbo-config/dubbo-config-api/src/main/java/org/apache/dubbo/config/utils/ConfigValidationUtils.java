@@ -250,6 +250,8 @@ public class ConfigValidationUtils {
         return genCompatibleRegistries(interfaceConfig.getScopeModel(), registryList, provider);
     }
 
+    // 根据register-mod配置，自动生成需要注册的RegistryURL列表，从而同时支持Dubbo2的"接口级注册(Interface Register)"和Dubbo3的"应用级注册(Instance Register)"
+
     private static List<URL> genCompatibleRegistries(ScopeModel scopeModel, List<URL> registryList, boolean provider) {
         List<URL> result = new ArrayList<>(registryList.size());
         registryList.forEach(registryURL -> {

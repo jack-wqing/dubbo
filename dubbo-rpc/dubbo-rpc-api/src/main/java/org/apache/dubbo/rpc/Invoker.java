@@ -25,6 +25,7 @@ import org.apache.dubbo.common.Node;
  * @see org.apache.dubbo.rpc.InvokerListener
  * @see org.apache.dubbo.rpc.protocol.AbstractInvoker
  */
+// Dubbo的实体域，Invoker是Dubbo对"一次服务调用能力(Invocation Capability)"的统一抽象
 public interface Invoker<T> extends Node {
 
     /**

@@ -31,6 +31,7 @@ import java.util.List;
 /**
  * Interface to create instance for specify type, using both in {@link ExtensionLoader} and {@link ScopeBeanFactory}.
  */
+// 实例化策略
 public class InstantiationStrategy {
 
     private final ScopeModelAccessor scopeModelAccessor;

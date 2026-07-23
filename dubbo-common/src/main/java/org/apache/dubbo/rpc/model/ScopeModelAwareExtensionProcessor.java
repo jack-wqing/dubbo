@@ -18,6 +18,7 @@ package org.apache.dubbo.rpc.model;
 
 import org.apache.dubbo.common.extension.ExtensionPostProcessor;
 
+// ScopeModelAccessor
 public class ScopeModelAwareExtensionProcessor implements ExtensionPostProcessor, ScopeModelAccessor {
     private ScopeModel scopeModel;
     private FrameworkModel frameworkModel;

@@ -58,6 +58,7 @@ import java.lang.annotation.Target;
  *
  * @since 2.7.7
  */
+// 服务端注解支持
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE, ElementType.METHOD})

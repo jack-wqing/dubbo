@@ -378,6 +378,7 @@ public class AdaptiveClassCodeGenerator {
      * <p>
      * if not found, throws IllegalStateException
      */
+    // 判断参数本身是否包含getUrl方法
     private String generateUrlAssignmentIndirectly(Method method) {
         Class<?>[] pts = method.getParameterTypes();
 

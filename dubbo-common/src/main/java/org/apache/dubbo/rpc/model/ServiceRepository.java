@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+// 管理当前Dubbo应用中所有"服务定义(Service Definition)"和"所有服务实例(ServiceDescriptor)"
 public class ServiceRepository {
 
     public static final String NAME = "repository";

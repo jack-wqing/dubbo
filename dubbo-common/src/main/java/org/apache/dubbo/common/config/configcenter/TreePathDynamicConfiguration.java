@@ -37,6 +37,7 @@ import static org.apache.dubbo.common.utils.PathUtils.normalize;
  * @see AbstractDynamicConfiguration
  * @since 2.7.8
  */
+// 树路径的配置
 public abstract class TreePathDynamicConfiguration extends AbstractDynamicConfiguration {
 
     /**

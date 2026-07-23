@@ -18,6 +18,7 @@ package org.apache.dubbo.common.config;
 
 import org.apache.dubbo.common.utils.StringUtils;
 
+// 前缀获取配置
 public class PrefixedConfiguration implements Configuration {
 
     private final String prefix;

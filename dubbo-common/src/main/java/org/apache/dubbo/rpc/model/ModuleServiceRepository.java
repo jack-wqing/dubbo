@@ -34,6 +34,7 @@ import java.util.stream.Collectors;
 /**
  * Service repository for module
  */
+// Module 所有 Provider 和 Consumer管理
 public class ModuleServiceRepository {
 
     private final ModuleModel moduleModel;

@@ -26,6 +26,7 @@ import java.util.Map;
  * 1. get extra attributes from underlying infrastructures related to the instance on which Dubbo is currently deploying.
  * 2. get configurations from third-party systems which maybe useful for a specific component.
  */
+// Dubbo通过InfraAdapter与各种运行环境(k8s, 云平台)进行解耦
 @SPI(scope = ExtensionScope.APPLICATION)
 public interface InfraAdapter {
 

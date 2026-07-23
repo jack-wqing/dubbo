@@ -44,6 +44,7 @@ import static org.apache.dubbo.config.Constants.ON_THROW_METHOD_PARAMETER_KEY;
  *
  * @export
  */
+// 方法配置
 public class MethodConfig extends AbstractMethodConfig {
 
     private static final long serialVersionUID = 884908855422675941L;

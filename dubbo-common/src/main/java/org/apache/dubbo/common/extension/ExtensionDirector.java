@@ -31,6 +31,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * <p>ExtensionDirector supports multiple levels, and the child can inherit the parent's extension instances. </p>
  * <p>The way to find and create an extension instance is similar to Java classloader.</p>
  */
+// ExtensionDirector 是一个作用域的扩展加载管理
 public class ExtensionDirector implements ExtensionAccessor {
 
     private final ConcurrentMap<Class<?>, ExtensionLoader<?>> extensionLoadersMap = new ConcurrentHashMap<>(64);
@@ -72,6 +73,7 @@ public class ExtensionDirector implements ExtensionAccessor {
         if (!type.isInterface()) {
             throw new IllegalArgumentException("Extension type (" + type + ") is not an interface!");
         }
+        // 加载的扩展必须实现@SPI
         if (!withExtensionAnnotation(type)) {
             throw new IllegalArgumentException("Extension type (" + type
                     + ") is not an extension, because it is NOT annotated with @" + SPI.class.getSimpleName() + "!");
@@ -86,7 +88,7 @@ public class ExtensionDirector implements ExtensionAccessor {
             scope = annotation.scope();
             extensionScopeMap.put(type, scope);
         }
-
+        // SELF SPI 直接创建
         if (loader == null && scope == ExtensionScope.SELF) {
             // create an instance in self scope
             loader = createExtensionLoader0(type);

@@ -50,6 +50,7 @@ import java.util.concurrent.locks.Lock;
  * and many Consumer Model which is about subscribed services.
  * <p>
  */
+// 应用级Model
 public class ApplicationModel extends ScopeModel {
     protected static final Logger LOGGER = LoggerFactory.getLogger(ApplicationModel.class);
     public static final String NAME = "ApplicationModel";
@@ -117,7 +118,7 @@ public class ApplicationModel extends ScopeModel {
             for (String listenerName : listenerNames) {
                 extensionLoader.getExtension(listenerName).init();
             }
-
+            // Environment ConfigManager
             initApplicationExts();
 
             ExtensionLoader<ScopeModelInitializer> initializerExtensionLoader =

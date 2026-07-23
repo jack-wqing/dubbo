@@ -26,6 +26,7 @@ import java.util.List;
  *
  * @see org.apache.dubbo.registry.RegistryService#subscribe(URL, NotifyListener)
  */
+// 注册中心通知其
 public interface NotifyListener {
 
     /**

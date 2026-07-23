@@ -29,6 +29,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.CONFIG_FAILE
 /**
  * This is an abstraction specially customized for the sequence Dubbo retrieves properties.
  */
+// Composite Configuration
 public class CompositeConfiguration implements Configuration {
     private final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(CompositeConfiguration.class);
 

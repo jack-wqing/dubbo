@@ -36,6 +36,7 @@ import static org.apache.dubbo.common.utils.PojoUtils.updatePropertyIfAbsent;
  *
  * @export
  */
+// Registry Confg
 public class RegistryConfig extends AbstractConfig {
 
     private static final long serialVersionUID = 5508512956753757169L;

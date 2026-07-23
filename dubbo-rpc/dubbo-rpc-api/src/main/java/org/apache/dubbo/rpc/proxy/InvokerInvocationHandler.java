@@ -31,6 +31,7 @@ import java.lang.reflect.Method;
 /**
  * InvokerHandler
  */
+// 接口方法信息封装为RpcInvocation发起远程调用
 public class InvokerInvocationHandler implements InvocationHandler {
     private static final Logger logger = LoggerFactory.getLogger(InvokerInvocationHandler.class);
 

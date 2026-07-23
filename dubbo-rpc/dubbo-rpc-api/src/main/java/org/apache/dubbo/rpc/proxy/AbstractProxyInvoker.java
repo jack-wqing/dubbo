@@ -41,6 +41,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROXY_ERROR_
 /**
  * This Invoker works on provider side, delegates RPC to interface implementation.
  */
+// 服务端RPC -> Java 兑现
 public abstract class AbstractProxyInvoker<T> implements Invoker<T> {
     ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(AbstractProxyInvoker.class);
 
@@ -87,6 +88,7 @@ public abstract class AbstractProxyInvoker<T> implements Invoker<T> {
     public Result invoke(Invocation invocation) throws RpcException {
         ProfilerEntry originEntry = null;
         try {
+            // Dubbo自带一个轻量级性能分析器
             if (ProfilerSwitch.isEnableSimpleProfiler()) {
                 Object fromInvocation = invocation.get(Profiler.PROFILER_KEY);
                 if (fromInvocation instanceof ProfilerEntry) {
@@ -150,6 +152,7 @@ public abstract class AbstractProxyInvoker<T> implements Invoker<T> {
         if (value instanceof CompletableFuture) {
             invocation.put(PROVIDER_ASYNC_KEY, Boolean.TRUE);
             return (CompletableFuture<Object>) value;
+            // 如果业务代码调用了RpcContext.startAsync（或等价API）开启了Provider异步，那么当前线程不会立即返回，而是返回一个CompletableFuture, 真正的响应由业务线程稍后完成
         } else if (RpcContext.getServerAttachment().isAsyncStarted()) {
             invocation.put(PROVIDER_ASYNC_KEY, Boolean.TRUE);
             return ((AsyncContextImpl) (RpcContext.getServerAttachment().getAsyncContext())).getInternalFuture();

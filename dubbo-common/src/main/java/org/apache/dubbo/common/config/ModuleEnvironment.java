@@ -29,6 +29,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+// Module 级别的配置
 public class ModuleEnvironment extends Environment implements ModuleExt {
 
     // delegate

@@ -18,6 +18,7 @@ package org.apache.dubbo.common.deploy;
 
 import org.apache.dubbo.rpc.model.ScopeModel;
 
+//应用部署监听器
 public interface DeployListener<E extends ScopeModel> {
     /**
      * Useful to inject some configuration like MetricsConfig, RegistryConfig, etc.

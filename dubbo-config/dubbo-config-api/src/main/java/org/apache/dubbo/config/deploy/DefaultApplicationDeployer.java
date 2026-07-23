@@ -113,6 +113,7 @@ import static org.apache.dubbo.remoting.Constants.CLIENT_KEY;
 /**
  * initialize and start application instance
  */
+// 初始化 和 启动一个应用
 public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationModel> implements ApplicationDeployer {
 
     private static final ErrorTypeAwareLogger logger =

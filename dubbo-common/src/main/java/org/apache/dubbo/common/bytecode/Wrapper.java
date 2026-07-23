@@ -124,7 +124,7 @@ public abstract class Wrapper {
             return makeWrapper(clazz);
         });
     }
-
+    // 静态代理模版，if判断方法名直接调用
     private static Wrapper makeWrapper(Class<?> c) {
         if (c.isPrimitive()) {
             throw new IllegalArgumentException("Can not create wrapper for primitive type: " + c);

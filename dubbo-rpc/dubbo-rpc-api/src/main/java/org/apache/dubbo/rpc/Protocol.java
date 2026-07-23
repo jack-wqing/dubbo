@@ -55,6 +55,7 @@ import java.util.List;
  *
  * (API/SPI, Singleton, ThreadSafe)
  */
+// 定义了Dubbo服务的发布(Export)和引用(Refer)规范，屏蔽了不同通信协议和注册中心实现的差异
 @SPI(value = "dubbo", scope = ExtensionScope.FRAMEWORK)
 public interface Protocol {
 
@@ -78,6 +79,7 @@ public interface Protocol {
      * @return exporter reference for exported service, useful for unexport the service later
      * @throws RpcException thrown when error occurs during export the service, for example: port is occupied
      */
+    // 接收远程请求
     @Adaptive
     <T> Exporter<T> export(Invoker<T> invoker) throws RpcException;
 
@@ -96,6 +98,7 @@ public interface Protocol {
      * @return invoker service's local proxy
      * @throws RpcException when there's any error while connecting to the service provider
      */
+    // 发送远程请求
     @Adaptive
     <T> Invoker<T> refer(Class<T> type, URL url) throws RpcException;
 
@@ -112,6 +115,7 @@ public interface Protocol {
      *
      * @return
      */
+    // ProtocolServer
     default List<ProtocolServer> getServers() {
         return Collections.emptyList();
     }

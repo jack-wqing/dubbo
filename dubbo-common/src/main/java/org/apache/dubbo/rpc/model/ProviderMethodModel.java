@@ -24,6 +24,7 @@ import java.util.concurrent.ConcurrentMap;
 /**
  * Replaced with {@link MethodDescriptor}
  */
+// 方法的运行时模型
 @Deprecated
 public class ProviderMethodModel {
     private final Method method;

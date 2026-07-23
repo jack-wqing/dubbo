@@ -37,6 +37,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.SERVICE_FILTER_K
  *
  * @export
  */
+// 服务配置 通用的serviceKey: group/serviceInterface:version
 public abstract class AbstractServiceConfig extends AbstractInterfaceConfig {
 
     private static final long serialVersionUID = -9026290350363878309L;

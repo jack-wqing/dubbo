@@ -141,6 +141,7 @@ import static org.apache.dubbo.rpc.model.ScopeModelUtil.getApplicationModel;
 /**
  * TODO, replace RegistryProtocol completely in the future.
  */
+// Registry
 public class RegistryProtocol implements Protocol, ScopeModelAware {
     public static final String[] DEFAULT_REGISTER_PROVIDER_KEYS = {
         APPLICATION_KEY,
@@ -268,14 +269,17 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
 
     @Override
     public <T> Exporter<T> export(final Invoker<T> originInvoker) throws RpcException {
+        // 注册中心URL
         URL registryUrl = getRegistryUrl(originInvoker);
         // url to export locally
+        // provider URL
         URL providerUrl = getProviderUrl(originInvoker);
 
         // Subscribe the override data
         // FIXME When the provider subscribes, it will affect the scene : a certain JVM exposes the service and call
         //  the same service. Because the subscribed is cached key with the name of the service, it causes the
         //  subscription information to cover.
+        // 解决同一个服务，Provider 和 Consumer 覆盖的问题
         final URL overrideSubscribeUrl = getSubscribedOverrideUrl(providerUrl);
         final OverrideListener overrideSubscribeListener = new OverrideListener(overrideSubscribeUrl, originInvoker);
         Map<URL, Set<NotifyListener>> overrideListeners =
@@ -286,6 +290,7 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
 
         providerUrl = overrideUrlWithConfig(providerUrl, overrideSubscribeListener);
         // export invoker
+        // 真是协议 export 暴露
         final ExporterChangeableWrapper<T> exporter = doLocalExport(originInvoker, providerUrl);
 
         // url to registry
@@ -306,6 +311,7 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
         exporter.setNotifyListener(overrideSubscribeListener);
         exporter.setRegistered(register);
 
+        // dubbo3 走 ProviderConfigurationListener + GovernanceRuleRepository
         ApplicationModel applicationModel = getApplicationModel(providerUrl.getScopeModel());
         if (applicationModel
                 .modelEnvironment()
@@ -478,6 +484,7 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
      * @param registryUrl
      * @return
      */
+    // 动态生成自适应 RegistryFactory
     protected Registry getRegistry(final URL registryUrl) {
         RegistryFactory registryFactory = ScopeModelUtil.getExtensionLoader(
                         RegistryFactory.class, registryUrl.getScopeModel())
@@ -551,6 +558,7 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
         return registryUrl.removeParameters(DYNAMIC_KEY, ENABLED_KEY).toFullString();
     }
 
+    // refer
     @Override
     @SuppressWarnings("unchecked")
     public <T> Invoker<T> refer(Class<T> type, URL url) throws RpcException {
@@ -560,9 +568,11 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
             return proxyFactory.getInvoker((T) registry, type, url);
         }
 
+        // ReferenceConfig的所有参数
         // group="a,b" or group="*"
         Map<String, String> qs = (Map<String, String>) url.getAttribute(REFER_KEY);
         String group = qs.get(GROUP_KEY);
+        // 这里通过是不是多组引用决定Cluster,从而你决定Directory的合并
         if (StringUtils.isNotEmpty(group)) {
             if ((COMMA_SPLIT_PATTERN.split(group)).length > 1 || "*".equals(group)) {
                 return doRefer(
@@ -579,6 +589,7 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
         Map<String, Object> consumerAttribute = new HashMap<>(url.getAttributes());
         consumerAttribute.remove(REFER_KEY);
         String p = isEmpty(parameters.get(PROTOCOL_KEY)) ? CONSUMER : parameters.get(PROTOCOL_KEY);
+        // 生成消费端注册的url
         URL consumerUrl = new ServiceConfigURL(
                 p,
                 null,
@@ -642,7 +653,7 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
         DynamicDirectory<T> directory = new RegistryDirectory<>(type, url);
         return doCreateInvoker(directory, cluster, registry, type);
     }
-
+    // Directoy与Cluster集成
     protected <T> ClusterInvoker<T> doCreateInvoker(
             DynamicDirectory<T> directory, Cluster cluster, Registry registry, Class<T> type) {
         directory.setRegistry(registry);
@@ -757,6 +768,7 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
         return url;
     }
 
+    // 包装原始OriginInvoker
     public static class InvokerDelegate<T> extends InvokerWrapper<T> {
 
         /**
@@ -811,6 +823,7 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
      * 2.No need to re-register to the registry after notify
      * 3.The invoker passed by the export method , would better to be the invoker of exporter
      */
+    // 负责服务配置改变时接收通知 zk:configurators nacos:配置中心
     private class OverrideListener implements NotifyListener {
         private final URL subscribeUrl;
         private final Invoker originInvoker;
@@ -933,7 +946,7 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
                 .getOrRegisterBean(
                         ProviderConfigurationListener.class, type -> new ProviderConfigurationListener(moduleModel));
     }
-
+    // 某一个服务的配置
     private class ServiceConfigurationListener extends AbstractConfiguratorListener {
         private URL providerUrl;
         private OverrideListener notifyListener;
@@ -969,7 +982,7 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
             }
         }
     }
-
+    // Provider 配置更新 全局配置
     private class ProviderConfigurationListener extends AbstractConfiguratorListener {
 
         private final Map<URL, Set<NotifyListener>> overrideListeners = new ConcurrentHashMap<>();

@@ -26,6 +26,7 @@ import org.apache.dubbo.rpc.model.ScopeModelAware;
 import java.util.HashMap;
 import java.util.Set;
 
+// 框架状态报告服务
 public class FrameworkStatusReportService implements ScopeModelAware {
 
     private static final Logger logger = LoggerFactory.getLogger(FrameworkStatusReporter.class);

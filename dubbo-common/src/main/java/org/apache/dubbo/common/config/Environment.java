@@ -38,6 +38,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_UNEXPECTED_EXCEPTION;
 
+// 负责管理Dubbo的所有配置来源
 public class Environment extends LifecycleAdapter implements ApplicationExt {
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(Environment.class);
 
@@ -53,20 +54,25 @@ public class Environment extends LifecycleAdapter implements ApplicationExt {
     private EnvironmentConfiguration environmentConfiguration;
 
     // external config, such as config-center global/default config
+    // 整个Dubbo集群共享的配置
     private InmemoryConfiguration externalConfiguration;
 
     // external app config, such as config-center app config
+    // 当前应用自己的配置
     private InmemoryConfiguration appExternalConfiguration;
 
     // local app config , such as Spring Environment/PropertySources/application.properties
+    // app本地配置，来源本地
     private InmemoryConfiguration appConfiguration;
 
     protected CompositeConfiguration globalConfiguration;
 
     protected List<Map<String, String>> globalConfigurationMaps;
 
+    // 默认配置中心组合
     private CompositeConfiguration defaultDynamicGlobalConfiguration;
 
+    // 默认配置中心
     private DynamicConfiguration defaultDynamicConfiguration;
 
     private String localMigrationRule;
@@ -95,6 +101,7 @@ public class Environment extends LifecycleAdapter implements ApplicationExt {
     /**
      * @deprecated MigrationRule will be removed in 3.1
      */
+
     @Deprecated
     private void loadMigrationRule() {
         if (Boolean.parseBoolean(SystemPropertyConfigUtils.getSystemProperty(

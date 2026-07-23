@@ -517,13 +517,13 @@ public class ReferenceConfig<T> extends ReferenceConfigBase<T> {
         consumerUrl = consumerUrl.setScopeModel(getScopeModel());
         consumerUrl = consumerUrl.setServiceModel(consumerModel);
         MetadataUtils.publishServiceDefinition(consumerUrl, consumerModel.getServiceModel(), getApplicationModel());
-
+        // 返回接口代理对象
         // create service proxy
         return (T) proxyFactory.getProxy(invoker, ProtocolUtils.isGeneric(generic));
     }
 
     /**
-     * if enable mesh mode, handle url.
+     * if enable mesh mode, handle url.  启动mesh方式
      *
      * @param referenceParameters referenceParameters
      */

@@ -19,6 +19,7 @@ package org.apache.dubbo.common;
 /**
  * Node. (API/SPI, Prototype, ThreadSafe)
  */
+// Dubbo对“可远程访问节点”的统一抽象，通信节点最基本的信息和生成周期
 public interface Node {
 
     /**

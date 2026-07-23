@@ -22,9 +22,10 @@ import org.apache.dubbo.config.ServiceConfig;
  * Mode of which of DubboBootstrap lifecycle being takeover
  * SPRING: will be controlled by spring context
  * MANUAL: will be controlled by users, after all services init, should call {@link DubboBootstrap#start()} to init app-level env
- * AUTO: env will be init once {@link ServiceConfig#export()} finished
+ * AUTO: env will be init once {@link ServiceConfig#export()} finished  // 第一个ServiceConfig#export() 在初始化环境
  * SERVLET: will be controlled by java servlet container
  */
+// BootstrapTakeoverMode: 用来决定DubboBootstrap的生命周期由谁来接管(takeover)
 public enum BootstrapTakeoverMode {
     SPRING,
     MANUAL,

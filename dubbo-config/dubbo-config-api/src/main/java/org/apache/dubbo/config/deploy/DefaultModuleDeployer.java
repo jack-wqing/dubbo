@@ -63,6 +63,8 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.CONFIG_UNABL
 /**
  * Export/refer services of module
  */
+
+// 模块级：导出和引用服务
 public class DefaultModuleDeployer extends AbstractDeployer<ModuleModel> implements ModuleDeployer {
 
     private static final ErrorTypeAwareLogger logger =

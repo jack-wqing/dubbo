@@ -24,6 +24,7 @@ import org.apache.dubbo.config.ServiceConfigBase;
 import java.util.Objects;
 import java.util.Set;
 
+// 抽象“一个Dubbo服务”的公共元数据， ProviderModule/ConsumerModule
 public class ServiceModel {
     private String serviceKey;
     private Object proxyObject;

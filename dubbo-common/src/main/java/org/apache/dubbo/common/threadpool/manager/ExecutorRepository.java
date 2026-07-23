@@ -33,7 +33,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import static org.apache.dubbo.common.constants.CommonConstants.EXECUTOR_MANAGEMENT_MODE_ISOLATION;
 
 /**
- *
+ * 是Dubbo 的线程池仓库(Thread Pool Repository),负责统一创建、缓存、管理和销毁Dubbo运行过程的各种线程池
  */
 @SPI(value = "isolation", scope = ExtensionScope.APPLICATION)
 public interface ExecutorRepository {

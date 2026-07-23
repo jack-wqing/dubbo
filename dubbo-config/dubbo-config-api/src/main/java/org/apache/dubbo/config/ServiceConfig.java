@@ -122,6 +122,7 @@ import static org.apache.dubbo.rpc.Constants.TOKEN_KEY;
 import static org.apache.dubbo.rpc.cluster.Constants.EXPORT_KEY;
 import static org.apache.dubbo.rpc.support.ProtocolUtils.isGeneric;
 
+// Java 对象 -> ServiceConfig -> Dubbo服务
 public class ServiceConfig<T> extends ServiceConfigBase<T> {
 
     private static final long serialVersionUID = 7868244018230856253L;
@@ -158,6 +159,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
     /**
      * The exported services
      */
+    // 注册方式和多个导出实例
     private final Map<RegisterTypeEnum, List<Exporter<?>>> exporters = new ConcurrentHashMap<>();
 
     private final List<ServiceListener> serviceListeners = new ArrayList<>();
@@ -204,6 +206,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
             return;
         }
         if (!exporters.isEmpty()) {
+            // 先取消注册
             for (List<Exporter<?>> es : exporters.values()) {
                 for (Exporter<?> exporter : es) {
                     try {
@@ -219,6 +222,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
                 }
             }
             waitForIdle();
+            // 取消导出
             for (List<Exporter<?>> es : exporters.values()) {
                 for (Exporter<?> exporter : es) {
                     try {
@@ -347,7 +351,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
 
         getScopeModel().getDeployer().registerServiceInstance();
     }
-
+    // 注册时Export.register()
     @Override
     public void register(boolean byDeployer) {
         if (!this.exported) {
@@ -396,6 +400,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
     protected void exported() {
         exported = true;
         List<URL> exportedURLs = this.getExportedUrls();
+        // 映射服务方法关系
         exportedURLs.forEach(url -> {
             if (url.getParameter(SERVICE_NAME_MAPPING_KEY, false)) {
                 ServiceNameMapping serviceNameMapping = ServiceNameMapping.getDefaultExtension(getScopeModel());
@@ -410,6 +415,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
         onExported();
 
         if (hasRegistrySpecified()) {
+            // 服务中心发送
             getScopeModel().getDeployer().getApplicationDeployer().exportMetadataService();
         }
     }
@@ -590,7 +596,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
         List<URL> registryURLs = !Boolean.FALSE.equals(isRegister())
                 ? ConfigValidationUtils.loadRegistries(this, true)
                 : Collections.emptyList();
-
+        // 多协议，多注册器实现
         for (ProtocolConfig protocolConfig : protocols) {
             String pathKey = URL.buildKey(
                     getContextPath(protocolConfig).map(p -> p + "/" + path).orElse(path), group, version);
@@ -613,14 +619,15 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
         map.keySet().removeIf(key -> StringUtils.isEmpty(key) || StringUtils.isEmpty(map.get(key)));
         // init serviceMetadata attachments
         serviceMetadata.getAttachments().putAll(map);
-
+        // 生成Service URL
         URL url = buildUrl(protocolConfig, map);
-
+        // 服务执行器
         processServiceExecutor(url);
 
         if (CollectionUtils.isEmpty(registryURLs)) {
             registerType = RegisterTypeEnum.NEVER_REGISTER;
         }
+        // 导出ServiceURL
         exportUrl(url, registryURLs, registerType);
 
         initServiceMethodMetrics(url);
@@ -870,6 +877,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
 
                 if (StringUtils.isNotBlank(extProtocol)) {
                     // export original url
+                    // Primary URL
                     url = URLBuilder.from(url)
                             .addParameter(IS_PU_SERVER_KEY, Boolean.TRUE.toString())
                             .build();
@@ -884,7 +892,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
                     String[] extProtocols = extProtocol.split(",", -1);
                     protocols.addAll(Arrays.asList(extProtocols));
                 }
-                // export extra protocols
+                // export extra protocols 扩展协议导出
                 for (String protocol : protocols) {
                     if (StringUtils.isNotBlank(protocol)) {
                         URL localUrl = URLBuilder.from(url)
@@ -963,7 +971,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
                 || registerType == RegisterTypeEnum.AUTO_REGISTER_BY_DEPLOYER) {
             url = url.addParameter(REGISTER_KEY, false);
         }
-
+        // 框架实现Invoker(AbstractProxyInvoker) java对象到一个Invoker 提供RPC服务
         Invoker<?> invoker = proxyFactory.getInvoker(ref, (Class) interfaceClass, url);
         if (withMetaData) {
             invoker = new DelegateProviderMetaDataInvoker(invoker, this);
@@ -977,6 +985,7 @@ public class ServiceConfig<T> extends ServiceConfigBase<T> {
     /**
      * always export injvm
      */
+    // jvm导出
     private void exportLocal(URL url) {
         URL local = URLBuilder.from(url)
                 .setProtocol(LOCAL_PROTOCOL)

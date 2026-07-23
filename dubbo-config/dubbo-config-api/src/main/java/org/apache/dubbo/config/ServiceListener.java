@@ -21,6 +21,7 @@ import org.apache.dubbo.common.extension.SPI;
 /**
  * Listener for service config
  */
+// 服务监听器
 @SPI
 public interface ServiceListener {
 

@@ -31,6 +31,7 @@ import org.apache.dubbo.rpc.model.ScopeModelUtil;
  * <a href="http://en.wikipedia.org/wiki/Fault-tolerant_system">Fault-Tolerant</a>
  *
  */
+// Cluster是工厂 根据配置创建对应的ClusterInvoker
 @SPI(Cluster.DEFAULT)
 public interface Cluster {
 

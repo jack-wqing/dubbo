@@ -24,6 +24,7 @@ import java.util.concurrent.Future;
 /**
  * Export/refer services of module
  */
+// Module 部署生命周期管理
 public interface ModuleDeployer extends Deployer<ModuleModel> {
 
     void initialize() throws IllegalStateException;

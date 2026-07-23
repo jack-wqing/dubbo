@@ -30,6 +30,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.CONFIG_UNDEF
 /**
  * A cleaner to release resources of framework model
  */
+// FrameworkMode Cleaner 主要是 protocol.destroy()
 public class FrameworkModelCleaner implements ScopeModelDestroyListener<FrameworkModel> {
 
     private static final ErrorTypeAwareLogger logger =

@@ -26,6 +26,7 @@ import static org.apache.dubbo.rpc.Constants.PROXY_KEY;
 /**
  * ProxyFactory. (API/SPI, Singleton, ThreadSafe)
  */
+// Java 对象 和 Invoker直接的转换
 @SPI(value = "javassist", scope = FRAMEWORK)
 public interface ProxyFactory {
 

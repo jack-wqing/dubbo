@@ -19,6 +19,7 @@ package org.apache.dubbo.rpc.model;
 import org.apache.dubbo.common.extension.ExtensionScope;
 import org.apache.dubbo.common.extension.SPI;
 
+// Dubbo3 内置服务检测器
 @SPI(scope = ExtensionScope.FRAMEWORK)
 public interface BuiltinServiceDetector {
 

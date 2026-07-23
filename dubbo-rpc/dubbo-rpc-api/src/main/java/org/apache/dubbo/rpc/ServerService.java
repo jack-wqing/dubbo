@@ -18,7 +18,7 @@ package org.apache.dubbo.rpc;
 
 import org.apache.dubbo.common.URL;
 import org.apache.dubbo.rpc.model.ServiceDescriptor;
-
+// 用来描述"元数据中心中的服务信息(ServiceDefinition)"的数据模型
 public interface ServerService<T> {
 
     Invoker<T> getInvoker(URL url);

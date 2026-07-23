@@ -35,6 +35,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.COMMON_UNEXP
  * Global resource repository between all framework models.
  * It will be destroyed only after all framework model is destroyed.
  */
+// 全局资源管理
 public class GlobalResourcesRepository {
 
     private static final ErrorTypeAwareLogger logger =
