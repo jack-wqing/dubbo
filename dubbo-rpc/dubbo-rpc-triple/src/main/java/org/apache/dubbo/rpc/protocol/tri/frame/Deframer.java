@@ -18,6 +18,7 @@ package org.apache.dubbo.rpc.protocol.tri.frame;
 
 import io.netty.buffer.ByteBuf;
 
+// 拆帧
 public interface Deframer {
 
     /**

@@ -55,7 +55,7 @@ public final class Http2TripleClientStream extends AbstractTripleClientStream {
             Http2StreamChannel http2StreamChannel) {
         super(frameworkModel, executor, writeQueue, listener, http2StreamChannel);
     }
-
+    // Http2StreamChannelBootstrap
     @Override
     protected TripleStreamChannelFuture initStreamChannel(Channel parent) {
         Http2StreamChannelBootstrap bootstrap = new Http2StreamChannelBootstrap(parent);

@@ -26,6 +26,7 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelPromise;
 
+// 批量操作队列
 public class TripleWriteQueue extends BatchExecutorQueue<QueuedCommand> {
 
     public TripleWriteQueue() {}

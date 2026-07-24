@@ -22,6 +22,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelOutboundHandlerAdapter;
 import io.netty.channel.ChannelPromise;
 
+// CommandBound
 public class TripleCommandOutBoundHandler extends ChannelOutboundHandlerAdapter {
 
     @Override

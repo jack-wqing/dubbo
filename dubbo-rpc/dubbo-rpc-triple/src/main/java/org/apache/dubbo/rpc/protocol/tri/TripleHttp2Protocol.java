@@ -97,6 +97,7 @@ public class TripleHttp2Protocol extends AbstractWireProtocol implements ScopeMo
 
     @Override
     public void configClientPipeline(URL url, ChannelOperator operator, ContextOperator contextOperator) {
+        // tripleConfig
         TripleConfig tripleConfig = ConfigManager.getProtocolOrDefault(url).getTripleOrDefault();
         Http2FrameCodec codec = Http2FrameCodecBuilder.forClient()
                 .gracefulShutdownTimeoutMillis(10000)

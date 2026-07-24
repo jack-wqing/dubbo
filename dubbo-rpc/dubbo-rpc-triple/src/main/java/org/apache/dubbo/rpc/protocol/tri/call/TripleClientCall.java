@@ -41,6 +41,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROTOCOL_FAI
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROTOCOL_FAILED_SERIALIZE_TRIPLE;
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROTOCOL_STREAM_LISTENER;
 
+// ClientCall ClientCall.Listener
 public class TripleClientCall implements ClientCall, ClientStream.Listener {
     private static final ErrorTypeAwareLogger LOGGER = LoggerFactory.getErrorTypeAwareLogger(TripleClientCall.class);
     private final AbstractConnectionClient connectionClient;
@@ -244,6 +245,7 @@ public class TripleClientCall implements ClientCall, ClientStream.Listener {
         requestMetadata.compressor = Compressor.getCompressor(frameworkModel, compression);
     }
 
+    // ClientCall.start()
     @Override
     public StreamObserver<Object> start(RequestMetadata metadata, ClientCall.Listener responseListener) {
         ClientStream stream;

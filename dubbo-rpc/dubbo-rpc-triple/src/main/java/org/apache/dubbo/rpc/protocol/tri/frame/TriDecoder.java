@@ -23,6 +23,7 @@ import io.netty.buffer.ByteBuf;
 import io.netty.buffer.CompositeByteBuf;
 import io.netty.buffer.Unpooled;
 
+// TripleDeframer
 public class TriDecoder implements Deframer {
 
     private static final int HEADER_LENGTH = 5;

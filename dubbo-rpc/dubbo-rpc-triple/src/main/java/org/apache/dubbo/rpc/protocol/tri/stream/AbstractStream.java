@@ -25,6 +25,7 @@ import java.util.concurrent.Executor;
 /**
  * An abstract stream implementation.
  */
+// 支持Executor
 public abstract class AbstractStream implements Stream {
 
     protected Executor executor;

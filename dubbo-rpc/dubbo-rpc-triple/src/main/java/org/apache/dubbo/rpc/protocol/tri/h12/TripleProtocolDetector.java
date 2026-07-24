@@ -25,6 +25,7 @@ import org.apache.dubbo.remoting.http12.HttpVersion;
 
 import io.netty.handler.codec.http2.Http2CodecUtil;
 
+// triple ProtocolDetector
 public class TripleProtocolDetector implements ProtocolDetector {
 
     public static final String HTTP_VERSION = "HTTP_VERSION";

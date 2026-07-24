@@ -57,6 +57,7 @@ public final class Http3TripleClientStream extends AbstractTripleClientStream {
         super(frameworkModel, executor, writeQueue, listener, http2StreamChannel);
     }
 
+    // http3
     @Override
     protected TripleStreamChannelFuture initStreamChannel(Channel parent) {
         Http3RequestStreamInitializer initializer = new Http3RequestStreamInitializer() {

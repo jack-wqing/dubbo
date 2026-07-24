@@ -23,6 +23,7 @@ import io.netty.handler.codec.http2.Http2Headers;
  * An observer used for transport messaging which provides full streaming support. A
  * TransportObserver receives raw data or control messages from local/remote.
  */
+// 接收Transport层的消息
 public interface H2TransportListener {
 
     /**

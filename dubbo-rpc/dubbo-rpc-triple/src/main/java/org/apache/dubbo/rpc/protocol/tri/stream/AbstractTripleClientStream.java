@@ -69,6 +69,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROTOCOL_FAI
  * write Http2Frame to remote. A {@link H2TransportListener} receives Http2Frame from remote.
  * Instead of maintaining state, this class depends on upper layer or transport layer's states.
  */
+// AbstractTripleClientStream 负责管理一次Triple客户端RPCStream的生命周期，包括Http/2 Stream、发送请求数据、接收响应数据和回调
 public abstract class AbstractTripleClientStream extends AbstractStream implements ClientStream {
 
     private static final ErrorTypeAwareLogger LOGGER =
@@ -206,7 +207,7 @@ public abstract class AbstractTripleClientStream extends AbstractStream implemen
     protected H2TransportListener createTransportListener() {
         return new ClientTransportListener();
     }
-
+    // TransportListener 组合 Deframer(TriDecoder) 处理消息
     class ClientTransportListener extends AbstractH2TransportListener implements H2TransportListener {
 
         private TriRpcStatus transportError;

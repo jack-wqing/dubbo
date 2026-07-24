@@ -25,12 +25,13 @@ import java.util.Map;
 /**
  * ClientCall does not care about transport layer details.
  */
-// 客户端流
+// 一次客户端调用
 public interface ClientCall {
 
     /**
      * Listener for receive response.
      */
+    // 响应监听器
     interface Listener {
 
         /**

@@ -1,4 +1,21 @@
 1.RpcContext 作用 ?
+    RPC调用的上下文信息
+
+    消费端：AbstractInvoker发送之前调用
+    服务端ContextFilter: 获得Invocation.attachments
+
+    异步调用： 同步调用时RPCContext绑定当前线程；异步调用时Dubbo会保存调用上下文快照，并在异步回调线程恢复上下文，避免ThreadLocal在线程切换后丢失
+        AsyncRpcResult创建时缓存了RPCContext数据，whenCompleteWithContext；重新恢复
+
+
+2.Dubbo 编码
+    规则：16字节Header + 可变Body组成 请求/响应报文
+    Magic Number：2字节，0xdabb
+    Flag: 1 字节 - request/响应 - Serialization类型
+    Status: 1 字节 响应状态
+    RequestId: 8字节 请求和响应匹配   // 回绕不影响
+    Body Length: 4字节 内容长度
+
 
 2.Codec2（AbstractEndpoint）
 

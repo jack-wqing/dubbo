@@ -22,6 +22,7 @@ package org.apache.dubbo.common.stream;
  *
  * @param <T> type of message
  */
+// 接收消息的观察者
 public interface StreamObserver<T> {
 
     /**

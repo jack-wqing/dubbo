@@ -30,6 +30,7 @@ import io.netty.util.concurrent.Future;
  * from remote peer is acquired by {@link Listener}. Outbound data to remote peer is sent directly
  * by {@link Stream}. Backpressure is supported by {@link #request(int)}.
  */
+// 双向，接收数据通过Listener实现，发送数据通过Stream.send实现； request背压操作
 public interface Stream {
 
     /**

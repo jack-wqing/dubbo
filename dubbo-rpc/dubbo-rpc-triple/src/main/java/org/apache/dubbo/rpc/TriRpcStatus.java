@@ -39,6 +39,7 @@ import static org.apache.dubbo.rpc.RpcException.UNKNOWN_EXCEPTION;
 /**
  * See <a href="https://github.com/grpc/grpc/blob/master/doc/statuscodes.md">status codes</a>
  */
+// TriRpcStatus
 public class TriRpcStatus implements Serializable {
 
     private static final long serialVersionUID = 1L;
