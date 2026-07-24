@@ -33,6 +33,7 @@ import org.apache.dubbo.remoting.transport.codec.CodecAdapter;
 import java.util.Collection;
 import java.util.List;
 
+// 多协议Channel配置
 public class NettyConfigOperator implements ChannelOperator {
 
     private final Channel channel;

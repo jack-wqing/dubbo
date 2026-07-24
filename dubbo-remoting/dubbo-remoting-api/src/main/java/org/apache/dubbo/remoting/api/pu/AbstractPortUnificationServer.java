@@ -33,6 +33,7 @@ import java.util.stream.Collectors;
 import static org.apache.dubbo.common.constants.CommonConstants.COMMA_SEPARATOR;
 import static org.apache.dubbo.common.constants.CommonConstants.EXT_PROTOCOL;
 
+// 管理多端口一致
 public abstract class AbstractPortUnificationServer extends AbstractServer {
 
     /**
@@ -60,7 +61,7 @@ public abstract class AbstractPortUnificationServer extends AbstractServer {
     public Map<String, WireProtocol> getProtocols() {
         return protocols;
     }
-
+    // 支持所有的协议
     @Override
     protected final void doOpen() {
         ExtensionLoader<WireProtocol> loader =

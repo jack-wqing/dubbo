@@ -53,7 +53,7 @@ public final class NettyConnectionClient extends AbstractNettyConnectionClient {
                 .getExtension(getUrl().getProtocol());
         super.initConnectionClient();
     }
-
+    // NettyConfigOperator 管理多协议的配置
     protected void initBootstrap() {
         Bootstrap bootstrap = new Bootstrap();
         bootstrap
@@ -86,6 +86,7 @@ public final class NettyConnectionClient extends AbstractNettyConnectionClient {
                 pipeline.addLast(Constants.CONNECTION_HANDLER_NAME, connectionHandler);
 
                 NettyConfigOperator operator = new NettyConfigOperator(nettyChannel, getChannelHandler());
+                // 治理时直接配置客户端发起的链接
                 protocol.configClientPipeline(getUrl(), operator, nettySslContextOperator);
                 // set null but do not close this client, it will be reconnecting in the future
                 ch.closeFuture().addListener(channelFuture -> clearNettyChannel());

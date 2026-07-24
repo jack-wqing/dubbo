@@ -25,6 +25,7 @@ import org.apache.dubbo.remoting.transport.dispatcher.all.AllDispatcher;
 /**
  * ChannelHandlerWrapper (SPI, Singleton, ThreadSafe)
  */
+// 决定NettyIO线程收到事件后，是否切换到业务线程池，以及那些事件需要切换
 @SPI(value = AllDispatcher.NAME, scope = ExtensionScope.FRAMEWORK)
 public interface Dispatcher {
 

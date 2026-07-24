@@ -26,10 +26,12 @@ import java.util.Objects;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROTOCOL_ERROR_CLOSE_CLIENT;
 
+// 管理一个Provider地址(host:port)对应的所有共享连接
 public class SharedClientsProvider implements ClientsProvider {
     private static final ErrorTypeAwareLogger logger =
             LoggerFactory.getErrorTypeAwareLogger(SharedClientsProvider.class);
     private final DubboProtocol dubboProtocol;
+    // host:port
     private final String addressKey;
     private final List<ReferenceCountExchangeClient> clients;
 

@@ -49,6 +49,8 @@ import io.netty.util.AttributeKey;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.INTERNAL_ERROR;
 
+// 根据收到的第一个数据包识别协议(Dubbo, triple, Http..), 动态替换NettyPipeline
+// 负责检测协议
 public class NettyPortUnificationServerHandler extends ByteToMessageDecoder {
 
     private static final ErrorTypeAwareLogger LOGGER =

@@ -28,6 +28,7 @@ import java.net.InetSocketAddress;
  * @see org.apache.dubbo.remoting.Client
  * @see RemotingServer
  */
+// 通信端点： Endpoint 是Dubbo Remoting中所有通信对象(Client, Server, Channel)的共同抽象，定义了"作为一个通信端点应该具备的基本能力"
 public interface Endpoint {
 
     /**

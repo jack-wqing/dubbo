@@ -29,6 +29,7 @@ import org.apache.dubbo.common.extension.SPI;
  *
  * @see org.apache.dubbo.remoting.Transporters
  */
+//传输层统一抽象试下
 @SPI(value = "netty", scope = ExtensionScope.FRAMEWORK)
 public interface Transporter {
 

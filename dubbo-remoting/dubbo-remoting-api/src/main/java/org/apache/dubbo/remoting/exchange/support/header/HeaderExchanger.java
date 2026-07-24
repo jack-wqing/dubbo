@@ -33,6 +33,7 @@ import static org.apache.dubbo.remoting.Constants.IS_PU_SERVER_KEY;
  *
  *
  */
+// 基于Dubbo Header协议实现的Exchanger
 public class HeaderExchanger implements Exchanger {
 
     public static final String NAME = "header";

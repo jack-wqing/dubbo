@@ -16,6 +16,7 @@
  */
 package org.apache.dubbo.remoting.api.connection;
 
+// 连接生命周期管理
 public interface ConnectionHandler {
 
     /**

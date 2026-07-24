@@ -36,6 +36,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROTOCOL_FAI
 /**
  * dubbo protocol support class.
  */
+// Dubbo 协议执行
 @SuppressWarnings("deprecation")
 final class ReferenceCountExchangeClient implements ExchangeClient {
 

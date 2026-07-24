@@ -25,6 +25,7 @@ import java.util.concurrent.CompletableFuture;
 /**
  * ExchangeHandler. (API, Prototype, ThreadSafe)
  */
+// RPC事件处理接口
 public interface ExchangeHandler extends ChannelHandler, TelnetHandler {
 
     /**

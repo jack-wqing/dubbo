@@ -58,6 +58,7 @@ import static org.apache.dubbo.rpc.protocol.dubbo.Constants.DEFAULT_DECODE_IN_IO
 /**
  * Dubbo codec.
  */
+// DubboCodec: 负责Dubbo业务层协议(Invocation/Result)的编解码
 public class DubboCodec extends ExchangeCodec {
 
     public static final String NAME = "dubbo";

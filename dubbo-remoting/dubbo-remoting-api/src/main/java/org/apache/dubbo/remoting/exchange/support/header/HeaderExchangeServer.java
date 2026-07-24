@@ -54,6 +54,7 @@ import static org.apache.dubbo.remoting.utils.UrlUtils.getCloseTimeout;
 /**
  * ExchangeServerImpl
  */
+// 基于Header的 ExchangerServer
 public class HeaderExchangeServer implements ExchangeServer {
 
     protected final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(getClass());

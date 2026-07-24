@@ -25,6 +25,7 @@ import java.net.InetSocketAddress;
  * @see RemotingServer#getChannels()
  * @see RemotingServer#getChannel(InetSocketAddress)
  */
+// 对Netty Channel的统一抽象，代表"一条已经建立好的网络连接"，只负责网络通信，不关系RPC
 public interface Channel extends Endpoint {
 
     /**

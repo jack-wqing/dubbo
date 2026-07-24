@@ -104,6 +104,7 @@ public class DubboProtocol extends AbstractProtocol {
      * <host:port,Exchanger>
      * Map<String, List<ReferenceCountExchangeClient>
      */
+    // 共享
     private final Map<String, SharedClientsProvider> referenceClientMap = new ConcurrentHashMap<>();
 
     private final AtomicBoolean destroyed = new AtomicBoolean();
@@ -111,6 +112,7 @@ public class DubboProtocol extends AbstractProtocol {
     private final ExchangeHandler requestHandler;
 
     public DubboProtocol(FrameworkModel frameworkModel) {
+        // RPC 提供给网络层的回调接口: Protocol -> Invoker
         requestHandler = new ExchangeHandlerAdapter(frameworkModel) {
 
             @Override
@@ -283,7 +285,7 @@ public class DubboProtocol extends AbstractProtocol {
                 && NetUtils.filterLocalHost(channel.getUrl().getIp())
                         .equals(NetUtils.filterLocalHost(address.getAddress().getHostAddress()));
     }
-
+    // Export->getInvoker()
     Invoker<?> getInvoker(Channel channel, Invocation inv) throws RemotingException {
         boolean isCallBackServiceInvoke;
         boolean isStubServiceInvoke;
@@ -357,8 +359,9 @@ public class DubboProtocol extends AbstractProtocol {
                 }
             }
         }
-
+        // 创建Server
         openServer(url);
+        // 预热序列化机制
         optimizeSerialization(url);
 
         return exporter;
@@ -393,7 +396,7 @@ public class DubboProtocol extends AbstractProtocol {
             throw new IllegalStateException(getClass().getSimpleName() + " is destroyed");
         }
     }
-
+    // 创建协议服务器
     private ProtocolServer createServer(URL url) {
         url = URLBuilder.from(url)
                 // send readonly event when server closes, it's enabled by default
@@ -425,7 +428,7 @@ public class DubboProtocol extends AbstractProtocol {
                         .hasExtension(transporter)) {
             throw new RpcException("Unsupported client type: " + transporter);
         }
-
+        // Dubbo协议服务器
         DubboProtocolServer protocolServer = new DubboProtocolServer(server);
         loadServerProperties(protocolServer);
         return protocolServer;
@@ -448,7 +451,7 @@ public class DubboProtocol extends AbstractProtocol {
 
         return invoker;
     }
-
+    // 获得 ClientsProvider
     private ClientsProvider getClients(URL url) {
         int connections = url.getParameter(CONNECTIONS_KEY, 0);
         // whether to share connection

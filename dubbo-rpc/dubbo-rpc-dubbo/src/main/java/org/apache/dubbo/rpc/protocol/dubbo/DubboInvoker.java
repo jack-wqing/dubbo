@@ -60,6 +60,7 @@ import static org.apache.dubbo.rpc.Constants.TOKEN_KEY;
 /**
  * DubboInvoker
  */
+// DubboInvoker调用 选择或者轮询 定位Client
 public class DubboInvoker<T> extends AbstractInvoker<T> {
 
     private final ClientsProvider clientsProvider;

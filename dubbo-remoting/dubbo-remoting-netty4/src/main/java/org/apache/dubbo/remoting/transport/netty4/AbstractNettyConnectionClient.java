@@ -40,7 +40,7 @@ import io.netty.util.concurrent.Promise;
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.TRANSPORT_CLIENT_CONNECT_TIMEOUT;
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.TRANSPORT_FAILED_CONNECT_PROVIDER;
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.TRANSPORT_FAILED_RECONNECT;
-
+// 多协议
 public abstract class AbstractNettyConnectionClient extends AbstractConnectionClient {
 
     private AtomicReference<Promise<Object>> connectingPromiseRef;

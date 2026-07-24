@@ -27,6 +27,7 @@ import org.apache.dubbo.remoting.exchange.Response;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.TRANSPORT_FAILED_DECODE;
 
+// Request 的 Decodeable 支持
 public class DecodeHandler extends AbstractChannelHandlerDelegate {
 
     private static final ErrorTypeAwareLogger log = LoggerFactory.getErrorTypeAwareLogger(DecodeHandler.class);

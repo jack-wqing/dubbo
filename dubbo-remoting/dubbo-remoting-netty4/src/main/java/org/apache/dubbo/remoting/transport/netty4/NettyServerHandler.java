@@ -39,6 +39,7 @@ import io.netty.util.AttributeKey;
 /**
  * NettyServerHandler.
  */
+// NettyChannelDuplexHandler 生成 NettyChannel
 @io.netty.channel.ChannelHandler.Sharable
 public class NettyServerHandler extends ChannelDuplexHandler {
     private static final Logger logger = LoggerFactory.getLogger(NettyServerHandler.class);

@@ -28,6 +28,7 @@ import java.util.concurrent.atomic.AtomicLongFieldUpdater;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROTOCOL_ERROR_CLOSE_CLIENT;
 
+// 具备协议检测
 public abstract class AbstractConnectionClient extends AbstractClient {
 
     protected WireProtocol protocol;

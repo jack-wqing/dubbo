@@ -60,6 +60,7 @@ import static org.apache.dubbo.remoting.Constants.EVENT_LOOP_WORKER_POOL_NAME;
 /**
  * NettyServer.
  */
+// 单端口-单协议：Server
 public class NettyServer extends AbstractServer {
 
     /**

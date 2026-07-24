@@ -106,9 +106,43 @@
         RegistryProtocol：接收registry://风格URL把服务暴露和引用委托给真是协议，同时完成向注册中心的注册、订阅与配置覆盖
         Cluster：是容错层，把多个Provider（Invoker）包装成一个具有集群能力的Invoker,对上层透明底提供负载均衡，容错，重试，路由等能力
         DubboProtocol:
+            DubboExport
+            DubboInvoker
 
 
+    5、Remoting三层架构：
+        Exchange: 解决“请求-响应”
+            Exchangers
+            HeaderExchanger
+            HeaderExchangerServer
+            HeaderExchangerClient
+            HeaderExchangerChannel
+        Transport：解决“网络连接”
+            Transports
+            NettyTransporter
+            NettyServer
+            NettyClient
+            NettyChannel
 
+        Netty:
+            Netty：Server/Client
+            NettyServer:
+                NettyServerHandler:
+                IdleStateHandler:
+                NettyCodecAdapter:
+            NettyPortUnificationServer:
+                NettyPortUnificationServerHandler:
+                NettyChannelHandler:
+
+            NettyClient:
+               NettyClientHandler
+
+
+        ChannelHandler链：
+            MultiMessageHandler->HeartbeatHandler->AllChannelHandler（Dispatcher决定）->DecoderHandler
+                -> HeaderExchangerHandler-> DubboProtocol->RequestHandler
+
+        Dispatcher: all， direct, message（receive消息）, execution（request消息）, connection（链接事件专门有执行器）
 
 三、关闭原理与源码
     Dubbo3.4采用分阶段优雅停机策略，确保在途请求处理完成后释放资源，由ApplicationModel的生命周期驱动

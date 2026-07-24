@@ -51,6 +51,7 @@ import static org.apache.dubbo.remoting.utils.UrlUtils.getIdleTimeout;
 /**
  * AbstractClient
  */
+// client 公用能力，比如重连等
 public abstract class AbstractClient extends AbstractEndpoint implements Client {
 
     private final Lock connectLock = new ReentrantLock();

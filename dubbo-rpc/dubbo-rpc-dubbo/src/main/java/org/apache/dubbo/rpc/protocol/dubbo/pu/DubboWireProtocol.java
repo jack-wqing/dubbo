@@ -25,6 +25,7 @@ import org.apache.dubbo.remoting.api.pu.ChannelOperator;
 import java.util.ArrayList;
 import java.util.List;
 
+// Dubbo Server
 @Activate
 public class DubboWireProtocol extends AbstractWireProtocol {
     public DubboWireProtocol() {

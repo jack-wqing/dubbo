@@ -34,6 +34,7 @@ import java.io.OutputStream;
  * Subclasses {@link org.apache.dubbo.remoting.telnet.codec.TelnetCodec} and {@link org.apache.dubbo.remoting.exchange.codec.ExchangeCodec}
  * both override all the methods declared in this class.
  */
+// 传输层编解码
 @Deprecated
 public class TransportCodec extends AbstractCodec {
 

@@ -33,6 +33,7 @@ import java.util.concurrent.ConcurrentMap;
 
 import static org.apache.dubbo.common.constants.LoggerCodeConstants.PROTOCOL_ERROR_CLOSE_SERVER;
 
+// PU 实现
 public class PortUnificationExchanger {
 
     private static final ErrorTypeAwareLogger log =
@@ -58,6 +59,7 @@ public class PortUnificationExchanger {
         return servers.get(url.getAddress());
     }
 
+    // Triple协议直接使用创建
     public static AbstractConnectionClient connect(URL url, ChannelHandler handler) {
         final AbstractConnectionClient connectionClient;
         try {

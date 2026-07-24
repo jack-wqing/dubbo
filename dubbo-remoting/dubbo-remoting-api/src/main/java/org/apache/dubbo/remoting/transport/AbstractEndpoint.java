@@ -34,6 +34,7 @@ import static org.apache.dubbo.rpc.model.ScopeModelUtil.getFrameworkModel;
 /**
  * AbstractEndpoint
  */
+// 解决的时通信端点(端点)的公共能力
 public abstract class AbstractEndpoint extends AbstractPeer implements Resetable {
 
     protected final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(getClass());
@@ -50,7 +51,7 @@ public abstract class AbstractEndpoint extends AbstractPeer implements Resetable
     }
 
     protected AbstractEndpoint() {}
-
+    // 默认的编解码器
     protected static Codec2 getChannelCodec(URL url) {
         String codecName = url.getParameter(Constants.CODEC_KEY);
         if (StringUtils.isEmpty(codecName)) {

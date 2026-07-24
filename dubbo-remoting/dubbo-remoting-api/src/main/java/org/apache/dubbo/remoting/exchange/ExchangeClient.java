@@ -23,4 +23,5 @@ import org.apache.dubbo.remoting.Client;
  *
  *
  */
+//RPC层的抽象Client
 public interface ExchangeClient extends Client, ExchangeChannel {}

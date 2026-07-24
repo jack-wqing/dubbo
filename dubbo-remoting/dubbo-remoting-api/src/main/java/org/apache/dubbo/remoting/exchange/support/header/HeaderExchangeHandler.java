@@ -46,6 +46,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.TRANSPORT_UN
 /**
  * ExchangeReceiver
  */
+// 负责把Request/Response转成真正的Exchange予以，并调用真正的ExchangeHandler
 public class HeaderExchangeHandler implements ChannelHandlerDelegate {
 
     protected static final ErrorTypeAwareLogger logger =

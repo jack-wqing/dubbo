@@ -24,7 +24,7 @@ import org.apache.dubbo.remoting.api.connection.ConnectionManager;
 import org.apache.dubbo.remoting.api.connection.MultiplexProtocolConnectionManager;
 import org.apache.dubbo.remoting.api.pu.AbstractPortUnificationServer;
 import org.apache.dubbo.remoting.api.pu.PortUnificationTransporter;
-
+// NettyPortUnificationTransport
 public class NettyPortUnificationTransporter implements PortUnificationTransporter {
 
     public static final String NAME = "netty4";
@@ -34,6 +34,7 @@ public class NettyPortUnificationTransporter implements PortUnificationTransport
         return new NettyPortUnificationServer(url, handler);
     }
 
+    // Triple 使用
     @Override
     public AbstractConnectionClient connect(URL url, ChannelHandler handler) throws RemotingException {
         ConnectionManager manager = url.getOrDefaultFrameworkModel()

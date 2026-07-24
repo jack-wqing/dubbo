@@ -57,14 +57,17 @@ public abstract class AbstractProtocol implements Protocol, ScopeModelAware {
 
     protected final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(getClass());
 
+    // 保存当前协议已经暴露出去的服务
     protected final Map<String, Exporter<?>> exporterMap = new ConcurrentHashMap<>();
 
     /**
      * <host:port, ProtocolServer>
      */
+    // 协议服务实例管理：Server 复用
     protected final Map<String, ProtocolServer> serverMap = new ConcurrentHashMap<>();
 
     // TODO SoftReference
+    // 保存当前协议创建出来的Invoker
     protected final Set<Invoker<?>> invokers = new ConcurrentHashSet<>();
 
     protected FrameworkModel frameworkModel;
@@ -89,7 +92,7 @@ public abstract class AbstractProtocol implements Protocol, ScopeModelAware {
     public List<ProtocolServer> getServers() {
         return Collections.unmodifiableList(new ArrayList<>(serverMap.values()));
     }
-
+    // ServerProperties
     protected void loadServerProperties(ProtocolServer server) {
         // read and hold config before destroy
         int serverShutdownTimeout =
@@ -100,7 +103,7 @@ public abstract class AbstractProtocol implements Protocol, ScopeModelAware {
     protected int getServerShutdownTimeout(ProtocolServer server) {
         return (int) server.getAttributes().getOrDefault(SHUTDOWN_WAIT_KEY, DEFAULT_SERVER_SHUTDOWN_TIMEOUT);
     }
-
+    // 关闭Invoker Export.unexport()
     @Override
     public void destroy() {
         for (Invoker<?> invoker : invokers) {
@@ -148,6 +151,7 @@ public abstract class AbstractProtocol implements Protocol, ScopeModelAware {
         return Collections.unmodifiableCollection(exporterMap.values());
     }
 
+    // 预热序列化
     protected void optimizeSerialization(URL url) throws RpcException {
         String className = url.getParameter(OPTIMIZER_KEY, "");
         if (StringUtils.isEmpty(className) || optimizers.contains(className)) {
@@ -182,7 +186,7 @@ public abstract class AbstractProtocol implements Protocol, ScopeModelAware {
             throw new RpcException("Cannot instantiate the serialization optimizer class: " + className, e);
         }
     }
-
+    // ip:port
     protected String getAddr(URL url) {
         String bindIp = url.getParameter(org.apache.dubbo.remoting.Constants.BIND_IP_KEY, url.getHost());
         if (url.getParameter(ANYHOST_KEY, false)) {

@@ -34,6 +34,7 @@ import org.apache.dubbo.rpc.model.ApplicationModel;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 
+// Wrapper 执行器获取能力
 public class WrappedChannelHandler implements ChannelHandlerDelegate {
 
     protected static final ErrorTypeAwareLogger logger =

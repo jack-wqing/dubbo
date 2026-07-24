@@ -26,6 +26,7 @@ import org.apache.dubbo.remoting.buffer.ChannelBuffer;
 
 import java.io.IOException;
 
+// Codec -> Code2
 public class CodecAdapter implements Codec2 {
 
     private Codec codec;

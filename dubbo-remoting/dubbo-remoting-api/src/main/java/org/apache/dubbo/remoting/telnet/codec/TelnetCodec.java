@@ -40,6 +40,7 @@ import static org.apache.dubbo.remoting.Constants.DEFAULT_CHARSET;
 /**
  * TelnetCodec
  */
+// Telnet编解码
 public class TelnetCodec extends TransportCodec {
 
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(TelnetCodec.class);

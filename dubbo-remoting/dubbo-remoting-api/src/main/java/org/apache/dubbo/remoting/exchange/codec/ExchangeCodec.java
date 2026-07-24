@@ -54,6 +54,7 @@ import static org.apache.dubbo.common.constants.LoggerCodeConstants.TRANSPORT_SK
 /**
  * ExchangeCodec.
  */
+// RPC 框架层协议(RequestRespose）的编解码
 public class ExchangeCodec extends TelnetCodec {
 
     // header length.

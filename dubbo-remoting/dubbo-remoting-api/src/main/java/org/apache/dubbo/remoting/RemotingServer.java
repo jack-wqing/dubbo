@@ -28,6 +28,7 @@ import java.util.Collection;
  *
  * @see org.apache.dubbo.remoting.Transporter#bind(org.apache.dubbo.common.URL, ChannelHandler)
  */
+// Dubbo新Remoting架构中所有服务端通信组件的统一抽象
 public interface RemotingServer extends Endpoint, Resetable, IdleSensible {
 
     /**

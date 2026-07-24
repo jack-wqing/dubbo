@@ -1,1 +1,8 @@
 1.RpcContext 作用 ?
+
+2.Codec2（AbstractEndpoint）
+
+
+
+
+

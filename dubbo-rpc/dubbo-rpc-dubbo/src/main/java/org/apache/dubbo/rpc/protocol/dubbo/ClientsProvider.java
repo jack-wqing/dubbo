@@ -20,6 +20,7 @@ import org.apache.dubbo.remoting.exchange.ExchangeClient;
 
 import java.util.List;
 
+// 负责管理Consumer端到Provider的客户端连接(ExchangeClient)的生命周期，决定这些连接时共享还是独占
 public interface ClientsProvider {
     List<? extends ExchangeClient> getClients();
 

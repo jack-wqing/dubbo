@@ -55,6 +55,7 @@ import static org.apache.dubbo.remoting.Constants.EVENT_LOOP_WORKER_POOL_NAME;
 /**
  * PortUnificationServer.
  */
+// NettyPortUnificationSerer
 public class NettyPortUnificationServer extends AbstractPortUnificationServer {
 
     private final int serverShutdownTimeoutMills;
@@ -98,7 +99,7 @@ public class NettyPortUnificationServer extends AbstractPortUnificationServer {
             doOpen();
         }
     }
-
+    // 默认线程: boss=1 worker=(cpu+1， 32)（ioThreads）
     @Override
     public void doOpen0() {
         bootstrap = new ServerBootstrap();

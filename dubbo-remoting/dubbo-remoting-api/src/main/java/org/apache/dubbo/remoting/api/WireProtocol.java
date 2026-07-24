@@ -22,13 +22,17 @@ import org.apache.dubbo.common.extension.SPI;
 import org.apache.dubbo.remoting.api.pu.ChannelOperator;
 import org.apache.dubbo.remoting.api.ssl.ContextOperator;
 
+// 线路协议
 @SPI(scope = ExtensionScope.FRAMEWORK)
 public interface WireProtocol {
 
+    // 判断收到的协议是不是自己的协议
     ProtocolDetector detector();
 
+    // 配置Server Pipeline
     void configServerProtocolHandler(URL url, ChannelOperator operator);
 
+    // 配置Client Pipeline
     void configClientPipeline(URL url, ChannelOperator operator, ContextOperator contextOperator);
 
     void close();

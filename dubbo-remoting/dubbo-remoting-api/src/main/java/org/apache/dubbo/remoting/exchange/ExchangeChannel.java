@@ -25,6 +25,7 @@ import java.util.concurrent.ExecutorService;
 /**
  * ExchangeChannel. (API/SPI, Prototype, ThreadSafe)
  */
+// 一个支持Request/Response(请求-响应)语义的Channel，是在Channel基础上的增强
 public interface ExchangeChannel extends Channel {
 
     /**

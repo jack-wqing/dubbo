@@ -24,6 +24,7 @@ import org.apache.dubbo.rpc.ProtocolServer;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+// Dubbo 协议服务实例
 public class DubboProtocolServer implements ProtocolServer {
 
     private final RemotingServer server;

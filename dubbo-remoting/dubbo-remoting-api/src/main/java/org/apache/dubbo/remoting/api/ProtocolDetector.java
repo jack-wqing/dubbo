@@ -24,6 +24,7 @@ import java.util.Map;
 /**
  * Determine incoming bytes belong to the specific protocol.
  */
+// 协议检测器
 public interface ProtocolDetector {
 
     Result detect(ChannelBuffer in);

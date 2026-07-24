@@ -34,6 +34,7 @@ import static org.apache.dubbo.common.constants.CommonConstants.HEARTBEAT_EVENT;
 /**
  * NettyClientHandler
  */
+// ClientChannelHandler
 @io.netty.channel.ChannelHandler.Sharable
 public class NettyClientHandler extends ChannelDuplexHandler {
     private static final Logger logger = LoggerFactory.getLogger(NettyClientHandler.class);
