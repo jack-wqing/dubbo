@@ -25,6 +25,7 @@ import java.util.Collection;
 /**
  * RequestMappingRegistry used for registering and unregistering rest request mappings.
  */
+// request 和 Invoker的关系维护
 public interface RequestMappingRegistry {
 
     void register(Invoker<?> invoker);

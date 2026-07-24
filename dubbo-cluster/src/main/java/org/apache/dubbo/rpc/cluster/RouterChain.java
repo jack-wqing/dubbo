@@ -41,6 +41,7 @@ import static org.apache.dubbo.rpc.cluster.Constants.ROUTER_KEY;
 /**
  * Router chain
  */
+// 路由链条
 public class RouterChain<T> {
     private static final ErrorTypeAwareLogger logger = LoggerFactory.getErrorTypeAwareLogger(RouterChain.class);
 

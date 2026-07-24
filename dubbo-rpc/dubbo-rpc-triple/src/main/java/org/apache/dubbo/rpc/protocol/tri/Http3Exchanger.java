@@ -52,6 +52,7 @@ import io.netty.incubator.codec.quic.QuicStreamChannel;
 
 import static org.apache.dubbo.remoting.http3.netty4.Constants.PIPELINE_CONFIGURATOR_KEY;
 
+// Http3 协议支持
 public final class Http3Exchanger {
 
     private static final FluentLogger LOGGER = FluentLogger.of(Http3Exchanger.class);

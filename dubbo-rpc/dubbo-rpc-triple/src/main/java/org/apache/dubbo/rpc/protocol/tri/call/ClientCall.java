@@ -25,6 +25,7 @@ import java.util.Map;
 /**
  * ClientCall does not care about transport layer details.
  */
+// 客户端流
 public interface ClientCall {
 
     /**

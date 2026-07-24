@@ -84,6 +84,7 @@ import static org.apache.dubbo.rpc.model.MethodDescriptor.RpcType.UNARY;
 /**
  * TripleInvoker
  */
+// 客户端四种流的实现
 public class TripleInvoker<T> extends AbstractInvoker<T> {
 
     private static final ErrorTypeAwareLogger LOGGER = LoggerFactory.getErrorTypeAwareLogger(TripleInvoker.class);
@@ -171,6 +172,7 @@ public class TripleInvoker<T> extends AbstractInvoker<T> {
         RpcContext.getServiceContext().setLocalAddress(connectionClient.getLocalAddress());
         AsyncRpcResult result;
         try {
+            // 客户端执行模式
             switch (methodDescriptor.getRpcType()) {
                 case UNARY:
                     result = invokeUnary(methodDescriptor, invocation, call, callbackExecutor);
@@ -209,7 +211,7 @@ public class TripleInvoker<T> extends AbstractInvoker<T> {
         MethodDescriptor.RpcType rpcType = methodDescriptor.getRpcType();
         return UNARY.equals(rpcType) && InvokeMode.SYNC.equals(rpcInvocation.getInvokeMode());
     }
-
+    // ServerStream
     AsyncRpcResult invokeServerStream(MethodDescriptor methodDescriptor, Invocation invocation, ClientCall call) {
         RequestMetadata request = createRequest(methodDescriptor, invocation, null);
         Object[] arguments = invocation.getArguments();
@@ -229,7 +231,7 @@ public class TripleInvoker<T> extends AbstractInvoker<T> {
         requestObserver.onCompleted();
         return new AsyncRpcResult(CompletableFuture.completedFuture(new AppResponse()), invocation);
     }
-
+    // BiStream
     AsyncRpcResult invokeBiOrClientStream(MethodDescriptor methodDescriptor, Invocation invocation, ClientCall call) {
         final AsyncRpcResult result;
         RequestMetadata request = createRequest(methodDescriptor, invocation, null);
@@ -255,7 +257,7 @@ public class TripleInvoker<T> extends AbstractInvoker<T> {
         }
         return streamObserver;
     }
-
+    // Unary
     AsyncRpcResult invokeUnary(
             MethodDescriptor methodDescriptor,
             Invocation invocation,

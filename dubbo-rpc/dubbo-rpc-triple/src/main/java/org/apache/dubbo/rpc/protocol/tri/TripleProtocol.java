@@ -88,11 +88,11 @@ public class TripleProtocol extends AbstractProtocol {
         VERBOSE_ENABLED = globalConf.getBoolean(H2_SETTINGS_VERBOSE_ENABLED, false);
         REST_ENABLED = globalConf.getBoolean(H2_SETTINGS_REST_ENABLED, true);
         OPENAPI_ENABLED = globalConf.getBoolean(H2_SETTINGS_OPENAPI_ENABLED, false);
-
+        // Servlet Http3
         ServletExchanger.init(globalConf);
         Http3Exchanger.init(globalConf);
     }
-
+    // 50051
     @Override
     public int getDefaultPort() {
         return 50051;
@@ -129,7 +129,7 @@ public class TripleProtocol extends AbstractProtocol {
         // register grpc path mapping
         pathResolver.register(invoker);
 
-        // register rest request mapping
+        // register rest request mapping  rest支持
         if (REST_ENABLED) {
             mappingRegistry.register(invoker);
         }
@@ -177,7 +177,7 @@ public class TripleProtocol extends AbstractProtocol {
         if (bindPort) {
             PortUnificationExchanger.bind(url, new DefaultPuHandler());
         }
-
+        // Http3 使用的UDP
         Http3Exchanger.bind(url);
     }
 

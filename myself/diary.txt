@@ -137,7 +137,6 @@
             NettyClient:
                NettyClientHandler
 
-
         ChannelHandler链：
             MultiMessageHandler->HeartbeatHandler->AllChannelHandler（Dispatcher决定）->DecoderHandler
                 -> HeaderExchangerHandler-> DubboProtocol->RequestHandler
@@ -148,6 +147,22 @@
     Dubbo3.4采用分阶段优雅停机策略，确保在途请求处理完成后释放资源，由ApplicationModel的生命周期驱动
     preDestroy: onStoping(标记状态)， offline()服务下线，unregisterServiceInstance（）注销元数据，停止接收新请求
     postDestroy: 反暴露服务，销户消费者，关闭注册中心连接，关闭线程池，销毁框架
+
+
+
+五、客户端请求处理
+    负载均衡机制：LoadBalance是SPI接口，默认实现random（加权随机），支持服务预热(warmup)
+        random（加权随机），roundrobin(加权轮询)，leatactive（最少活跃数），shortestresonse（最短响应时间），consisthash（一致性hash）
+    路由体系：RouterChain维护mainChain和backChain两条链，更新时无锁切换避免阻塞调用。路由分为高性能的StateRouter（基于位运算）和传统Router两阶段执行
+        TagStateRouter, ServiceStateRouter, AppStateRouter, StandardMeshRuleRouter
+    Cluster容错策略：
+        failover（失败重试），failfast(快速失败)，failsafe（失败安全），failback（失败定时重试)，forking并行调用，broadcast(广播调用)
+
+八、调优优化
+    ioThread, threads, dispatcher机制， 心跳， 客户端连接数，序列化，负载均衡，cluster
+    linux调优
+
+
 
 
 

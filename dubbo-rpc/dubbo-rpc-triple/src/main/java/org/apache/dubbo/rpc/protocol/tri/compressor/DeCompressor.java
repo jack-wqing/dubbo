@@ -20,6 +20,7 @@ import org.apache.dubbo.common.extension.ExtensionScope;
 import org.apache.dubbo.common.extension.SPI;
 import org.apache.dubbo.rpc.model.FrameworkModel;
 
+// 内容起码器
 @SPI(scope = ExtensionScope.FRAMEWORK)
 public interface DeCompressor extends MessageEncoding {
 
