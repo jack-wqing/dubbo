@@ -66,7 +66,7 @@ Triple协议:
     Triple 之 HTTP RPC协议:
         Triple HTTP RPC同时支持HTTP/1,HTTP/2作为底层传输层协议，在实现上应支持Content-Type类型为application/json, application/proto
         请求:
-            仅支持POST请求，请求path为interfaceName/methodName,超时机制使用头:tri-service-timeout
+          i  仅支持POST请求，请求path为interfaceName/methodName,超时机制使用头:tri-service-timeout
             隔离机制: tri-service-group、tri-service-version
             TRI-Protocol-Version: 区分Triple的协议请求和其他的请求
             Message-Codec + Bare-Message: 指定消息 + 编码方式

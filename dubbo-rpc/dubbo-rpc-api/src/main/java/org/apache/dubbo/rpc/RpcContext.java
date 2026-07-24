@@ -50,7 +50,7 @@ import java.util.concurrent.Future;
  */
 // ServiceContext 在整个调用中传递环境参数; 例如: RpcServiceContext
 // ClientAttachment, ServerAttachment and ServiceContext 传输附件
-//
+// RpcContext 是DubboRPC调用上下文，用来保存当前线程正在执行的RPC调用相关信息
 public class RpcContext {
 
     private static final RpcContext AGENT = new RpcContext();
