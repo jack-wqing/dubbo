@@ -159,6 +159,16 @@
         failover（失败重试），failfast(快速失败)，failsafe（失败安全），failback（失败定时重试)，forking并行调用，broadcast(广播调用)
 
 八、调优优化
+    业务线程池: fixed, 200, 队列长度（0），高并发无界队列
+    连接数：客户端默认使用共享连接，可以设置独占连接
+    重试截止：默认2， 写操作0
+    负责均衡：
+    序列化机制：
+    注册中心：
+    容错机制
+
+
+
     ioThread, threads, dispatcher机制， 心跳， 客户端连接数，序列化，负载均衡，cluster
     linux调优
 
